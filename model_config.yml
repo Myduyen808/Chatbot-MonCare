@@ -1,0 +1,13 @@
+chatbot_path: "models/Vinallama/vinallama-7b-chat_q4_k_m.gguf" # Đổi tên file cho đúng với file bạn vừa tải
+
+chatbot_type: "llama"
+
+chatbot_config: {
+    "max_new_tokens": 512, # Giảm xuống 512 để Bot trả lời ngắn gọn, nhanh hơn
+    "temperature": 0.1, # Giữ độ chính xác cao
+    "context_length": 2048, # Giảm xuống 1024 để máy không bị tràn RAM
+    "gpu_layers": 0,
+  } # ĐỂ LÀ 0 để chạy hoàn toàn bằng CPU, giúp máy ổn định hơn
+
+# Bằng
+embedding_path: "keepitreal/vietnamese-sbert"

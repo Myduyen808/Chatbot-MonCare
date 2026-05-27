@@ -1,0 +1,14 @@
+{
+    "history_name": "Mục tiêu nghiên cứu lý thuyết #2",
+    "history_id": "20260424_185552",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "Mục tiêu nghiên cứu lý thuyết"
+        },
+        {
+            "type": "ai",
+            "content": "Mục tiêu nghiên cứu lý thuyết của đề tài này là:\n\n1. **Nghiên cứu kiến trúc Retrieval-Augmented Generation (RAG)**: Tìm hiểu sâu về cơ chế hoạt động, ưu điểm và hạn chế của kiến trúc RAG trong việc khắc phục hiện tượng ảo giác AI (Hallucination) — đặc biệt nguy hiểm trong lĩnh vực y tế — bằng cách bắt buộc mô hình ngôn ngữ chỉ được phép sinh câu trả lời từ kho tài liệu đã được kiểm duyệt, thay vì tự do suy luận từ bộ nhớ tiền huấn luyện.\n\n2. **Đánh giá hiệu năng hệ thống theo bộ tiêu chuẩn RAGAS**: Thực hiện kiểm thử theo ba tình huống đặc trưng (câu hỏi trùng khớp từ ngữ, câu hỏi đúng nghĩa nhưng khác từ, câu hỏi ngoài phạm vi tài liệu) và đánh giá theo ba chỉ số khách quan của khung RAGAS: Context Precision (độ chính xác truy xuất ngữ cảnh), Faithfulness (tính trung thực so với tài liệu), và Answer Relevance (mức độ liên quan của câu trả lời), từ đó đưa ra nhận định toàn diện về chất lượng hệ thống.\n\nMục tiêu này nhằm mục đích xây dựng một hệ thống Chatbot tư vấn y tế chuyên biệt, MomCare, có thể cung cấp thông tin chăm sóc sức khỏe chính xác, an toàn và có kiểm chứng nguồn gốc cho các bà mẹ sau sinh."
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "history_name": "chào",
+    "history_id": "20260422_120559",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "chào"
+        },
+        {
+            "type": "ai",
+            "content": "Xin chào! Tôi là MomCare, chuyên gia y khoa. Bạn cần được hỗ trợ về vấn đề gì hôm nay?"
+        }
+    ]
+}

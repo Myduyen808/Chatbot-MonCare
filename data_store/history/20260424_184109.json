@@ -1,0 +1,14 @@
+{
+    "history_name": "chào #3",
+    "history_id": "20260424_184109",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "chào"
+        },
+        {
+            "type": "ai",
+            "content": "Xin lỗi, tôi đang gặp sự cố."
+        }
+    ]
+}

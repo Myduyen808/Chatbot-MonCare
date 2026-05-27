@@ -1,0 +1,98 @@
+﻿scenario,turn,question,note,expected_context,elapsed_s,docs_found,context_ok,error_413,history_lines,answer_preview
+A (Nhắc tuổi rõ),1,"Bé nhà tôi 6 tháng tuổi, hay quấy khóc vào ban đêm.",Thiết lập ngữ cảnh,6 tháng,12.856,3,True,False,2,"Câu trả lời dựa trên tài liệu:
+
+- Quấy khóc là một xu hướng bình thường đối với tất cả các bé, bắt đầu từ khoảng 02 tuần sau sinh và giảm dần sau 2 tháng tuổi (Tài liệu 1).
+- Bé 6 tháng tuổi đang tron"
+A (Nhắc tuổi rõ),2,Bé 6 tháng nhà tôi có nên ăn dặm chưa?,Nhắc lại tuổi rõ ràng,6 tháng,3.063,3,True,False,4,"Theo tài liệu, trẻ 6 tháng tuổi là thời điểm tốt nhất để bắt đầu ăn dặm. Bắt đầu ăn dặm lúc này giúp trẻ tăng cường dinh dưỡng và đáp ứng nhu cầu tăng trưởng mạnh mẽ.
+
+- Trẻ 6 tháng tuổi là thời điểm "
+A (Nhắc tuổi rõ),3,Bé 6 tháng nên bắt đầu ăn dặm bằng món gì?,Nhắc lại tuổi rõ ràng,6 tháng,6.236,3,True,False,6,"Theo tài liệu, trẻ 6 tháng tuổi nên bắt đầu ăn dặm bằng các món sau:
+
+- Bí đỏ
+- Cà rốt
+- Khoai lang nghiền
+- Cháo gạo
+
+Đây là những thực phẩm được khuyến cáo trong tài liệu ""Quyết định 318/QĐ-BYT — Bộ"
+A (Nhắc tuổi rõ),4,Lịch tiêm chủng cho bé 6 tháng tuổi là gì?,Nhắc lại tuổi rõ ràng,6 tháng,3.287,3,True,False,8,"Theo tài liệu 2, trẻ từ 6 tháng tuổi cần được bổ sung viên uống Vitamin-A tại trạm y tế hoặc cơ sở y tế tại địa phương."
+A (Nhắc tuổi rõ),5,Bé 6 tháng cần bổ sung vitamin gì?,Nhắc lại tuổi rõ ràng,6 tháng,3.346,3,True,False,10,"Dựa trên tài liệu đã được cung cấp, không có thông tin cụ thể về vitamin mà bé 6 tháng tuổi cần bổ sung trong quá trình ăn dặm. Tuy nhiên, tài liệu 2 đề cập đến việc bé 6 tháng tuổi cần bổ sung sắt.
+
+"
+A (Nhắc tuổi rõ),6,Cân nặng chuẩn của bé 6 tháng tuổi là bao nhiêu?,Nhắc lại tuổi rõ ràng,6 tháng,3.936,3,True,False,12,"Tôi xin lỗi, nhưng tài liệu không cung cấp thông tin về cân nặng chuẩn của bé 6 tháng tuổi. Tuy nhiên, tài liệu 2 cho biết khi trẻ được 6 tuần tuổi thì đánh giá lại cân nặng và cho trẻ chụp X quang ph"
+A (Nhắc tuổi rõ),7,Bé 6 tháng ngủ bao nhiêu tiếng một ngày?,Nhắc lại tuổi rõ ràng,6 tháng,3.932,3,True,False,14,"Theo tài liệu, trẻ sơ sinh 0–2 tháng ngủ 16–18 tiếng/ngày chia nhiều giấc ngắn (2–4 giờ/giấc). Tuy nhiên, tài liệu không cung cấp thông tin cụ thể về số giờ ngủ của trẻ 6 tháng tuổi."
+A (Nhắc tuổi rõ),8,Bé 6 tháng bắt đầu mọc răng chưa?,Nhắc lại tuổi rõ ràng,6 tháng,4.009,3,True,False,16,"Theo tài liệu, thời điểm mọc răng bình thường là 6–10 tháng. Một số bé đến 12–14 tháng mới mọc răng vẫn là bình thường di truyền."
+A (Nhắc tuổi rõ),9,Bé 6 tháng hay chảy nước dãi có bình thường không?,Nhắc lại tuổi rõ ràng,6 tháng,3.637,3,True,False,18,"Không có thông tin trong tài liệu liên quan trực tiếp đến câu hỏi ""Bé 6 tháng tuổi hay chảy nước dãi có bình thường không?"". Tuy nhiên, tài liệu 1 cho biết trẻ sơ sinh dưới 6 tháng tuổi có thể chảy nư"
+A (Nhắc tuổi rõ),10,Bé 6 tháng tập lật như thế nào?,Nhắc lại tuổi rõ ràng,6 tháng,4.129,0,True,False,20,"Chào bạn! Khi bé 6 tháng tuổi, việc tập lật là một bước quan trọng trong quá trình phát triển của chúng. Dưới đây là một số bước giúp bé tập lật:
+
+1. **Tạo điều kiện**: Đặt bé trên thảm hoặc bề mặt mề"
+A (Nhắc tuổi rõ),11,Bé 6 tháng bị sốt sau tiêm thì làm sao?,Nhắc lại tuổi + chủ đề mới,6 tháng,15.73,3,True,False,22,"Tôi không tìm thấy thông tin cụ thể về cách xử lý khi bé 6 tháng tuổi bị sốt sau tiêm trong tài liệu tham khảo. Tuy nhiên, tôi có thể đề xuất một số thông tin chung liên quan đến việc chăm sóc trẻ 6 t"
+A (Nhắc tuổi rõ),12,Chiều cao chuẩn của bé 6 tháng là bao nhiêu?,Nhắc lại tuổi rõ ràng,6 tháng,10.859,0,True,False,24,"Mẹ ơi, MomCare hiểu rằng giai đoạn này có thể rất khó khăn và kiệt sức. 
+
+Mẹ không đơn độc đâu. Hãy gọi ngay:
+- **Đường dây hỗ trợ sức khỏe tinh thần: 1800 599 920** (miễn phí, 24/7)
+- Hoặc nhờ người "
+A (Nhắc tuổi rõ),13,Bé 6 tháng tắm mấy lần một tuần?,Nhắc lại tuổi rõ ràng,6 tháng,3.739,0,True,False,26,"Chào bạn! Với bé 6 tháng tuổi, tắm 2-3 lần một tuần là phù hợp. Điều này giúp giữ cho bé sạch sẽ và khô thoáng, đồng thời không làm mất đi lớp dầu tự nhiên trên da bé. Tuy nhiên, nếu bé có dấu hiệu bị"
+A (Nhắc tuổi rõ),14,Bé 6 tháng có thể bơi được không?,Nhắc lại tuổi rõ ràng,6 tháng,3.491,0,True,False,28,"Bé 6 tháng tuổi chưa thể bơi được. Lúc này, bé vẫn đang phát triển cơ thể và chưa có kỹ năng bơi lội. Hãy cho bé tập bơi khi đã đủ lớn và có sự giám sát của người lớn."
+A (Nhắc tuổi rõ),15,Bé 6 tháng nhận biết mặt người thân chưa?,Nhắc lại tuổi rõ ràng,6 tháng,4.981,3,True,False,30,"Dựa trên tài liệu, không có thông tin cụ thể về việc bé 6 tháng tuổi nhận biết mặt người thân. Tuy nhiên, tài liệu 2 cho biết trẻ có thể biết lật sớm hơn so với độ tuổi của mình khi được khoảng 6 thán"
+A (Nhắc tuổi rõ),16,Bé 6 tháng biết ngồi chưa?,Nhắc lại tuổi rõ ràng,6 tháng,5.029,3,True,False,32,"Theo tài liệu, trẻ 6 tháng tuổi có thể ngồi dựa."
+A (Nhắc tuổi rõ),17,Chế độ bú sữa của bé 6 tháng là mấy lần một ngày?,Nhắc lại tuổi rõ ràng,6 tháng,4.089,3,True,False,34,"Theo tài liệu 2, trẻ từ 6 đến 24 tháng tuổi nên bú theo nhu cầu cả ngày lẫn đêm."
+A (Nhắc tuổi rõ),18,Bé 6 tháng có cần uống thêm nước không?,Nhắc lại tuổi rõ ràng,6 tháng,11.338,3,True,False,36,"Không cần. Trẻ bú mẹ hoàn toàn trong 6 tháng đầu không cần uống thêm nước vì sữa mẹ chứa 87% là nước, đáp ứng đủ nhu cầu dịch của bé. Cho uống nước thêm sẽ làm bé bú ít đi.
+
+(Nguồn: Bộ Y tế VN — Hướng"
+A (Nhắc tuổi rõ),19,Bé 6 tháng ngủ trưa mấy tiếng là đủ?,Nhắc lại tuổi rõ ràng,6 tháng,6.782,3,True,False,38,"Không có thông tin cụ thể về thời gian ngủ trưa của trẻ 6 tháng tuổi trong tài liệu. Tuy nhiên, tài liệu 3 cho biết trẻ sơ sinh 0–2 tháng ngủ 16–18 tiếng/ngày, chia nhiều giấc ngắn."
+A (Nhắc tuổi rõ),20,Tổng kết lại những mốc phát triển quan trọng của bé 6 tháng tuổi.,Tổng kết - nhắc tuổi,6 tháng,15.49,3,True,False,40,"Dưới đây là tổng kết những mốc phát triển quan trọng của bé 6 tháng tuổi:
+
+ * Bé 6 tháng tuổi là thời điểm tốt nhất để bắt đầu ăn dặm, vì sữa mẹ không đủ đáp ứng dinh dưỡng cho trẻ.
+ * Giấc ngủ: Không"
+"B (Mơ hồ, lạc đề)",1,"Bé nhà tôi 6 tháng tuổi, hay quấy khóc vào ban đêm.",Thiết lập ngữ cảnh,6 tháng,1.886,3,True,False,2,"Câu trả lời dựa trên tài liệu:
+
+- Quấy khóc là một xu hướng bình thường đối với tất cả các bé, bắt đầu từ khoảng 02 tuần sau sinh và giảm dần sau 2 tháng tuổi.
+- Bé quấy khóc nhiều nhất ở giai đoạn 2 "
+"B (Mơ hồ, lạc đề)",2,Nên ăn gì?,Câu cực ngắn - mơ hồ,6 tháng,1.455,0,True,False,4,"Chào bạn! Với độ tuổi 6 tháng, bé của bạn đã sẵn sàng chuyển sang chế độ ăn đa dạng hơn. Dưới đây là một số gợi ý về thực phẩm phù hợp cho bé 6 tháng tuổi:
+
+- Cháo gạo lứt: Đây là một trong những thực"
+"B (Mơ hồ, lạc đề)",3,Bao nhiêu lần?,Câu cực ngắn - cực kỳ mơ hồ,6 tháng,2.964,3,True,False,6,"Theo tài liệu 1, quấy khóc thường bắt đầu từ khoảng 02 tuần sau sinh và bé khóc thường xuyên hơn. Bé quấy khóc nhiều nhất ở giai đoạn 2 tháng tuổi và sau đó bắt đầu giảm dần.
+
+- Quấy khóc bắt đầu từ 0"
+"B (Mơ hồ, lạc đề)",4,Vitamin gì?,Câu 2 từ - tối mơ hồ,6 tháng,3.282,3,True,False,8,"Tôi xin lỗi, nhưng tài liệu không cung cấp thông tin về việc cho bé ăn vitamin gì. Tuy nhiên, tài liệu đề cập đến việc cho bé ăn dặm từ 6 tháng tuổi, ưu tiên thực phẩm từng loại riêng lẻ để kiểm tra d"
+"B (Mơ hồ, lạc đề)",5,"Mẹ chồng tôi bảo cho bé uống mật ong, có được không?",Chủ đề mới - mật ong,6 tháng,3.88,3,True,False,10,"Tôi không tìm thấy thông tin liên quan đến việc cho trẻ 6 tháng tuổi uống mật ong trong tài liệu. Tuy nhiên, tôi thấy trong tài liệu 1 rằng trẻ sơ sinh dưới 6 tháng tuổi không nên uống nước, nhưng khô"
+"B (Mơ hồ, lạc đề)",6,Giá sữa công thức bây giờ bao nhiêu?,Câu lạc chủ đề hoàn toàn,6 tháng,2.83,0,True,False,12,"Xin chào! Giá sữa công thức cho bé 6 tháng tuổi có thể thay đổi tùy thuộc vào thương hiệu và loại sữa. Tuy nhiên, thông thường, giá sữa công thức cho bé 6 tháng tuổi dao động từ 800.000 đến 1.500.000 "
+"B (Mơ hồ, lạc đề)",7,Nặng bao nhiêu?,Câu cực ngắn sau lạc đề,6 tháng,3.505,0,True,False,14,"Chào bạn! Để biết lượng sữa công thức phù hợp cho bé 6 tháng tuổi, chúng ta cần xem xét cân nặng và nhu cầu dinh dưỡng của bé.
+
+Thông thường, lượng sữa công thức cho bé 6 tháng tuổi là:
+
+- 120-150 ml/"
+"B (Mơ hồ, lạc đề)",8,Còn vaccine?,Câu 2 từ - mơ hồ cao,6 tháng,5.046,3,True,False,16,"Theo tài liệu 2, khi trẻ được 6 tuần tuổi thì đánh giá lại cân nặng và cho trẻ chụp X quang phổi. Nếu trẻ không tăng cân hoặc có dấu hiệu gợi ý lao tiến triển thì điều trị thuốc kháng lao theo đúng ph"
+"B (Mơ hồ, lạc đề)",9,"Tôi đang lo chuyện công việc quá, hay quên mất lịch tiêm.",Xen cảm xúc cá nhân,6 tháng,4.338,0,True,False,18,"Chị ơi, đừng lo lắng! Tôi ở đây để giúp đỡ. Hãy để tôi nhắc nhở chị về lịch tiêm vaccine cho bé. Tôi sẽ giúp chị tạo lịch và nhắc nhở đúng thời điểm. Chị có thể cho tôi biết ngày sinh của bé và loại v"
+"B (Mơ hồ, lạc đề)",10,Nhắc lại đi bạn ơi.,Câu không rõ nhắc cái gì,6 tháng,4.867,0,True,False,20,"Chào bạn! Chế độ ăn uống và chăm sóc sức khỏe cho bé 6 tháng tuổi rất quan trọng. Dưới đây là một số thông tin cơ bản:
+
+**Chế độ ăn uống:**
+
+- Bé 6 tháng tuổi cần được cho ăn bổ sung ngoài sữa mẹ (hoặ"
+"B (Mơ hồ, lạc đề)",11,"Chồng tôi nói bé trông gầy, bình thường không?",Ngữ cảnh mơ hồ - bé nào?,6 tháng,16.504,3,True,False,22,"Không có thông tin trong tài liệu liên quan trực tiếp đến câu hỏi ""Bé nhà tôi 6 tháng tuổi trông gầy, bình thường không?"". Tuy nhiên, tài liệu 2 cho biết sau 6 tháng tuổi, bé tăng trưởng mạnh mẽ và cầ"
+"B (Mơ hồ, lạc đề)",12,Sao?,Câu 1 từ - tối mơ hồ,6 tháng,18.531,3,True,False,24,"Dựa trên tài liệu, có thể trả lời như sau:
+
+- Bé 6 tháng tuổi bình thường không có dấu hiệu chậm phát triển.
+- Thời điểm mọc răng bình thường là 6–10 tháng.
+- Sữa mẹ khi 6 tháng tuổi bắt đầu loãng và "
+"B (Mơ hồ, lạc đề)",13,Mẹ tôi bảo kiêng tắm cả tháng sau sinh.,Chuyển chủ đề sang mẹ,mẹ,33.182,3,True,False,26,"Không có thông tin nào trong tài liệu liên quan đến việc kiêng tắm cho bé sau sinh. Tuy nhiên, tài liệu không đề cập đến vấn đề này.
+
+Tuy nhiên, tài liệu không đề cập đến vấn đề này."
+"B (Mơ hồ, lạc đề)",14,Đúng không?,Câu 2 từ - không rõ hỏi gì,mẹ,7.484,3,True,False,28,"Không, không đúng. 
+
+- Sữa mẹ khi 6 tháng tuổi vẫn đáp ứng đủ dinh dưỡng cho trẻ.
+- Trẻ cần được ăn dặm bổ sung ngoài nguồn sữa mẹ vì nhu cầu dinh dưỡng của trẻ tăng lên.
+- Cần quan tâm cho trẻ từ 6 t"
+"B (Mơ hồ, lạc đề)",15,Quay lại bé - mấy tháng?,Câu mơ hồ - quay lại bé,6 tháng,6.122,3,True,False,30,"Căn dặn khách hàng quay trở lại để hướng dẫn áp dụng BPTT hiệu quả khác nếu con trên 6 tháng.
+
+- Hẹn gặp lại khách hàng ít nhất 1 lần trong vòng 3 tháng và hỏi những thông tin liên quan đến:
+ + Trẻ ăn"
+"B (Mơ hồ, lạc đề)",16,Tiếp tục đi.,Câu không có nội dung,6 tháng,11.926,3,True,False,32,"Tôi xin lỗi, nhưng tài liệu không cung cấp thông tin liên quan trực tiếp đến câu hỏi ""Bé nhà tôi 6 tháng tuổi, hay quấy khóc vào ban đêm, tôi muốn hỏi thêm về vấn đề này.""
+
+Tuy nhiên, có thể liên quan"
+"B (Mơ hồ, lạc đề)",17,Còn gì nữa?,Câu không có nội dung,6 tháng,25.652,3,True,False,34,"Tôi không tìm thấy thông tin cụ thể về quấy khóc vào ban đêm ở trẻ 6 tháng tuổi trong tài liệu. Tuy nhiên, tài liệu 2 cho biết quấy khóc là một xu hướng bình thường đối với tất cả các bé, bắt đầu từ k"
+"B (Mơ hồ, lạc đề)",18,Nước xả vải được không?,Chủ đề xa - đồ dùng,6 tháng,9.223,3,True,False,36,"Tôi không tìm thấy thông tin cụ thể về quấy khóc vào ban đêm ở trẻ 6 tháng tuổi trong tài liệu. Tuy nhiên, tài liệu 2 cho biết quấy khóc là một xu hướng bình thường đối với tất cả các bé, bắt đầu từ k"
+"B (Mơ hồ, lạc đề)",19,Bao giờ đi khám lại?,Câu mơ hồ - khám gì?,6 tháng,20.349,3,True,False,38,"Theo Viện Dinh dưỡng Quốc gia, sau 6 tháng tuổi là thời gian tốt nhất cho trẻ bắt đầu ăn dặm. Vì vậy, bạn nên đưa bé 6 tháng tuổi đi khám lại để được tư vấn và cập nhật thông tin về chế độ ăn uống và "
+"B (Mơ hồ, lạc đề)",20,Tổng kết lại cho tôi với.,Tổng kết - không nhắc tuổi,6 tháng,6.915,3,True,False,40,"Tôi không tìm thấy thông tin liên quan trực tiếp đến câu hỏi về quấy khóc ở bé 6 tháng tuổi trong tài liệu. Tuy nhiên, tôi có thể trả lời dựa trên thông tin có sẵn.
+
+- Quấy khóc là một xu hướng bình t"

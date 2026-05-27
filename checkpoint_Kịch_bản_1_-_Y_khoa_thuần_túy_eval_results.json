@@ -1,0 +1,5 @@
+{
+  "total_samples": 400,
+  "avg_bleu": 0.0173,
+  "avg_rouge_l": 0.1739
+}

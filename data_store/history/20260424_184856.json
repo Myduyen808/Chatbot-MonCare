@@ -1,0 +1,14 @@
+{
+    "history_name": "Cuộc trò chuyện mới",
+    "history_id": "20260424_184856",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "chafo"
+        },
+        {
+            "type": "ai",
+            "content": "Không tìm thấy thông tin trong tài liệu."
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "history_name": "vú bị #5",
+    "history_id": "20260420_002555",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "vú tôi bị gì vậy ạ"
+        },
+        {
+            "type": "ai",
+            "content": "Xin lỗi, tôi đang gặp sự cố."
+        },
+        {
+            "type": "human",
+            "content": "vú tôi bị gì vậy ạ"
+        },
+        {
+            "type": "ai",
+            "content": "Dựa vào tài liệu không có thông tin phù hợp để kết luận."
+        }
+    ]
+}

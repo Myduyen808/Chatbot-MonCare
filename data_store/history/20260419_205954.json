@@ -1,0 +1,14 @@
+{
+    "history_name": "xin chào #2",
+    "history_id": "20260419_205954",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "xin chào"
+        },
+        {
+            "type": "ai",
+            "content": "Xin lỗi, tôi đang gặp sự cố."
+        }
+    ]
+}

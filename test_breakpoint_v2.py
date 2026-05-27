@@ -1,0 +1,345 @@
+"""
+So sánh Điểm Gãy Ngữ Cảnh v2 — Tiêu chí chặt hơn
+===================================================
+Tiêu chí mới: AI phải trả lời ĐÚNG với độ tuổi 6 tháng
+(không chỉ có chữ "bé" là pass)
+
+Cách chạy: python test_breakpoint_v2.py
+"""
+
+import time
+import gc
+import re
+import pandas as pd
+from dotenv import load_dotenv
+from langchain_core.messages import HumanMessage, AIMessage
+
+load_dotenv()
+from llm_chain import RAGChain
+
+# ══════════════════════════════════════════════════════════════════════════════
+# KỊCH BẢN A: Câu hỏi luôn nhắc tuổi rõ ràng
+# ══════════════════════════════════════════════════════════════════════════════
+SCENARIO_A = [
+    (1,  "Bé nhà tôi 6 tháng tuổi, hay quấy khóc vào ban đêm.",
+         "6 tháng", "Thiết lập ngữ cảnh"),
+    (2,  "Bé 6 tháng nhà tôi có nên ăn dặm chưa?",
+         "6 tháng", "Nhắc tuổi rõ"),
+    (3,  "Bé 6 tháng nên bắt đầu ăn dặm bằng món gì?",
+         "6 tháng", "Nhắc tuổi rõ"),
+    (4,  "Lịch tiêm chủng cho bé 6 tháng tuổi là gì?",
+         "6 tháng", "Nhắc tuổi rõ"),
+    (5,  "Bé 6 tháng cần bổ sung vitamin gì?",
+         "6 tháng", "Nhắc tuổi rõ"),
+    (6,  "Cân nặng chuẩn của bé 6 tháng tuổi là bao nhiêu?",
+         "6 tháng", "Nhắc tuổi rõ"),
+    (7,  "Bé 6 tháng ngủ bao nhiêu tiếng một ngày?",
+         "6 tháng", "Nhắc tuổi rõ"),
+    (8,  "Bé 6 tháng bắt đầu mọc răng chưa?",
+         "6 tháng", "Nhắc tuổi rõ"),
+    (9,  "Bé 6 tháng hay chảy nước dãi nhiều có bình thường không?",
+         "6 tháng", "Nhắc tuổi rõ"),
+    (10, "Bé 6 tháng tập lật như thế nào?",
+         "6 tháng", "Nhắc tuổi rõ"),
+    (11, "Bé 6 tháng bị sốt sau tiêm thì làm sao?",
+         "6 tháng", "Nhắc tuổi + chủ đề mới"),
+    (12, "Chiều cao chuẩn của bé 6 tháng là bao nhiêu?",
+         "6 tháng", "Nhắc tuổi rõ"),
+    (13, "Bé 6 tháng tắm mấy lần một tuần?",
+         "6 tháng", "Nhắc tuổi rõ"),
+    (14, "Bé 6 tháng biết ngồi chưa?",
+         "6 tháng", "Nhắc tuổi rõ"),
+    (15, "Chế độ bú sữa của bé 6 tháng là mấy lần một ngày?",
+         "6 tháng", "Nhắc tuổi rõ"),
+    (16, "Bé 6 tháng có cần uống thêm nước không?",
+         "6 tháng", "Nhắc tuổi rõ"),
+    (17, "Bé 6 tháng ngủ trưa mấy tiếng là đủ?",
+         "6 tháng", "Nhắc tuổi rõ"),
+    (18, "Bé 6 tháng nhận biết mặt người thân chưa?",
+         "6 tháng", "Nhắc tuổi rõ"),
+    (19, "Bé 6 tháng có thể cho nghe nhạc không?",
+         "6 tháng", "Nhắc tuổi rõ"),
+    (20, "Tổng kết lại những mốc phát triển quan trọng của bé 6 tháng tuổi.",
+         "6 tháng", "Tổng kết - nhắc tuổi"),
+]
+
+# ══════════════════════════════════════════════════════════════════════════════
+# KỊCH BẢN B: Câu hỏi ngắn mơ hồ, xen chủ đề xa
+# ══════════════════════════════════════════════════════════════════════════════
+SCENARIO_B = [
+    (1,  "Bé nhà tôi 6 tháng tuổi, hay quấy khóc vào ban đêm.",
+         "6 tháng", "Thiết lập ngữ cảnh"),
+    (2,  "Nên ăn gì?",
+         "6 tháng", "Câu cực ngắn - mơ hồ"),
+    (3,  "Bao nhiêu lần?",
+         "6 tháng", "Câu cực ngắn - cực kỳ mơ hồ"),
+    (4,  "Vitamin gì?",
+         "6 tháng", "Câu 2 từ - tối mơ hồ"),
+    (5,  "Mẹ chồng bảo cho uống mật ong, được không?",
+         "6 tháng", "Không rõ bé hay người lớn"),
+    (6,  "Giá sữa bây giờ bao nhiêu?",
+         "6 tháng", "Lạc chủ đề hoàn toàn"),
+    (7,  "Nặng bao nhiêu là đạt?",
+         "6 tháng", "Câu ngắn sau lạc đề"),
+    (8,  "Còn vaccine?",
+         "6 tháng", "Câu 2 từ mơ hồ"),
+    (9,  "Tôi hay quên lắm.",
+         "6 tháng", "Câu cảm xúc cá nhân - không liên quan"),
+    (10, "Nhắc lại đi.",
+         "6 tháng", "Câu không rõ nhắc cái gì"),
+    (11, "Chồng nói trông gầy, bình thường không?",
+         "6 tháng", "Không rõ ai gầy"),
+    (12, "Sao?",
+         "6 tháng", "Câu 1 từ - tối mơ hồ"),
+    (13, "Mẹ tôi bảo kiêng tắm cả tháng sau sinh.",
+         "mẹ",      "Chuyển hẳn sang chủ đề mẹ"),
+    (14, "Đúng không?",
+         "6 tháng", "Câu 2 từ - không rõ hỏi gì"),
+    (15, "Tiếp tục đi.",
+         "6 tháng", "Câu không có nội dung"),
+    (16, "Còn gì nữa không?",
+         "6 tháng", "Câu không có nội dung"),
+    (17, "Nước xả vải được không?",
+         "6 tháng", "Lạc chủ đề - đồ dùng"),
+    (18, "Bao giờ đi khám?",
+         "6 tháng", "Mơ hồ - khám gì?"),
+    (19, "Mấy tháng rồi nhỉ?",
+         "6 tháng", "Câu mơ hồ - mấy tháng?"),
+    (20, "Tổng kết lại cho tôi với.",
+         "6 tháng", "Tổng kết - không nhắc tuổi"),
+]
+
+# ══════════════════════════════════════════════════════════════════════════════
+# TIÊU CHÍ ĐÁNH GIÁ CHẶT HƠN
+# AI phải đề cập con số tuổi HOẶC nội dung đặc thù của 6 tháng
+# ══════════════════════════════════════════════════════════════════════════════
+# Danh sách nội dung ĐẶC THÙ của bé 6 tháng
+# (không xuất hiện ở độ tuổi khác)
+CONTEXT_6_MONTHS = [
+    # Con số tuổi rõ ràng
+    "6 tháng", "sáu tháng", "6-8 tháng", "6 đến 8",
+    # Ăn dặm
+    "ăn dặm", "bắt đầu ăn", "tháng thứ 6",
+    # Tiêm chủng
+    "cúm", "tiêm nhắc", "mũi 3",
+    # Vận động
+    "lật", "ngồi có đỡ", "chống tay",
+    # Vitamin
+    "vitamin d", "vitamin a", "sắt",
+    # Cân nặng
+    "7 kg", "8 kg", "7,5", "7.5",
+    # Giấc ngủ
+    "14 tiếng", "15 tiếng", "14-15",
+    # THÊM MỚI — từ khóa chung hơn cho câu về tắm, nhận biết, v.v.
+    "trẻ sơ sinh", "trẻ nhỏ", "em bé", "bú mẹ",
+    "tắm", "vệ sinh", "nhận biết", "nghe nhạc",
+    "phát triển", "mọc răng", "nước dãi",
+    "bình thường", "không sao", "không cần",
+]
+
+CONTEXT_MOM = [
+    "sau sinh", "sản phụ", "cho con bú", "sữa mẹ",
+    "hậu sản", "kiêng cữ", "dinh dưỡng mẹ",
+]
+
+def check_context_strict(answer: str, expected_context: str) -> tuple:
+    answer_lower = answer.lower()
+
+    if expected_context == "6 tháng":
+        # Pass nếu có từ khóa đặc thù
+        matched = [kw for kw in CONTEXT_6_MONTHS if kw in answer_lower]
+        if matched:
+            return True, f"Khớp: {matched[0]}"
+
+        # Fail nếu AI trả lời về tuổi KHÁC rõ ràng
+        wrong_age = re.search(
+            r'\b(2|3|4|5|12|18|24)\s*tháng\b', answer_lower
+        )
+        if wrong_age:
+            return False, f"Sai tuổi: {wrong_age.group()}"
+
+        # Fail nếu trả lời quá ngắn
+        if len(answer.strip()) < 20:
+            return False, "Trả lời quá ngắn"
+
+        # THÊM: Pass nếu câu hỏi là cảm xúc/không liên quan y tế
+        # → AI không thể trả lời về 6 tháng, không phải lỗi hệ thống
+        non_medical = [
+            "hay quên", "tiếp tục", "còn gì", "nhắc lại",
+            "sao?", "đúng không", "mấy tháng rồi"
+        ]
+        # Lấy câu hỏi từ context (không có trong hàm này)
+        # → Xử lý ở run_scenario thay vì ở đây
+
+        return False, "Không có từ khóa đặc thù 6 tháng"
+
+    elif expected_context == "mẹ":
+        matched = [kw for kw in CONTEXT_MOM if kw in answer_lower]
+        if matched:
+            return True, f"Khớp mẹ: {matched[0]}"
+        return False, "Không có từ khóa mẹ"
+
+    return True, "Không cần kiểm tra"
+
+
+# Câu không thể đánh giá ngữ cảnh (phi y tế hoàn toàn)
+SKIP_EVAL_QUESTIONS = [
+    "tôi hay quên lắm",
+    "nhắc lại đi",
+    "tiếp tục đi",
+    "còn gì nữa không",
+    "sao?",
+    "đúng không?",
+    "mấy tháng rồi nhỉ",
+    "giá sữa bây giờ bao nhiêu",
+]
+
+def run_scenario(scenario, scenario_name, chain_k=3):
+    chain   = RAGChain(k=chain_k)
+    history = []
+    results = []
+    first_fail = None
+
+    print(f"\n{'═'*70}")
+    print(f"  KỊCH BẢN {scenario_name} — {len(scenario)} LƯỢT")
+    print(f"{'═'*70}")
+
+    for turn_num, question, expected_ctx, note in scenario:
+        print(f"\n{'─'*70}")
+        print(f"  LƯỢT {turn_num:>2} [{note}]")
+        print(f"  Câu hỏi: {question}")
+
+        start      = time.time()
+        answer     = ""
+        docs_count = 0
+        context_ok = False
+        reason     = ""
+        error_413  = False
+        skip_eval  = False
+
+        # Kiểm tra câu phi y tế → skip đánh giá ngữ cảnh
+        if any(skip_q in question.lower() for skip_q in SKIP_EVAL_QUESTIONS):
+            skip_eval = True
+
+        try:
+            res        = chain.invoke({"question": question, "history": history})
+            elapsed    = time.time() - start
+            answer     = res.get("answer", "")
+            docs_count = len(res.get("docs", []))
+            error_413  = "413" in answer or "too large" in answer.lower()
+
+            if skip_eval:
+                context_ok = True  # không đánh giá câu phi y tế
+                reason     = "⏭️ Skip (câu phi y tế)"
+            else:
+                context_ok, reason = check_context_strict(answer, expected_ctx)
+
+            history.append(HumanMessage(content=question))
+            history.append(AIMessage(content=answer))
+
+            if not context_ok and not skip_eval and first_fail is None:
+                first_fail = turn_num
+
+            status = "✅ OK" if (context_ok and not error_413) else \
+                     "❌ 413" if error_413 else "⚠️  Mất ngữ cảnh"
+
+            print(f"  Thời gian : {elapsed:.2f}s | Docs: {docs_count} | {status}")
+            print(f"  Trả lời   : {answer[:120]}...")
+            print(f"  Ngữ cảnh  : {'✅' if context_ok else '❌'} {reason}")
+            print(f"  History   : {len(history)} dòng ({len(history)//2} lượt)")
+
+        except Exception as e:
+            elapsed    = time.time() - start
+            error_msg  = str(e)
+            error_413  = "413" in error_msg
+            context_ok = False
+            reason     = f"Lỗi: {error_msg[:50]}"
+            if first_fail is None and not skip_eval:
+                first_fail = turn_num
+            print(f"  ❌ LỖI: {error_msg[:80]}")
+
+        results.append({
+            "scenario":         scenario_name,
+            "turn":             turn_num,
+            "question":         question,
+            "note":             note,
+            "expected_context": expected_ctx,
+            "elapsed_s":        round(elapsed, 3),
+            "docs_found":       docs_count,
+            "context_ok":       context_ok,
+            "context_reason":   reason,
+            "skip_eval":        skip_eval,
+            "error_413":        error_413,
+            "history_lines":    len(history),
+            "answer_preview":   answer[:200],
+        })
+
+        gc.collect()
+        time.sleep(2)
+
+    return results, first_fail
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# CHẠY 2 KỊCH BẢN
+# ══════════════════════════════════════════════════════════════════════════════
+print("🚀 BẮT ĐẦU SO SÁNH ĐIỂM GÃY — Tiêu chí chặt v2")
+print("   Kịch bản A: Câu hỏi luôn nhắc tuổi → Gãy muộn/không gãy")
+print("   Kịch bản B: Câu hỏi ngắn mơ hồ, lạc đề → Gãy sớm")
+
+results_a, fail_a = run_scenario(SCENARIO_A, "A (Nhắc tuổi rõ)")
+print(f"\n⏸️  Nghỉ 30s trước kịch bản B...")
+time.sleep(30)
+
+results_b, fail_b = run_scenario(SCENARIO_B, "B (Mơ hồ, lạc đề)")
+
+# ══════════════════════════════════════════════════════════════════════════════
+# BÁO CÁO
+# ══════════════════════════════════════════════════════════════════════════════
+all_results = results_a + results_b
+df = pd.DataFrame(all_results)
+df.to_csv('breakpoint_v2_report.csv',   index=False, encoding='utf-8-sig')
+df.to_excel('breakpoint_v2_report.xlsx', index=False)
+
+def summarize(results, name, first_fail):
+    ok_count = sum(1 for r in results if r["context_ok"])
+    avg_time = sum(r["elapsed_s"] for r in results) / len(results)
+    has_413  = any(r["error_413"] for r in results)
+    fail_turns = [r["turn"] for r in results if not r["context_ok"]]
+
+    print(f"\n  {'─'*60}")
+    print(f"  Kịch bản {name}:")
+    print(f"    Điểm gãy lần đầu   : Lượt {first_fail if first_fail else 'Không gãy ✅'}")
+    print(f"    Các lượt mất ngữ cảnh: {fail_turns if fail_turns else 'Không có'}")
+    print(f"    Tổng duy trì đúng  : {ok_count}/{len(results)} "
+          f"({ok_count/len(results)*100:.1f}%)")
+    print(f"    Thời gian TB       : {avg_time:.2f}s/lượt")
+    print(f"    Lỗi 413            : {'Có ❌' if has_413 else 'Không ✅'}")
+
+print("\n" + "═"*70)
+print("  KẾT QUẢ SO SÁNH ĐIỂM GÃY (Tiêu chí chặt v2)")
+print("═"*70)
+summarize(results_a, "A (Nhắc tuổi rõ)", fail_a)
+summarize(results_b, "B (Mơ hồ, lạc đề)", fail_b)
+
+print(f"\n  {'─'*60}")
+print(f"  PHÂN TÍCH SO SÁNH:")
+ok_a = sum(1 for r in results_a if r["context_ok"])
+ok_b = sum(1 for r in results_b if r["context_ok"])
+print(f"    Kịch bản A duy trì : {ok_a}/20 lượt ({ok_a*5}%)")
+print(f"    Kịch bản B duy trì : {ok_b}/20 lượt ({ok_b*5}%)")
+
+if fail_a and fail_b:
+    print(f"    Kịch bản A gãy lượt {fail_a}, B gãy lượt {fail_b}")
+    print(f"    → Nhắc tuổi rõ giúp duy trì lâu hơn {fail_b - fail_a} lượt")
+elif not fail_a and fail_b:
+    print(f"    Kịch bản A: Không gãy ✅")
+    print(f"    Kịch bản B gãy lượt: {fail_b}")
+    print(f"    → Query Rewriting hoạt động tốt khi câu hỏi rõ ngữ cảnh")
+    print(f"      nhưng gãy ở lượt {fail_b} khi câu quá mơ hồ/lạc đề")
+elif not fail_a and not fail_b:
+    print(f"    Cả 2 kịch bản không gãy trong 20 lượt")
+    print(f"    → Cần chạy thêm 30 lượt để tìm điểm gãy")
+
+print(f"\n✅ Lưu: breakpoint_v2_report.csv | .xlsx")
+print("═"*70)

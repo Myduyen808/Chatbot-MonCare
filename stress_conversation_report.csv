@@ -1,0 +1,76 @@
+﻿turn,question,note,expected_context,elapsed_s,docs_found,context_ok,error_413,history_lines,answer_preview
+1,"Bé nhà tôi 6 tháng tuổi, hay quấy khóc vào ban đêm.",Thiết lập ngữ cảnh,6 tháng,12.932,3,True,False,2,"Tôi xin lỗi, nhưng tài liệu không cung cấp thông tin liên quan trực tiếp đến câu hỏi ""Bé 6 tháng tuổi nhà tôi thường xuyên quấy khóc vào ban đêm"". Tuy nhiên, có một thông tin liên quan:
+
+* Trẻ sơ sinh"
+2,Bé có nên bắt đầu ăn dặm chưa?,Câu nối tiếp - không nhắc tuổi,6 tháng,3.097,3,True,False,4,"Dựa trên tài liệu, có thể trả lời như sau:
+
+- Bé 6 tháng tuổi là thời gian phù hợp bắt đầu cho trẻ ăn dặm.
+- Theo Viện Dinh dưỡng Quốc gia, từ 6 - 12 tháng tuổi, sữa mẹ cung cấp hơn một nửa nhu cầu di"
+3,Nên bắt đầu bằng món gì?,Câu ngắn - cần nhớ ngữ cảnh,6 tháng,2.942,3,True,False,6,"Theo tài liệu 1, trẻ 6 tháng tuổi nên bắt đầu bằng các món sau khi ăn dặm:
+
+- Bí đỏ
+- Cà rốt
+- Khoai lang nghiền
+- Cháo gạo
+
+Ưu tiên thực phẩm từng loại riêng lẻ để kiểm tra dị ứng."
+4,Lịch tiêm chủng cho bé giai đoạn này là gì?,Vẫn về bé 6 tháng,6 tháng,2.873,3,True,False,8,"Theo tài liệu 3, lịch tiêm chủng cho trẻ từ 6 tháng tuổi là:
+
+- Tiêm chủng theo chương trình tiêm chủng mở rộng tại các cơ sở y tế.
+- Từ 6 tháng cho đến khi 5 tuổi, cứ 6 tháng một lần, trẻ nên được bổ"
+5,Bé cần bổ sung vitamin gì không?,Vẫn về bé 6 tháng,6 tháng,3.502,3,True,False,10,"Câu trả lời dựa trên tài liệu đã được cung cấp:
+
+- Trẻ 6 tháng tuổi cần bổ sung sắt.
+- Sữa mẹ không đủ vitamin D, khuyến cáo trẻ uống bổ sung Vitamin D3 400–800 IU/ngày từ khi sinh đến 12 tháng tuổi.
+"
+6,Cân nặng thế nào là đạt chuẩn?,Câu ngắn mơ hồ,6 tháng,4.159,3,True,False,12,"Theo tài liệu 2, cân nặng của bé 6 tháng tuổi đạt chuẩn là:
+
+- Tăng 1–1.5kg/tháng
+- Đạt 5–5.5kg"
+7,Giấc ngủ bao nhiêu tiếng là đủ?,Câu ngắn mơ hồ,6 tháng,3.371,3,True,False,14,"Dựa trên tài liệu, không có thông tin cụ thể về giấc ngủ của bé 6 tháng tuổi. Tuy nhiên, tài liệu về trẻ sơ sinh 0–2 tháng cho biết:
+
+- Sơ sinh 0–2 tháng: ngủ 16–18 tiếng/ngày chia nhiều giấc ngắn (2–"
+8,Dùng nước xả vải cho quần áo của bé được không?,Chủ đề phụ - an toàn đồ dùng,6 tháng,3.011,0,True,False,16,"Không nên dùng nước xả vải cho bé 6 tháng tuổi. Nước xả vải thường chứa các hóa chất có thể gây kích ứng da hoặc gây hại cho sức khỏe của bé. Thay vào đó, bạn có thể sử dụng nước ấm và một chút xà phò"
+9,"Bé hay mút tay, có nên cho ngậm ti giả không?",Câu nối tiếp,6 tháng,5.12,3,True,False,18,"Không có thông tin cụ thể trong tài liệu về việc bé 6 tháng tuổi mút tay và có nên cho ngậm ti giả hay không. Tuy nhiên, có thể thấy rằng trẻ sơ sinh dưới 6 tháng tuổi không cần uống nước và có thể có"
+10,Làm sao biết bé đang phát triển đúng chuẩn?,Câu tổng quát,6 tháng,5.173,3,True,False,20,"Để biết bé 6 tháng tuổi đang phát triển đúng chuẩn, bạn có thể theo dõi các dấu hiệu sau:
+
+- Bé biết quay đầu về hướng có âm thanh
+- Bé bắt đầu nhận biết những từ đơn giản khi được trò chuyện cùng, vu"
+11,Mẹ cần lưu ý gì về thực đơn của mình lúc này?,Chuyển chủ đề sang mẹ,mẹ,6.91,3,True,False,22,"Dưới đây là thông tin liên quan đến câu hỏi:
+
+- Mẹ cần cho trẻ ăn thức ăn giàu vitamin A từ tháng thứ 6.
+- Mẹ nên đưa trẻ tới trạm y tế để uống vitamin A bổ sung 6 tháng một lần.
+- Mẹ nên cho trẻ ăn t"
+12,Mẹ có được ăn đồ lạnh không?,Về mẹ,mẹ,5.977,3,True,False,24,"Theo tài liệu Vinmec — Chăm sóc sau sinh, sau khi cho con bú và hồi phục sau sinh, mẹ có thể ăn uống bình thường, đa dạng thực phẩm là tốt nhất. Tuy nhiên, nên tránh đồ lạnh trong tuần đầu sau sinh mổ"
+13,Quay lại bé - bé có thể tập lật chưa?,Quay lại bé - kiểm tra ngữ cảnh,6 tháng,9.187,3,True,False,26,"Theo tài liệu, trẻ có thể biết lật khi được khoảng 6 tháng tuổi. Tuy nhiên, nếu bé chưa biết lật khi được 6 tháng tuổi, bạn nên nói chuyện với bác sĩ nhi khoa để tìm ra nguyên nhân và biện pháp hỗ trợ"
+14,Tập ngồi thì sao?,Câu ngắn - cần nhớ bé 6 tháng,6 tháng,5.872,3,True,False,28,"Theo tài liệu 1, bé 6 – 8 tháng cần biết ngồi để tập cơ thân.
+
+Theo tài liệu 2, khi được 6 tháng tuổi, trẻ có thể ngồi dựa, khi nằm sấp đã lật xoay người được.
+
+Theo tài liệu 3, nếu trẻ vẫn chưa biết "
+15,"Bé hay chảy nước dãi nhiều, có sao không?",Triệu chứng của bé 6 tháng,6 tháng,19.012,3,True,False,30,"Không có thông tin liên quan trực tiếp đến câu hỏi trong tài liệu. Tuy nhiên, có thể trích dẫn thông tin từ tài liệu 1:
+
+- Cho trẻ sơ sinh uống nước khiến bé có nguy cơ bị tiêu chảy và suy dinh dưỡng
+"
+16,Còn răng?,Câu cực ngắn,6 tháng,17.332,3,True,False,32,"Theo tài liệu, thời điểm mọc răng bình thường là 6–10 tháng (răng cửa dưới thường mọc đầu tiên). Do đó, bé 6 tháng tuổi vẫn có thể chưa mọc răng."
+17,Mọc răng đau không?,Câu ngắn về bé,6 tháng,19.478,3,False,False,34,Không. Thời điểm mọc răng bình thường là 6–10 tháng (răng cửa dưới thường mọc đầu tiên).
+18,Làm sao dỗ?,Câu cực ngắn - mơ hồ cao nhất,6 tháng,5.818,3,True,False,36,"Để dỗ bé 6 tháng tuổi khi bé quấy khóc vào ban đêm, bạn có thể:
+
+ * Tìm hiểu nguyên nhân khiến bé quấy khóc (đói, sợ hãi, bị đau, bị lạnh, môi trường ồn ào,...)
+ * Bế bé lên và cố gắng giúp bé cảm thấ"
+19,Sốt sau tiêm mấy ngày thì hết?,Ngữ cảnh tiêm chủng từ lượt 4,6 tháng,22.602,3,True,False,38,"Tôi xin lỗi, nhưng tài liệu không cung cấp thông tin cụ thể về số ngày sốt sau tiêm chủng ở trẻ 6 tháng tuổi. Tuy nhiên, tài liệu chỉ ra rằng tiêm chủng giúp trẻ phòng chống các bệnh nguy hiểm và cần "
+20,Có cần tái khám không?,Câu ngắn mơ hồ,6 tháng,10.636,3,True,False,40,"Theo tài liệu, trẻ 6 tháng tuổi cần tái khám tại các cơ sở y tế định kỳ. 
+
+- Trẻ sơ sinh nên được khám sức khỏe định kỳ tại các cơ sở y tế (1 tháng, 6 tháng, 12 tháng, 18 tháng, 24 tháng...).
+- Bé 6 t"
+21,"À mà em còn có một bé khác 2 tuổi, bé này ăn như thế nào là đủ?",Thêm thông tin mới - bé 2 tuổi,2 tuổi,6.601,3,False,False,42,"Theo tài liệu, từ 6 tháng tuổi, trẻ cần được ăn dặm bổ sung ngoài nguồn sữa mẹ. Bắt đầu cho bé ăn bổ sung các thức ăn mềm và giàu dinh dưỡng từ 6 tháng tuổi."
+22,"Bé lớn hay tranh đồ với em, phải làm sao?",Về bé 2 tuổi,2 tuổi,5.447,3,False,False,44,"Xin lỗi, nhưng tài liệu không cung cấp thông tin về cách giải quyết vấn đề tranh đồ giữa các em bé. Tài liệu chỉ đề cập đến các hoạt động khuyến khích cho trẻ từ 2-3 tuổi, nhưng không đề cập đến vấn đ"
+23,Quay lại bé nhỏ - bé 6 tháng ngủ trưa mấy tiếng?,Quay lại bé 6 tháng - kiểm tra nhiễu,6 tháng,4.709,3,True,False,46,"Theo tài liệu, trẻ sơ sinh 0–2 tháng ngủ 16–18 tiếng/ngày chia nhiều giấc ngắn (2–4 giờ/giấc). Tuy nhiên, tài liệu không cung cấp thông tin cụ thể về thời gian ngủ trưa của trẻ 6 tháng tuổi.
+
+Tuy nhiê"
+24,Tắm cho bé mấy lần một tuần là đủ?,Câu không rõ bé nào - kiểm tra nhiễu,6 tháng,4.955,3,True,False,48,Tôi không tìm thấy thông tin liên quan đến tần suất tắm cho bé 6 tháng tuổi trong tài liệu đã cung cấp.
+25,"Cảm ơn bạn, tổng kết lại những điều cần nhớ về bé nhà tôi nhé.",Câu tổng kết - kiểm tra toàn bộ ngữ cảnh,6 tháng,6.511,3,True,False,50,"Dưới đây là tổng kết những điều cần nhớ về bé 6 tháng tuổi:
+
+ * Bé thích những màu sắc sáng, hoa văn, hoạ tiết trắng đen và những gương mặt cười.
+ * Bé thích âm thanh của những giọng nói vui vẻ.
+ * Bé"

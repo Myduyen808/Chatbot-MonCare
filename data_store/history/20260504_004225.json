@@ -1,0 +1,14 @@
+{
+    "history_name": "con chịu bú",
+    "history_id": "20260504_004225",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "con tôi không chịu bú"
+        },
+        {
+            "type": "ai",
+            "content": "Nếu con bạn không chịu bú sữa mẹ, hãy để bé ăn theo nhu cầu của bé và không sử dụng thức ăn như một phần thưởng hoặc hình phạt. Hãy trao đổi với cán bộ y tế nếu trẻ bị sút cân, mệt mỏi hoặc không tăng đều về chiều cao và cân nặng.\n\nBạn cũng có thể tham khảo thông tin về nguồn sữa mẹ như sau:\n\n- Sữa mẹ được vắt ra nên bảo quản ở nơi thoáng mát, đậy kín.\n- Không nên để sữa lâu hơn 3 giờ sau khi vắt.\n- Không cho trẻ bú bằng bình để tránh nhiễm khuẩn.\n\nNếu bạn cần thêm thông tin hoặc có bất kỳ câu hỏi nào khác, vui lòng cho tôi biết."
+        }
+    ]
+}

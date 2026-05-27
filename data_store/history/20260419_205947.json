@@ -1,0 +1,14 @@
+{
+    "history_name": "muốn tư vấn",
+    "history_id": "20260419_205947",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "tôi muốn tư vấn ạ"
+        },
+        {
+            "type": "ai",
+            "content": "Xin lỗi, tôi đang gặp sự cố."
+        }
+    ]
+}

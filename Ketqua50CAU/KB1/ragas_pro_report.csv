@@ -1,0 +1,279 @@
+﻿question,answer,faithfulness,context_recall,answer_relevancy,context_precision
+Dấu hiệu cho thấy trẻ đang bú hiệu quả?,"Dấu hiệu cho thấy trẻ đang bú hiệu quả:
+
+- Trẻ bú có hiệu quả (mút chậm, sâu, thỉnh thoảng dừng lại rồi bú tiếp. Có thể nhìn hoặc nghe thấy tiếng trẻ nuốt).
+- Trẻ bú no thì nhả vú tự nhiên và ngủ yên.",0.875,0.0,0.531,0.589
+Sau khi sinh bao lâu thì em có thể bắt đầu tập các bài thể dục nhẹ nhàng để lấy lại vóc dáng ạ?,"Theo tài liệu, mẹ có thể bắt đầu tập các bài thể dục nhẹ nhàng sau 2-4 tuần sau khi sinh. Bài tập nhẹ như Kegel, đi bộ có thể thực hiện từ tuần 2-4, trong khi bài tập vừa như yoga, bơi lội có thể thực hiện sau 8 tuần nếu vết mổ lành tốt.",1.0,1.0,0.742,1.0
+"tại sao sau khi sinh xong em lại bị đau nhức khắp người, đặc biệt là vùng lưng và các khớp tay chân ạ?","Dưới đây là lý do tại sao sau khi sinh, mẹ bị đau nhức khắp người, đặc biệt là vùng lưng và các khớp tay chân:
+
+- Cơ thể phụ nữ sau sinh rất yếu.
+- Nhiều phụ nữ bị thiếu máu, mất cân bằng gan thận.
+- Làm việc quá sức hay ít vận động có thể là nguyên nhân khiến đau nhức xương khớp sau sinh.",1.0,0.214,0.794,0.887
+Sữa mẹ chứa bao nhiêu phần trăm là nước?,"Sữa mẹ chủ yếu là nước, không có thông tin cụ thể về phần trăm nước trong sữa mẹ. Tuy nhiên, tài liệu 1 cho biết sữa mẹ cần thêm 500ml nước so với bình thường khi cho con bú.",1.0,1.0,0.655,1.0
+Thời gian bảo quản sữa mẹ trong ngăn đá tủ lạnh (-18 đến -20°C)?,"Theo tài liệu 1, thời gian bảo quản sữa mẹ trong ngăn đá tủ lạnh có nhiệt độ từ -18 đến -20°C là tốt nhất 6 tháng (có thể để tới 12 tháng).",1.0,1.0,0.956,0.806
+Nguyên nhân phổ biến nhất gây băng huyết sau sinh là gì?,"Dựa trên tài liệu, nguyên nhân phổ biến nhất gây băng huyết sau sinh là đờ tử cung, chiếm khoảng 80%.",0.5,0.444,1.0,1.0
+Sữa mẹ sau khi vắt ra để ở nhiệt độ phòng (khoảng 25 độ C) thì dùng được trong bao lâu?,"Theo tài liệu, sữa mẹ vắt ra có thể được bảo quản trong nhiệt độ phòng (25°C) trong khoảng 4-6 giờ.",0.667,1.0,0.783,0.589
+Làm sao để em tạo được thói quen ăn uống tốt cho con và tránh tình trạng trẻ chỉ thích ăn một vài món nhất định ạ?,"Để tạo thói quen ăn uống tốt cho con và giúp trẻ không chỉ thích ăn một vài món nhất định, bạn có thể tham khảo các gợi ý sau:
+
+- Cho trẻ ngồi ăn cơm chung với cả gia đình để trẻ học cách ăn uống, gắp đồ ăn và nhai kỹ thức ăn (Tài liệu 2).
+- Cho bé ăn dặm từ ít đến nhiều, tăng lượng ăn dần dần để dạ dày và hệ tiêu hóa của trẻ có thời gian làm quen và thích nghi với một loại thức ăn mới (Tài liệu 4).
+- Hướng dẫn chế độ ăn uống cho sản phụ, bao gồm ăn nhiều chất dinh dưỡng, dễ tiêu hóa, và tránh các chất kích thích như chè, cà phê, thuốc lá (Tài liệu 5).",0.769,0.0,0.91,0.0
+"Em cảm thấy rất tội lỗi khi không thể chăm sóc con tốt như mong đợi, đây có phải là dấu hiệu của trầm cảm không?","Dưới đây là trả lời dựa trên tài liệu:
+
+- Cảm giác tội lỗi khi không thể chăm sóc con tốt như mong đợi có thể là dấu hiệu của trầm cảm sau sinh.
+- Hội chứng baby blues thường kéo dài vài ngày hoặc 1-2 tuần, nhưng trầm cảm sau sinh có thể kéo dài hơn.
+- Dấu hiệu của trầm cảm sau sinh bao gồm:
+ + Không có hứng thú với em bé hoặc cảm thấy em bé không phải là con của mình.
+ + Giảm trí nhớ, giảm khả năng suy nghĩ tập trung hoặc đưa ra quyết định.
+ + Suy nghĩ làm hại bản thân hoặc em bé.
+ + Suy nghĩ thường xuyên về cái chết hoặc tự tử.
+
+Nếu bạn đang cảm thấy tội lỗi hoặc có các dấu hiệu trên, hãy tìm kiếm sự giúp đỡ từ bác sĩ hoặc chuyên gia tâm lý.",0.867,0.913,0.487,0.806
+"Em nghe nói sau sinh không nên ngồi xổm lâu hoặc rặn mạnh khi đi vệ sinh để tránh sa tử cung, có đúng không?","Đúng vậy. Theo tài liệu, mẹ nên tránh ngồi xổm lâu hoặc rặn mạnh khi đi vệ sinh để ngăn chặn sa tử cung.
+
+- Tránh đi lại nhiều, tránh ngồi xổm, nhấc vật nặng trong tuần đầu sau sinh.
+- Các bài tập tăng cường co bóp cơ hông và cơ hậu môn là rất cần thiết để phòng ngừa sa tử cung.
+- Không nên dùng sức để rặn mà nên thay đổi chế độ ăn với nhiều chất xơ, uống nhiều nước hoặc ăn các món ăn giúp hỗ trợ nhuận tràng.
+- Các mẹ nên tránh ngồi xổm lâu hoặc rặn mạnh khi đi vệ sinh để ngăn chặn sa tử cung.",0.667,1.0,0.328,0.95
+"Bác sĩ ơi, sau sinh bao lâu thì em có thể bắt đầu tập thể dục lại để lấy lại vóc dáng mà không ảnh hưởng vết mổ ạ?","Theo tài liệu, mẹ sinh mổ có thể bắt đầu tập thể dục lại sau 4-6 tuần sau sinh. Điều này sẽ giúp mẹ hồi phục nhanh chóng và giảm nguy cơ mắc biến chứng sau phẫu thuật.
+
+* Mẹ có thể bắt đầu với bài tập nhẹ từ tuần 2-4.
+* Sau 8 tuần nếu vết mổ lành tốt, mẹ có thể chuyển sang bài tập vừa như yoga, bơi lội.
+* Sau 3-6 tháng có sự đồng ý của bác sĩ, mẹ có thể tập thể dục cường độ cao.",0.8,1.0,0.613,0.887
+"""Khối cầu an toàn"" của tử cung sau sinh là gì?","Theo Tài liệu 2, ""khối cầu an toàn"" của tử cung sau sinh là khi tử cung co chặt thành ""quả cầu an toàn"" trước khi thực hiện bước tiếp theo trong quá trình chuyển dạ.",0.75,1.0,0.722,0.5
+"Em có thói quen ngâm tã bẩn trong chậu nước pha baking soda để khử mùi, cách này có an toàn và sạch khuẩn không ạ?","Không, cách ngâm tã bẩn trong chậu nước pha baking soda không được các chuyên gia khuyến nghị vì hai lý do sau:
+
+- Tạo nguy cơ đuối nước ở trẻ nhỏ
+- Việc ngâm tã quá lâu có thể làm tã bẩn hơn, tạo điều kiện cho vi khuẩn sinh sôi phát triển.",0.667,1.0,0.748,1.0
+"Tại sao bé nhà em lại hay quấy khóc vào một khung giờ cố định buổi tối (khóc dạ đề), em phải làm gì để dỗ con ạ?","Dựa trên tài liệu đã được cung cấp, có thể thấy rằng:
+
+- Bé quấy khóc vào buổi tối là một xu hướng bình thường đối với tất cả các bé.
+- Quấy khóc thường bắt đầu từ khoảng 02 tuần sau sinh và sau đó bé khóc thường xuyên hơn.
+- Bé quấy khóc nhiều nhất ở giai đoạn 2 tháng tuổi và sau đó bắt đầu giảm dần.
+- Có thể là cơn khóc dạ đề (colic) — khóc dữ dội >3 giờ/ngày, >3 ngày/tuần, thường chiều tối.
+
+Về lý do đằng sau hiện tượng này, tài liệu không cung cấp thông tin cụ thể. Tuy nhiên, tài liệu đề xuất một số nguyên nhân phổ biến khiến em bé quấy khóc, bao gồm:
+
+- Đói
+- Sợ hãi
+- Bị đau
+- Bị lạnh
+- Môi trường xung quanh có quá nhiều tiếng ồn hoặc bé bị phấn khích quá mức
+
+Về cách để dỗ con một cách hiệu quả, tài liệu đề xuất:
+
+- Bế bé lên sẽ không làm ""hư"" bé.
+- Đừng để bé khó chịu quá lâu, bé sẽ không thể bình tĩnh lại được.
+- Hãy cố tìm hiểu bé cần gì và giúp bé.
+- Để bé bú khi bé khóc.
+- Bế bé đi lại, vỗ lưng nhẹ, tắm ấm, giảm kích thích.",0.706,0.917,0.78,1.0
+Khi nào thì rốn của bé bị sưng đỏ được coi là nhiễm trùng mức độ nặng ạ?,"Theo Tài liệu 5:
+
+- Nhiễm trùng rốn mức độ nặng: Tình trạng sưng, đỏ lan rộng hơn 2cm và bắt đầu hoại tử xuống lớp cơ dưới da trẻ, cùng với đó là các triệu chứng của nhiễm trùng huyết, sốc nhiễm trùng.
+
+Do đó, tình trạng rốn của bé bị sưng đỏ được coi là nhiễm trùng mức độ nặng và cần được xử lý khẩn cấp khi tình trạng sưng đỏ lan rộng hơn 2cm và bắt đầu hoại tử xuống lớp cơ dưới da trẻ.",0.75,1.0,0.42,0.2
+Làm sao để em biết bé nhà em bị sốt và khi nào thì mức nhiệt đó là nguy hiểm ạ?,"Dưới đây là thông tin liên quan đến câu hỏi của bạn:
+
+- Sốt là tình trạng nhiệt độ cơ thể cao hơn bình thường, thường là dấu hiệu cho thấy trẻ có thể bị ốm.
+- Trẻ có thể bị sốt cao hơn so với người lớn.
+- Một số nguyên nhân phổ biến khiến trẻ bị sốt là nhiễm trùng hoặc các bệnh khác.
+- Trẻ cũng có thể bị sốt do tiêm chủng hoặc do mặc quá nhiều quần áo.
+
+Về mức nhiệt nguy hiểm, tài liệu 4 cho biết:
+
+- Tăng thân nhiệt nặng: thân nhiệt đo ở nách trên 39°C.
+- Nguyên tắc xử trí bằng phương pháp vật lý và phương pháp dùng thuốc.
+- Nhận biết nguy cơ tăng thân nhiệt: trẻ nhẹ cân, trẻ không khỏe (nhiễm khuẩn nặng), thời tiết nóng.
+- Phát hiện kịp thời dấu hiệu tăng thân nhiệt: sờ bàn tay/bàn chân nóng.
+
+Tài liệu 5 cho biết:
+
+- Đến cấp cứu NGAY khi bé sốt ≥38°C (dưới 28 ngày tuổi).",0.5,1.0,0.708,
+Làm sao để dạy con cách kiểm soát cảm giác tức giận mà không la hét?,"Dưới đây là một số cách giúp con bạn học cách kiểm soát cảm giác tức giận mà không cần phải la hét:
+
+ * Nói chuyện thường xuyên với con về những cảm xúc thường gặp như tức giận.
+ * Gọi tên cảm xúc của con, ví dụ ""Mẹ thấy con đang tức giận"".
+ * Chấp nhận cảm xúc của con, nhưng không chấp nhận việc cư xử tiêu cực.
+ * Hãy giữ bình tĩnh và không la hét khi con tức giận.
+ * Thay vào đó, hãy đổi hoạt động và làm gì đó bình tĩnh hơn.",0.8,1.0,0.821,0.333
+"Ngoài việc cải thiện chuyện tiểu tiện, tập phục hồi sàn chậu có giúp ích gì cho đời sống vợ chồng sau sinh không ạ?","Tập phục hồi sàn chậu sau sinh bằng bài tập Kegel hoặc tập luyện với máy có thể giúp cải thiện các rối loạn chức năng do sa sàn chậu gây nên, từ đó cải thiện tình trạng bệnh và chất lượng cuộc sống ở người phụ nữ sau sinh đẻ.
+
+- Tập luyện phục hồi chức năng sàn chậu có thể giúp cải thiện chức năng tình dục.
+- Bài tập Kegel giúp siết cơ sàn chậu, cải thiện các rối loạn chức năng.
+- Tập luyện với máy cũng có thể giúp cải thiện các rối loạn chức năng do sa sàn chậu gây nên.
+- Cải thiện chất lượng cuộc sống ở người phụ nữ sau sinh đẻ.",0.875,0.278,0.563,1.0
+Cách xử trí tại nhà khi trẻ sơ sinh bị sốt cao?,"Khi trẻ sơ sinh bị sốt cao, bạn nên:
+
+- Tắm bằng nước ấm để giúp thân nhiệt hạ xuống.
+- Tắm còn giúp bé cảm thấy dễ chịu hơn.
+
+Lưu ý: Nếu trẻ có các dấu hiệu nghiêm trọng như rét run, xu ất huyết, co giật, khó thở, người tím tái, li bì, bạn nên nhanh chóng đưa trẻ đến bệnh viện để được kiểm tra và điều trị kịp thời.",0.455,0.333,0.8,0.25
+"Bé nhà em bắt đầu mọc răng và rất hay sốt nhẹ, quấy khóc, em có thể làm gì giúp bé đỡ đau?","Dựa trên tài liệu, có một số nguyên nhân phổ biến khiến em bé quấy khóc, bao gồm:
+
+- Đói
+- Sợ hãi
+- Bị đau
+- Bị lạnh
+- Môi trường xung quanh có quá nhiều tiếng ồn hoặc bé bị phấn khích quá mức
+
+Để giúp bé giảm đau và cải thiện tình trạng, bạn có thể:
+
+- Đến với bé ngay khi bé khóc
+- Dỗ dành bé ngay lập tức khi bé khó chịu, sợ hãi, hay khi bé bị ốm, đau
+- Chạm vào bé và nói chuyện với bé một cách yêu thương
+- Chơi với bé, cười đùa, nói chuyện và hát cho bé nghe",,0.0,0.657,0.333
+Hậu quả của thiếu dinh dưỡng trong 3 tháng cuối thai kỳ là gì?,"Dựa trên tài liệu, hậu quả của việc thiếu dinh dưỡng trong 3 tháng cuối thai kỳ đối với mẹ và thai nhi là:
+
+- Mẹ có nguy cơ đẻ nhẹ cân
+- Thai nhi có nguy cơ bị tiểu đường về sau khi trưởng thành
+
+ *Lưu ý: Mẹ nên đưa bé đến cơ sở y tế để được thăm khám trực tiếp.*",0.667,1.0,0.869,0.0
+"Em có nên sử dụng núm vú giả để dỗ bé ngủ không, việc này có gây ảnh hưởng đến khớp cắn hay khiến bé bỏ bú mẹ không","Theo tài liệu, việc sử dụng núm vú giả có thể gây ảnh hưởng đến khớp cắn và khiến bé bỏ bú mẹ. 
+
+- Tài liệu 2: ""ngậm giả nên dễ từ chối vú mẹ khi cho trẻ bú mẹ. Điều này sẽ làm trẻ sẽ bú ít đi, từ đó bầu vú bà mẹ sẽ giảm sản xuất sữa dẫn đến việc không đủ sữa.""
+
+- Tài liệu 5: ""Không cho bé mút đầu ngón tay, hoặc ngậm ti giả. Thói quen này sẽ khiến răng bé mọc không đều, không thẳng hàng.""
+
+Vì vậy, không nên sử dụng núm vú giả để dỗ bé ngủ.",0.778,0.786,0.5,0.0
+"Khi giặt tã vải cho con, em nên chọn loại chất tẩy rửa nào để vừa sạch vết bẩn vừa không làm hỏng tã ạ?","Để chọn loại chất tẩy rửa phù hợp khi giặt tã vải cho con, bạn nên chọn loại không chứa hương liệu, enzyme và các chất phụ gia khác. Nên ưu tiên sử dụng chất tẩy rửa không chứa xà phòng và nước xả làm mềm vải để tránh kích ứng da bé và giảm độ thấm hút của tã vải.
+
+- Không sử dụng xà phòng.
+- Không sử dụng nước xả làm mềm vải.
+- Chọn chất tẩy rửa không chứa hương liệu, enzyme và các chất phụ gia khác.
+- Sử dụng chất tẩy rửa không chứa xà phòng.",1.0,0.364,0.632,0.95
+"Em sờ thấy có cục cứng trong bầu ngực, nếu em không điều trị sớm thì có nguy hiểm gì không ạ?","- Sờ thấy có cục cứng trong bầu ngực là dấu hiệu của tắc tia sữa hoặc viêm tuyến vú.
+- Tắc tia sữa có thể gây biến chứng nguy hiểm như mất sữa hoàn toàn, viêm tuyến vú, áp xe vú.
+- Nếu không điều trị sớm, cục cứng có thể ngày càng to, sưng đỏ và đau.
+- Cần gặp bác sĩ ngay lập tức để được chẩn đoán và điều trị kịp thời.
+
+ *Lưu ý: Mẹ nên đưa bé đến cơ sở y tế để được thăm khám trực tiếp.*",1.0,0.833,0.477,1.0
+"Em lo ngại các hóa chất trong tã giấy, có loại tã nào không chứa gel siêu thấm hay chất tẩy trắng clo để an toàn hơn cho da bé không ạ?","Có, có loại tã không chứa gel siêu thấm và chất tẩy trắng clo. Theo tài liệu 1, có tã không có gel và clo, giúp giảm thiểu sử dụng hóa chất.
+
+- Tã không có gel siêu thấm sử dụng đệm bông để thực hiện tính năng thấm hút.
+- Tã không có clo cũng là một lựa chọn khác cho các bậc cha mẹ muốn giảm thiểu sử dụng hóa chất.
+- Loại tã này giúp an toàn hơn cho da bé.",0.833,1.0,0.788,0.867
+Bé nhà em bị sặc sữa thì em cần phải xử lý sơ cứu tại chỗ như thế nào để đảm bảo an toàn cho con ạ?,"Để sơ cứu tại chỗ khi bé bị sặc sữa, bạn cần thực hiện các bước sau:
+
+- Đặt trẻ nằm sấp trên tay hoặc đùi của bạn, đầu thấp hơn thân.
+- Vỗ lưng: dùng gốc lòng bàn tay phải vỗ 5 cái vào lưng trẻ ở khoảng giữa 2 xương bả vai.
+- Nếu còn tắc nghẽn, lật ngửa trẻ tiến hành ấn ngực.",1.0,1.0,0.555,0.367
+"Em mới sinh bé xong, trong mấy tiếng đầu bác sĩ sẽ theo dõi em thế nào?","Theo tài liệu, sau khi sinh con, bác sĩ sẽ:
+
+- Khám toàn thân cho cả mẹ và con trước khi cho về nhà.
+- Theo dõi tình trạng huyết áp, mạch và ra máu sản dịch.
+- Đưa mẹ và con về phòng, theo dõi các nội dung như trên 1 giờ/lần.
+- Hướng dẫn mẹ cho con bú sớm và đúng cách.
+- Hướng dẫn mẹ cách chăm sóc con, theo dõi chảy máu rốn.",0.6,1.0,0.625,0.0
+"Bé nhà em hay hỏi ""Tại sao?"" liên tục, đôi khi em thấy rất mệt mỏi, em có nên trả lời hết các câu hỏi đó không?","Theo tài liệu, trẻ từ 3-6 tuổi đang học cách sử dụng từ ngữ để giải thích ý của mình, trả lời các câu hỏi và sáng tạo các câu chuyện. Tuy nhiên, tài liệu không đề cập cụ thể đến việc trẻ hỏi ""Tại sao?"" liên tục và cách trả lời.
+
+Tuy nhiên, theo tài liệu ""6 đến 12 tháng tuổi"", trẻ đang học cách sử dụng ngôn ngữ và trò chơi trốn tìm, như trò chơi ""Ú oà"" và ""Nó đâu rồi nhỉ?"". Điều này cho thấy trẻ đang phát triển khả năng ngôn ngữ và tư duy.
+
+Về câu hỏi của bạn, tài liệu không đề cập cụ thể đến việc trẻ hỏi ""Tại sao?"" liên tục và cách trả lời. Tuy nhiên, có thể nói rằng trẻ đang trong quá trình học hỏi và phát triển ngôn ngữ, vì vậy việc trả lời các câu hỏi của trẻ có thể giúp trẻ phát triển khả năng ngôn ngữ và tư duy.
+
+Tuy nhiên, tài liệu không đề cập cụ thể đến việc trẻ hỏi ""Tại sao?"" liên tục và cách trả lời, vì vậy câu trả lời của tôi chỉ dựa trên thông tin có sẵn trong tài liệu.",0.286,0.8,0.0,0.325
+"Làm sao để khuyến khích con tự lập trong việc vệ sinh cá nhân như đánh răng, rửa tay?","Dưới đây là các cách khuyến khích con tự lập trong việc vệ sinh cá nhân:
+
+ * Hướng dẫn và khuyến khích trẻ tự vệ sinh thân thể: tắm, rửa mặt, đánh răng (Tài liệu 1)
+ * Hướng dẫn và khuyến khích trẻ tự vệ sinh thân thể: tắm, rửa mặt, đánh răng (Tài liệu 3)
+ * Hướng dẫn và khuyến khích trẻ tự vệ sinh thân thể: tắm, rửa mặt, đánh răng (Tài liệu 4)",1.0,0.0,0.636,0.0
+Sữa mẹ vắt ra có thể bảo quản ở nhiệt độ thường trong bao lâu?,"Theo tài liệu 4, sữa mẹ vắt ra có thể bảo quản ở nhiệt độ phòng (25°C) trong 4-6 giờ.",1.0,0.0,0.741,0.5
+Em thấy sản dịch có màu đen sậm và mùi hôi kèm sốt nhẹ là dấu hiệu gì ạ?,"Dựa trên tài liệu, em thấy sản dịch có màu đen sậm và mùi hôi kèm sốt nhẹ có thể là dấu hiệu của Bế sản dịch hoặc Viêm nội mạc tử cung.
+
+- Bế sản dịch: Sản dịch ra ít hoặc không ra, mùi hôi, màu đen bẩn.
+- Viêm nội mạc tử cung: Sốt nhẹ, cảm giác căng tức và đau vùng hạ vị, âm đạo ra ít sản dịch và kèm mùi hôi.
+
+Cần chú ý và tham khảo thêm ý kiến của bác sĩ để có thể chẩn đoán chính xác.
+
+ *Lưu ý: Mẹ nên đưa bé đến cơ sở y tế để được thăm khám trực tiếp.*",0.667,1.0,0.873,1.0
+"Em bị đau núm vú quá, có cách nào để bớt đau khi cho con bú không?","Dưới đây là câu trả lời dựa trên tài liệu:
+
+- Đau núm vú là tình trạng thường gặp ở các mẹ sau sinh.
+- Nguyên nhân gây đau núm vú có thể do ngậm bắt vú của trẻ chưa đúng hoặc do dùng máy hút sữa sai cách.
+- Để giảm đau núm vú, mẹ nên tham khảo ý kiến của bác sĩ chuyên khoa để có cách kiêng cữ sau sinh an toàn và giảm thiểu khó chịu.",,0.5,0.506,0.0
+Trẻ sơ sinh được định nghĩa là trẻ trong độ tuổi nào?,"Theo tài liệu 3: CHĂM SÓC TRẺ SƠ SINH
+
+- Trẻ sơ sinh là trẻ từ khi lọt lòng mẹ đến 28 ngày tuổi.
+- Trẻ sơ sinh còn yếu ớt dễ bị mắc bệnh, nếu mắc thì bệnh thường nặng và dễ tử vong.
+
+ *Lưu ý: Mẹ nên đưa bé đến cơ sở y tế để được thăm khám trực tiếp.*",0.833,1.0,0.401,0.367
+Em bị rách tầng sinh môn thì khi đi vệ sinh cần lưu ý rửa như thế nào cho đúng?,"Câu trả lời dựa trên tài liệu:
+
+- Vệ sinh BPSD ngoài bằng nước ấm, vệ sinh ít nhất 3 lần/ngày, nhất là sau khi tiểu tiện.
+- Giữ vùng vết khâu luôn khô ráo và sạch sẽ.
+- Thay băng vệ sinh thường xuyên để đảm bảo không gây nhiễm trùng đến vết khâu.",0.75,1.0,0.519,0.806
+"Tại sao sau khi có con, vợ chồng em lại dễ nảy sinh mâu thuẫn và rạn nứt dù trước đó rất hạnh phúc ạ?","Sau khi sinh con, người vợ thay đổi cả về tinh thần và thể chất, người chồng thì cảm thấy bị bỏ rơi. Điều này có thể dẫn đến sự không hài lòng và rạn nứt trong mối quan hệ vợ chồng.
+
+- Người vợ sa sút tinh thần sau khi sinh.
+- Người chồng cảm thấy bị bỏ rơi.
+- Thiếu hụt quan tâm từ người chồng ảnh hưởng lớn tới tình cảm vợ chồng.
+- Cần thảo luận trước khi sinh con về kế hoạch sinh hoạt sau khi vợ đi làm trở lại.",1.0,0.833,0.864,1.0
+Làm sao để em có thể phòng ngừa hiệu quả bệnh sa tử cung ngay tại nhà sau khi sinh em bé ạ?,"Dưới đây là các cách phòng ngừa bệnh sa tử cung tại nhà sau khi sinh em bé:
+
+ * Phụ nữ, đặc biệt là sản phụ sau sinh cần học cách trị sa tử cung tại nhà thông qua bài tập sa tử cung đơn giản nhưng lại rất hiệu quả trong việc phòng ngừa bệnh.
+ * Phụ nữ sau sinh cần dành nhiều thời gian để nghỉ ngơi, thư giãn.
+ * Cho con bú sớm - sau sinh 24 tiếng sẽ giúp tử cung hồi phục tốt để đẩy sản dịch sau sinh thường ra ngoài, tránh được bệnh sa tử cung, giảm nguy cơ băng huyết sau sinh.
+ * Thực hiện các bài tập nhẹ nhàng để giúp cơ và dây chằng hỗ trợ tử cung hồi phục tốt.",0.75,0.364,0.861,0.7
+Phụ nữ Châu Á mang thai nên tăng bao nhiêu kg là hợp lý?,"Theo tài liệu 1, mức tăng cân trung bình của phụ nữ Châu Á nên là 10-12kg.",1.0,0.059,0.799,0.7
+"Bé nhà em bị nghẹt mũi và khò khè, em có nên tự ý dùng thuốc nhỏ mũi có chứa kháng sinh cho con tại nhà không?","Không, bạn không nên tự ý dùng thuốc nhỏ mũi có chứa kháng sinh cho con tại nhà. Theo tài liệu, không nên dùng thuốc nhỏ mũi co mạch cho trẻ dưới 2 tuổi. Thay vào đó, bạn có thể nhỏ nước muối sinh lý (NaCl 0.9%) 2–3 giọt mỗi bên mũi, dùng bóng hút mũi hút nhẹ.
+
+Hậu quả của việc tự ý dùng thuốc nhỏ mũi có chứa kháng sinh cho con tại nhà có thể bao gồm:
+
+- Tăng nguy cơ gây hại cho trẻ
+- Không hiệu quả trong việc điều trị nghẹt mũi
+- Có thể gây ra tác dụng phụ không mong muốn
+
+Nguồn: BV Nhi Đồng 1; Bộ Y tế",0.429,,0.753,1.0
+Sau khi sinh xong thì giai đoạn hậu sản được tính kéo dài bao lâu ạ?,"Theo tài liệu ""BV Từ Dũ — Hướng dẫn hậu sản"", thời kỳ hậu sản kéo dài 42 ngày (6 tuần) sau sinh.
+
+- Thời kỳ hậu sản kéo dài 42 ngày (6 tuần) sau sinh.
+- Đây là giai đoạn cơ thể mẹ phục hồi về trạng thái trước khi mang thai.
+- Tử cung co hồi, sản dịch ra dần và tuyến sữa hoạt động.",1.0,1.0,0.727,1.0
+"bé nhà em 6 tháng tuổi đang tập ăn dặm mà bị tiêu chảy kéo dài, em có nên tiếp tục cho con ăn cháo cà rốt hay thay đổi chế độ ăn như thế nào không ạ?","Theo tài liệu, trẻ 6 tháng tuổi đang bị tiêu chảy kéo dài nên không nên thay đổi chế độ dinh dưỡng. Thay vào đó, cần điều trị dứt điểm tình trạng bệnh trước khi thay đổi chế độ ăn.
+
+- Trẻ 6 tháng tuổi đang bị tiêu chảy kéo dài nên điều trị dứt điểm trước khi thay đổi chế độ ăn.
+- Không nên thay đổi chế độ dinh dưỡng khi trẻ đang bị tiêu chảy.
+- Cần chú ý thực phẩm giàu sắt khi bắt đầu ăn dặm.
+- Bé 6 tháng tuổi cần bổ sung sắt.",1.0,0.308,0.484,1.0
+"bé nhà em 2 tháng tuổi mà ngón tay cái cứ gập vào trong lòng bàn tay, không duỗi thẳng ra được thì có phải là dấu hiệu bệnh gì nguy hiểm không ạ?","Dựa trên tài liệu, có thể xác định rằng tình trạng của bé nhà bạn là ngón tay cò súng/ngón tay lò xo/ngón tay bật. Bệnh này có thể ở người lớn nhưng cũng có thể ở trẻ nhỏ. Trẻ nhỏ thì thường phải mổ giải phóng bao gân, để lâu dễ bị tật. Tốt nhất bạn nên đưa bé đến khám bác sĩ chấn thương chỉnh hình hoặc bác sĩ chỉnh hình nhi để điều trị tốt nhất.",0.8,1.0,0.404,1.0
+"Bé nhà em mới sinh được vài tuần, em có thể chơi những trò gì đơn giản để bắt đầu tương tác và gắn kết với con không?","Dưới đây là một số trò chơi đơn giản mà bạn có thể chơi với bé nhà mình để bắt đầu tương tác và gắn kết với con khi bé mới sinh được vài tuần:
+
+- Trò chơi ""Ú oà và trống tìm"" (TÀI LIỆU 2): Bạn có thể bắt đầu chơi trò này từ khi bé mới 4 hoặc 5 tháng tuổi.
+- Trò chơi ""Tìm kiếm và chờ đến lượt"" (TÀI LIỆU 4): Điều này sẽ giúp bé học về sự chia sẻ và chờ đến lượt.
+- Trò chơi ""Chơi ngoài trời"" (TÀI LIỆU 4): Bé sẽ thích thú được chơi ngoài trời trong bất cứ thời tiết nào.
+
+Những trò chơi này sẽ giúp bạn bắt đầu tương tác và gắn kết với con khi bé mới sinh được vài tuần.",0.846,1.0,0.882,0.0
+Em nghe nói cho con bú hoàn toàn cũng là một cách tránh thai đúng không ạ?,"Có, cho con bú hoàn toàn có thể giúp ngăn ngừa thai. Theo tài liệu 3, khi bà mẹ cho con bú làm tăng nồng độ prolactin trong máu, ngăn chặn sự rụng trứng, giúp phụ nữ khó mang thai hơn, ngăn ngừa thai trong khoảng thời gian 6 tháng sau sinh.",0.833,1.0,0.721,1.0
+Khoảng bao nhiêu ngày thì cổ tử cung của em sẽ đóng kín hoàn toàn sau khi đẻ ạ?,"Câu trả lời không được tìm thấy trong các tài liệu đã cung cấp. Tuy nhiên, có thể dựa trên thông tin trong Tài liệu 1:
+
+- Sau 12 - 13 ngày, tử cung đã thu nhỏ vừa đủ để nằm gọn trong vùng chậu, không còn sờ thấy trên bụng nữa.
+
+Tuy nhiên, thông tin này không nói rõ về việc cổ tử cung đóng kín hoàn toàn.",0.25,0.5,0.669,0.95
+"Em bị sốt cao, rét run và đau bụng dữ dội sau sinh 2 tuần là dấu hiệu bệnh gì vậy?","Dựa trên tài liệu đã được cung cấp, tôi không tìm thấy thông tin cụ thể về các triệu chứng sốt cao, rét run và đau bụng dữ dội sau sinh 2 tuần. Tuy nhiên, tôi có thể đưa ra một số thông tin liên quan:
+
+- Sốt cao và đau bụng có thể là dấu hiệu của nhiễm trùng hoặc nhiễm độc (Tài liệu 1).
+- Đau bụng âm ỉ 2-3 ngày đầu sau sinh là bình thường do tử cung co hồi (Tài liệu 2).
+- Sốt sau 2 tuần có thể do nhiễm trùng vết mổ trễ, viêm vú/áp xe vú, nhiễm trùng đường tiểu, viêm tĩnh mạch (Tài liệu 3).
+
+Để xác định nguyên nhân chính xác, bạn nên tham khảo ý kiến của bác sĩ.",0.8,0.619,0.824,1.0
+Em nên thực hiện những hoạt động nào để khuyến khích và hỗ trợ bé phát triển khả năng vận động lật lẫy tốt hơn?,"Dựa trên tài liệu, để khuyến khích và hỗ trợ bé phát triển khả năng vận động lật lẫy tốt hơn, bạn nên:
+
+- Khen ngợi nỗ lực của em bé và mỉm cười mỗi khi em bé thực hiện xong một hoạt động.
+- Cẩn trọng và hỗ trợ em bé khi lần đầu tiên thực hiện những hoạt động này.
+- Khuyến khích cho những hoạt động đầu tiên này để trẻ có thể phát triển khả năng vận động tốt hơn nữa.
+- Hướng dẫn và khuyến khích trẻ tự vệ sinh thân thể, bao gồm cả việc lăn qua.",0.8,0.5,0.958,1.0
+"Giai đoạn ""Cửa sổ cơ hội"" để phòng chống thấp còi là khi nào?","Tôi xin lỗi, nhưng tài liệu không cung cấp thông tin về giai đoạn ""Cửa sổ cơ hội"" để phòng chống thấp còi.",1.0,0.0,0.204,0.0
+"Em nghe nói sau sinh cần kiêng tắm gội cả tháng, điều này có đúng không và làm thế nào để vệ sinh cơ thể an toàn ạ","Dựa trên tài liệu đã được cung cấp, tôi có thể trả lời câu hỏi như sau:
+
+- Không có thông tin cụ thể về thời gian kiêng tắm gội sau sinh trong tài liệu.
+- Tư vấn sản phụ vận động sớm sau khi sinh, đặc biệt là vệ sinh thân thể như tắm gội, đánh răng mỗi ngày (Tài liệu 2).
+- Không có thông tin cụ thể về cách vệ sinh cơ thể an toàn sau sinh trong tài liệu.
+
+Tuy nhiên, dựa trên thông tin trong tài liệu 2, có thể thấy rằng tắm gội và đánh răng mỗi ngày là một phần quan trọng của việc vệ sinh thân thể sau sinh.",0.75,1.0,0.0,1.0
+"Con em thường xuyên thức giấc giữa đêm và khóc, em phải làm gì để bé ngủ sâu hơn?","Dưới đây là một số gợi ý để giúp con em ngủ sâu hơn:
+
+ * Đảm bảo con em đã được cho ăn đầy đủ và không còn đói.
+ * Tạo môi trường ngủ yên tĩnh và thoải mái.
+ * Đặt con em vào giường ngủ đúng giờ hàng ngày.
+ * Cho con em ngủ giấc ngắn vào ban ngày nếu cảm thấy mệt.
+ * Đảm bảo con em được ngủ đủ giấc mỗi ngày (khoảng 10-14 tiếng).",0.667,1.0,0.783,0.7
+Em nghe nói gây tê ngoài màng cứng cũng làm mình bị bí tiểu lâu hơn phải không ạ?,"Không có thông tin trong tài liệu về việc gây tê ngoài màng cứng gây ra tình trạng bí tiểu kéo dài không. Tuy nhiên, tài liệu 3 đề cập đến việc lưu thông tiểu sau sinh, sau mổ 12 giờ trong các trường hợp như sau mổ, sinh gây tê giảm đau sản khoa, sinh giúp, bóc nhau bằng tay, may phục hồi rách tầng sinh môn độ 3-4.",0.5,1.0,0.405,0.833

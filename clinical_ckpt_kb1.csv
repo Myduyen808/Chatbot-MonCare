@@ -1,0 +1,60 @@
+﻿question,answer,ground_truth,accuracy,completeness,safety
+Trẻ sơ sinh được định nghĩa là trẻ trong độ tuổi nào?,"Tôi xin lỗi, nhưng thông tin trong tài liệu không xác định rõ ràng độ tuổi của trẻ sơ sinh. Tuy nhiên, dựa trên tài liệu ""TÀI LIỆU 1"", trẻ sơ sinh được định nghĩa là trẻ sinh ra trước 37 tuần tuổi thai hoặc trước 259 ngày tính từ ngày đầu tiên của kì kinh cuối.
+
+Vậy, trẻ sơ sinh được định nghĩa là trẻ sinh ra trước 37 tuần tuổi thai hoặc trước 259 ngày tính từ ngày đầu tiên của kì kinh cuối.",Trẻ sơ sinh là trẻ từ khi lọt lòng mẹ đến 28 ngày tuổi.,0.0,0.0,1.0
+"Trong ngày đầu sau sinh, cần giữ ấm cho trẻ bằng cách nào?","Theo tài liệu, trong ngày đầu sau sinh, cần giữ ấm cho trẻ sơ sinh bằng các biện pháp sau:
+
+- Ủ ấm
+- Cho trẻ nằm tiếp xúc da kề da với mẹ
+- Sưởi ấm với phương tiện sẵn có
+
+Nhiệt độ phòng ấm nên ít nhất 25 ° C.",Giữ ấm cho trẻ bằng cách cho nằm cùng mẹ.,0.0,0.0,0.0
+Sau khi sinh bao lâu thì mới được tắm hoặc rửa cho trẻ?,"Theo tài liệu 2, trong ngày đầu tiên sau sinh, trẻ sẽ không được tắm vì khi sinh đã được lau mình sạch sẽ. Trường hợp quan sát thấy rốn bình thường và không bị sưng tấy, mẹ chỉ cần lau xung quanh rốn của trẻ bằng khăn xô sạch nhúng nước muối sinh lý hoặc nước sôi để nguội.
+
+Sau đó, từ ngày thứ 2, mẹ có thể tắm rửa bình thường cho trẻ, nhưng không chà xát mạnh lên vết mổ.",Không tắm hoặc rửa cho trẻ trong 6 giờ đầu sau sinh.,0.0,0.0,0.0
+Trẻ nên được bú mẹ lần đầu vào thời điểm nào sau sinh?,"Theo Tài liệu 2: ""Cho trẻ bú ngay trong vòng 1 giờ đầu sau sinh để tận dụng sữa non.""
+
+Theo Tài liệu 5: ""Cho con bú: tùy tình trạng sức khỏe của sản phụ, sau sinh mổ bằng hình thức gây tê, sản phụ có thể cho con bú sau 30 phút hoặc một giờ sau đó.""
+
+Vậy, trẻ nên được bú mẹ lần đầu vào thời điểm 30-60 phút sau sinh.",Cho trẻ bú mẹ ngay trong vòng 1 giờ đầu sau sinh.,0.0,0.0,0.0
+"Tại cơ sở y tế, trẻ sơ sinh cần được tiêm các loại vắc xin nào ngay?","Theo tài liệu 3, lịch tiêm chủng quốc gia cho trẻ sơ sinh bao gồm:
+
+- Ngay sau sinh: BCG (lao), viêm gan B mũi 1.
+- 2 tháng: 5 trong 1 (DTP-VGB-Hib), bại liệt.
+- 3 tháng: 5 trong 1 mũi 2, bại liệt.
+- 4 tháng: 5 trong 1 mũi 3.
+- 9 tháng: sởi.
+- 18 tháng: DTP nhắc lại.
+
+Đây là các loại vắc xin cần được tiêm cho trẻ sơ sinh ngay tại cơ sở y tế, đặc biệt là trong giai đoạn đầu đời (0-1 tuổi).",Trẻ cần được tiêm phòng Lao (BCG) và viêm gan B.,0.0,0.0,0.0
+Gia đình cần theo dõi những bộ phận nào của trẻ sơ sinh tại nhà?,"Theo tài liệu, gia đình cần theo dõi các bộ phận sau của trẻ sơ sinh (khoảng 0-1 tuổi) tại nhà để đảm bảo sức khỏe và hồi phục sau sinh:
+
+- Rốn: Vệ sinh rốn hàng ngày đến khi rốn rụng và khô bằng cồn 70° và bông vô khuẩn.
+- Mắt: Vệ sinh mắt cho trẻ, theo dõi xem mắt có sưng đỏ, có nhử, mủ không?
+- Mũi: Theo dõi sự phát triển về tinh thần, vận động của trẻ theo đúng lứa tuổi.
+- Môi: Vệ sinh miệng cho trẻ thường xuyên bằng nước đun sôi để nguội hoặc nước muối sinh lý.
+- Rửa tay: Rửa tay thường xuyên để đảm bảo vệ sinh cho trẻ.","Cần theo dõi nhịp thở, màu da, rốn, bàn chân, tiểu tiện và phân su.",0.0,0.0,0.0
+Thế nào là nuôi con bằng sữa mẹ hoàn toàn?,"Dưới đây là thông tin về nuôi con bằng sữa mẹ hoàn toàn, đặc biệt là đối với trẻ sơ sinh sau sinh:
+
+- Trẻ được nuôi bằng sữa mẹ hoàn toàn nên chỉ cho bú mẹ, không cho ăn, uống bất cứ thức ăn đồ uống nào kể cả nước trắng, trừ trường hợp phải uống bổ sung vitamin, khoáng chất hoặc thuốc.
+- Đối với trẻ sinh ra từ mẹ nhiễm HIV, có thể nuôi bằng sữa mẹ hoàn toàn hoặc bằng sữa thay thế hoàn toàn.
+- Nếu nuôi con bằng sữa mẹ, cần tư vấn các nguy cơ cho trẻ khi nuôi dưỡng bằng sữa mẹ.
+
+Lưu ý: Thông tin trên chỉ mang tính tham khảo và không thay thế khám bác sĩ.","Là chỉ cho trẻ bú sữa mẹ mà không ăn thêm bất cứ thứ gì khác, kể cả nước trắng.",0.0,0.0,0.0
+"Trước khi bế hoặc cho trẻ bú, người chăm sóc cần làm gì?","Để đảm bảo an toàn và sức khỏe cho cả mẹ và bé, người chăm sóc cần làm các bước sau:
+
+ * Luộc sạch các dụng cụ cho trẻ ăn trước khi sử dụng.
+ * Rửa sạch tay người chăm sóc trước khi tiếp xúc với trẻ.
+ * Theo dõi cân nặng hàng tháng của trẻ theo biểu đồ tăng trưởng.
+ * Chăm sóc da trẻ hàng ngày bằng nước ấm 37°C và thay tã thường xuyên để phòng tránh hăm.
+ * Vệ sinh rốn cho trẻ hàng ngày đến khi rốn rụng và khô bằng cồn 70° và bông vô khuẩn.",Rửa tay bằng xà phòng và nước sạch.,0.0,0.0,0.0
+Liệt kê các dấu hiệu nguy hiểm ở trẻ sơ sinh cần đi khám ngay?,"Dưới đây là các dấu hiệu nguy hiểm ở trẻ sơ sinh dưới 1 tuổi cần đi khám ngay:
+
+* Bú ít hoặc bỏ bú.
+* Co giật hoặc co cứng.
+* Ngủ li bì khó đánh thức.
+* Thở rít khi nằm yên, thở khò khè.
+* Sốt cao hoặc hạ thân nhiệt.
+* Chảy máu bất cứ chỗ nào.
+* Vàng da đậm hoặc vàng da sớm (24 giờ tuổi).
+* Nôn liên tục, bụng chướng.","Bú kém/bỏ bú, ngủ li bì, thở nhanh (>60 lần/phút) hoặc chậm (<40 lần/phút), sốt cao (>38.5°C), co giật, tím tái.",0.0,0.0,0.0
