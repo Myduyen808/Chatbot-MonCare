@@ -47,6 +47,8 @@ parser.add_argument("--k",           type=int, default=5,
                     help="Số tài liệu RAG truy xuất (mặc định: 5)")
 parser.add_argument("--delay",       type=float, default=2.0,
                     help="Giây nghỉ giữa các câu để tránh rate limit (mặc định: 2)")
+parser.add_argument("--limit", type=int, default=0,
+                    help="Giới hạn số câu chạy (0 = chạy hết, mặc định). VD: --limit 100")
 args = parser.parse_args()
 
 KB          = args.kb.lower()
@@ -161,6 +163,11 @@ for batch_num in range(args.start_batch, args.num_batches + 1):
     print(f"{'─'*65}")
 
     for i, row in batch_df.iterrows():
+        # ── THÊM ĐOẠN NÀY ──
+        if args.limit > 0 and total_processed >= args.limit:
+            print(f"\n  ⏹️  Đã đạt giới hạn {args.limit} câu — dừng lại.\n")
+            break
+        # ── HẾT ĐOẠN THÊM ──
         question     = str(row["question"]).strip()
         ground_truth = str(row.get("ground_truth", "")).strip()
 
@@ -195,6 +202,11 @@ for batch_num in range(args.start_batch, args.num_batches + 1):
         time.sleep(args.delay)
 
     print(f"\n  ✅ Xong batch {batch_num}: {len(batch_df)} câu\n")
+
+    # ── THÊM ĐOẠN NÀY ──
+    if args.limit > 0 and total_processed >= args.limit:
+        break
+    # ── HẾT ĐOẠN THÊM ──
 
 # ═══════════════════════════════════════════════════════════════
 # LƯU FILE CUỐI CÙNG

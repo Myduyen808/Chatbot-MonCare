@@ -309,7 +309,18 @@ def Databases():
 
         st.divider()
         st.subheader("Danh sách tài liệu")
+        
+        # Lấy danh sách từ hàm gốc
         all_docs = get_list_documents()
+        
+        # Lấy riêng danh sách file Excel (thêm mới)
+        excel_path = db_config.get("excel_path", "data_store/excel")
+        excel_docs = []
+        if os.path.exists(excel_path):
+            excel_docs = [f for f in os.listdir(excel_path) if f.endswith('.xlsx') and not f.startswith('~$')]
+        
+        # Gộp lại thành 1 danh sách đầy đủ
+        all_docs = all_docs + excel_docs
         selected_doc = st.selectbox("Chọn tài liệu", all_docs)
         if selected_doc:
             col1, col2, col3 = st.columns(3)

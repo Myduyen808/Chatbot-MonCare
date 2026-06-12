@@ -1,5 +1,6 @@
 # ====== Fix for Windows ======
 import sys, os, yaml , re
+import pandas as pd
 if sys.platform == "win32":
     try: import mock
     except ImportError: os.system("pip install mock"); import mock
@@ -62,49 +63,111 @@ def clean_web_boilerplate(text):
 
 def get_list_documents():
     documents = []
-    for folder_key, ext in [("word_path", ".docx"), ("pdf_path", ".pdf")]:
+
+    file_configs = [
+        ("word_path", ".docx"),
+        ("pdf_path", ".pdf"),
+        ("csv_path", ".csv"),
+        ("excel_path", ".xlsx"),
+    ]
+
+    for folder_key, ext in file_configs:
         path = db_config.get(folder_key, "")
+
         if os.path.exists(path):
             for root, dirs, files in os.walk(path):
                 for file in files:
-                    if file.endswith(ext) and not file.startswith("~$"): documents.append(file)
-    csv_path = db_config.get("csv_path", "data_store/csv")
-    if os.path.exists(csv_path):
-        for root, dirs, files in os.walk(csv_path):
-            for file in files:
-                if file.endswith(".csv"): documents.append(file)
+                    if file.endswith(ext) and not file.startswith("~$"):
+                        documents.append(file)
+
     return documents
 
 def get_details(filename):
     text, filepath = "", ""
+
     if filename.endswith(".docx"):
-        filepath = os.path.join(db_config["word_path"], filename); doc = Document(filepath)
+        filepath = os.path.join(db_config["word_path"], filename)
+        doc = Document(filepath)
         text = "\n".join([para.text for para in doc.paragraphs])
+
     elif filename.endswith(".pdf"):
-        filepath = os.path.join(db_config["pdf_path"], filename); reader = PdfReader(filepath)
-        for page in reader.pages: text += (page.extract_text() or "")
+        filepath = os.path.join(db_config["pdf_path"], filename)
+        reader = PdfReader(filepath)
+        for page in reader.pages:
+            text += (page.extract_text() or "")
+
     elif filename.endswith(".csv"):
-        filepath = os.path.join(db_config.get("csv_path", "data_store/csv"), filename)
-        with open(filepath, 'r', encoding='utf-8') as f: text = f.read()
-    return {"Tên file": filename, "Đường dẫn": filepath, "Kích thước": os.path.getsize(filepath) if os.path.exists(filepath) else 0}, text
+        filepath = os.path.join(
+            db_config.get("csv_path", "data_store/csv"),
+            filename
+        )
+        with open(filepath, "r", encoding="utf-8") as f:
+            text = f.read()
+
+    elif filename.endswith(".xlsx"):
+        filepath = os.path.join(
+            db_config.get("excel_path", "data_store/excel"),
+            filename
+        )
+        df = pd.read_excel(filepath)
+        text = df.to_string(index=False)
+
+    return {
+        "Tên file": filename,
+        "Đường dẫn": filepath,
+        "Kích thước": os.path.getsize(filepath) if os.path.exists(filepath) else 0
+    }, text
 
 def get_document(filename):
     docs = []
+
     if filename.endswith(".docx"):
         doc = Document(os.path.join(db_config["word_path"], filename))
-        docs.append(LC_Document(page_content="\n".join([p.text for p in doc.paragraphs if p.text.strip()]), metadata={"source": filename, "file_type": "docx"}))
+        docs.append(
+            LC_Document(
+                page_content="\n".join(
+                    [p.text for p in doc.paragraphs if p.text.strip()]
+                ),
+                metadata={
+                    "source": filename,
+                    "file_type": "docx"
+                }
+            )
+        )
+
     elif filename.endswith(".pdf"):
-        docs = PyPDFLoader(os.path.join(db_config["pdf_path"], filename)).load()
-        for d in docs: 
-            d.page_content = clean_pdf_text(d.page_content) # Làm sạch rác ngay khi load
+        docs = PyPDFLoader(
+            os.path.join(db_config["pdf_path"], filename)
+        ).load()
+
+        for d in docs:
+            d.page_content = clean_pdf_text(d.page_content)
             d.metadata["file_type"] = "pdf"
+
     elif filename.endswith(".csv"):
-        docs = CSVLoader(os.path.join(db_config.get("csv_path", "data_store/csv"), filename), encoding='utf-8').load()
-        for d in docs: d.metadata["file_type"] = "csv"
+        docs = CSVLoader(
+            os.path.join(
+                db_config.get("csv_path", "data_store/csv"),
+                filename
+            ),
+            encoding="utf-8"
+        ).load()
+
+        for d in docs:
+            d.metadata["file_type"] = "csv"
+
+    elif filename.endswith(".xlsx"):
+        filepath = os.path.join(
+            db_config.get("excel_path", "data_store/excel"),
+            filename
+        )
+
+        docs = load_special_excel(filepath)
+
     return docs
 
 def delete_document(filename):
-    for path in [db_config["word_path"], db_config["pdf_path"], db_config.get("csv_path", "data_store/csv")]:
+    for path in [db_config["word_path"], db_config["pdf_path"], db_config.get("csv_path", "data_store/csv"),db_config.get("excel_path", "data_store/excel")]:
         filepath = os.path.join(path, filename)
         if os.path.exists(filepath): os.remove(filepath); return True
     return False
@@ -120,6 +183,104 @@ class MyPyWordLoader:
                     text = "\n".join([p.text for p in document.paragraphs if p.text.strip()])
                     if text.strip(): docx_documents.append(LC_Document(page_content=text, metadata={"source": file, "file_type": "docx"}))
         return docx_documents
+
+
+def load_special_excel(file_path):
+    """Nạp file Excel thành Document"""
+    documents = []
+
+    if file_path.endswith(".csv"):
+        df = pd.read_csv(file_path)
+    else:
+        df = pd.read_excel(file_path)
+
+    print(f"\nĐang đọc: {file_path}")
+    print("Columns:", df.columns.tolist())
+    print("Rows:", len(df))
+
+    # chuẩn hóa tên cột
+    df.columns = [str(c).strip().lower() for c in df.columns]
+
+    TOPIC_MAP = {0: "Body Part", 1: "Disease", 2: "Drug", 3: "Medicine"}
+
+    for _, row in df.iterrows():
+
+        # ── Bộ đề sản khoa (medical_exam) ──────────────────────────
+        if {"medical_topic", "question", "options", "answer"}.issubset(df.columns):
+
+            content = (
+                f"Chuyên khoa: {row.get('medical_topic', '')}. "
+                f"Câu hỏi: {row.get('question', '')}. "
+                f"Các lựa chọn: {row.get('options', '')}. "
+                f"Đáp án: {row.get('answer', '')}."
+            )
+
+            metadata = {
+                "source": os.path.basename(file_path),
+                "file_type": "medical_exam"
+            }
+
+        # ── ViMedAQA format — CÓ CỘT context (Bo_De_Me_Va_Be.xlsx) ─
+        # Ưu tiên trước FAQ vì có context đầy đủ hơn nhiều
+        elif {"question", "answer", "context"}.issubset(df.columns):
+
+            topic_id   = row.get("topic", "")
+            topic_name = TOPIC_MAP.get(int(topic_id), "Y khoa") if str(topic_id).isdigit() else str(topic_id)
+            title      = str(row.get("title", "")).strip()
+            keyword    = str(row.get("keyword", "")).strip()
+            question   = str(row.get("question", "")).strip()
+            answer     = str(row.get("answer", "")).strip()
+            context    = str(row.get("context", "")).strip()
+
+            # Bỏ qua hàng rỗng
+            if not question or not context:
+                continue
+
+            content = (
+                f"Chủ đề: {topic_name}. "
+                + (f"Tiêu đề: {title}. " if title and title != "nan" else "")
+                + (f"Từ khoá: {keyword}. " if keyword and keyword != "nan" else "")
+                + f"Câu hỏi: {question}. "
+                + f"Trả lời: {answer}. "
+                + f"Ngữ cảnh: {context}"
+            )
+
+            metadata = {
+                "source"   : os.path.basename(file_path),
+                "file_type": "vimedaqa",
+                "topic"    : topic_name,
+                "title"    : title,
+            }
+
+        # ── FAQ thông thường — chỉ có question + answer ─────────────
+        elif {"question", "answer"}.issubset(df.columns):
+
+            content = (
+                f"Câu hỏi: {row.get('question', '')}. "
+                f"Trả lời: {row.get('answer', '')}."
+            )
+
+            metadata = {
+                "source": os.path.basename(file_path),
+                "file_type": "faq"
+            }
+
+        else:
+            print(
+                f"⚠ Không nhận diện được cấu trúc file: "
+                f"{os.path.basename(file_path)}"
+            )
+            continue
+
+        documents.append(
+            LC_Document(
+                page_content=content,
+                metadata=metadata
+            )
+        )
+
+    return documents
+
 
 def create_vectordb_with_file(pdf_path=db_config["pdf_path"], word_path=db_config["word_path"], csv_path=db_config.get("csv_path", "data_store/csv"), chunk_size=db_config["database_config"]["chunk_size"], chunk_overlap=db_config["database_config"]["chunk_overlap"], db_path=db_config["database_path"]):
     os.makedirs(pdf_path, exist_ok=True); os.makedirs(word_path, exist_ok=True); os.makedirs(csv_path, exist_ok=True)
@@ -138,7 +299,42 @@ def create_vectordb_with_file(pdf_path=db_config["pdf_path"], word_path=db_confi
         clean_text = "\n".join(lines).strip()
         if len(clean_text) > 50: csv_documents.append(LC_Document(page_content=clean_text, metadata={**doc.metadata, "file_type": "csv"}))
 
-    documents = pdf_documents + word_documents + csv_documents
+    # Load Excel đặc biệt
+    excel_path = db_config.get("excel_path", "data_store/excel")
+    
+    special_docs = []
+
+    print("========== EXCEL DEBUG ==========")
+
+    excel_path = db_config.get("excel_path", "data_store/excel")
+    print("Excel path:", excel_path)
+    print("Exists:", os.path.exists(excel_path))
+
+    if os.path.exists(excel_path):
+
+        for root, dirs, files in os.walk(excel_path):
+
+            for file in files:
+
+                if file.endswith(".xlsx") and not file.startswith("~$"):
+
+                    full_path = os.path.join(root, file)
+
+                    special_docs.extend(
+                        load_special_excel(full_path)
+                    )
+
+                    print(f"Đã nạp file Excel: {file}")
+                    print("Found Excel:", file)
+            
+    print("Số document Excel:", len(special_docs))
+
+    documents = (
+    pdf_documents
+    + word_documents
+    + csv_documents
+    + special_docs
+    )
     if not documents: print("Không tìm thấy tài liệu!"); return
 
     final_clean_documents = []
@@ -147,25 +343,52 @@ def create_vectordb_with_file(pdf_path=db_config["pdf_path"], word_path=db_confi
         if len(cleaned_text) > 50: final_clean_documents.append(LC_Document(page_content=cleaned_text, metadata=doc.metadata))
             
     # Tăng size và overlap để không bị cắt xẻ các bảng y khoa
-    chunks = RecursiveCharacterTextSplitter(
-        chunk_size=1000,      
-        chunk_overlap=200     
-    ).split_documents(final_clean_documents)
+    splitter = RecursiveCharacterTextSplitter(
+        chunk_size=2000,
+        chunk_overlap=400
+    )
 
-    # Clean noise VÀ lưu text đã clean
-    cleaned_chunks = []
-    for c in chunks:
-        cleaned_text = clean_chunk_text(c.page_content)
-        if len(cleaned_text.strip()) >= 100:
-            cleaned_chunks.append(LC_Document(
-                page_content=cleaned_text,
-                metadata=c.metadata
-            ))
-    print(f"Chunks sau lọc: {len(cleaned_chunks)}")
+    final_chunks = []
 
-    db = FAISS.from_documents(documents=cleaned_chunks, embedding=load_embedding())
+    for doc in final_clean_documents:
+
+        # FAQ, ViMedAQA hoặc bộ đề y khoa giữ nguyên 1 document (không split)
+        if doc.metadata.get("file_type") in ["medical_exam", "faq", "vimedaqa"]:
+            cleaned_text = clean_chunk_text(doc.page_content)
+
+            if len(cleaned_text.strip()) >= 50:
+                final_chunks.append(
+                    LC_Document(
+                        page_content=cleaned_text,
+                        metadata=doc.metadata
+                    )
+                )
+
+        # Các tài liệu khác mới chia chunk
+        else:
+            chunks = splitter.split_documents([doc])
+
+            for c in chunks:
+                cleaned_text = clean_chunk_text(c.page_content)
+
+                if len(cleaned_text.strip()) >= 50:
+                    final_chunks.append(
+                        LC_Document(
+                            page_content=cleaned_text,
+                            metadata=c.metadata
+                        )
+                    )
+
+    print(f"Chunks sau lọc: {len(final_chunks)}")
+
+    db = FAISS.from_documents(
+        documents=final_chunks,
+        embedding=load_embedding()
+    )
+
     db.save_local(db_path)
-    print(f"Đã tạo FAISS DB với {len(cleaned_chunks)} đoạn (Đã gắn thẻ file_type).")
+
+    print(f"Đã tạo FAISS DB với {len(final_chunks)} đoạn (Đã gắn thẻ file_type).")
 
 def load_vector_db(db_path=db_config["database_path"]):
     global _vector_db_cache
@@ -187,18 +410,19 @@ def detect_query_priority(question):
 def smart_retrieve(question, llm, k=5, score_threshold=100.0):
     db = load_vector_db()
 
+    # ── Tăng fetch_k để có pool lớn hơn, đặc biệt cho câu hỏi định lượng ──
     retriever = db.as_retriever(
         search_type="mmr",
         search_kwargs={
             "k": k,
-            "fetch_k": 20,         
-            "lambda_mult": 0.6     
+            "fetch_k": 30,         # tăng từ 20 → 30
+            "lambda_mult": 0.7     # tăng từ 0.6 → 0.7 (ưu tiên relevance hơn diversity)
         }
     )
 
     results = retriever.invoke(question)
 
-    # ── THÊM ĐOẠN NÀY: keyword overlap filter ──
+    # ── Keyword overlap filter — dùng filtered thay vì bỏ qua nó ──
     question_words = set(question.lower().split())
     filtered = [
         doc for doc in results
@@ -207,14 +431,14 @@ def smart_retrieve(question, llm, k=5, score_threshold=100.0):
     # fallback nếu không có doc nào vượt ngưỡng
     if not filtered:
         filtered = results
-    # ── KẾT THÚC ĐOẠN THÊM ──
 
     all_results = []
     seen_contents = set()
 
-    for doc in results:
+    # ── Dùng filtered (đã fix bug: trước đây loop trên results, không phải filtered) ──
+    for doc in filtered:
         content = str(doc.page_content)
-        content_hash = hash(content[:200]) 
+        content_hash = hash(content[:200])
         
         if content_hash not in seen_contents:
             seen_contents.add(content_hash)

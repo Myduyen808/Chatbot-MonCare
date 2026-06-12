@@ -1,0 +1,1023 @@
+﻿question,answer,ground_truth
+Trẻ sơ sinh được định nghĩa là trẻ trong độ tuổi nào,Trẻ sơ sinh được định nghĩa là trẻ trong độ tuổi 0-28 ngày tuổi.,Trẻ sơ sinh là trẻ từ khi lọt lòng mẹ đến 28 ngày tuổi.
+"Trong ngày đầu sau sinh, cần giữ ấm cho trẻ bằng cách nào","Để giữ ấm cho trẻ trong ngày đầu sau sinh, bạn nên thực hiện các bước sau:
+
+- Duy trì nhiệt độ môi trường thích hợp: Tổ chức Y tế thế giới khuyến cáo nhiệt độ phòng sinh tối thiểu là 25°C đến 28°C.
+- Trẻ sơ sinh được lau khô ngay lập tức sau sinh, sử dụng biện pháp da kề da với người mẹ.
+- Trẻ sinh non bị hạ thân nhiệt khi được đưa vào đơn vị chăm sóc đặc biệt dành cho trẻ sơ sinh sẽ đã tăng tỷ lệ mắc bệnh và tử vong. Khi tăng nhiệt độ trong các phòng sinh và phòng phẫu thuật đã cho thấy sẽ giảm tỷ lệ hạ thân nhiệt khi nhập khoa chăm sóc đặc biệt.
+- Viện hàn lâm Nhi khoa Hoa Kỳ (American Academy of Pediatrics) và Hội Tim mạch học Hoa Kỳ (American College of Cardiology/ACC) khuyến cáo các phòng sinh và phẫu thuật (đặc biệt là trẻ sinh non) có nhiệt độ từ 23°C đến 25°C.
+- Sau khi sinh, trẻ sơ sinh nên được lau khô ngay lập tức và sau đó quấn tã (bao gồm cả đầu) trong một chiếc chăn ấm để tránh bay hơi, dẫn nhiệt và mất nhiệt đối lưu.
+- Đối với trẻ sinh non, việc đặt vào túi polyetylen ngay sau khi sinh đã được nghiên cứu cho thấy để giúp duy trì nhiệt độ của trẻ.
+
+ *Lưu ý: Mẹ nên đưa bé đến cơ sở y tế để được thăm khám trực tiếp.*",Giữ ấm cho trẻ bằng cách cho nằm cùng mẹ.
+Sau khi sinh bao lâu thì mới được tắm hoặc rửa cho trẻ,"Theo tài liệu, sau 24 giờ sau sinh, các hộ sinh thường là người tắm cho trẻ trước. Sau đó, khi ra viện hoặc là những người thân sẽ là người thường xuyên phải tắm rửa vệ sinh cho các trẻ. Trước khi tắm phải chuẩn bị đầy đủ đồ dùng như tã, bỉm, quần áo, khăn lau. Nên tắm bé mỗi ngày.
+
+Chuẩn bị nước tắm ấm vừa đủ cho trẻ, không quá 37 độ, có thể dùng đo nhiệt độ để đảm bảo nhiệt độ phù hợp cho bé. Đổ nước vào chậu tắm. Cởi bỏ áo tã mũ, rồi quấn bé trong khăn bông lớn, chỉ chừa phần đầu và mặt. Dùng khăn vải màn thấm nước ấm lau sạch mí mắt, khóe mắt từ trong ra ngoài, lau miệng, sau tai và dưới cằm rồi lau rửa mặt. Gội đầu bằng dầu gội dành riêng cho trẻ. Tránh để xà phòng rơi vào mắt và nước vào tai trẻ. Tắm mình dùng sữa tắm giành cho trẻ để tắm, làm sạch các gấp, nhưng không làm ướt rốn, lau bàn tay và bàn chân và các kẽ ngón. Tắm vùng sinh dục và hậu môn sau cùng. Ở trẻ gái lau vùng sinh dục từ trước ra sau.",Không tắm hoặc rửa cho trẻ trong 6 giờ đầu sau sinh.
+Trẻ nên được bú mẹ lần đầu vào thời điểm nào sau sinh,"Trẻ sơ sinh nên được bú mẹ lần đầu vào thời điểm ngay sau sinh, càng sớm càng tốt. Theo tài liệu, trẻ cần được tiếp xúc da kề da và bú sớm trong vòng 1 giờ đầu sau sinh (Tài liệu 1). Điều này giúp trẻ tận dụng sữa non và tăng cường sức khỏe và sự phát triển của trẻ (Tài liệu 5).",Cho trẻ bú mẹ ngay trong vòng 1 giờ đầu sau sinh và cho bú theo nhu cầu của trẻ.
+"Tại cơ sở y tế, trẻ sơ sinh cần được tiêm các loại vắc xin nào ngay","Trẻ sơ sinh cần được tiêm các loại vắc xin sau ngay tại cơ sở y tế:
+
+- BCG (vắc xin phòng bệnh lao)
+- Viêm gan B (vắc xin phòng bệnh viêm gan B)
+
+Theo tài liệu 3, tại tuyến xã, trẻ sơ sinh cần được tiêm BCG và viêm gan B ngay tại cơ sở y tế.","Trẻ cần được tiêm bắp vitamin K1, tiêm phòng Lao(BCG) và viêm gan B."
+Gia đình cần theo dõi những bộ phận nào của trẻ sơ sinh tại nhà,"Gia đình cần theo dõi những bộ phận sau của trẻ sơ sinh (0-28 ngày tuổi) tại nhà:
+
+- Hô hấp: Theo dõi nhịp thở, màu sắc da, kiểu thở của trẻ. Trẻ sơ sinh có nhịp thở bình thường 40-60 l/phút, trẻ thở đều, nếu thấy trẻ thở nhanh hơn 60l/p hoặc thở chậm hơn 40l/phút, hoặc thở không đều, khò khè hoặc co kéo lồng ngực là bất thường.
+
+- Thân nhiệt: Quan sát màu sắc da của trẻ: Bình thường da trẻ hồng, môi và đầu chi hồng. Nếu thấy da trẻ tái, nhợt hoặc tím cần đưa trẻ đến cơ sở y tế.
+
+- Dinh dưỡng: Theo dõi trẻ có bú được hay không, có ăn uống đầy đủ không.
+
+- Vệ sinh da, mắt, rốn: Vệ sinh da, mắt, rốn của trẻ thường xuyên.
+
+- Tiêm chủng: Tiêm chủng theo lịch, tái khám theo hẹn của bác sĩ.
+
+- Suy hô hấp: Theo dõi trẻ có dấu hiệu suy hô hấp như thở nhanh, thở không đều, khò khè hoặc co kéo lồng ngực.
+
+- Ngừng thở: Kích thích trẻ thở nếu trẻ có cơn ngừng thở ngắn <15s, nếu cơn ngừng thở >15s, trẻ tím tái, hoặc cơn ngừng thở ngắn nhưng liên tục, cần đưa trẻ đến khám tại cơ sở y tế.
+
+- Nhiễm khuẩn: Theo dõi trẻ có dấu hiệu nhiễm khuẩn như sốt, ho, chảy nước mũi.
+
+- Hạ thân nhiệt: Chăm sóc trẻ bằng phương pháp Kangaroo, giường sưởi, lồng ấp nếu trẻ có dấu hiệu hạ thân nhiệt.
+
+- Hạ đường huyết: Theo dõi trẻ có dấu hiệu hạ đường huyết như da nhợt, mệt mỏi.
+
+- Vàng da: Theo dõi trẻ có dấu hiệu vàng da, cần chiếu đèn nếu thấy trẻ có dấu hiệu vàng da.
+
+- Nhiễm khuẩn đường hô hấp: Theo dõi trẻ có dấu hiệu nhiễm khuẩn đường hô hấp như sốt, ho, chảy nước mũi.
+
+- Suy hô hấp nặng: Theo dõi trẻ có dấu hiệu suy hô hấp nặng như thở nhanh, thở không đều, khò khè hoặc co kéo lồng ngực.
+
+- Bệnh nhiễm khuẩn không đáp ứng với điều trị: Theo dõi trẻ có dấu hiệu bệnh nhiễm khuẩn không đáp ứng với điều trị như sốt, ho, chảy nước mũi.
+
+- Dị tật bẩm sinh: Theo dõi trẻ có dấu hiệu dị tật bẩm sinh như dị tật tim, dị tật phổi.
+
+- Suy hô hấp nặng: Theo dõi trẻ có dấu hiệu suy hô hấp nặng như thở nhanh, thở không đều, khò khè hoặc co kéo lồng ngực.
+
+- Bệnh nhiễm khuẩn không đáp ứng với điều trị: Theo dõi trẻ có dấu hiệu bệnh nhiễm khuẩn không đáp ứng với điều trị như sốt, ho, chảy nước mũi.
+
+- Dị tật bẩm sinh: Theo dõi trẻ có dấu hiệu dị tật bẩm sinh như dị tật tim, dị tật phổi.
+
+- Suy hô hấp nặng: Theo dõi trẻ có dấu hiệu suy hô hấp nặng như thở nhanh, thở không đều, khò khè hoặc co kéo lồng ngực.
+
+- Bệnh nhiễm khuẩn không đáp ứng với điều trị: Theo dõi trẻ có dấu hiệu bệnh nhiễm khuẩn không đáp ứng với điều trị như sốt, ho, chảy nước mũi.
+
+- Dị tật bẩm sinh: Theo dõi trẻ có dấu hiệu dị tật bẩm sinh như dị tật tim, dị tật phổi.
+
+- Suy hô hấp nặng: Theo dõi trẻ có dấu hiệu suy hô hấp nặng như thở nhanh, thở không đều, khò khè hoặc co kéo lồng ngực.
+
+- Bệnh nhiễm khuẩn không đáp ứng với điều trị: Theo dõi trẻ có dấu hiệu bệnh nhiễm khuẩn không đáp ứng với điều trị như sốt, ho, chảy nước mũi.
+
+- Dị tật bẩm sinh: Theo dõi trẻ có dấu hiệu dị tật bẩm sinh như dị tật tim, dị tật phổi.
+
+- Suy hô hấp nặng: Theo dõi trẻ có dấu hiệu suy hô hấp nặng như thở nhanh, thở không đều, khò khè hoặc co kéo lồng ngực.
+
+- Bệnh nhiễm khuẩn không đáp ứng với điều trị: Theo dõi trẻ có dấu hiệu bệnh nhiễm khuẩn không đáp ứng với điều trị như sốt, ho, chảy nước mũi.
+
+- Dị tật bẩm sinh: Theo dõi trẻ có dấu hiệu dị tật bẩm sinh như dị tật tim, dị tật phổi.
+
+- Suy hô hấp nặng: Theo dõi trẻ có dấu hiệu suy hô hấp nặng như thở nhanh, thở không đều, khò khè hoặc co kéo lồng ngực.
+
+- Bệnh nhiễm khuẩn không đáp ứng với điều trị: Theo dõi trẻ có dấu hiệu bệnh nhiễm khuẩn không đáp ứng với điều trị như sốt, ho, chảy nước mũi.
+
+- Dị tật bẩm sinh: Theo dõi trẻ có dấu hiệu dị tật bẩm sinh như dị tật tim, dị tật phổi.
+
+- Suy hô hấp nặng: Theo dõi trẻ có dấu hiệu suy hô hấp nặng như thở nhanh, thở không đều, khò khè hoặc co kéo lồng ngực.
+
+- Bệnh nhiễm khuẩn không đáp ứng với điều trị: Theo dõi trẻ có dấu hiệu bệnh nhiễm khuẩn không đáp ứng với điều trị như sốt, ho, chảy nước mũi.
+
+- Dị tật bẩm sinh: Theo dõi trẻ có dấu hiệu dị tật bẩm sinh như dị tật tim, dị tật phổi.
+
+- Suy hô hấp nặng: Theo dõi trẻ có dấu hiệu suy hô hấp nặng như thở nhanh, thở không đều, khò khè hoặc co kéo lồng ngực.
+
+- Bệnh nhiễm khuẩn không đáp ứng với điều trị: Theo dõi trẻ có dấu hiệu bệnh nhiễm khuẩn không đáp ứng với điều trị như sốt, ho, chảy nước mũi.
+
+- Dị tật bẩm sinh: Theo dõi trẻ có dấu hiệu dị tật bẩm sinh như dị tật tim, dị tật phổi.
+
+- Suy hô hấp nặng: Theo dõi trẻ có dấu hiệu suy hô hấp nặng như thở nhanh, thở không đều, khò khè hoặc co kéo lồng ngực.
+
+- Bệnh nhiễm khuẩn không đáp ứng với điều trị: Theo dõi trẻ có dấu hiệu bệnh nhiễm khuẩn không đáp ứng với điều trị như sốt, ho, chảy nước mũi.
+
+- Dị tật bẩm sinh: Theo dõi trẻ có dấu hiệu dị tật bẩm sinh như dị tật tim, dị tật phổi.
+
+- Suy hô hấp nặng: Theo dõi trẻ có dấu hiệu suy hô hấp nặng như thở nhanh, thở không đều, khò khè hoặc co kéo lồng ngực.
+
+- Bệnh nhiễm khuẩn không đáp ứng với điều trị: Theo dõi trẻ có dấu hiệu bệnh nhiễm khuẩn không đáp ứng với điều trị như sốt, ho, chảy nước mũi.
+
+- Dị tật bẩm sinh: Theo dõi trẻ có dấu hiệu dị tật bẩm sinh như dị tật tim, dị tật phổi.
+
+- Suy hô hấp nặng: Theo dõi trẻ có dấu hiệu suy hô hấp nặng như thở nhanh, thở không đều, khò khè hoặc co kéo lồng ngực.
+
+- Bệnh nhiễm khuẩn không đáp ứng với điều trị: Theo dõi trẻ có dấu hiệu bệnh nhiễm khuẩn không đáp ứng với điều trị như sốt, ho, chảy nước mũi.
+
+- Dị tật bẩm sinh: Theo dõi trẻ có dấu hiệu dị tật bẩm sinh như dị tật tim, dị tật phổi.
+
+- Suy hô hấp nặng: Theo dõi trẻ có dấu hiệu suy hô hấp nặng như thở nhanh, thở không đều, khò khè hoặc co kéo lồng ngực.
+
+- Bệnh nhiễm khuẩn không đáp ứng với điều trị: Theo dõi trẻ có dấu hiệu bệnh nhiễm khuẩn không đáp ứng với điều trị như sốt, ho, chảy nước mũi.
+
+- Dị tật bẩm sinh: Theo dõi trẻ có dấu hiệu dị tật bẩm sinh như dị tật tim, dị tật phổi.
+
+- Suy hô hấp nặng: Theo dõi trẻ có dấu hiệu suy hô hấp nặng như thở nhanh, thở không đều, khò khè hoặc co kéo lồng ngực.
+
+- Bệnh nhiễm khuẩn không đáp ứng với điều trị: Theo dõi trẻ có dấu hiệu bệnh nhiễm khuẩn không đáp ứng với điều trị như sốt, ho, chảy nước mũi.
+
+- Dị tật bẩm sinh: Theo dõi trẻ có dấu hiệu dị tật bẩm sinh như dị tật tim, dị tật phổi.
+
+- Suy hô hấp nặng: Theo dõi trẻ có dấu hiệu suy hô hấp nặng như thở nhanh, thở không đều, khò khè hoặc co kéo lồng ngực.
+
+- Bệnh nhiễm khuẩn không đáp ứng với điều trị: Theo dõi trẻ có dấu hiệu bệnh nhiễm khuẩn không đáp ứng với điều trị như sốt, ho, chảy nước mũi.
+
+- Dị tật bẩm sinh: Theo dõi trẻ có dấu hiệu dị tật bẩm sinh như dị tật tim, dị tật phổi.
+
+- Suy hô hấp nặng: Theo dõi trẻ có dấu hiệu suy hô hấp nặng như","Gia đình và bà mẹ cần theo dõi về nhịp thở, màu da, rốn, bàn chân, tiểu tiện và
+phân su của trẻ."
+Thế nào là nuôi con bằng sữa mẹ hoàn toàn,"Nuôi con bằng sữa mẹ hoàn toàn là một phương pháp chăm sóc sức khỏe và phát triển tốt nhất cho trẻ sơ sinh. Theo Tổ chức Y tế Thế giới, sữa mẹ là nguồn dinh dưỡng quý giá nhất giúp cho trẻ sơ sinh chống lại bệnh tật đồng thời tăng cường sức khỏe và sự phát triển của trẻ.
+
+Lợi ích của nuôi con bằng sữa mẹ hoàn toàn:
+
+- Giúp trẻ chống lại bệnh tật: Sữa mẹ chứa các kháng thể giúp trẻ chống lại các bệnh nhiễm khuẩn và virus.
+- Tăng cường sức khỏe: Sữa mẹ chứa các chất dinh dưỡng cần thiết giúp trẻ phát triển khỏe mạnh.
+- Giúp trẻ tăng cân tốt hơn: Sữa mẹ chứa các chất dinh dưỡng giúp trẻ tăng cân nhanh chóng và khỏe mạnh.
+- Giúp trẻ phát triển trí tuệ: Sữa mẹ chứa các chất dinh dưỡng giúp trẻ phát triển trí tuệ và khả năng học hỏi.
+
+Độ tuổi phù hợp để nuôi con bằng sữa mẹ hoàn toàn là từ 0 đến 6 tháng tuổi. Trong giai đoạn này, trẻ cần được bú sữa mẹ thường xuyên để đảm bảo đủ dinh dưỡng và sức khỏe.
+
+Lợi ích của nuôi con bằng sữa mẹ hoàn toàn ở độ tuổi này bao gồm:
+
+- Giúp trẻ phát triển khỏe mạnh: Sữa mẹ chứa các chất dinh dưỡng cần thiết giúp trẻ phát triển khỏe mạnh.
+- Giúp trẻ tăng cân tốt hơn: Sữa mẹ chứa các chất dinh dưỡng giúp trẻ tăng cân nhanh chóng và khỏe mạnh.
+- Giúp trẻ phát triển trí tuệ: Sữa mẹ chứa các chất dinh dưỡng giúp trẻ phát triển trí tuệ và khả năng học hỏi.
+
+Tóm lại, nuôi con bằng sữa mẹ hoàn toàn là một phương pháp chăm sóc sức khỏe và phát triển tốt nhất cho trẻ sơ sinh. Lợi ích của phương pháp này bao gồm giúp trẻ chống lại bệnh tật, tăng cường sức khỏe, giúp trẻ tăng cân tốt hơn và giúp trẻ phát triển trí tuệ. Độ tuổi phù hợp để nuôi con bằng sữa mẹ hoàn toàn là từ 0 đến 6 tháng tuổi.","Cho trẻ bú hoàn toàn bằng sữa mẹ mà không cần ăn thêm bất cứ thứ gì
+khác, kể cả nước tráng miệng sau khi bú. Cho trẻ bú theo nhu cầu cả ngày
+lẫn đêm."
+"Trước khi bế, tắm, thay tã lót cho trẻ hoặc cho trẻ bú, người chăm sóc cần làm gì","Để đảm bảo vệ sinh tay và môi trường sạch sẽ trước khi bế, tắm, thay tã lót cho trẻ hoặc cho trẻ bú, người chăm sóc cần thực hiện các biện pháp sau:
+
+- Rửa tay sạch bằng xà phòng và nước sạch, theo quy trình rửa tay 6 bước của Bộ Y tế. Điều này giúp loại bỏ vi khuẩn và các tác nhân gây bệnh trên tay.
+
+- Trước khi bế, tắm, thay tã lót cho trẻ hoặc cho trẻ bú, người chăm sóc nên mặc quần áo, đi dép của bệnh viện để tránh lây nhiễm bệnh cho trẻ.
+
+- Khi thăm trẻ, người chăm sóc nên rửa tay sạch, mặc quần áo, đi dép của bệnh viện và chỉ thăm người nhà của mình, không tiếp xúc với các trẻ khác trong buồng bệnh.
+
+- Người chăm sóc nên chuẩn bị và tính trước để ngăn chặn những thương tích nghiêm trọng cho trẻ. Điều này bao gồm việc loại bỏ những nguy hiểm có thể có trong nhà của mình và khi bạn đi ra ngoài.
+
+- Người chăm sóc nên ở gần bên trẻ, đặc biệt là khi trẻ dưới 1 tuổi, để có thể trông chừng trẻ và nhanh chóng tiếp cận trẻ trong bất cứ trường hợp nào.
+
+- Người chăm sóc nên sớm dạy con về sự an toàn và nói cho trẻ biết cái gì an toàn và cái gì không an toàn.
+
+- Người chăm sóc nên giữ an toàn cho chính mình để trẻ có thể học từ bạn.
+
+- Người chăm sóc nên chuẩn bị sẵn sàng trong trường hợp trẻ bị tai nạn/thương tích, bao gồm việc giữ cho trẻ được an toàn và gần như mọi tai nạn, thương tích đều có thể được ngăn chặn.
+
+- Người chăm sóc nên tắm trẻ mỗi ngày, chuẩn bị nước tắm ấm vừa đủ cho trẻ, và tắm vùng sinh dục và hậu môn sau cùng.",Rửa tay bằng xà phòng và nước sạch.
+Liệt kê các dấu hiệu nguy hiểm ở trẻ sơ sinh cần đi khám ngay?,"Dưới đây là các dấu hiệu nguy hiểm ở trẻ sơ sinh (0-28 ngày tuổi) cần đi khám ngay:
+
+- Rét run
+- Xuất huyết
+- Co giật
+- Khó thở
+- Người tím tái
+- Li bì
+
+Những dấu hiệu này có thể là dấu hiệu của các bệnh lý nghiêm trọng như viêm phổi, đường tiết niệu, tai hoặc các nhiễm khuẩn máu hay viêm màng não, sốt xuất huyết, sốt sau khi tiêm phòng, hoặc sốt do ăn mặc quá ấm hoặc dành quá nhiều thời gian bên ngoài trong một ngày nắng nóng. Vì vậy, nếu thấy bé có bất kỳ dấu hiệu nào trên, cần nhanh chóng đưa trẻ đến bệnh viện để được kiểm tra và điều trị kịp thời.","Sau khi trẻ sinh ra, bà mẹ và gia đình cần theo dõi và phát hiện sớm các dấu hiệu nguy hiểm ở trẻ sơ sinh (trẻ từ khi sinh ra cho đến 28 ngày tuổi) như: Bú kém hoặc bỏ bú, ngủ li bì khó đánh thức, Thở khác thường (thở chậm dưới 40 lần hoặc thở nhanh trên 60 lần trong 1 phút, co rút lồng ngực, cánh mũi phập phồng, khò khè), Sốt cao (trên 38,5 độ C) hoặc hạ nhiệt độ (dưới 36 độ C), co cứng hoặc co giật,  mắt sưng đỏ hoặc có mủ nhiều, rốn sưng đỏ hoặc chảy mủ, Da vàng sau đẻ 24 giờ hoặc kéo dài hơn 2 tuần hoặc da vàng đậm, Nôn liên tục, bụng chướng, Đi ỉa nhiều nước, nhiều lần hơn bình thường, Trẻ không đái, ỉa sau 24 giờ sau khi sinh."
+Cách xử trí tại nhà khi trẻ sơ sinh bị sốt cao?,"Khi trẻ sơ sinh bị sốt cao, cần thực hiện các bước sau:
+
+- Đo nhiệt độ cho trẻ để xác định xem trẻ có sốt không (trẻ sốt nếu thân nhiệt từ 38 độ C trở lên).
+- Mặc quần áo mỏng cho trẻ, không được quấn trẻ trong chăn.
+- Đảm bảo phòng không quá nóng.
+- Không cho trẻ chườm đá hoặc tắm lạnh để hạ sốt vì chúng có thể gây ra hiện tượng co mạch và làm trẻ sốt cao hơn.
+- Chỉ cho trẻ uống thuốc hạ sốt trong trường hợp khi trẻ bị sốt trên 38.5 độ C, và khi trẻ cáu kỉnh hoặc khó chịu. Tham khảo liều lượng theo yếu tố cân nặng và chiều cao của trẻ.
+
+Nếu trẻ có các vấn đề khác ngoài sốt, ví dụ như cứng cổ, nôn, tiêu chảy, đau tai, phát ban hoặc co giật, li bì, cần gọi trợ giúp y tế ngay lập tức.
+
+Cụ thể, cần gọi trợ giúp y tế nếu trẻ:
+
+- Dưới 6 tháng tuổi và bị sốt.
+- Trên 6 tháng tuổi và bị sốt kéo dài hơn 48 giờ.
+- Có các vấn đề khác ngoài sốt.","Lau người bằng khăn ấm, đắp khăn ấm để hạ nhiệt và đưa ngay đến cơ sở y tế."
+Sữa non là gì và có lợi ích như thế nào?,"Sữa non, còn được gọi là ""sữa đầu"", là món quà quý giá nhất cho em bé mới sinh. Sữa non giúp bảo vệ bé khỏi bệnh tật và giúp bé thải ra phân su. Sữa non có nhiều năng lượng, chất đạm, nhiều vitamin A, kháng thể và tế bào bạch cầu. Nó có tác dụng xổ nhẹ giúp trẻ thải phân su và là thức ăn tốt nhất cho trẻ trong tuần đầu.
+
+Sữa non có đặc điểm sau:
+
+- Bài tiết trong vài ngày đầu sau đẻ
+- Sữa non sánh đặc có màu vàng nhạt hoặc trong
+- Nhiều năng lượng, chất đạm, nhiều vitamin A, kháng thể và tế bào bạch cầu
+- Có tác dụng xổ nhẹ giúp trẻ thải phân su
+- Là thức ăn tốt nhất cho trẻ trong tuần đầu, đã có sẵn ở vú mẹ ngay khi sinh
+
+Sữa non có lợi ích như sau:
+
+- Bảo vệ bé khỏi bệnh tật
+- Giúp bé thải ra phân su
+- Là thức ăn tốt nhất cho trẻ trong tuần đầu
+- Có sẵn ở vú mẹ ngay khi sinh
+
+Vì vậy, không nên bỏ sữa non đi, hãy cho em bé bú sữa non. Trẻ phải được bú mẹ trong vòng 1 giờ đầu sau sinh dù được sinh tại nhà hay cơ sở y tế. Cho bé bú thường xuyên sẽ giúp mẹ ""tăng tiết sữa"" và đảm bảo mẹ có nhiều sữa cho bé bú.","Sữa non là sữa tiết ra trong vài ngày đầu sau sinh, có nhiều chất dinh
+dưỡng và giúp bảo vệ trẻ không bị bệnh tật."
+Việc cho con bú ngay trong vòng một giờ đầu sau sinh có lợi gì cho người mẹ?,"Theo tài liệu, việc cho con bú ngay trong vòng một giờ đầu sau sinh có nhiều lợi ích cho cả mẹ và bé. Dưới đây là một số lợi ích được đề cập:
+
+- **Lợi ích cho bé:**
+
+ + Giúp trẻ được bú sữa mẹ sớm (trong vòng 90 phút sau đẻ), giúp trẻ tăng cân tốt hơn, ít bị cương tắc sữa và không vắt bỏ sữa non.
+ + Sữa non có nhiều lợi ích cho trẻ, bao gồm giúp trẻ tăng cân tốt hơn, giảm nguy cơ mắc bệnh và tăng cường sức khỏe.
+
+- **Lợi ích cho mẹ:**
+
+ + Tạo niềm tin là tất cả bà mẹ đều có thể nuôi con bằng sữa mẹ.
+ + Giúp mẹ dễ chăm sóc, theo dõi con, trẻ ít khóc hơn và thời gian bú mẹ được lâu hơn.
+ + Hướng dẫn mẹ cho con bú đúng, bao gồm tư thế cho bú đúng và trẻ bú có hiệu quả.
+
+- **Lợi ích chung:**
+
+ + Giúp trẻ được bú sữa mẹ hoàn toàn trong 6 tháng đầu, giảm nguy cơ mắc bệnh và tăng cường sức khỏe.
+ + Tăng cường sự gắn kết giữa mẹ và con, giúp mẹ cảm thấy tự tin và thoải mái hơn khi chăm sóc con.
+
+Tóm lại, việc cho con bú ngay trong vòng một giờ đầu sau sinh có nhiều lợi ích cho cả mẹ và bé, bao gồm giúp trẻ tăng cân tốt hơn, giảm nguy cơ mắc bệnh, tăng cường sức khỏe và sự gắn kết giữa mẹ và con.
+
+ *Lưu ý: Mẹ nên đưa bé đến cơ sở y tế để được thăm khám trực tiếp.*","Giúp mẹ con gắn bó tình cảm, động tác mút vú làm cho sữa mẹ về nhanh hơn, tử cung co hồi tốt và giảm nguy cơ chảy máu cho bà mẹ."
+Những trường hợp nào bà mẹ không nên cho con bú mà phải dùng sữa thay thế?,"Theo tài liệu, không có thông tin cụ thể về trường hợp nào bà mẹ sau sinh không nên cho con bú mà phải dùng sữa thay thế cho trẻ dưới 6 tháng tuổi. Tuy nhiên, tài liệu chỉ ra rằng trẻ sinh thấp cân thường bú yếu nên cần cho trẻ bú theo nhu cầu và thường xuyên hơn (Tài liệu 1).
+
+Tuy nhiên, tài liệu 2 liệt kê các trường hợp cần vắt sữa, bao gồm:
+
+* Nuôi trẻ nhẹ cân, không thể bú mẹ được
+* Nuôi trẻ bệnh, không thể bú đủ
+
+Điều này gợi ý rằng trong một số trường hợp, trẻ không thể bú mẹ được, nhưng không rõ ràng là những trường hợp nào.
+
+Tài liệu 3 khuyến nghị cho trẻ bú mẹ hoàn toàn trong 6 tháng đầu, nhưng không đề cập đến trường hợp nào không nên cho con bú.
+
+Tài liệu 4 hướng dẫn các bà mẹ cách cho con bú và duy trì nguồn sữa, nhưng không đề cập đến trường hợp nào không nên cho con bú.
+
+Tài liệu 5 không đề cập đến trường hợp nào không nên cho con bú.
+
+Tóm lại, không có thông tin cụ thể về trường hợp nào bà mẹ sau sinh không nên cho con bú mà phải dùng sữa thay thế cho trẻ dưới 6 tháng tuổi.","Bà mẹ có bệnh phải dùng thuốc như ung thư, thuốc về thần kinh, bẹ mẹ có bệnh: suy tim, lao phổi, nhiễm trùng hoặc áp xe vú, bà mẹ bị nghiễm HIV hay xét nghiệm đang nghi ngờ HIV, trẻ có dị tật ở miệng mà không thể bú được."
+Tư thế bú đúng là như thế nào?,"Tư thế bú đúng cho mẹ và bé là rất quan trọng để đảm bảo sự thoải mái và hiệu quả của quá trình cho con bú. Dưới đây là một số tư thế bú đúng được đề xuất:
+
+- Tư thế ngồi: Đặt 1 gối bên dưới để đỡ hai tay bà mẹ (tư thế ngồi) và đặt mỗi trẻ bên dưới 1 cánh tay.
+
+- Tư thế bú thoải mái: Cho bé bú ở bên ngực bị tắc trước, sau đó mới chuyển sang bên ngực còn lại.
+
+- Tư thế bú đúng: Cho bé bú hết từng bên vú để nhận được sữa cuối có nhiều chất béo. Sau đó chuyển sang vú bên kia nếu trẻ còn muốn bú.
+
+- Tư thế massage bầu ngực: Trước khi cho bé bú, mẹ nên dùng khăn ấm để chườm ấm bầu ngực. Đồng thời, massage nhẹ nhàng bầu ngực từ trên xuống dưới và từ ngoài vào trong để lưu thông sữa tốt hơn.
+
+- Tư thế kích thích tia sữa: Nên xoa bóp đầu ti nhẹ nhàng theo vòng tròn nhằm kích thích và khơi thông tia sữa.
+
+- Tư thế hút sữa: Sau khi bé bú xong, mẹ nên hút hết sữa còn lại ra ngoài bằng tay hoặc máy hút sữa chuyên dụng để đảm bảo sữa không còn dư trong bầu ngực gây ứ đọng.","Mẹ nằm hoặc ngồi ở tư thế thoải mái, có thể dùng gối hay chăn gấp kê dưới đầu bé nếu bà mẹ nằm hoặc để dưới cánh tay nếu bà mẹ ngồi. Mặt trẻ hướng vào vú mẹ, mũi trẻ đối diện với núm vú, măt mẹ nhìn vào bé. Toàn thân trẻ sát vào người mẹ, đầu-thân-mông trẻ trên đường thẳng."
+Dấu hiệu nào cho thấy trẻ bú tốt?,"Dấu hiệu cho thấy trẻ sơ sinh dưới 1 tuổi bú tốt bao gồm:
+
+- Trẻ bú có hiệu quả: mút chậm, sâu, thỉnh thoảng dừng lại rồi bú tiếp.
+- Có thể nhìn hoặc nghe thấy tiếng trẻ nuốt.
+- Trẻ tăng cân tốt hơn.
+- Ít bị cương tắc sữa.
+- Không vắt bỏ sữa non, cần cho con bú cả sữa non.
+- Trẻ có biểu hiện đòi bú thường xuyên.
+- Trẻ có biểu hiện no sau khi bú, không đòi bú liên tục.
+
+Tài liệu 4 cũng đề cập đến tầm quan trọng của việc cho trẻ bú sớm và bú sữa mẹ hoàn toàn, và lợi ích của nó đối với sức khỏe và sự phát triển của trẻ.","Miệng trẻ mở rộng ngậm sâu vào quầng thâm vú mẹ, môi dưới trẻ trễ xuống và thấy lưỡi của trẻ giữa bầu vú và môi dưới, trẻ bú dài hơi và sâu. Cằm của trẻ chuyển động theo mỗi lần mút, người mẹ không thấy đau ở đầu vú."
+Sữa mẹ vắt ra có thể bảo quản ở nhiệt độ thường trong bao lâu?,Sữa mẹ vắt ra có thể bảo quản ở nhiệt độ thường trong vòng 2 giờ.,Chỉ nên để sữa lâu nhất khoảng 3 giờ sau khi vắt.
+Tại sao bà mẹ cho con bú không nên kiêng ăn uống và cần nghỉ ngơi?,"Theo tài liệu, bà mẹ cho con bú không nên kiêng ăn uống và cần nghỉ ngơi khi đang cho con bú vì các lý do sau:
+
+- Nghỉ ngơi đầy đủ không có sự gián đoạn bởi các quy trình lâm sàng với sự tiếp cận của thực phẩm và thức uống (Tài liệu 1).
+- Sản phụ nên được hướng dẫn cho bú mẹ và được hỗ trợ để tự tin cho bé bú mẹ (Tài liệu 1).
+- Bà mẹ cần được hướng dẫn và tạo điều kiện để cho con bú thành công ngay trong bữa bú đầu tiên (Tài liệu 2).
+- Bà mẹ cần được hướng dẫn cách nhận biết và cho trẻ bú ngay khi trẻ có dấu hiệu muốn bú (Tài liệu 2).
+- Bà mẹ cần được hướng dẫn cách vắt sữa để thiết lập và duy trì nguồn sữa sau này cho trẻ (Tài liệu 2).
+
+Tóm lại, bà mẹ cho con bú cần được hỗ trợ và hướng dẫn để có thể cho con bú một cách tự tin và hiệu quả. Điều này bao gồm việc không kiêng ăn uống, nghỉ ngơi đầy đủ và được hỗ trợ trong quá trình cho con bú.","Được ăn uống đầy đủ, nghỉ ngơi hợp lý giúp bà mẹ có sức khoẻ tốt và có
+đủ sữa để nuôi con."
+Mẹ sau sinh cần bổ sung Vitamin A với liều lượng bao nhiêu?,"Theo tài liệu, các loại rau xanh như cải bó xôi, cải cầu vồng và súp lơ xanh chứa nhiều vitamin A rất tốt cho mẹ và em bé. Ngoài ra, rau củ còn là nguồn canxi, vitamin C và sắt rất dồi dào. Đây cũng là nhóm thực phẩm cho mẹ sau sinh rất tốt vì rau củ chứa rất nhiều chất chống oxy hóa có lợi cho tim mà lại ít calo.
+
+Tuy nhiên, tài liệu không đề cập cụ thể về liều lượng Vitamin A mà mẹ sau sinh cần bổ sung. Để đảm bảo sức khỏe và sự phát triển của em bé, mẹ nên tham khảo ý kiến của bác sĩ hoặc chuyên gia dinh dưỡng để được tư vấn cụ thể về chế độ ăn uống và bổ sung dinh dưỡng phù hợp.","Sau khi sinh bà mẹ cần uống 1 liều vitamin A 200.000 đơn vị để cung cấp
+đủ vitamin A trong sữa mẹ cho trẻ."
+Khi nào thì trẻ bắt đầu bước vào giai đoạn ăn bổ sung (ăn dặm)?,"Theo Viện Dinh dưỡng Quốc gia, sau 6 tháng tuổi là thời gian tốt nhất cho trẻ bắt đầu ăn dặm. Vì từ 6 tháng tuổi trở đi, bé tăng trưởng mạnh mẽ, tốc độ tăng trưởng cao đồng nghĩa với nhu cầu dinh dưỡng cũng tăng lên. Sữa mẹ khi ấy không đủ đáp ứng dinh dưỡng cho trẻ, nhất là sau 6 tháng, sữa mẹ bắt đầu loãng và ít dần đi. Chính vì thế, trẻ cần được bổ sung chất dinh dưỡng bằng cách ăn dặm để có thể phát triển tốt và khỏe mạnh.
+
+Theo tài liệu, từ 6 - 12 tháng tuổi, sữa mẹ cung cấp hơn một nửa nhu cầu dinh dưỡng của trẻ. Từ 12 - 24 tháng tuổi, sữa mẹ cung cấp ít nhất một phần ba nhu cầu dinh dưỡng của trẻ.",Khi trẻ tròn 6 tháng tuổi (180 ngày).
+Nguyên tắc cho trẻ ăn dặm về độ đặc và số lượng là gì?,"Theo tài liệu 3, nguyên tắc cho trẻ từ 6 tháng tuổi ăn dặm về độ đặc và số lượng như sau:
+
+- Thời gian đầu cho bé ăn dặm, cha mẹ nên tập cho bé ăn từng chút một. 1 - 3 bữa đầu tiên có thể cho trẻ ăn từ 5 - 10ml thức ăn. Tăng lượng ăn dần dần để dạ dày và hệ tiêu hóa của trẻ có thời gian làm quen và thích nghi với một loại thức ăn mới không phải sữa mẹ.
+
+- Cho trẻ ăn dặm 1 bữa/ngày. Khi trẻ đã quen dần có thể tăng lên 2 bữa/ngày và thêm bữa phụ như hoa quả, sữa chua, váng sữa...
+
+- Cho bé ăn dặm từ lỏng đến đặc: Nên cho trẻ ăn bột loãng từ 2 - 3 ngày sau đó tăng dần độ đặc lên. Tăng độ thô dần dần, từ bột đến cháo rây, cháo nguyên hạt, cơm nát... để trẻ có thể nhanh chóng ăn được các loại thức ăn như người lớn.
+
+- Cho trẻ ăn các loại thức ăn mềm, dễ nhai và dễ nuốt vì lúc này trẻ chưa mọc răng hoặc mọc rất ít răng.
+
+- Chế biến đồ ăn dặm cho bé đầy đủ dinh dưỡng, hợp vệ sinh.","Cho trẻ ăn từ loãng đến đặc, từ ít đến nhiều."
+Trẻ từ 7-12 tháng tuổi cần ăn bao nhiêu bữa bột một ngày?,Trẻ từ 7-12 tháng tuổi cần ăn 3 bữa bột một ngày.,"Cho trẻ ăn 3 bữa bột một ngày kèm sữa mẹ. Ngoài ra cho trẻ uống thêm nước ép trái cây, bánh mềm."
+Bốn nhóm thực phẩm cần có trong bữa ăn của trẻ là gì?,"Bốn nhóm thực phẩm cần có trong bữa ăn của trẻ là:
+
+• Tinh bột, ngũ cốc và các cây họ đậu như gạo, ngô, khoai tây, các loại đậu, đậu nành và lạc
+• Chất đạm: động vật và thực vật, các loại sữa, thịt, trứng gà trứng vịt, cá và tôm
+• Rau xanh và rau quả màu vàng, màu đỏ: rau muống, mùng tơi, bí đỏ, cà rốt và cải bó xôi,…
+• Chất béo động vật và dầu ăn","Cho trẻ ăn đủ bốn nhóm thực phẩm: tinh bột, đạm, mỡ hay dầu thực vật
+và các loại rau quả."
+Trẻ từ 12-24 tháng tuổi cần ăn bao nhiêu bữa một ngày?,Trẻ từ 12-24 tháng tuổi cần ăn 3 bữa cháo và 2 bữa phụ mỗi ngày.,"Trẻ từ 12 -24 tháng: Cho trẻ ăn 5 bữa một ngày (3 bữa cháo chính và 2
+bữa phụ hoa quả, sữa hoặc bánh)."
+Lợi ích của việc tiêm chủng vắc xin đầy đủ cho trẻ?,"Tiêm chủng vắc xin đầy đủ cho trẻ em giúp trẻ phòng chống các bệnh nguy hiểm. Từ 6 tháng cho đến khi 5 tuổi, cứ 6 tháng một lần, trẻ nên được bổ sung viên uống Vitamin-A tại trạm y tế hoặc cơ sở y tế tại địa phương. Tiêm chủng giúp bảo vệ trẻ khỏi các bệnh bạch hầu, ho gà, uốn ván, sởi, quai bị, bại liệt, rubella, nhiễm khuẩn Hib (gây viêm màng não mủ, viêm họng, viêm phế quản phổi,..), thuỷ đậu, các bệnh do phế cầu khuẩn gây ra và viêm màng não (nhiễm trùng não mô cầu).","Giúp phòng ngừa các bệnh nguy hiểm như Lao, Bạch hầu, Ho gà, Uốn ván, Bại liệt, viêm gan B, viêm não Nhật Bản,…"
+"Khi trẻ bị tiêu chảy tại nhà, mẹ cần cho trẻ uống nước gì?","Khi trẻ bị tiêu chảy, mẹ cần cho trẻ uống nước điện giải (Oresol) để giúp trẻ nhanh chóng hồi phục sức khỏe. Để tự làm Oresol, mẹ có thể trộn đều với nước đun sôi để nguội:
+
+- 1 lít nước (4 cốc)
+- Đường: 20 ml (4 thìa cà phê)
+- Muối: 2 ml (1/2 thìa cà phê)
+
+Mẹ nên cho trẻ uống càng nhiều nước điện giải càng tốt để giúp trẻ bù lại phần nước đã mất. Ngoài ra, mẹ cũng nên cho trẻ ăn đơn giản, dễ tiêu, có thể là thức ăn lỏng, và không cho trẻ uống nước hoa quả, các món tráng miệng ngọt hoặc bất cứ đồ ăn đồ uống ngọt cho đến khi ngừng tiêu chảy.
+
+Nếu trẻ bị tiêu chảy kéo dài hơn 24 giờ, bị tiêu chảy và nôn, bị tiêu chảy có phân màu đen hoặc có máu trong phân và bị sốt trên 38.5°C, hoặc có các dấu hiệu cơ thể bị mất nước như mắt bị trũng, da hoặc miệng khô, ít đi tiểu hoặc nước tiểu có màu vàng đậm, mẹ cần gọi trợ giúp y tế ngay lập tức.","Cho trẻ bú nhiều hơn và lâu hơn. Cho trẻ uống Ô-rê-zôn, nước cháo, nước cơm hoặc nước ép quả tươi."
+"Giai đoạn ""Cửa sổ cơ hội"" để phòng chống thấp còi là khi nào?","Giai đoạn ""Cửa sổ cơ hội"" để phòng chống thấp còi là giai đoạn từ 0-2 tuổi. Trong giai đoạn này, trẻ đang phát triển nhanh chóng về thể chất và trí tuệ, và cơ thể đang hình thành các cơ quan và hệ thống quan trọng. Nếu trẻ được cung cấp đủ dinh dưỡng và chăm sóc trong giai đoạn này, chúng sẽ có cơ hội phát triển toàn diện và giảm thiểu nguy cơ mắc các bệnh lý, bao gồm thấp còi.
+
+Trong tài liệu ""466 | Sổ theo dõi sức khỏe bà mẹ và trẻ em"", giai đoạn từ 0-2 tuổi được coi là giai đoạn quan trọng để theo dõi và chăm sóc sức khỏe của trẻ. Trong giai đoạn này, trẻ cần được cung cấp đủ dinh dưỡng, bao gồm sữa mẹ hoặc sữa công thức, và được chăm sóc kỹ lưỡng để giảm thiểu nguy cơ mắc các bệnh lý.
+
+Tài liệu cũng chỉ ra rằng, giai đoạn từ 0-2 tuổi là giai đoạn ""cửa sổ cơ hội"" để phòng chống thấp còi. Trong giai đoạn này, trẻ cần được cung cấp đủ dinh dưỡng và chăm sóc để phát triển toàn diện và giảm thiểu nguy cơ mắc các bệnh lý.
+
+Tóm lại, giai đoạn ""cửa sổ cơ hội"" để phòng chống thấp còi là giai đoạn từ 0-2 tuổi, và trong giai đoạn này, trẻ cần được cung cấp đủ dinh dưỡng và chăm sóc để phát triển toàn diện và giảm thiểu nguy cơ mắc các bệnh lý.",Là giai đoạn trẻ từ 6 đến 24 tháng tuổi.
+Sự khác biệt về tỷ lệ Casein giữa sữa người và sữa bò là gì?,"Tôi chưa tìm thấy thông tin về sự khác biệt về tỷ lệ Casein giữa sữa người và sữa bò ở trẻ em dưới 2 tuổi trong các tài liệu đã được cung cấp. Tuy nhiên, tôi có thể cung cấp thông tin về sự khác biệt về chất lượng protein giữa sữa người và sữa bò.
+
+Theo Tài liệu 4, sữa người có whey protein, trong khi sữa bò có casein protein. Whey protein dễ tiêu hóa hơn casein protein, đặc biệt là ở trẻ em dưới 2 tuổi.
+
+Nếu bạn cần thông tin chi tiết hơn, tôi khuyên bạn nên tham khảo thêm tài liệu hoặc hỏi ý kiến của bác sĩ.","Casein trong sữa người chiếm 35% (dễ tiêu hóa), trong khi sữa bò chiếm 80% (khó tiêu hóa)."
+Tại sao sữa mẹ giúp trẻ chống được nhiễm khuẩn?,"Sữa mẹ giúp trẻ chống được nhiễm khuẩn do chứa nhiều kháng thể và tế bào bạch cầu. Theo tài liệu ""Tài liệu tham khảo Đào tạo hộ sinh"" của Bộ Y tế (2015), sữa mẹ chứa nhiều kháng thể và tế bào bạch cầu giúp trẻ chống lại các tác nhân gây nhiễm khuẩn.","Vì sữa mẹ chứa các kháng thể, tế bào bạch cầu và các protein chống nhiễm khuẩn được tiết trực tiếp từ cơ thể mẹ."
+Nhu cầu năng lượng từ sữa mẹ/ngày cho trẻ từ 3-5 tháng tuổi là bao nhiêu kcal?,"Tôi chưa tìm thấy thông tin cụ thể về nhu cầu năng lượng từ sữa mẹ/ngày cho trẻ từ 3-5 tháng tuổi trong tài liệu đã được cung cấp. Tuy nhiên, tôi có thể cung cấp thông tin về nhu cầu năng lượng của trẻ từ 0-6 tháng tuổi.
+
+Theo tài liệu ""Ước tính lượng sữa cần cho trẻ mỗi ngày"" (Tài liệu 3), nhu cầu năng lượng của trẻ từ 0-6 tháng tuổi như sau:
+
+- Từ khi sinh - 1 tháng: 60 ml/bữa, 8 bữa/ngày, tổng lượng sữa/ngày: 480 ml
+- Từ 1 tháng - 2 tháng: 90 ml/bữa, 7 bữa/ngày, tổng lượng sữa/ngày: 630 ml
+- Từ 2 tháng - 4 tháng: 120 ml/bữa, 6 bữa/ngày, tổng lượng sữa/ngày: 720 ml
+- Từ 4 tháng - 6 tháng: 150 ml/bữa, 6 bữa/ngày, tổng lượng sữa/ngày: 900 ml
+
+Tuy nhiên, tôi chưa tìm thấy thông tin cụ thể về nhu cầu năng lượng từ sữa mẹ/ngày cho trẻ từ 3-5 tháng tuổi. Để có thông tin chính xác, mẹ nên hỏi bác sĩ để được tư vấn cụ thể.",Năng lượng từ sữa mẹ khoảng  500 kcal đến gần 600 kcal.
+Giải pháp hỗ trợ phản xạ oxytocin hoạt động tốt?,"Giải pháp hỗ trợ phản xạ oxytocin hoạt động tốt bao gồm:
+
+- Tạo điều kiện cho bà mẹ luôn ở bên cạnh con
+- Bà mẹ luôn có được cảm giác thoải mái
+- Luôn củng cố niềm tin cho bà mẹ
+- Không đề cập đến bất cứ điều gì làm cho bà mẹ nghi ngờ về khả năng tạo sữa của mình.
+
+Bên cạnh đó, tài liệu 3 cũng đề cập đến các biện pháp hỗ trợ phản xạ oxytocin như:
+
+- Giúp đỡ bà mẹ về tâm lý:
+ + Xây dựng niềm tin
+ + Giảm nguyên nhân gây đau, lo lắng
+ + Giúp bà mẹ có ý nghĩ và cảm xúc tốt về trẻ
+- Giúp đỡ bà mẹ về thực hành:
+ + Ngồi thoải mái nơi yên tĩnh và riêng tư
+ + Bế con tiếp xúc da kề da với con hoặc ngắm nhìn ảnh của con
+ + Chườm ấm hai bầu vú bằng cách đắp khăn ấm hoặc nước ấm lên 2 bầu vú
+ + Kích thích núm vú bằng cách kéo hoặc vê núm vú nhẹ nhàng
+ + Xoa bóp hoặc vuốt bầu vú một cách nhẹ nhàng từ các phía hướng về núm vú
+ + Xoa bóp lưng bà mẹ để kích thích phản xạ oxytocin","• Tạo điều kiện cho bà mẹ luôn ở bên cạnh con.
+• Bà mẹ luôn có được cảm giác thoải mái.
+• Luôn củng cố niềm tin cho bà mẹ.
+• Không đề cập đến bất cứ điều gì làm cho bà mẹ nghi ngờ về khả năng tạo sữa của mình."
+Dung tích dạ dày của trẻ sơ sinh trong ngày đầu tiên là bao nhiêu?,"Tôi chưa tìm thấy thông tin về dung tích dạ dày của trẻ sơ sinh trong ngày đầu tiên trong tài liệu. Tuy nhiên, tài liệu ""TÀI LIỆU 1"" cung cấp thông tin về thể tích sữa mẹ cần thiết cho trẻ sơ sinh, nhưng không đề cập đến dung tích dạ dày.
+
+Tuy nhiên, tài liệu ""TÀI LIỆU 1"" cũng cung cấp thông tin về việc theo dõi vị trí ống thông dạ dày và đánh giá sự dung nạp của trẻ. Theo đó, nếu trẻ dung nạp được một lượng sữa tương đối qua đường tiêu hóa, thì có thể bắt đầu cung cấp vitamin và khoáng chất cho trẻ.
+
+Vì vậy, tôi không thể trả lời câu hỏi một cách chính xác. Mẹ nên hỏi bác sĩ để được tư vấn chính xác.",Dung tích dạ dày trẻ trong ngày 1 (0-24 giờ) là từ 5 – 7 ml mỗi lần bú.
+"Đến ngày thứ 3 sau sinh, dung tích dạ dày của bé tăng lên bao nhiêu?","Tôi chưa tìm thấy thông tin về dung tích dạ dày của trẻ sơ sinh tăng lên bao nhiêu vào ngày thứ 3 sau sinh trong tài liệu. Tuy nhiên, tài liệu TÀI LIỆU 1 cho biết rằng trẻ sinh non có thể tăng dung tích dạ dày sau 24-48 giờ nếu dung nạp được sữa mẹ.",Dung tích dạ dày trẻ tăng lên khoảng 22 – 27 ml mỗi lần bú.
+Dung tích dạ dày trẻ từ ngày thứ 5 đến ngày thứ 7 sau đẻ là bao nhiêu?,Tôi chưa tìm thấy thông tin về dung tích dạ dày của trẻ từ ngày thứ 5 đến ngày thứ 7 sau sinh trong các tài liệu đã được cung cấp.,Khoảng 43 – 57 ml cho mỗi lần bú.
+Sữa mẹ chứa bao nhiêu phần trăm là nước?,Tôi chưa tìm thấy thông tin về phần trăm nước trong sữa mẹ.,Sữa mẹ chứa tới 88% là nước.
+Tại sao không nên cho trẻ bú bình hoặc dùng núm vú giả?,"Theo tài liệu, không nên cho trẻ sơ sinh dưới 6 tháng tuổi bú bình hoặc dùng núm vú giả vì có thể làm tăng nguy cơ nhiễm khuẩn và không cần thiết. Đầu vú cao su, đầu vú giả rất dễ nhiễm khuẩn và không cần thiết, kể cả đối với trẻ không bú mẹ. Ngoài ra, việc cho trẻ ngậm vú giả sẽ làm cho trẻ bú ít hơn, không nhận được đủ sữa sẽ làm trẻ chậm lớn.","Trẻ bú bằng bình với núm vú giả vì sẽ làm cho trẻ quen bú vú giả bỏ bú mẹ sau này, gây giảm bú và giảm sản xuất sữa."
+Hormon nào chịu trách nhiệm tạo sữa và hormon nào giúp phun sữa?,"Prolactin là hormone chịu trách nhiệm tạo sữa ở mẹ. Prolactin tăng nhanh để kích thích sự sản xuất sữa ngay sau khi sinh.
+
+Hormone oxytocin giúp phun sữa ở mẹ. Đỉnh oxytocin xuất hiện ngay lập tức sau sinh để bù trừ cho sự sụt giảm nồng độ estrogen và progesterone.",Prolactin giúp tạo sữa và Oxytocin giúp phun sữa (tống sữa ra ngoài).
+Kích thích phản xạ oxytocin trước khi vắt sữa có quan trọng không?,"Kích thích phản xạ oxytocin trước khi vắt sữa rất quan trọng đối với mẹ đang cho con bú. Phản xạ oxytocin giúp tống sữa ra ngoài và hỗ trợ quá trình vắt sữa. Tuy nhiên, khi mẹ vắt sữa, phản xạ oxytocin không thể hoạt động tốt bằng khi trẻ bú. Vì vậy, mẹ cần biết cách hỗ trợ cho phản xạ oxytocin để quá trình vắt sữa diễn ra dễ dàng hơn.
+
+Để kích thích phản xạ oxytocin, mẹ có thể thực hiện các bước sau:
+
+- Tạo điều kiện cho mẹ luôn ở bên cạnh con
+- Mẹ luôn có được cảm giác thoải mái
+- Luôn củng cố niềm tin cho mẹ
+- Không đề cập đến bất cứ điều gì làm cho mẹ nghi ngờ về khả năng tạo sữa của mình
+
+Bằng cách kích thích phản xạ oxytocin, mẹ có thể giúp quá trình vắt sữa diễn ra dễ dàng hơn và giảm thiểu các vấn đề liên quan đến việc vắt sữa.","Phản xạ oxytocin rất quan trọng giúp tống sữa ra ngoài. Khi bà mẹ vắt sữa, phản xạ oxytocin không thể hoạt động tốt bằng khi trẻ bú. Bà mẹ cần biết cách hỗ trợ cho phản xạ oxytocin, nếu không bà mẹ sẽ gặp khó khăn trong việc vắt sữa."
+Nếu vú đầy sữa thì sự bài tiết sữa sẽ như thế nào?,"Nếu vú đầy sữa, sự bài tiết sữa sẽ dừng lại.",Nếu vú đầy sữa thì sự bài tiết sữa sẽ dừng lại.
+Hậu quả của việc trẻ ngậm bắt vú sai là gì?,"Hậu quả của việc trẻ ngậm bắt vú sai đối với trẻ dưới 1 tuổi bao gồm:
+
+- Đau núm vú
+- Tổn thương núm vú
+- Cương tức vú
+- Trẻ bú không đủ sữa, khóc nhiều
+- Trẻ đòi bú liên tục, mỗi lần bú kéo dài hơn bình thường
+- Giảm sự tạo sữa
+- Trẻ không tăng cân
+
+Những hậu quả này có thể xảy ra do trẻ ngậm bắt vú sai, dẫn đến việc trẻ không thể bú sữa hiệu quả, gây ra các vấn đề về sức khỏe và tăng cân cho trẻ.","Gây đau,tổn thương núm vú, cương tức vú, trẻ bú không đủ sữa, trẻ đòi bú liên tục, mỗi lần bú kéo dài hơn bình thường, giảm sự tạo sữa và trẻ không tăng cân."
+Có bao nhiêu trường hợp bà mẹ được khuyến nghị cần vắt sữa?,"Theo tài liệu, có 7 trường hợp bà mẹ được khuyến nghị cần vắt sữa:
+
+1. Để lại sữa cho con khi mẹ đi làm.
+2. Nuôi trẻ nhẹ cân, không thể bú mẹ được.
+3. Nuôi trẻ bệnh, không thể bú đủ.
+4. Duy trì nguồn sữa khi bà mẹ hoặc trẻ bị ốm.
+5. Ngăn không cho sữa chảy ra khi mẹ đi làm xa.
+6. Giúp trẻ ngậm bắt bầu vú đang căng đầy.
+7. Giúp cải thiện tình trạng cương tức vú.","Có 7 trường hợp chính:                                                                                                                                       1. Để lại sữa cho con khi mẹ đi làm.
+2. Nuôi trẻ nhẹ cân, không thể bú mẹ được.
+3. Nuôi trẻ bệnh, không thể bú đủ.
+4. Duy trì nguồn sữa khi bà mẹ hoặc trẻ bị ốm.
+5. Ngăn không cho sữa chảy ra khi mẹ đi làm xa.
+6. Giúp trẻ ngậm bắt bầu vú đang căng đầy.
+7. Giúp cải thiện tình trạng cương tức vú"
+Cách chuẩn bị dụng cụ đựng sữa trước khi vắt như thế nào?,"Để chuẩn bị dụng cụ đựng sữa trước khi vắt cho trẻ sơ sinh, bạn cần thực hiện các bước sau:
+
+- Chọn một chiếc cốc, ly, lọ hoặc bình đựng có miệng rộng (Tài liệu 1).
+- Rửa cốc bằng xà phòng và nước (Tài liệu 1).
+- Rót nước sôi vào cốc và để trong vài phút. Nước đang sôi sẽ tiêu diệt hầu hết các vi khuẩn (Tài liệu 1).
+- Khi đã sẵn sàng vắt sữa thì đổ nước đi (Tài liệu 1).
+
+Hoặc, bạn cũng có thể sử dụng túi trữ sữa mẹ hoặc hộp đựng thực phẩm sạch để đựng sữa mẹ đã vắt ra (Tài liệu 4). Nên dùng hộp đựng được làm bằng thủy tinh hoặc nhựa và có nắp đậy kín (Tài liệu 4).","Chọn cốc miệng rộng, rửa bằng xà phòng và nước(bà mẹ có thể chuẩn bị từ hồm trước), rót nước sôi vào cốc và để trong vài phút. Nước đang sôi sẽ tiêu diệt hầu hết các vi khuẩn. Khi đã sẵn sàng vắt sữa thì đỏ nước đi."
+Sữa mẹ bảo quản trong ngăn mát tủ lạnh (<4°C) được bao lâu?,Sữa mẹ bảo quản trong ngăn mát tủ lạnh (<4°C) được tốt nhất 4 ngày (có thể để tới 6-8 ngày).,Tốt nhất trong 4 ngày và có thể để tới 8 ngày.
+Thời gian bảo quản sữa mẹ trong ngăn đá tủ lạnh (-18 đến -20°C)?,"Thời gian bảo quản sữa mẹ trong ngăn đá tủ lạnh (-18 đến -20°C) là tối đa 6 tháng, có thể để tới 12 tháng.",Tốt nhất trong 6 tháng và có thể lên tới 12 tháng.
+Cách rã đông và làm nóng sữa mẹ đã vắt ra đúng cách?,"Để rã đông và làm nóng sữa mẹ đã vắt ra đúng cách cho trẻ sơ sinh, bạn có thể thực hiện theo các bước sau:
+
+1. Rã đông sữa: Đưa sữa lên ngăn mát tủ lạnh cho đỡ đông sau đó để ở nhiệt độ thường cho tan hết đá, lắc đều sữa rồi làm nóng sữa.
+2. Làm nóng sữa: Ngâm bình sữa trong nước nóng vài phút khi sữa ấm lên là được. Không đun sôi sữa, không làm nóng sữa bằng lò vi sóng.
+
+Ngoài ra, bạn cũng cần lưu ý:
+
+- Không đun sữa mẹ trực tiếp trên bếp hoặc trong lò vi sóng.
+- Xoay/ lắc nhẹ bình/túi sữa mẹ để trộn chất béo bị tách ra trong quá trình cấp đông và hâm nóng.
+- Sau khi hâm nóng, nếu trẻ bú không hết, sữa mẹ còn thừa lại chỉ nên sử dụng trong vòng 2 giờ, sau đó nên được đổ bỏ.
+
+Vệ sinh an toàn các vật dụng cho trẻ sơ sinh và thiết bị hút sữa cũng rất quan trọng để đảm bảo sữa mẹ không bị nhiễm khuẩn.","• Rã đông sữa: Đưa sữa lên ngăn mát tủ lạnh cho đỡ đông sau đó để ở nhiệt độ thường cho tan hết đá, lắc đều sữa rồi làm nóng sữa.
+• Làm nóng sữa: Ngâm bình sữa trong nước nóng vài phút khi sữa ấm lên là được. Không đun sôi sữa, không làm nóng sữa bằng lò vi sóng."
+10 điều kiện nuôi con bằng sữa mẹ thành công bao gồm những gì?,"Theo tài liệu, 10 điều kiện nuôi con bằng sữa mẹ thành công bao gồm:
+
+- 10 điều kiện để nuôi con bằng sữa mẹ thành công (không có thông tin chi tiết về các điều kiện này trong tài liệu)
+
+Tuy nhiên, tài liệu khác cung cấp thông tin về các điều kiện quan trọng để nuôi con bằng sữa mẹ thành công:
+
+- Theo tài liệu 2, khi mang thai, mẹ cần được giải thích về lợi ích của bú mẹ, thế nào là bú sữa mẹ sớm và bú sữa mẹ hoàn toàn và lợi ích của nó.
+- Mẹ cần được hướng dẫn về cách chăm sóc vú và núm vú, và được tạo niềm tin rằng tất cả bà mẹ đều có thể nuôi con bằng sữa mẹ.
+- Ngay sau đẻ, mẹ cần được tư vấn về lợi ích của việc cho bú sớm, bao gồm lợi ích của sữa non, sữa về sớm hơn, trẻ tăng cân tốt hơn, ít bị cương tắc sữa, không vắt bỏ sữa non.
+- Mẹ cần được hướng dẫn về cách cho con bú đúng, bao gồm tư thế cho bú đúng, trẻ ngậm bắt vú đúng, và cách giữ gìn nguồn sữa mẹ.
+
+Về độ tuổi dưới 1 tuổi, tài liệu không cung cấp thông tin chi tiết về các điều kiện nuôi con bằng sữa mẹ thành công ở độ tuổi này. Tuy nhiên, tài liệu 2 đề cập đến tầm quan trọng của việc chăm sóc vú và núm vú, và việc tạo niềm tin rằng tất cả bà mẹ đều có thể nuôi con bằng sữa mẹ.
+
+Tài liệu 3 đề cập đến tầm quan trọng của sữa non trong 3 tháng cuối của thai kỳ và 1 thời gian sau sinh, và các lợi ích nuôi dưỡng của việc đưa trẻ vào vú bên cạnh những lợi ích dinh dưỡng của việc bú mẹ.
+
+Tài liệu 5 đề cập đến nguyên nhân dẫn đến tắc tuyến sữa sau sinh, bao gồm tắc tia sữa, tắc ống dẫn sữa, và yếu tố tâm lý.","Các cơ sở y tế có nhiệm vụ chăm sóc sức khoẻ bà mẹ và trẻ em cần:
+1. Có bản qui định về nuôi con bằng sữa mẹ và được phổ biến thường xuyên cho cán bộ y tế.
+2. Đào tạo cho tất cả cán bộ y tế những kỹ năng cần thiết để thực hiện quy định này.
+3. Thông tin cho tất cả phụ nữ có thai về lợi ích và cách thực hiện nuôi con bằng sữa mẹ.
+4. Giúp các bà mẹ bắt đầu cho con bú trong vòng 1 giờ đầu sau đẻ.
+5. Chỉ dẫn cho các bà mẹ cách cho con bú và duy trì nguồn sữa ngay cả khi phải xa con.
+6. Không cho trẻ sơ sinh bất cứ đồ ăn thức uống gì ngoài sữa mẹ, trừ khi có chỉ định của y tế.
+7. Thực hiện mẹ con ở cùng phòng để con gần mẹ suốt 24 giờ trong ngày.
+8. Khuyến khích cho trẻ bú theo nhu cầu.
+9. Không cho trẻ nhỏ đang bú mẹ ngậm bất cứ loại vú giả hoặc đầu vú cao su nào.
+10. Khuyến khích thành lập các nhóm hỗ trợ nuôi con bằng sữa mẹ và giới thiệu các bà mẹ tới đó sau khi họ ra viện."
+Bú mẹ theo nhu cầu được định nghĩa như thế nào?,"Bé bú mẹ theo nhu cầu được định nghĩa là cho trẻ bú bất cứ khi nào trẻ hoặc bà mẹ muốn, không hạn chế thời gian và số lần bú. Điều này giúp bà mẹ biết cách nhận biết các dấu hiệu muốn bú của trẻ để cho trẻ bú ngay không nên chờ đến khi trẻ khóc hay mệt mới cho trẻ bú.","Bú theo nhu cầu là cho trẻ bú bất cứ khi nào trẻ hoặc bà mẹ muốn, không hạn chế
+thời gian và số lần bú."
+Dấu hiệu chắc chắn cho thấy bà mẹ không đủ sữa là gì?,"Dấu hiệu chắc chắn cho thấy bà mẹ không đủ sữa ở trẻ sơ sinh dưới 6 tháng tuổi là:
+
+- Trẻ tăng cân kém: Dưới 500 gam/1 tháng (Trong 6 tháng đầu trẻ phải tăng ít nhất 500 gam/1 tháng)
+- Đi tiểu ít (dưới 6 lần/ngày) và nước tiểu cô đặc, nặng mùi và có màu vàng","Trẻ tăng cân kém: dưới 500g/1tháng (trong 6 tháng đầu trả phải tăng ít nhất 500gam/1tháng). Đi tiểu ít(dưới 6 lần/ngày) và nước tiểu cô đặc, nặng mùi và có màu vàng."
+Cách xử trí khi vú bị căng sữa hoặc cương tức?,"Khi vú mẹ bị căng sữa hoặc cương tức, có thể xảy ra các biểu hiện như đau nhức, nóng, căng cứng, và ra ít sữa. Để xử trí, mẹ có thể thực hiện các bước sau:
+
+- Cho con bú thường xuyên hơn: Điều này sẽ giúp kích thích phản xạ oxytocin, giúp sữa lưu thông và giảm căng sữa.
+- Dùng bơm để hút bớt sữa ra: Điều này sẽ giúp giảm áp lực trên vú và giúp sữa lưu thông.
+- Dùng khăn ấm đắp lên bầu vú: Điều này sẽ giúp thư giãn và giảm đau nhức.
+- Bắt đầu cho trẻ bú từ bên vú lành: Điều này sẽ giúp kích thích phản xạ oxytocin và giúp sữa lưu thông.
+- Dùng bơm hút vắt sữa ra: Điều này sẽ giúp giảm áp lực trên vú và giúp sữa lưu thông.
+- Uống thuốc giảm đau theo chỉ định: Điều này sẽ giúp giảm đau nhức và căng cứng.
+
+Ngoài ra, mẹ cũng nên lưu ý rằng tắc ống dẫn sữa và viêm vú có thể xảy ra do nhiều nguyên nhân, bao gồm mẹ quá nhiều sữa, trẻ bú không đúng cách, mẹ không cho bú thường xuyên, hoặc áo ngực quá chật. Vì vậy, mẹ nên tìm nguyên nhân và xử trí cho đúng.
+
+Tóm lại, cách xử trí khi vú mẹ bị căng sữa hoặc cương tức là cho con bú thường xuyên hơn, dùng bơm để hút bớt sữa ra, dùng khăn ấm đắp lên bầu vú, bắt đầu cho trẻ bú từ bên vú lành, dùng bơm hút vắt sữa ra, và uống thuốc giảm đau theo chỉ định.","Cho con bú thường xuyên hơn, bú đúng cách và dùng bơm để hút bớt sữa ra."
+Nguyên nhân gây tắc ống dẫn sữa và viêm vú là gì?,"Nguyên nhân gây tắc ống dẫn sữa và viêm vú ở mẹ là do sữa lưu thông kém tại toàn bộ bầu vú hoặc một phần vú. Sữa lưu thông kém có thể do:
+
+- Trẻ ngậm bắt vú không đúng hoặc bú không hiệu quả.
+- Áo quá chật đè vào bầu vú, đặc biệt là áo nịt ngực vào ban đêm.
+- Ngón tay bà mẹ kẹp vào bầu vú khi cho trẻ bú.
+- Trẻ ngậm bắt vú kém sẽ làm nứt núm vú, từ đó vi khuẩn sẽ xâm nhập vào mô vú và có thể gây ra viêm vú.
+
+Ngoài ra, tắc ống dẫn sữa cũng có thể do:
+
+- Sữa mẹ được sản xuất rất nhiều trong bầu ngực nhưng chưa thể chảy ra ngoài do bé chưa ngậm đúng khớp ngậm sữa không thoát ra ngoài.
+- Sữa mẹ còn dư thừa trong bầu ngực do bé bú không hết hoặc mẹ không hút hết phần sữa còn lại sau khi bé đã bú no.
+- Mặc áo ngực quá chật, bó sát hoặc mang địu bé trước ngực khiến tia sữa bị tắc.
+- Tư thế nằm sấp khi ngủ cũng có thể gây ra tình trạng này.
+- Không cho bé bú thường xuyên hoặc không hút hết sữa ra ngoài trong khoảng 5-24 giờ.
+- Khi không ngậm bắt vú mẹ đúng bé sẽ không bú đủ lượng sữa mẹ được sản xuất ra, khiến sữa mẹ vẫn còn ứ đọng trong bầu ngực.
+- Lực hút của máy hút sữa quá yếu, không thể hút hết sữa ra ngoài.
+- Yếu tố tâm lý cũng ảnh hưởng trực tiếp đến việc sản xuất sữa mẹ, nếu mẹ quá căng thẳng sẽ làm chậm quá trình sản sinh oxytocin – một loại hormone có nhiệm vụ kích thích vú tiết sữa.","Nguyên nhân:                                                                                                                                                                     • Sữa lưu thông kém tại toàn bộ bầu vú là do bà mẹ không cho trẻ bú thường xuyên hoặc trẻ bú không hiệu quả. Trẻ ngậm bắt vú không đúng.
+• Sữa lưu thông kém tại một phần vú có thể do bú không hiệu quả, áo quá chật đè vào bầu vú, đặc biệt là áo nịt ngực vào ban đêm, hoặc ngón tay bà mẹ kẹp vào bầu vú khi cho trẻ bú.
+• Trẻ ngậm bắt vú kém sẽ làm nứt núm vú, từ đó vi khuẩn sẽ xâm nhập vào mô vú và có thể gây ra viêm vú."
+Cách xử trí nứt núm vú cho bà mẹ sau bú?,"Xử trí nứt núm vú cho mẹ sau bú là một vấn đề cần được quan tâm. Dưới đây là một số cách xử trí nứt núm vú cho mẹ sau bú:
+
+- Cải thiện tình trạng vú thời điểm trước và sau sinh
+- Xây dựng niềm tin cho bà mẹ
+- Giúp bà mẹ đặt trẻ vào vú mẹ
+- Nếu trẻ bú không hiệu quả trong tuần đầu hoặc tuần thứ hai, hãy giúp bà mẹ những việc cần làm sau:
+ + Cho trẻ bú thường xuyên
+ + Xoa bóp nhẹ nhàng bầu vú trong khi trẻ bú
+ + Dùng khăn ấm đắp lên bầu vú giữa các bữa bú
+ + Nên bắt đầu cho trẻ bú từ bên vú lành kích thích phản xạ oxytocin giúp sữa lưu thông
+ + Dùng bơm hút vắt sữa ra, nếu để sữa đọng lại sẽ gây áp xe vú
+ + Tắc ống dẫn sữa và viêm vú sẽ cải thiện trong vòng 1 ngày khi sữa được lưu thông
+ + Có thể điều trị kháng sinh, chống viêm và nghỉ ngơi
+
+Ngoài ra, mẹ cũng có thể thực hiện các biện pháp sau để phòng ngừa tắc ống dẫn sữa sau sinh:
+
+ + Tập thói quen hút sữa thường xuyên
+ + Cho con bú ở nhiều tư thế khác nhau, bú thường xuyên
+ + Sử dụng máy hút/vắt sữa
+ + Sử dụng một túi giữ lạnh hoặc vải mát đặt lên vú giữa những lần cho bú
+ + Uống thuốc giảm đau theo chỉ định
+ + Massage nhẹ nhàng bầu ngực từ trên xuống dưới và từ ngoài vào trong để lưu thông sữa tốt hơn
+ + Xoa bóp đầu ti nhẹ nhàng theo vòng tròn nhằm kích thích và khơi thông tia sữa
+ + Cho bé bú ở bên ngực bị tắc trước, sau đó mới chuyển sang bên ngực còn lại
+ + Sau khi bé bú xong, mẹ nên hút hết sữa còn lại ra ngoài bằng tay hoặc máy hút sữa chuyên dụng để đảm bảo sữa không còn dư trong bầu ngực gây ứ đọng
+ + Mẹ nên mặc áo ngực thoải mái hoặc hạn chế mặc áo ngực để bầu ngực được thông thoáng hơn, là cách giúp sữa được lưu thông dễ dàng hơn","Sau mỗi lần trẻ bú hãy vắt một ít sữa bôi xung quanh núm và đầu vú. Điều này sẽ giúp chóng lành vết thương. Không nên rửa đầu vú bằng xà phòng hoặc khắc khô ráp, làm mất đi chất dầu tự nhiên có ở da núm vú càng gây khô nứt hơn hoặc dùng các loại thuốc hoặc dầu bôi sẽ gây kích ứng da núm vú và chưa có bằng chứng nói rằng các loại thuốc này có tác dụng."
+Triệu chứng khi núm vú bị nhiễm nấm Candida?,"Triệu chứng khi núm vú mẹ bị nhiễm nấm Candida ở trẻ sơ sinh bao gồm:
+
+- Nhiễm trong lúc sổ thai ngang qua âm đạo gây viêm niêm mạc miệng (đẹn), viêm da và viêm phổi.
+- Nếu bé bị viêm nặng hoặc sinh non tháng có thể nguy hiểm, đôi khi gây tử vong.
+- Viêm âm đạo do nấm trong khi mang thai có thể làm cho cân nặng sơ sinh thấp hơn bình thường.","Triệu chứng
+• Núm vú của bà mẹ rất đau và ngứa. Đau phải bỏng như có kim châm vào.
+• Da bầu vú có thể đỏ, căng bóng và bong ra từng mảng. Núm vú và quầng vú
+có thể mất đi một số sắc tố.
+• Thường xảy ra sau khi điều trị viêm vú hoặc nhiễm khuẩn khác.
+• Kiểm tra xem trẻ có bị tưa, đốm trắng ở miệng hoặc đốm nốt ở mông."
+Trẻ sinh thấp cân được định nghĩa là gì?,"Trẻ sinh thấp cân được định nghĩa là trẻ sinh ra có cân nặng dưới 2500 gram, bao gồm cả trẻ sinh non và trẻ sinh đủ tháng.","Là trẻ sinh ra có cân nặng dưới 2500 gram, bao gồm cả trẻ sinh non và sinh đủ tháng."
+Lượng sữa cần cho trẻ từ khi sinh đến 1 tháng tuổi là bao nhiêu mỗi ngày?,"Theo tài liệu, lượng sữa cần cho trẻ từ khi sinh đến 1 tháng tuổi là 480 ml mỗi ngày. Cụ thể, trẻ từ khi sinh - 1 tháng tuổi cần 8 bữa ăn/ngày, mỗi bữa 60 ml sữa.","Tổng cộng khoảng 480 ml/ngày, chia làm 8 bữa, mỗi bữa 60 ml."
+Tổng lượng sữa cần thiết cho trẻ từ 4 đến 6 tháng tuổi mỗi ngày?,"Tổng lượng sữa cần thiết cho trẻ từ 4 đến 6 tháng tuổi mỗi ngày là 900 ml.
+
+Theo tài liệu, từ 4 tháng - 6 tháng tuổi, trẻ cần 6 bữa ăn/ngày, mỗi bữa 150 ml sữa. Do đó, tổng lượng sữa cần thiết cho trẻ trong giai đoạn này là:
+
+6 bữa/ngày x 150 ml/bữa = 900 ml/ngày
+
+Tổng lượng sữa cần thiết cho trẻ từ 4 đến 6 tháng tuổi mỗi ngày là 900 ml.","Khoảng 900 ml/ngày, chia làm 6 bữa, mỗi bữa 150 ml."
+Kỹ thuật cho trẻ ăn bằng cốc đúng cách là gì?,"Để cho trẻ ăn bằng cốc đúng cách, đặc biệt là đối với trẻ từ 12 tháng tuổi trở lên, bạn cần thực hiện theo các bước sau:
+
+- Rửa tay sạch: Trước khi cho trẻ ăn, mẹ cần rửa tay sạch để đảm bảo vệ sinh và tránh lây nhiễm bệnh cho trẻ.
+
+- Chuẩn bị lượng sữa đủ một bữa ăn của trẻ: Mẹ cần chuẩn bị lượng sữa phù hợp với nhu cầu của trẻ, tránh cho trẻ ăn quá nhiều hoặc quá ít.
+
+- Bế trẻ ngồi thẳng hoặc nghiêng trong lòng mẹ: Trẻ cần được ngồi thẳng hoặc nghiêng trong lòng mẹ để dễ dàng nhận sữa và tránh bị ngạt.
+
+- Đặt cốc vào môi trẻ, nghiêng cốc sao cho sữa vừa chạm vào môi trẻ: Mẹ cần đặt cốc vào môi trẻ và nghiêng cốc sao cho sữa vừa chạm vào môi trẻ, giúp trẻ cảm nhận được và dùng lưỡi liếm, mút sữa vào miệng.
+
+- Không rót sữa vào miệng trẻ để tập phản xạ mút cho trẻ: Mẹ không nên rót sữa vào miệng trẻ, mà nên cho trẻ tự mút sữa từ cốc để tập phản xạ mút.
+
+- Khi nhận đủ sữa trẻ sẽ ngậm miệng lại không ăn nữa: Khi trẻ nhận đủ sữa, chúng sẽ ngậm miệng lại và không ăn nữa.
+
+- Đo lượng sữa trẻ ăn được theo ngày (không tính theo bữa) để đảm bảo trẻ nhận đủ sữa cần thiết: Mẹ cần đo lượng sữa trẻ ăn được theo ngày để đảm bảo trẻ nhận đủ sữa cần thiết.
+
+Tóm lại, kỹ thuật cho trẻ ăn bằng cốc đúng cách đối với trẻ từ 12 tháng tuổi trở lên là rửa tay sạch, chuẩn bị lượng sữa phù hợp, bế trẻ ngồi thẳng hoặc nghiêng, đặt cốc vào môi trẻ, không rót sữa vào miệng trẻ, và đo lượng sữa trẻ ăn được theo ngày.","Hướng dẫn bà mẹ cho trẻ ăn bằng cốc
+• Rửa tay sạch.
+• Chuẩn bị lượng sữa đủ một bữa ăn của trẻ
+• Bế trẻ ngồi thẳng hoặc nghiêng trong lòng mẹ
+• Đặt cốc vào môi trẻ, nghiêng cốc sao cho sữa vừa chạm vào môi trẻ giúp trẻ cảm nhận được và dùng lưỡi liếm, mút sữa vào miệng.
+• Không rót sữa vào miệng trẻ để tập phản xạ mút cho trẻ.
+• Khi nhận đủ sữa trẻ sẽ ngậm miệng lại không ăn nữa.
+• Đo lượng sữa trẻ ăn được theo ngày (không tính theo bữa) để đảm bảo trẻ nhận đủ sữa cần thiết."
+Hậu quả của thiếu dinh dưỡng trong 3 tháng cuối thai kỳ là gì?,"Theo tài liệu, thiếu dinh dưỡng trong 3 tháng cuối thai kỳ có thể gây ra nhiều hậu quả nghiêm trọng đối với mẹ và bé.
+
+Đối với mẹ, thiếu dinh dưỡng trong 3 tháng cuối thai kỳ có thể dẫn đến:
+
+* Thiếu máu: Mẹ có thể bị thiếu máu do thiếu sắt, gây ra các triệu chứng như mệt mỏi, hoa mắt, chóng mặt.
+* Chậm lấy lại cân nặng trước khi mang thai: Mẹ có thể mất cân nặng sau khi sinh, dẫn đến các vấn đề về sức khỏe như loãng xương, viêm khớp dạng thấp.
+
+Đối với bé, thiếu dinh dưỡng trong 3 tháng cuối thai kỳ có thể dẫn đến:
+
+* Thiếu dinh dưỡng thời kỳ cuối: Bé có nguy cơ đẻ nhẹ cân và bị tiểu đường về sau.
+* Thiếu dinh dưỡng trong ba tháng giữa: Bé có nguy cơ thấp còi.
+* Thiếu dinh dưỡng thời kỳ đầu bào thai: Bé có nguy cơ bị béo phì và mắc bệnh tim mạch khi trưởng thành.
+
+Tóm lại, thiếu dinh dưỡng trong 3 tháng cuối thai kỳ có thể gây ra nhiều hậu quả nghiêm trọng đối với mẹ và bé, bao gồm cả các vấn đề về sức khỏe và phát triển.
+
+ *Lưu ý: Mẹ nên đưa bé đến cơ sở y tế để được thăm khám trực tiếp.*",Con đẻ ra có nguy cơ bị nhẹ cân và mắc bệnh tiểu đường về sau.
+Phụ nữ Châu Á mang thai nên tăng bao nhiêu kg là hợp lý?,"Theo Tổ chức Y tế thế giới năm 1998, mức tăng cân hợp lý khi mang thai phụ thuộc vào tình trạng dinh dưỡng của mẹ trước khi có thai. 
+
+- Tình trạng dinh dưỡng tốt (BMI: 18,5 - 24,9): Mức tăng cân nên đạt là 20% cân nặng trước khi có thai.
+- Tình trạng dinh dưỡng gầy (BMI <18,5): Mức tăng cân nên đạt là 25% cân nặng trước khi có thai.
+- Tình trạng dinh dưỡng thừa cân, béo phì (BMI >=25): Mức tăng cân nên đạt là 15% cân nặng trước khi có thai.
+
+Theo tiêu chuẩn quốc tế, mức tăng cân trung bình của phụ nữ Châu Á nên là 10-12kg.",Mức tăng cân trung bình nên đạt từ 10 - 12 kg.
+Nhu cầu năng lượng bổ sung hàng ngày cho bà mẹ nuôi con bú 6 tháng đầu?,"Theo tài liệu TÀI LIỆU 2, nhu cầu dinh dưỡng của bà mẹ thời kỳ mang thai và NCBSM như sau:
+
+- Năng lượng: 2200- 2600 kcal (cho phụ nữ bình thường), 360 kcal (tương đương 1 bát cơm) cho bà mẹ thời kỳ mang thai, 475 kcal (tương đương 2 bát cơm) cho bà mẹ thời kỳ NCBSM 6 tháng đầu, 505 - 675 kcal (tương đương 3 bát cơm) cho bà mẹ thời kỳ NCBSM 3 tháng cuối.
+
+Tuy nhiên, tài liệu không cung cấp thông tin cụ thể về nhu cầu năng lượng bổ sung hàng ngày cho mẹ nuôi con bú 6 tháng đầu.",Cần bổ sung thêm khoảng 505 - 675 kcal mỗi ngày so với bình thường(tương đương 3 bát cơm).
+Những loại đồ uống nào bà mẹ mang thai nên hạn chế?,"Theo tài liệu, bà mẹ mang thai nên hạn chế các loại đồ uống kích thích như rượu, cà phê, thuốc lá, nước chè đặc. Ngoài ra, bà mẹ cũng nên giảm ăn các loại gia vị như ớt, hạt tiêu, tỏi và giảm ăn mặn, đặc biệt là những người mẹ bị phù để giảm phù và tránh tai biến khi đẻ.","Không nên dùng các loại đồ uống kích thích như rượu, cà phê, thuốc lá, nước chè đặc..."
+Khuyến nghị về số lần khám thai tối thiểu trong thai kỳ?,"Theo tài liệu 3, ""Tư vấn cho phụ nữ có thai"", số lần khám thai tối thiểu trong thai kỳ là 4 lần. Mỗi phụ nữ mang thai phải được quản lý thai và khám thai ít nhất 4 lần trong thai kỳ (1 lần trong 3 tháng đầu, 1 lần trong 3 tháng giữa, 2 lần trong 3 tháng cuối).","Nên đi khám thai ít nhất 3 lần, mỗi quý khám thai một lần."
+Đặc tính của sữa non là gì?,"Sữa non là sữa tiết ra trong vài ngày đầu sau đẻ. Sữa non có đặc tính sau:
+
+- Sữa non sánh đặc có màu vàng nhạt hoặc trong.
+- Nhiều năng lượng, chất đạm, nhiều vitamin A, kháng thể và tế bào bạch cầu.
+- Có tác dụng xổ nhẹ giúp trẻ thải phân su.
+- Là thức ăn tốt nhất cho trẻ trong tuần đầu, đã có sẵn ở vú mẹ ngay khi sinh.
+
+Tài liệu không đề cập đến lý do tại sao sữa non có những đặc tính này.","• Bài tiết trong vài ngày đầu sau đẻ.
+• Sữa non sánh đặc có màu vàng nhạt hoặc trong.
+• Nhiều năng lượng, chất đạm, Nhiều vitamin A, kháng thể và tế bào bạch cầu.
+• có tác dụng xổ nhẹ giúp trẻ thải phân su.
+• Là thức ăn tốt nhất cho trẻ trong tuần đầu, đã có sẵn ở vú mẹ ngay khi sinh."
+Sự khác biệt về hàm lượng Protein giữa sữa mẹ và sữa bò?,"Sự khác biệt về hàm lượng Protein giữa sữa mẹ và sữa bò ở trẻ sơ sinh được thể hiện trong tài liệu như sau:
+
+- Sữa mẹ: lượng protein ở sữa mẹ ít hơn trong sữa bò, là protein nước sữa.
+
+- Sữa bò: lượng protein trong sữa bò là chính xác và dễ tiêu hóa.
+
+Do đó, sữa mẹ có hàm lượng protein thấp hơn sữa bò, nhưng protein trong sữa mẹ lại dễ tiêu hóa hơn.",• Lượng protein trong sữa mẹ: Lượng chính xác và dễ tiêu hóa.                                                                • Lượng protein trong sữa bò: khó tiêu hóa.
+Lợi ích của việc cho trẻ tiếp xúc da kề da ngay sau sinh?,"Theo tài liệu, lợi ích của việc cho trẻ tiếp xúc da kề da ngay sau sinh đối với trẻ sơ sinh bao gồm:
+
+- Hỗ trợ phát triển trí não tối ưu
+- Tạo thuận lợi cho sự gắn bó và thúc đẩy sự tự điều chỉnh của trẻ sơ sinh qua thời gian
+- Bảo vệ bé khỏi những ảnh hưởng tiêu cực đã được ghi nhận khi tách bé
+- Giúp trẻ tìm vú và tự ngậm bắt vú bú bữa bú đầu tiên
+- Giảm căng thẳng và giảm khóc đáng kể
+- Hỗ trợ việc chuyển tiếp từ bào thai ra cuộc sống mới tốt hơn về hô hấp, nhiệt độ, ổn định đường huyết
+
+Tài liệu cũng chỉ ra rằng việc tiếp xúc da kề da ngay sau sinh giúp trẻ bình thường đủ tháng tìm vú và tự ngậm bắt vú bú bữa bú đầu tiên mà không cần sự hỗ trợ.","Đặt trẻ tiếp xúc da kề da với mẹ ngay sau sinh nhằm kích thích hành vi
+bản năng của trẻ để tìm vú mẹ và tự ngậm bắt vú bú bữa bú đầu tiên."
+Sữa đầu bữa bú và sữa cuối bữa bú khác nhau như thế nào?,"Sữa đầu bữa bú và sữa cuối bữa bú của mẹ có khác nhau ở trẻ sơ sinh dưới 6 tháng tuổi.
+
+Sữa đầu bữa bú thường loãng, màu hơi xanh, số lượng nhiều và chủ yếu cung cấp đạm, đường lactose, nước và các chất dinh dưỡng khác. Sữa cuối bữa bú có màu trắng đục vì chứa nhiều chất béo, chất béo này cung cấp nhiều năng lượng.
+
+Cơ chế này giúp trẻ sơ sinh nhận được sự đa dạng về chất dinh dưỡng từ sữa mẹ, đáp ứng nhu cầu phát triển của trẻ. Sữa đầu bữa bú cung cấp các chất dinh dưỡng cần thiết cho sự phát triển ban đầu của trẻ, trong khi sữa cuối bữa bú cung cấp năng lượng và chất béo cần thiết cho sự phát triển tiếp theo.
+
+Điều quan trọng là mẹ cần cho trẻ bú mẹ hết bên vú này mới chuyển sang bế vú đối diện, để đảm bảo trẻ nhận được sự đa dạng về chất dinh dưỡng từ sữa mẹ.","• Sữa đầu bữa bú: bài tiết ở đầu bữa bú của trẻ, thường loãng, màu hơi xanh, số lượng nhiều, chủ yếu cung cấp đạm, đường lactose, nước và các chất dinh dưỡng khác
+• Sữa cuối bữa bú: bài tiết cuối bữa bú của trẻ. Sữa cuối bữa mầu trắng đục vì chứa nhiều chất béo, chất béo này cung cấp nhiều năng lượng."
+Vitamin nào có hàm lượng cao trong sữa non giúp giảm mức độ nhiễm khuẩn?,Vitamin A có hàm lượng cao trong sữa non giúp giảm mức độ nhiễm khuẩn ở trẻ sơ sinh.,Vitamin A.
+Tại sao mẹ nên cho trẻ bú hết một bên vú rồi mới chuyển sang vú kia?,"Theo tài liệu, mẹ nên cho trẻ bú hết một bên vú trước khi chuyển sang vú kia để ""nhận được sữa cuối có nhiều chất béo"".",Cho trẻ bú hết từng bên vú để nhận được sữa cuối có nhiều chất béo. Sau đó chuyển sang vú bên kia nếu trẻ còn muốn bú.
+Lợi ích của việc nuôi con bằng sữa mẹ đối với tử cung của mẹ sau sinh?,"Lợi ích của việc nuôi con bằng sữa mẹ đối với tử cung của mẹ sau sinh bao gồm:
+
+- Giúp xổ rau sau sinh thuận lợi
+- Giúp co hồi tử cung cầm máu sau sinh
+
+Theo tài liệu, việc nuôi con bằng sữa mẹ giúp mẹ sau sinh có thể xổ rau thuận lợi và co hồi tử cung cầm máu sau sinh. Điều này giúp mẹ sau sinh có thể hồi phục nhanh chóng và giảm thiểu nguy cơ mắc các vấn đề sức khỏe liên quan đến tử cung sau sinh.",Giúp tử cung co hồi tốt và cầm máu sau sinh.
+Nuôi con bằng sữa mẹ giúp giảm nguy cơ mắc bệnh gì cho mẹ sau này?,"Theo Tổ chức Y tế Thế giới, nuôi con bằng sữa mẹ giúp giảm nguy cơ mắc bệnh cho mẹ sau này. Cụ thể, sữa mẹ giúp tăng cường tình cảm mẹ con, bảo đảm sự phát triển của trẻ, giúp chậm có thai trở lại và bảo vệ sức khỏe bà mẹ.
+
+ *Lưu ý: Mẹ nên đưa bé đến cơ sở y tế để được thăm khám trực tiếp.*","Giảm nguy cơ ung thư vú, ung thư tử cung và giảm thiếu máu."
+Trẻ nhận sữa mẹ hoàn toàn có cần uống thêm nước trắng không?,"Theo tài liệu, trẻ dưới 2 tuổi nhận sữa mẹ hoàn toàn không cần uống thêm nước trắng. Theo khuyến cáo của WHO, trẻ nên được cho bú mẹ hoàn toàn đến 24 tháng tuổi để phát triển toàn diện. Sữa mẹ đã cung cấp đủ nước và chất điện giải cho trẻ, bao gồm cả natri, nên không cần cho trẻ uống thêm nước trắng.
+
+Theo tài liệu 2, ""Sữa mẹ có chứa 88% nước nên bà mẹ không cần cho trẻ uống thêm nước khi trẻ được bú mẹ hoàn toàn."" Điều này cho thấy rằng sữa mẹ đã cung cấp đủ nước cho trẻ, và không cần phải cho trẻ uống thêm nước trắng.
+
+Ngoài ra, tài liệu 2 cũng cảnh báo rằng cho trẻ uống nước với số lượng lớn có thể dẫn đến ngộ độc nước uống, bao gồm các vấn đề nguy hiểm như nhiệt độ cơ thể thấp hoặc co giật. Vì vậy, để đảm bảo an toàn cho trẻ, không nên cho trẻ uống thêm nước trắng khi trẻ được bú mẹ hoàn toàn.","Không, vì sữa mẹ đã chứa đủ nước (88%) nên bà mẹ không cần cho trẻ uống
+thêm nước khi trẻ được bú mẹ hoàn toàn."
+Các loại nước uống nào tuyệt đối không cho trẻ uống trước bữa bú đầu tiên?,"Theo tài liệu, các loại nước uống tuyệt đối không cho trẻ sơ sinh (trẻ dưới 6 tháng tuổi) uống trước bữa bú đầu tiên là:
+
+- Nước đường
+- Sữa công thức
+- Cam thảo
+- Mật ong
+
+Theo khuyến nghị của Tổ chức Y tế thế giới (WHO), trẻ nên được bú mẹ hoàn toàn trong 6 tháng đầu đời, không có bất kỳ thức ăn hoặc chất lỏng bổ sung nào, ngoại trừ khi trẻ cần dùng thuốc, dung dịch bù nước đường uống, thuốc nhỏ, xi-rô vitamin, khoáng chất theo chỉ định của bác sĩ.","Không cho trẻ uống các loại nước uống trước bữa bú đầu tiên như cam thảo, mật ong, nước đường hoặc sữa công thức để tránh ảnh hưởng đến việc tạo sữa sau này của bà mẹ."
+Dấu hiệu cho thấy trẻ đang bú hiệu quả?,"Dấu hiệu cho thấy trẻ sơ sinh đang bú hiệu quả bao gồm:
+
+- Trẻ ngậm bắt vú và bú mạnh mẽ, không nhả vú ra.
+- Trẻ không khóc và có biểu hiện thoải mái khi bú.
+- Trẻ có biểu hiện hưng phấn và vui vẻ khi bú.
+- Trẻ có biểu hiện tăng cân và phát triển tốt sau khi bú.
+
+Tuy nhiên, tài liệu không cung cấp thông tin cụ thể về các dấu hiệu này. Để biết thêm thông tin, mẹ nên tham khảo ý kiến của bác sĩ hoặc chuyên gia dinh dưỡng.","Tình trạng bú tốt, trẻ không đau, không khó chiu, các ngón tay đặt cách xa núm vú để đỡ vú, đầu và thân trẻ nằm trên một đường thẳng, bụng trẻ áp sát vào bụng mẹ, trẻ được đỡ đầu và cổ, trẻ sơ sinh được đỡ mông, mặt trẻ quay vào vào vú mẹ, mũi trẻ đối diện với núm vú, quầng vú phía trên miệng trẻ còn nhiều hơn, miệng trẻ mở rộng, môi dưới hướng ra ngoài, cằm trẻ chạm vào vú mẹ, bú chậm, sâu, có lúc ngừng nghỉ, má căng phồng khi bú, trẻ tự nhả vú khi bú xong, Có một số dấu hiệu của phản xạ oxytocin: sữa chảy ra ở vú bên kia, sữa chảy thành tia nếu trẻ nhả vú ra trong bữa bú."
+Ưu điểm của việc cho trẻ ăn bằng thìa và cốc so với bú bình?,"Theo tài liệu, ưu điểm của việc cho trẻ từ 6 tháng tuổi ăn bằng thìa và cốc so với bú bình là:
+
+- Dễ cọ rửa: thìa và cốc dễ dàng được làm sạch, giảm thiểu nguy cơ nhiễm khuẩn.
+- Trẻ sẽ dễ được người cho ăn quan tâm hơn trong khi cho ăn: khi ăn bằng thìa và cốc, trẻ sẽ nhận được sự quan tâm và chăm sóc từ người cho ăn, giúp trẻ cảm thấy an toàn và được yêu thương.
+- Không tốn thời gian hơn ăn bằng bình: ăn bằng thìa và cốc không đòi hỏi nhiều thời gian và công sức như bú bình, giúp mẹ có thể chăm sóc trẻ một cách hiệu quả hơn.
+
+Ngoài ra, tài liệu cũng lưu ý rằng nếu mỗi khi trẻ đói mà cho trẻ ngậm vú giả sẽ làm cho trẻ bú ít hơn, không nhận được đủ sữa sẽ làm trẻ chậm lớn.","• Dễ dàng vệ sinh sạch sẽ sau mỗi lần ăn.
+• Tránh cho trẻ thích bú bình mà bỏ bú mẹ.
+• Tránh hiện tượng dị ứng do vú cao su không đảm bảo chất lượng."
+Những thực phẩm nào mẹ mang thai nên dùng để cung cấp năng lượng?,"Theo tài liệu, những thực phẩm cung cấp năng lượng cho em bé đang phát triển bao gồm:
+
+- Gạo
+- Mì
+- Ngô
+- Khoai sắn
+- Các chế phẩm từ gạo, mì, ngô, khoai sắn
+
+Ngoài ra, mẹ mang thai cũng nên ăn đa dạng các loại thực phẩm khác nhau để cung cấp đủ năng lượng cho em bé.","Gạo, mì, ngô, khoai, sắn và các chế phẩm từ nó."
+Mẹ nhiễm HIV nên nuôi con như thế nào trong thời gian điều trị viêm vú 2 bên?,"Căn cứ vào tài liệu, đối với mẹ nhiễm HIV đang điều trị viêm vú 2 bên, có thể lựa chọn nuôi con bằng sữa mẹ hoặc sữa thay thế. Nếu chọn nuôi con bằng sữa mẹ, cần thực hiện theo các bước sau:
+
+- Vắt sữa và xử lý sữa đúng cách trước khi cho trẻ ăn bằng cốc và thìa.
+- Cho trẻ bú lại khi viêm vú đã khỏi hẳn.
+
+Nếu chọn nuôi con bằng sữa thay thế, cần đảm bảo rằng trẻ được nuôi dưỡng bằng chế độ ăn cung cấp đủ năng lượng và chất dinh dưỡng, đáp ứng nhu cầu của trẻ.
+
+Tuy nhiên, cần lưu ý rằng biện pháp cho bú vô kinh không nên sử dụng cho những khách hàng nhiễm HIV hoặc có bạn tình nhiễm HIV, vì nó không giúp ngăn ngừa lây truyền HIV sang con.",Hướng dẫn bà mẹ vắt sữa và xử lý sữa đúng trước khi cho trẻ ăn bằng cốc và thìa .
+Tại sao phụ nữ mang thai bị phù (cân) phải giảm ăn mặn?,"Theo tài liệu, phụ nữ mang thai bị phù (cân) phải giảm ăn mặn vì lý do sau:
+
+- Phụ nữ mang thai bị phù (cân) thường có tình trạng giữ nước và natri tăng cao, dẫn đến tăng huyết áp và suy tim.
+- Aldosteron được tiết ra nhiều hơn trong khi có thai và đạt đỉnh cao khi chuyển dạ, gây ra tình trạng giữ nước và natri.
+- Để giảm thiểu tình trạng này, phụ nữ mang thai bị phù (cân) nên ăn kiêng với chế độ ăn ít muối (≤ 2g/ngày).
+
+Tài liệu không đề cập trực tiếp đến lý do tại sao giảm ăn mặn có thể giúp giảm phù (cân) trong thai kỳ, nhưng có thể hiểu rằng giảm ăn mặn sẽ giúp giảm lượng natri và nước trong cơ thể, từ đó giảm thiểu tình trạng giữ nước và natri tăng cao.
+
+Tài liệu cũng không đề cập đến việc giảm ăn mặn có thể giúp giảm nguy cơ tăng huyết áp và suy tim trong thai kỳ. Tuy nhiên, việc giảm ăn mặn có thể giúp giảm nguy cơ tăng huyết áp và suy tim trong dài hạn.
+
+Tóm lại, phụ nữ mang thai bị phù (cân) nên giảm ăn mặn để giảm thiểu tình trạng giữ nước và natri tăng cao, từ đó giảm thiểu nguy cơ tăng huyết áp và suy tim trong thai kỳ.",Để giảm tình trạng phù nề và tránh các tai biến khi đẻ.
+Băng huyết sau sinh được định nghĩa như thế nào?,"Băng huyết sau sinh được định nghĩa là tình trạng máu mất ≥ 500 ml khi sinh ngả âm đạo hoặc mất máu ≥ 1.000 ml khi mổ lấy thai. Hiện nay, băng huyết sau sinh còn được định nghĩa là khi chảy máu từ đường sinh dục với số lượng từ 500ml trở lên trong vòng 24 giờ sau khi sổ thai hoặc mổ sinh và có ảnh hưởng đến tổng trạng, tri giác và sinh hiệu của sản phụ.","Băng huyết sau sinh (BHSS) là tình trạng máu mất ≥ 500 ml khi sinh ngả âm đạo hoặc
+mất máu ≥ 1.000 ml khi mổ lấy thai."
+Băng huyết sau sinh sớm và muộn khác nhau ra sao?,"Băng huyết sau sinh sớm (hay nguyên phát) và băng huyết sau sinh muộn (hay thứ phát) là hai loại băng huyết sau sinh khác nhau về thời gian xuất hiện.
+
+Băng huyết sau sinh sớm là tình trạng chảy máu xảy ra trong vòng 24 giờ đầu sau sinh, chiếm khoảng 4-6% tổng số ca sinh. Nguyên nhân thường gặp nhất của băng huyết sau sinh sớm là đờ tử cung, chiếm khoảng 80%.
+
+Băng huyết sau sinh muộn là tình trạng chảy máu xảy ra từ 24 giờ đến 6 tuần sau sinh. Đây là loại băng huyết sau sinh ít gặp hơn, chiếm khoảng 1-2% tổng số ca sinh.
+
+Tóm lại, băng huyết sau sinh sớm xảy ra trong vòng 24 giờ đầu sau sinh, trong khi băng huyết sau sinh muộn xảy ra từ 24 giờ đến 6 tuần sau sinh.","• Băng huyết sau sinh sớm (hay nguyên phát): xảy ra trong vòng 24 giờ đầu.
+• Băng huyết sau sinh muộn (hay thứ phát): xảy ra từ 24 giờ đến 6 tuần sau sinh"
+Nguyên nhân phổ biến nhất gây băng huyết sau sinh là gì?,"Băng huyết sau sinh là một tình trạng nghiêm trọng có thể gây tử vong cho mẹ. Theo tài liệu, nguyên nhân phổ biến nhất gây băng huyết sau sinh ở mẹ là chảy máu nhiều và mất sinh sợi huyết (đông máu ội quản rải rác).","• Đờ tử cung: nguyên nhân là do tử cung căng quá mức, chuyển dạ kéo dài, U xơ tử cung, lộn tử cung, nhiễm trùng hoặc do dùng thuốc tăng co kéo dài, tiền căn băng huyết sau sinh.                   • Tổn thương đường sinh dục: nguyên nhân là do cắt tầng sinh môn, tổn thương âm đạo, rách cổ tử cung, vỡ tử cung.                                                                                                                                           • Sót mô: nguyên nhân là do sót nhau, nhau cài răng lược, nhau không bong.                                    • Bất thường đông máu: nguyên nhân là do bệnh lý đông cầm máu bẩm sinh hoặc mắc phải, (TSG, hội chứng HELLP), nhau bong non, thai chết lưu, nhiễm trùng nặng, thuyên tắc ối, đang điều trị kháng đông, giảm tiểu cầu, thiếu máu/Suy tủy."
+"""Khối cầu an toàn"" của tử cung sau sinh là gì?","Khối cầu an toàn của tử cung sau sinh là một khối cầu hình thành trong tử cung sau khi sinh, đặc biệt trong 2 giờ đầu sau sinh. Khối cầu này được hình thành khi tử cung co lại và trở thành một khối cầu tròn, giúp giảm thiểu sự đau đớn và khó chịu cho mẹ sau sinh.","Sau khi nhau bong sự cầm máu được thực hiện nhờ sự co rút của sợi cơ tử cung và cơ
+chế đông máu bình thường. Tử cung sẽ co lại thành một khối cứng gọi là khối cầu an toàn."
+Những yếu tố nào khiến tử cung bị căng quá mức dẫn đến đờ tử cung?,"Theo tài liệu, những yếu tố khiến tử cung bị căng quá mức dẫn đến đờ tử cung ở mẹ bao gồm:
+
+- Nâng vật nặng và căng thẳng, làm tăng áp lực bụng vào vùng cấu trúc chậu.
+- Hoạt động quá sức và không nghỉ ngơi hợp lý sau sinh.
+- Sử dụng dụng cụ giữ tử cung bên trong âm đạo, nếu không được tháo thường xuyên để làm sạch, có thể kích thích tế bào âm đạo đến mức gây lở loét.
+
+Những yếu tố này có thể làm tăng áp lực lên tử cung và dẫn đến tình trạng căng quá mức, từ đó gây ra đờ tử cung ở mẹ.","Các yếu tố bao gồm:                                                                                                                                               •Sử dụng oxytocin kéo dài
+•Đa sản (≥ 5 lần mang thai)
+•Nhiễm trùng ối
+•Giảm đau sản khoa
+•Song thai hoặc đa thai
+•Đa ối
+•Con to
+•Đa nhân xơ tử cung/có bóc
+nhân xơ lúc mổ
+•Kéo dây rốn quá mức
+•Dây rốn ngắn
+•Nhau bám đáy tử cung"
+Dấu hiệu lâm sàng chính của băng huyết do đờ tử cung là gì?,"Dấu hiệu lâm sàng chính của băng huyết do đờ tử cung ở mẹ là:
+
+- Co hồi tử cung không thể kiểm soát được
+- Toàn trạng sản phụ có dấu hiệu suy nhược, mệt mỏi, sốt, huyết áp thấp
+- Có hiện tượng chảy máu âm đạo không kiểm soát được
+- Có hiện tượng sản dịch có màu đỏ tươi hoặc đỏ sẫm
+- Có hiện tượng vú căng cứng, đau nhức
+- Có hiện tượng núm vú bị sưng hoặc đỏ
+- Có hiện tượng vết khâu tầng sinh môn bị sưng hoặc đỏ
+
+Tất cả các dấu hiệu trên đều là dấu hiệu lâm sàng chính của băng huyết do đờ tử cung ở mẹ.",Triệu chứng chính là tử cung mềm nhão.
+Thuốc đầu tay được lựa chọn để co hồi tử cung dự phòng băng huyết là gì?,Oxytocin là thuốc đầu tay được lựa chọn để co hồi tử cung dự phòng băng huyết ở mẹ đang mang thai.,Oxytocin là thuốc đầu tay được lựa chọn; nếu không có sẵn thì dùng ergometrine hoặc misoprostol.
+Sau khi sinh xong thì giai đoạn hậu sản được tính kéo dài bao lâu ạ?,Giai đoạn hậu sản sau khi sinh xong được tính kéo dài 6 tuần đối với mẹ sau sinh.,Giai đoạn sau sinh bắt đầu từ 1 giờ sau khi sinh và kéo dài suốt 6 tuần sau đó.
+Tại sao các bác sĩ cứ khuyên em phải cho con da kề da ngay sau khi đẻ?,"Các bác sĩ khuyên mẹ phải cho trẻ da kề da ngay sau khi sinh vì điều này giúp kích thích hành vi bản năng của trẻ để tìm vú mẹ và tự ngậm bắt vú bú bữa bú đầu tiên. Điều này cũng giúp các bà mẹ có HIV dương tính quyết định nuôi con bằng sữa mẹ thực hiện da-kề-da ngay sau khi sinh theo cách thông thường.
+
+Theo tài liệu, tiếp xúc da kề da ngay sau sinh giúp trẻ bình thường đủ tháng được đặt tiếp xúc da kề da với mẹ ngay sau sinh giúp việc chuyển tiếp từ bào thai ra cuộc sống mới sẽ tốt hơn về hô hấp, nhiệt độ, ổn định đường huyết, và giảm khóc đáng kể cho thấy giảm căng thẳng.
+
+Tài liệu cũng chỉ ra rằng, việc tiếp xúc da kề da ngay sau sinh giúp các bà mẹ cho trẻ tiếp xúc da kề da ngay sau sinh sẽ cải thiện hành vi của mẹ, mẹ tự tin hơn trong chăm sóc bé và cho bé bú mẹ lâu dài hơn.","• Có bằng chứng rõ rằng bé bình thường đủ tháng được đặt tiếp xúc da kề da với mẹ ngay sau sinh giúp việc chuyển tiếp từ bào thai ra cuộc sống mới sẽ tốt hơn về hô hấp, nhiệt độ, ổn định đường huyết, và giảm khóc đáng kể cho thấy giảm căng thẳng.                                                               • Những bà mẹ cho trẻ tiếp xúc da kề da ngay sau sinh sẽ cải thiện hành vi của mẹ, mẹ tự tin hơn trong chăm sóc bé và cho bé bú mẹ lâu dài hơn.
+• Tiếp xúc da kề da với mẹ bảo vệ bé khỏi những ảnh hưởng tiêu cực đã được ghi nhận khi tách bé, hỗ trợ phát triển trí não tối ưu và tạo thuận lợi cho sự gắn bó, thúc đẩy sự tự điều chỉnh của trẻ sơ sinh qua thời gian.
+• Trẻ bình thường sinh ra có bản năng bú mẹ và có thể tìm vú, tự nắm bắt vú mà không cần sự hỗ trợ khi tiếp xúc da kề da."
+"Em mới sinh bé xong, trong mấy tiếng đầu bác sĩ sẽ theo dõi em thế nào?","Theo tài liệu, sau khi sinh, bác sĩ sẽ theo dõi mẹ và bé trong 24 giờ đầu tiên. Trong giai đoạn này, nếu sức khỏe của mẹ và bé đều ổn định, thì nên để trẻ được da kề da với mẹ để thắt chặt kết nối mẫu tử và giúp trẻ cảm thấy an toàn hơn trong quá trình thích nghi với cuộc sống bên ngoài.
+
+Trong vòng 24 giờ đầu tiên, bác sĩ sẽ theo dõi các thông tin sau:
+
+- Tình trạng bú mẹ
+- Giấc ngủ
+- Toàn trạng
+- Tiểu tiện
+- Đại tiện
+
+Bên cạnh đó, bác sĩ cũng sẽ theo dõi tình trạng huyết áp, mạch và ra máu sản dịch của mẹ để đảm bảo sức khỏe của mẹ.
+
+Trong ngày đầu tiên sau sinh, trẻ sẽ không được tắm vì khi sinh đã được lau mình sạch sẽ. Trường hợp quan sát thấy rốn bình thường và không bị sưng tấy, mẹ chỉ cần lau xung quanh rốn của trẻ bằng khăn xô sạch nhúng nước muối sinh lý hoặc nước sôi để nguội.
+
+Tài liệu cũng đề cập rằng, chỉ trong vòng 1 tiếng đầu sau sinh, trẻ đã có phản xạ tìm và mút vú mẹ, nếu bị cách ly với mẹ lâu thì phản xạ này sẽ dần mất đi.","• Đánh giá và ghi nhận các dấu hiệu sinh tồn 15 phút 1 lần trong giờ đầu sau sinh,
+sau đó 30 phút 1 lần trong giờ tiếp theo nếu các thông số đạt yêu cầu."
+Tại sao sau khi sinh em lại bị bắt đi tiểu sớm dù chưa thấy buồn ạ?,"Sau khi sinh, mẹ có thể bị bắt đi tiểu sớm do một số nguyên nhân sau:
+
+- Trong chuyển dạ khi sinh, khi ngôi thai xu ống thấp, thường là đ ầu thai nhi đè vào c ổ bàng quang hay ni ệu đ ạo gây ứ đọng nư ớc ti ểu làm bàng quang căng giãn, khi giãn nhiều làm mất trương lực, làm co thắt cơ cổ bàng quang.
+- Trong lúc sinh phải cắt tầng sinh môn để giúp cho đầu thai nhi s ổ ra được dễ dàng, sau sinh ph ải khâu l ại chỗ cắt, chỗ khâu sưng ề làm cho ngư ời mẹ khi đi ti ểu không dám rặn tiểu vì đau.
+- Sau khi sinh, bàng quang không nh ạy cảm v ới kích thích khi nước tiểu đầy gây bí tiểu.
+- Tổn thương thần kinh chậu trong quá trình sinh sinh.
+
+Những nguyên nhân này có thể dẫn đến tình trạng mẹ bị bắt đi tiểu sớm dù chưa thấy buồn.","Bạn cần đi tiểu sớm để tránh tình trạng bàng quang đầy làm đẩy lệch đáy tử cung, ảnh hưởng đến sự co hồi tử cung."
+Sau sinh em bị sốt bao nhiêu độ thì được coi là nguy hiểm phải báo y tá?,"Theo tài liệu 2, sốt là tình trạng nhiệt độ cơ thể cao hơn bình thường. Trẻ có thể bị sốt cao hơn so với người lớn. Một số nguyên nhân phổ biến khiến trẻ bị sốt là nhiễm trùng hoặc các bệnh khác, tuy nhiên trẻ cũng có thể bị sốt do tiêm chủng hoặc do mặc quá nhiều quần áo.
+
+Thông thường, trẻ sơ sinh bị sốt khi nhiệt độ (được đo ở tai và trán) lớn hơn 38 độ C. Ngoài ra, trẻ sơ sinh bị sốt cũng có những triệu chứng khác như bú ít, mệt mỏi, bé hay quấy khóc, cáu kỉnh và cũng cần quan sát thêm các triệu chứng đi kèm nếu thấy bé rét run, xuất huyết, co giật, khó thở, người tím tái, li bì...
+
+Theo tài liệu 4, khi trẻ bị sốt trên 38.5 độ C, và khi trẻ cáu kỉnh hoặc khó chịu, cần cho trẻ uống thuốc hạ sốt. Tuy nhiên, không cho trẻ chườm đá hoặc tắm lạnh để hạ sốt vì chúng có thể gây ra hiện tượng co mạch và làm trẻ sốt cao hơn.
+
+Về việc báo y tá, theo tài liệu 4, cần gọi trợ giúp y tế nếu trẻ:
+
+- Dưới 6 tháng tuổi và bị sốt
+- Trên 6 tháng tuổi và bị sốt kéo dài hơn 48 giờ
+- Có các vấn đề khác ngoài sốt, ví dụ như cứng cổ, nôn, tiêu chảy, đau tai, phát ban hoặc co giật, li bì
+
+Do đó, sau sinh mẹ bị sốt trên 38.5 độ C hoặc có các triệu chứng khác ngoài sốt, cần báo y tá để được tư vấn và điều trị kịp thời.","Nếu nhiệt độ của bạn từ 38°C trở lên, cần phải báo ngay cho nhân viên y tế để theo dõi và đánh giá kịp thời."
+Bé mới sinh ra sẽ được bác sĩ kiểm tra những gì trên cơ thể ạ?,"Theo tài liệu, trong giai đoạn 0-28 ngày tuổi, bé sẽ được bác sĩ kiểm tra các chỉ số sau:
+
+- Tuổi thai: Bác sĩ sẽ xác định tuổi thai của bé bằng cách đo cân nặng, chiều dài và các chỉ số khác.
+- Cân nặng: Bác sĩ sẽ đo cân nặng của bé để đánh giá tình trạng dinh dưỡng và phát triển của bé.
+- Chiều dài: Bác sĩ sẽ đo chiều dài của bé để đánh giá tình trạng phát triển của bé.
+- Nhiệt độ phòng sinh: Bác sĩ sẽ kiểm tra nhiệt độ phòng sinh để đảm bảo rằng bé được chăm sóc trong môi trường an toàn.
+- Chăm sóc thiết yếu da kề da sau sinh: Bác sĩ sẽ hướng dẫn mẹ chăm sóc bé đúng quy trình, bao gồm việc giữ ấm cho bé bằng phương pháp Kangaroo, nuôi con bằng sữa mẹ, phòng chống nhiễm khuẩn.
+- Tiêm bắp vitamin K1: Bác sĩ sẽ tiêm bắp vitamin K1 liều 1 mg cho bé, hoặc liều 0,5 mg nếu cân nặng bé dưới 1500 g.
+- Tiêm chủng: Bác sĩ sẽ tiêm chủng cho bé theo qui định, bao gồm BCG và viêm gan B.
+- Phát hiện dị tật, dấu hiệu nguy hiểm: Bác sĩ sẽ kiểm tra bé để phát hiện bất kỳ dị tật hoặc dấu hiệu nguy hiểm nào và chuyển bé lên tuyến trên nếu cần.
+
+Tóm lại, trong giai đoạn 0-28 ngày tuổi, bé sẽ được bác sĩ kiểm tra các chỉ số quan trọng để đảm bảo rằng bé được chăm sóc đúng và phát triển khỏe mạnh.","Kiểm tra từ đầu đến chân
+• Nhìn tổng thể bao gồm màu da, cử động, tư thế, giọng, tỉnh táo và
+phản ứng dễ cáu kỉnh
+• Đầu & cổ.
+• Sọ, kích cỡ, đối xứng, đường khâu và phồng, tổn thương da đầu, chấn thương.
+• Các đặc điểm trên mặt: chứng loạn dưỡng, mắt, mũi, lỗ mũi, miệng bao gồm
+môi, vòm miệng, răng, nang, lưỡi
+• Tai: hình dạng, vành tai, hố, ống tai ngoài
+• Hàm/ cằm
+• Cổ: bướu, u nang, da dư, tật vẹo cổ, đùn da6
+Kiểm tra từ đầu đến chân
+• Tay/Vai
+• Cử động (bao gồm sự đối xứng), hình dạng, chiều dài, phạm vi cử động, khớp,
+xương đòn, chỉ tay nằm ngang, số ngón tay/ móng tay/ tật dính ngón, hạch
+nách và vùng da dư ở nách
+• Ngực và bụng
+•Nhịp thở, cử động ngực, sử dụng cơ thở cần thiết, thở bụng, hình dạng
+và đối xứng
+•Rốn, thoát vị
+•Thở rên rỉ, ví dụ: thở nhanh nông có thể là dấu hiệu của suy hô hấp
+Kiểm tra từ đầu đến chân
+• Mông và bô phận sinh dục
+• Giới tính
+• Thoát vị
+• Dương vật, da quy đầu/vị trí nước tiểu ra, bìu, tinh hoàn
+• Âm hộ, âm môi, âm đạo, thịt dư
+• Chi dưới
+• Hình dạng chân, chiều dài, đối xứng, phạm vi cử động, khớp
+• Bàn chân: tật khoèo chân, ngón chân/ móng chân/ webbing
+• Lưng/mông/hậu môn
+• Giải phẫu tủy sống và đối xứng, không có lỗ hậu môn, tiêu chảy xảy ra rất sớm và nặng,
+• Chàm Mông Cổ màu xanh, hậu môn bị dãn rộng, trĩ, nứt hậu môn.
+Hoàn tất ghi nhận trên hồ sơ về kiểm tra sức khỏe của bé. Thảo luận với nhân viên y tế về những yếu tố khác"
+Em thấy bé có những vết xanh ở mông thì có phải bệnh gì không bác sĩ?,"Tôi chưa tìm thấy thông tin về các vết xanh ở mông ở trẻ 0-12 tháng tuổi trong tài liệu. Tuy nhiên, tôi có thể cung cấp thông tin về các dấu hiệu và triệu chứng thường gặp ở trẻ trong độ tuổi này.
+
+Theo tài liệu, trẻ 0-12 tháng tuổi có thể có các dấu hiệu và triệu chứng như:
+
+- Bé di chuyển xung quanh
+- Bé lật người và bò xung quanh
+- Bé ngồi, đứng và khám phá
+- Bé tạo ra các tiếng động
+- Bé cười khúc khích
+- Bé bập bẹ các từ
+- Bé bắt đầu hiểu những từ bé thường xuyên nghe thấy
+- Tên của bé
+- Những từ như mẹ, ba
+
+Nếu bạn có bất kỳ lo lắng nào về sức khỏe của bé, tôi khuyên bạn nên đưa bé đến gặp bác sĩ để được tư vấn và kiểm tra.","Đó thường là chàm Mông Cổ màu xanh, một dấu hiệu bình thường cần được ghi nhận trong hồ sơ sức khỏe của bé."
+"Khi về khoa hậu sản, có những dấu hiệu nào em phải gọi cấp cứu ngay?","Khi về khoa hậu sản, có những dấu hiệu sau mẹ phải gọi cấp cứu ngay:
+
+- Phù phổi cấp: Đây là một cấp cứu trong sản khoa, thường xảy ra ở các bệnh nhân mắc bệnh tim, tăng huyết áp, tiền sản giật/sản giật hoặc các bệnh nhiễm trùng trong lúc mang thai. Cũng có khi do truyền dịch quá nhiều với tốc độ nhanh.
+
+- Biểu hiện lâm sàng của phù phổi cấp bao gồm:
+ + Khó thở đột ngột, nhịp thở nhanh, ho nhiều, môi và đầu chi tím, tinh thần hốt hoảng, tức ngực, vã mồ hôi lạnh chân tay.
+ + Ran ẩm nhỏ hạt ở đáy phổi dâng lên nhanh, gõ đục đáy phổi.
+ + Từ ho khan chuyển sang khạc ra đờm bọt hồng ngày càng nhiều.
+ + Nhịp tim nhanh > 100 lần/ phút, kèm theo các tiếng tim bệnh lý.
+ + Đôi khi có tiếng ngựa phi.
+ + Huyết áp tăng cao hoặc kẹt.
+ + Áp lực tĩnh mạch trung ương (CVP) cao, tĩnh mạch cổ nổi.
+ + Xquang: phổi mờ.
+
+- Cần phân biệt với: cơn hen phế quản (phổi nhiều ran rít và ran ngáy, gõ vang, lồng ngực căng) và cơn hen tim (có khó thở thì thở ra, ran rít).
+
+- Xử trí phù phổi cấp bao gồm:
+ + Xử trí ban đầu: Kêu gọi mọi người đến giúp đỡ, cùng cấp cứu người bệnh. Kiểm tra và theo dõi các dấu hiệu sinh tồn: mạch, huyết áp, nhịp thở, nghe tim phổi. Đảm bảo thông thoáng đường thở bằng cách cho nằm đầu cao. Hút đờm rãi làm thông đường hô hấp, cho thở oxy. Lập đường truyền tĩnh mạch. Tư vấn cho gia đình biết tình trạng nặng của bệnh, nguy cơ cho mẹ và cho con.
+ + Xử trí theo nguyên nhân: Tuyến xã - Gọi tuyến trên để được giúp đỡ, huy động tất cả nhân viên sẵn có tập trung cấp cứu người bệnh. Thực hiện xử trí ban đầu như trên. Tư vấn cho gia đình và chuyển tuyến trên, có nhân viên y tế đi kèm. Tuyến huyện trở lên Phù phổi cấp huyết động - Cho thai phụ ngồi thẳng, chân thõng. Garo ba chi luân.
+
+ *Lưu ý: Mẹ nên đưa bé đến cơ sở y tế để được thăm khám trực tiếp.*","•  Máu ra đột ngột và lượng nhiều hoặc ra máu tăng đáng kể, mệt mỏi, chóng mặt hay đánh trống ngực/ nhịp tim nhanh.
+•  Sốt, run rẩy, đau bụng và/ hoặc tổn thương âm đạo gây mất máu
+•  Nhức đầu kèm theo 1 hay nhiều các triệu chứng trong vòng 72 giờ đầu sau sinh: rối
+loạn thị giác, buồn nôn, nôn
+•  Đau bắp chân đơn, đỏ hoặc phù Thở nông hoặc đau ngực"
+Tầng sinh môn của em bị đau và rách thì chăm sóc tại nhà thế nào?,"Để chăm sóc tầng sinh môn bị đau và rách tại nhà cho mẹ và bé 0-12 tháng tuổi, cần thực hiện các bước sau:
+
+**Vệ sinh vùng kín**
+
+* Vệ sinh vùng kín bằng nước ấm sạch hoặc dung dịch vệ sinh dịu nhẹ sau mỗi lần đi vệ sinh.
+* Dùng khăn mềm, thấm khô nhẹ nhàng từ trước ra sau để tránh đưa vi khuẩn từ hậu môn vào vùng vết thương.
+
+**Tránh dùng giấy vệ sinh thô ráp**
+
+* Tránh dùng giấy vệ sinh thô ráp hoặc lau mạnh gây trầy xước.
+
+**Thay băng**
+
+* Thay băng mỗi 4-6 giờ, hoặc ngay khi cảm thấy băng bị ẩm ướt.
+
+**Chăm sóc vết khâu**
+
+* Sau khi sinh, tầng sinh môn sẽ được khâu lại. Vết khâu này dù không lớn nhưng nằm ở vùng nhạy cảm, dễ ẩm ướt, nhiều vi khuẩn nên rất dễ sưng, đau hoặc viêm nếu không được chăm sóc đúng cách.
+* Trong 24-48 giờ đầu: mẹ thường cảm thấy đau, căng tức vùng khâu, đặc biệt khi ngồi hoặc đi lại.
+* Sau 5-7 ngày: cảm giác đau giảm dần, mô bắt đầu liền lại.
+* Khoảng 2-3 tuần sau sinh: vết khâu thường lành hẳn với điều kiện chăm sóc tốt, không nhiễm trùng.
+
+**Chăm sóc sức khỏe của mẹ**
+
+* Sau khi bé chào đời là lúc cơ thể mẹ dần khôi phục những thay đổi trong thai kỳ và sinh nở. Chăm sóc trẻ sơ sinh thường chiếm hầu hết thời gian, nhưng khám sức khỏe bà mẹ sau sinh cũng quan trọng không kém.
+* Các mẹ phải cố gắng nghỉ ngơi và thư giãn càng nhiều càng tốt.
+* Gặp bác sĩ thường xuyên là rất quan trọng để có một thai kỳ khỏe mạnh, nhưng việc khám sức khỏe bà mẹ sau sinh định kỳ và giữa các lần mang thai cũng không nên bỏ qua.
+
+**Chăm sóc sức khỏe của bé**
+
+* Hầu hết trẻ được sinh ra vẫn khỏe mạnh. Nhận ra sớm và điều trị 1 số vấn đề có thể có ảnh hưởng lớn đến sức khỏe của trẻ.
+* Trẻ cần được quan sát thường xuyên và đo đạc và/ hoặc chăm sóc sau sinh đặc biệt.
+* Những trường hợp sau đây trẻ được chỉ định chăm sóc đặc biệt và/ hoặc chăm sóc bổ sung/ quan sát bao gồm: dấu hiệu sinh tồn và / hoặc chuyển đến khoa sơ sinh, mẹ 'Strep nhóm B dương' or 'không biết có nhiễm Strep nhóm B', mẹ tiểu đường, tuổi mẹ nhỏ, nước ối lẫn phân su khi sinh, vỡ ối sớm, bé lạnh – ví dụ nhiệt độ dưới 36.50C, bé sinh trước khi đến bệnh viện, bất kì trẻ sinh non muộn nào (35-37 tuần tuổi thai), trẻ sinh nhẹ cân (2000-2500g).
+
+Lưu ý: Nếu mẹ hoặc bé có bất kỳ dấu hiệu bất thường nào, cần liên hệ với bác sĩ ngay lập tức.",Bạn nên vệ sinh sạch sẽ và được khuyến nghị tắm ngày 2 lần bằng nước muối ấm để hỗ trợ vết thương mau lành.
+Em nghe nói nếu không bú mẹ thì con dễ bị béo phì khi lớn lên phải không?,"Theo tài liệu, trẻ không bú mẹ tăng nguy cơ béo phì ở trẻ em và vị thành niên.","Đúng, không bú mẹ hoàn toàn làm tăng nguy cơ béo phì ở trẻ em và vị thành niên."
+Nuôi con bằng sữa mẹ thì người mẹ có lợi ích gì về lâu dài không?,"Người mẹ có nhiều lợi ích về lâu dài khi nuôi con bằng sữa mẹ, bao gồm:
+
+- Giúp tăng cường tình cảm mẹ con, bảo đảm sự phát triển của trẻ
+- Giúp chậm có thai trở lại
+- Bảo vệ sức khỏe bà mẹ
+- Chi phí thấp hơn so với nuôi nhân tạo Sữa mẹ
+- Là nguồn dinh dưỡng hoàn hảo
+- Dễ tiêu hóa, sử dụng hiệu quả
+- Phòng ngừa các bệnh nhiễm khuẩn
+
+Theo ước tính của Tổ chức Y tế Thế giới, 22% các trường hợp tử vong ở trẻ sơ sinh có thể phòng tránh được nếu được bú sữa mẹ sớm trong vòng 1 giờ đầu sau sinh, 13% trẻ dưới 5 tuổi bị tử vong có thể ngăn chặn được nếu được bú sữa mẹ hoàn toàn.","Giúp mẹ giảm nguy cơ ung thư vú trước và sau khi mãn kinh, ung thư buồng trứng, nội mạc tử cung, loãng xương và thiếu máu, trầm cảm sau sinh, viêm khớp dạng thấp và lấy lại cân nặng trước khi mang thai."
+Sữa non của em màu vàng và đặc thì có tốt cho bé không ạ?,"Sữa non của mẹ có màu vàng và đặc là một dấu hiệu tốt cho trẻ sơ sinh. Sữa non chứa nhiều năng lượng, chất đạm, nhiều vitamin A, kháng thể và tế bào bạch cầu, giúp trẻ thải phân su và là thức ăn tốt nhất cho trẻ trong tuần đầu sau sinh. Sữa non giúp bảo vệ bé khỏi bệnh tật và giúp bé thải ra phân su. Vì vậy, sữa non của mẹ có màu vàng và đặc là một dấu hiệu cho thấy sữa mẹ của mẹ đang tốt và có thể cung cấp đủ dinh dưỡng cho trẻ sơ sinh.","Rất tốt                                                                                                                                                                             • Chất lỏng dày dính màu vàng do các tế bào nang vú tiết ra trong suốt 3 tháng cuối của thai kì và kéo dài 1 thời gian sau sinh
+• Số lượng ít, năng lượng cao
+• Chứa ít đường lactose, vitamin tan trong chất béo, natri cao hơn, kẽm và tất cả các yếu tố bảo vệ
+• Kháng thể bám vào thành ruột để tránh sự xâm nhập các mầm bệnh
+• Các yếu tố tăng trưởng kích thích sự phát triển của tế bào niêm mạc, biểu mô, tổng hợp ADN, sự phát triển của các cơ quan và hệ thần kinh
+• Thường sẽ chuyển sang sữa trưởng thành trong 30-40 giờ sau sinh"
+"Em bị đau núm vú quá, có cách nào để bớt đau khi cho con bú không?","Để bớt đau khi cho con bú, mẹ có thể thực hiện các bước sau:
+
+- Xây dựng niềm tin cho bà mẹ: Đây là bước quan trọng để giúp mẹ cảm thấy thoải mái và tự tin khi cho con bú.
+
+- Cải thiện sự ngậm bắt vú: Mẹ cần giúp con ngậm bắt vú đúng cách để tránh gây đau cho mẹ.
+
+- Hướng dẫn cách sử dụng máy hút sữa: Nếu mẹ cần hút sữa, hãy sử dụng máy hút sữa đúng cách để tránh gây đau và tắc ống dẫn sữa.
+
+- Điều trị nấm nếu có: Nếu mẹ bị nhiễm nấm, cần điều trị kịp thời để tránh gây đau và ảnh hưởng đến quá trình cho con bú.
+
+Ngoài ra, mẹ cũng cần lưu ý các nguyên nhân khác có thể gây đau núm vú, như:
+
+- Mẹ quá nhiều sữa, trẻ bú không kịp lại không hút sữa.
+- Trẻ bú không đúng cách.
+- Mẹ không cho bú thường xuyên.
+- Áo ngực quá chật quá bó chèn ép tia sữa và gây tắc.
+
+Mẹ cần chú ý đến các biểu hiện sau để nhận biết sớm tình trạng tắc tia sữa và can thiệp điều trị kịp thời:
+
+- Không tiết sữa hoặc tiết sữa rất ít, kể cả khi mẹ chủ động vắt sữa.
+- Ngực càng lúc càng căng cứng và to hơn, đi kèm với cảm giác đau nhức.
+- Sờ vào đầu vú cảm giác có một hoặc nhiều cục cứng.
+- Một số trường hợp gây sốt.
+
+Mẹ cần lưu ý rằng tắc tia sữa không gây nguy hiểm đến tính mạng nhưng sẽ gây nhiều biến chứng nguy hiểm cho sức khỏe của mẹ, tăng nguy cơ gặp các biến chứng như mất sữa hoàn toàn, viêm tuyến vú, áp xe vú lâu dần phát triển thành các dải xơ hóa ở vú.","Tình trạng đau núm vú thường ổn định trong tuần thứ 2, bạn có thể dùng chính sữa mẹ bôi lên để làm dịu núm vú."
+Huyết trắng của em đóng mảng trắng đục như váng sữa kèm ngứa nóng rát là bị làm sao ạ?,"Viêm âm đạo do nấm Candida được mô tả trong tài liệu như sau:
+
+- Khí hư âm đạo có tính chất đặc, màu trắng như váng sữa dính vào thành âm đạo, có vết trợt, số lượng nhiều hoặc vừa, thường kèm theo ngứa và cảm giác bỏng rát âm hộ-âm đạo.
+
+- Chẩn đoán xác định bằng soi tươi dịch âm đạo có nấm Candida.
+
+- Test Sniff âm tính.
+
+- Điều trị: Nếu xác định được nguyên nhân thì điều trị nguyên nhân, nếu không thì điều trị theo hội chứng.
+
+- Đối với mọi trường hợp tiết dịch âm đạo, cán bộ y tế cần xác định và điều trị cho (các) bạn tình, trừ trường hợp viêm âm đạo do nấm hoặc vi khuẩn.
+
+- Phác đồ điều trị viêm âm đạo do nấm Candida không được đề cập trong tài liệu này.
+
+Tài liệu cũng không đề cập đến việc điều trị viêm âm đạo do trùng roi âm đạo hoặc vi khuẩn.
+
+ *Lưu ý: Mẹ nên đưa bé đến cơ sở y tế để được thăm khám trực tiếp.*",Đây là dấu hiệu của viêm âm đạo do nấm (thường là Candida albicans); bạn cần đi khám để được soi tươi chất tiết tìm chồi nấm hoặc sợi tơ nấm.
+Nếu em bị nhiễm nấm âm đạo thì bé sơ sinh có bị lây không?,"Theo tài liệu 3, nấm âm đạo (viêm âm đạo do nấm) có thể lây truyền từ mẹ sang bé sơ sinh trong quá trình sinh. Khi mẹ bị nhiễm nấm âm đạo, nấm có thể lây sang bé sơ sinh qua đường âm đạo trong quá trình sinh. Điều này có thể gây ra các triệu chứng như viêm niêm mạc miệng (đẹn), viêm da và viêm phổi ở bé sơ sinh.
+
+Theo tài liệu 3, trong thai kỳ, các triệu chứng của viêm âm đạo do nấm thường nặng hơn và gây khó chịu nhiều hơn cho mẹ. Ngoài ra, nấm âm đạo cũng có thể lây truyền sang bé sơ sinh trong quá trình sinh, gây ra các biến chứng như viêm niêm mạc miệng, viêm da và viêm phổi.
+
+Tổ chức Y tế thế giới (WHO) đã khuyến cáo rằng, nếu mẹ bị nhiễm nấm âm đạo, cần điều trị dự phòng để tránh lây truyền sang bé sơ sinh.","Bé có thể bị lây nhiễm trong lúc sổ thai ngang qua ÂĐ gây viêm niêm mạc miệng (đẹn), viêm da và viêm phổi."
+"Em đang mang thai tháng cuối, có loại thuốc đặt âm đạo nào an toàn để dự phòng nấm không?","Tôi chưa tìm thấy thông tin về loại thuốc đặt âm đạo an toàn để dự phòng nấm trong trường hợp mẹ đang mang thai. Tuy nhiên, theo tài liệu, mẹ nên tham khảo ý kiến của bác sĩ sản phụ khoa về tất cả các loại thuốc đang dùng, bao gồm cả thuốc đặt âm đạo.",Bạn có thể sử dụng Clotrimazole 500mg đặt một liều duy nhất trong 4 tuần cuối thai kỳ; thuốc này đã được nghiên cứu không gây ảnh hưởng lên thai nhi.
+Nhiễm khuẩn hậu sản là gì mà em nghe bảo nguy hiểm lắm phải không ạ?,"Nhiễm khuẩn hậu sản là nhiễm khuẩn xảy ra ở sản phụ sau đẻ xuất phát từ đường sinh dục (âm đạo, cổ tử cung, tử cung) trong 6 tuần đầu sau đẻ. Một số vi khuẩn gây bệnh thường gặp bao gồm tụ cầu, liên cầu, E. coli, các vi khuẩn kỵ khí như Clostridium, Bacteroides...
+
+Đường lan truyền của nhiễm khuẩn hậu sản là từ âm đạo qua cổ tử cung, qua vòi tử cung vào phúc mạc. Vi khuẩn có thể qua diện rau bám vào máu gây nhiễm khuẩn máu.
+
+Yếu tố thuận lợi cho nhiễm khuẩn hậu sản bao gồm:
+
+- Dinh dưỡng kém
+- Thiếu máu
+- Nhiễm độc thai nghén
+- Ối vỡ non
+- Ối vỡ sớm
+- Chuyển dạ kéo dài
+- Bế sản dịch
+- Các thủ thuật như bóc rau, kiểm soát tử cung...
+
+Các hình thái nhiễm khuẩn hậu sản chính bao gồm:
+
+1. Nhiễm khuẩn tầng sinh môn, âm hộ, âm đạo
+ * Nguyên nhân: vết khâu tầng sinh môn không vô trùng, khâu phục hồi tầng sinh môn không đúng kỹ thuật hoặc không khâu, sót gạc trong âm đạo.
+ * Triệu chứng: sốt không cao, tại chỗ vết thương sưng, đỏ, đau, mưng mủ, sản dịch không hôi.
+ * Điều trị: chăm sóc tại chỗ, rửa bằng thuốc sát khuẩn, cắt chỉ khi có mưng mủ, đóng khố vệ sinh, gạc vô khuẩn.
+
+2. Viêm niêm mạc tử cung
+ * Nguyên nhân: sót rau, sót màng, nhiễm khuẩn ối, thủ thuật kiểm soát tử cung, bóc rau nhân tạo không vô khuẩn.
+ * Triệu chứng: sốt 38-38,5oC (sau đẻ vài ba ngày), mệt mỏi, khó chịu, sản dịch ra nhiều, hôi, lẫn máu mủ, cổ tử cung hé mở, tử cung co hồi chậm, ấn tử cung đau.
+ * Điều trị: dùng kháng sinh toàn thân (Ampixilin, Gentamixin), thuốc tăng co tử cung (Oxytocin, Ergometrine), nếu sót rau phải đợi nhiệt độ giảm hoặc hết sốt mới nong nạo buồng tử cung, nếu viêm tử cung toàn bộ phải cắt tử cung toàn phần và cấy máu để phát hiện sớm nhiễm khuẩn máu.
+
+3. Viêm tử cung và viêm quanh tử cung
+ * Triệu chứng: sốt sau đẻ, mệt mỏi, khó chịu, sản dịch ra nhiều, hôi, lẫn máu mủ, cổ tử cung hé mở, tử cung co hồi chậm, ấn tử cung đau.
+ * Điều trị: dùng kháng sinh toàn thân (Ampixilin, Gentamixin), thuốc tăng co tử cung (Oxytocin, Ergometrine), nếu sót rau phải đợi nhiệt độ giảm hoặc hết sốt mới nong nạo buồng tử cung, nếu viêm tử cung toàn bộ phải cắt tử cung toàn phần và cấy máu để phát hiện sớm nhiễm khuẩn máu.",Nhiễm khuẩn hậu sản là các nhiễm khuẩn xuất phát từ bộ phận sinh dục trong thời kỳ hậu sản. Đây là một trong những tai biến sản khoa thường gặp và là một trong những nguyên nhân hàng đầu gây tử vong mẹ.
+"Vết khâu tầng sinh môn của em bị sưng tấy, đau và sốt nhẹ thì có phải bị nhiễm trùng không?","Vết khâu tầng sinh môn bị sưng tấy, đau và sốt nhẹ có thể là dấu hiệu của nhiễm trùng. Theo tài liệu 2, sau khi sinh, tầng sinh môn sẽ được khâu lại và vết khâu này dễ sưng, đau hoặc viêm nếu không được chăm sóc đúng cách. Trong 24-48 giờ đầu sau sinh, mẹ thường cảm thấy đau, căng tức vùng khâu, đặc biệt khi ngồi hoặc đi lại. Sau 5-7 ngày, cảm giác đau giảm dần, mô bắt đầu liền lại. Tuy nhiên, nếu vết khâu bị sưng tấy, đau và sốt nhẹ, điều này có thể là dấu hiệu của nhiễm trùng.
+
+Theo tài liệu 1, một số vấn đề có thể xảy ra với vết khâu tầng sinh môn như vết khâu bị hở, bị rách, đứt chỉ vết khâu tầng sinh môn, vết khâu bị mưng mủ hay có mùi hôi, bị ngứa. Xử trí cho các vấn đề này bao gồm chườm lạnh, thuốc giảm đau theo chỉ định, và chăm sóc vết thương đúng cách.
+
+Do đó, nếu vết khâu tầng sinh môn của mẹ bị sưng tấy, đau và sốt nhẹ, mẹ nên tham khảo ý kiến của bác sĩ để được tư vấn và điều trị kịp thời.","Đây có thể là dấu hiệu nhiễm khuẩn tầng sinh môn (sốt nhẹ 38 độ C - 38,5 độ C, vết khâu sưng tấy, đau hoặc trường hợp nặng có mủ. Tử cung co hồi bình thường, sản dịch không hôi). Bạn cần vệ sinh tại chỗ hàng ngày bằng oxy già (nếu vết khâu có mủ), hoặc Povidon iodin, kháng sinh(uống hoặc tiêm) hoặc cắt chỉ tầng sinh môn nếu vết khâu tấy đỏ có mủ."

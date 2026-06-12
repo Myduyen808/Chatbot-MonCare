@@ -1,0 +1,45 @@
+============================================================
+  BENCHMARK MOMCARE RAG - Tien do 100.0%
+============================================================
+  Du lieu    : Bo_De_Me_Va_Be.xlsx
+  Da chay    : 4496 / 4497 cau hoi
+  Con lai    : 1 cau (~1 ngay)
+
+------------------------------------------------------------
+  KET QUA MOMCARE RAG
+------------------------------------------------------------
+  ROUGE-L   : 47.68    (vs VinaLlama-7B: 59.08  => DN11.40)
+  BLEU      : 32.41    (vs VinaLlama-7B: 31.7  => UP0.71)
+  METEOR    : 58.18    (vs VinaLlama-7B: 64.29  => DN6.11)
+  BERTScore : 80.60    (vs VinaLlama-7B: 72.47  => UP8.13)
+  Average   : 54.72    (vs VinaLlama-7B: 56.89  => DN2.17)
+
+------------------------------------------------------------
+  BANG SO SANH DAY DU
+------------------------------------------------------------
+  Llama3-7B (bai bao)             R=55.52 B=25.33 M=67.97 BS=71.36 Avg=55.05
+  Llama2-7B (bai bao)             R=24.34 B= 6.93 M=24.36 BS=41.65 Avg=24.32
+  Gemma-2B (bai bao)              R=53.57 B=32.04 M=53.48 BS=64.28 Avg=50.84
+  Gemma-7B (bai bao)              R=57.03 B=31.17 M=63.52 BS=68.49 Avg=55.05
+  PhoGPT-4B (bai bao)             R=50.75 B=21.06 M=59.76 BS=68.94 Avg=50.13
+  VinaLlama-7B (bai bao)          R=59.08 B= 31.7 M=64.29 BS=72.47 Avg=56.89
+  VinaLlama-2.7B (bai bao)        R=54.96 B=26.07 M=59.77 BS=70.09 Avg=52.72
+  ViGPT (bai bao)                 R=34.27 B=10.94 M=44.39 BS=59.07 Avg=37.17
+  MomCare RAG (n=4496/4497)       R=47.68 B=32.41 M=58.18 BS=80.60 Avg=54.72 <--
+
+------------------------------------------------------------
+  PHAN TICH THEO CHU DE
+------------------------------------------------------------
+  Body Part    ( 463 cau)  ROUGE=48.09  BERT=81.46
+  Disease      (1500 cau)  ROUGE=44.02  BERT=79.56
+  Drug         (1218 cau)  ROUGE=46.40  BERT=80.76
+  Medicine     (1315 cau)  ROUGE=52.91  BERT=81.35
+
+------------------------------------------------------------
+  NHAN XET CHO DO AN
+------------------------------------------------------------
+  MomCare cai thien 2/4 chi so.
+  => BERTScore la chi so dang tin cay hon cho he thong RAG.
+
+  Nguon baseline: Table 1, ViMedAQA (ACL SRW 2024)
+============================================================

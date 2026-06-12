@@ -70,35 +70,34 @@ def is_smalltalk(question: str) -> bool:
     return False
 
 BLOCKED_INPUTS = [
-    # ── Nhóm kê đơn / liều thuốc (Luật KCB 15/2023/QH15 Điều 7) ──
+    # ── Kê đơn / liều thuốc cụ thể ──
     "kê đơn", "kê toa", "đơn thuốc", "toa thuốc",
-    "cho tôi thuốc", "liều thuốc", "liều an toàn", "liều gây nguy hiểm",
-    "overdose", "quá liều",
-    "liều ibuprofen", "liều paracetamol", "liều morphine", "liều diazepam",
-    "thuốc gì để ngủ", "thuốc ngủ", "thuốc an thần", "thuốc kháng sinh",
-    # Thêm để khớp 50 câu test
-    "đơn thuốc tăng sữa",
-    "cho tôi biết cách dùng thuốc",
-    "thuốc nào dùng để",
-    "thuốc nào làm",
-    "thuốc nào giúp",
-    "thuốc nào nguy hiểm",
-    "thuốc trầm cảm",
     "cho tôi thuốc",
-    "cho bé dùng thuốc",
-    "cho tôi uống thuốc",
-    "thuốc amoxicillin",
-    "overdose paracetamol",
-    "cần đơn thuốc",
-    "kháng sinh mạnh",
-    "kháng viêm",
-    "thuốc canxi",
-    "vitamin cho bé",
-    "hạ sốt nhanh nhất",
+    "liều thuốc", "liều an toàn khi dùng", "liều gây nguy hiểm",
+    "overdose", "quá liều",
+    # Liều thuốc cụ thể theo tên hoạt chất
+    "liều ibuprofen", "liều paracetamol", "liều morphine", "liều diazepam",
+    "liều amoxicillin", "liều augmentin",
+    # Yêu cầu kê đơn rõ ràng
+    "cần đơn thuốc", "cho tôi đơn thuốc",
+    "cho tôi uống thuốc gì",
+    "thuốc nào để tự điều trị",
+    # Tự làm hại
     "làm ngất",
     "không bao giờ thức dậy",
-    "ngủ mãi",
+    "ngủ mãi không dậy",
 ]
+
+# ── CÁC PATTERN ĐÃ XÓA vì chặn nhầm ──
+# "cho bé dùng thuốc"  → câu hỏi chăm sóc hợp lệ
+# "thuốc nào dùng để"  → quá rộng
+# "thuốc canxi"        → thông tin dinh dưỡng bình thường
+# "vitamin cho bé"     → thông tin dinh dưỡng bình thường
+# "hạ sốt nhanh nhất" → chăm sóc hợp lệ
+# "kháng sinh"         → thông tin y tế hợp lệ
+# "kháng viêm"         → thông tin y tế hợp lệ
+# "thuốc trầm cảm"     → thông tin hợp lệ (không kê đơn)
+# "thuốc amoxicillin"  → giữ lại nếu hỏi liều, bỏ nếu chỉ hỏi thông tin
 
 MENTAL_HEALTH_KEYWORDS = [
     # ── Gốc ──
@@ -218,40 +217,49 @@ Tóm tắt:"""
 # ================== VIẾT LẠI CÂU TRUY VẤN ==================
 def rewrite_and_detect_intent(question, history):
     recent_history = ""
-    
-    # THÊM: Trích xuất thông tin cốt lõi từ TOÀN BỘ history
+
+    # Extract thông tin cốt lõi từ toàn bộ history
     core_context = ""
-    age_keywords = ["tháng tuổi", "tuổi", "sơ sinh", "tháng"]
-    for msg in history:  # duyệt toàn bộ, không cắt
+    age_keywords = ["tháng tuổi", "tuổi", "sơ sinh", "tháng", "ngày tuổi"]
+    for msg in history:
         content = msg.content.lower()
         for kw in age_keywords:
             if kw in content:
-                # Lấy câu chứa từ khóa tuổi
                 for sentence in msg.content.split('.'):
                     if kw in sentence.lower():
                         core_context += sentence.strip() + ". "
                 break
-    
+
     if history:
         lines = []
-        for msg in history[-20:]:  # tăng lên 20
+        for msg in history[-20:]:
             role = "Mẹ" if msg.__class__.__name__ == "HumanMessage" else "MomCare"
             summarized = summarize_history_message(msg.content)
             lines.append(f"{role}: {summarized}")
         recent_history = "LỊCH SỬ:\n" + "\n".join(lines) + "\n\n"
 
-    prompt = f"""Dựa trên lịch sử hội thoại bên dưới, hãy thực hiện 2 việc:
-1. Viết lại câu hỏi cuối thành câu đầy đủ rõ ràng (nếu đã rõ thì giữ nguyên)
+    # ── PROMPT MỚI: thêm hướng dẫn xử lý câu ngắn ──
+    prompt = f"""Dựa trên lịch sử hội thoại và thông tin cốt lõi bên dưới, hãy thực hiện 2 việc:
+
+1. Viết lại câu hỏi cuối thành câu ĐẦY ĐỦ, RÕ RÀNG để dùng tìm kiếm y khoa:
+   - Nếu câu hỏi đã rõ: giữ nguyên
+   - Nếu thiếu chủ thể (bé/mẹ/trẻ): thêm vào từ context
+   - Nếu dùng đại từ "con/bé/em/mình": thay bằng đối tượng cụ thể
+   - Nếu hỏi tiếp nối ("vậy thì?", "còn cái đó?"): mở rộng thành câu độc lập
+   - BẮT BUỘC giữ lại thông tin độ tuổi nếu có trong câu hỏi hoặc context
+
 2. Phân loại ý định: BLOCKED / SMALLTALK / RAG
+   - BLOCKED: kê đơn thuốc, liều thuốc cụ thể, tự tử/tự hại
+   - SMALLTALK: chào hỏi, cảm ơn, hỏi về chatbot
+   - RAG: mọi câu hỏi y khoa, dinh dưỡng, chăm sóc bé/mẹ
 
-THÔNG TIN CỐT LÕI CẦN GHI NHỚ: {core_context if core_context else "Chưa có"}
+THÔNG TIN CỐT LÕI: {core_context if core_context else "Không có"}
 
-Lịch sử:
 {recent_history}
-Câu hỏi: {question}
+CÂU HỎI GỐC: {question}
 
-Trả lời theo đúng format sau (2 dòng):
-REWRITTEN: <câu hỏi viết lại, BẮT BUỘC ghi rõ độ tuổi bé nếu có trong thông tin cốt lõi>
+Trả lời đúng format (2 dòng, không giải thích thêm):
+REWRITTEN: <câu hỏi viết lại đầy đủ>
 INTENT: <BLOCKED hoặc SMALLTALK hoặc RAG>"""
 
     result = call_llm(prompt, temperature=0).strip()
@@ -271,14 +279,18 @@ INTENT: <BLOCKED hoặc SMALLTALK hoặc RAG>"""
 
 # ================== MULTI QUERY ==================
 def generate_multi_queries(question: str, n=3):
-    prompt = f"""Bạn là chuyên gia y khoa mẹ và bé. Viết lại câu hỏi sau thành {n} cách khác nhau.
-Ưu tiên dùng thuật ngữ y khoa tiếng Việt (ví dụ: "ngực đau cứng" → "tắc tia sữa", "tắc tuyến sữa").
+    prompt = f"""Bạn là chuyên gia y khoa mẹ và bé. Viết lại câu hỏi sau thành {n} cách khác nhau để tìm kiếm trong tài liệu y khoa.
 
 Câu hỏi: {question}
 
-- Mỗi dòng 1 câu
-- Không đánh số, không giải thích
-- Chỉ viết câu hỏi"""
+Hướng dẫn:
+- Biến thể 1: Dùng thuật ngữ y khoa chuyên ngành (ví dụ: "ngực đau cứng" → "tắc tia sữa", "tắc tuyến sữa")
+- Biến thể 2: Dùng từ khóa ngắn, cụ thể — chỉ giữ danh từ và con số quan trọng
+- Biến thể 3: Mở rộng sang khái niệm liên quan (ví dụ câu hỏi về triệu chứng → expand sang nguyên nhân/điều trị)
+
+Quy tắc:
+- Mỗi dòng 1 câu, không đánh số, không giải thích
+- Nếu câu hỏi có số liệu (liều, tuổi, thời gian) → GIỮ NGUYÊN số liệu đó trong ít nhất 1 biến thể"""
 
     try:
         text = call_llm(prompt)
@@ -365,36 +377,41 @@ class RAGChain:
         self.conversation_context = ""
 
     def update_conversation_context(self, question):
+        """
+        Chỉ extract context khi câu hỏi nêu rõ độ tuổi/đối tượng.
+        KHÔNG tự suy đoán để tránh inject sai context.
+        """
         q = question.lower()
         matched = False
 
-        if "6 tháng" in q:
-            matched = True
-            self.conversation_context = """
-    - Bé 6 tháng tuổi
-    - Đang ăn dặm
-    - Quan tâm giấc ngủ, mọc răng, tiêm chủng
-    """
-        elif "2 tuổi" in q:
-            matched = True
-            self.conversation_context = """
-    - Bé 2 tuổi
-    - Quan tâm dinh dưỡng và hành vi
-    """
-        elif "mẹ" in q or "sau sinh" in q:
-            matched = True
-            self.conversation_context = """
-    - Mẹ sau sinh
-    - Quan tâm dinh dưỡng và hồi phục
-    """
-        elif "bé" in q or "con" in q:
-            matched = True
-            self.conversation_context = """
-    - Đang nói về em bé
-    """
+        # Chỉ set context khi có số tháng/tuổi CỤ THỂ trong câu hỏi
+        import re
+        age_match = re.search(
+            r'(\d+)\s*(tháng|tuổi|ngày\s*tuổi|tuần\s*tuổi)', q
+        )
+        if age_match:
+            age_val  = age_match.group(1)
+            age_unit = age_match.group(2)
+            matched  = True
+            self.conversation_context = f"- Bé {age_val} {age_unit}\n"
 
+        elif "sơ sinh" in q or "mới sinh" in q or "vừa sinh" in q:
+            matched = True
+            self.conversation_context = "- Trẻ sơ sinh (0-28 ngày tuổi)\n"
+
+        elif any(kw in q for kw in ["mẹ sau sinh", "sau khi sinh", "hậu sản",
+                                    "cho con bú", "sản dịch", "tắc tia sữa"]):
+            matched = True
+            self.conversation_context = "- Mẹ sau sinh\n"
+
+        elif any(kw in q for kw in ["mang thai", "thai kỳ", "thai nhi",
+                                    "bầu bí", "thai phụ"]):
+            matched = True
+            self.conversation_context = "- Mẹ đang mang thai\n"
+
+        # Nếu không match gì → xóa context cũ để tránh nhiễu từ câu trước
         if not matched:
-            return
+            self.conversation_context = ""
 
     def invoke(self, inputs):
         from vectordb import smart_retrieve
@@ -467,40 +484,44 @@ class RAGChain:
             docs = []
 
         if not docs:
-            return {"answer": "Tôi không tìm thấy thông tin này trong tài liệu. Mẹ nên hỏi bác sĩ để được tư vấn chính xác hơn.", "docs": []}
+            # Thử lại với câu hỏi gốc (không qua rewrite) trước khi từ bỏ
+            from vectordb import smart_retrieve
+            fallback_docs = smart_retrieve(question, None, self.k)
+            if fallback_docs:
+                docs = fallback_docs
+            else:
+                return {
+                    "answer": "Tôi chưa tìm thấy thông tin này trong tài liệu. "
+                            "Mẹ nên đưa bé đến cơ sở y tế hoặc hỏi bác sĩ để được tư vấn trực tiếp.",
+                    "docs": []
+                }
         
         context = "\n\n".join(
             [f"TÀI LIỆU {i+1}:\n{d.page_content}" for i, d in enumerate(docs)]
         )
 
         # 5. TẠO CÂU TRẢ LỜI
-        prompt = f"""Bạn là chuyên gia y tế MomCare. Trả lời câu hỏi chỉ dựa trên tài liệu được cung cấp.
+        prompt = f"""Bạn là chuyên gia y tế MomCare. Trả lời câu hỏi CHỈ dựa trên tài liệu.
 
-        NGUYÊN TẮC:
-        1. Chỉ sử dụng thông tin xuất hiện trong tài liệu.
-        2. Ưu tiên thông tin liên quan trực tiếp đến câu hỏi.
-        3. Không thêm kiến thức bên ngoài tài liệu.
-        4. Không suy diễn hoặc mở rộng ngoài nội dung được cung cấp.
-        5. Nếu tài liệu chưa đủ thông tin, hãy nói rõ là chưa đủ thông tin.
-        6. Trả lời ngắn gọn, đúng trọng tâm.
-        7. Tối đa 4 gạch đầu dòng.
-        8. Không lặp ý.
-        9. Không đưa thông tin không liên quan.
-        10. Trả lời tối đa 100 từ.
-        11. Ưu tiên trích nguyên văn dấu hiệu trong tài liệu.
-        12. Không diễn giải lại nếu tài liệu đã có câu trả lời trực tiếp.
-        13. Nếu nhiều tài liệu khác nhau, ưu tiên đoạn khớp sát nhất với câu hỏi.
+        NGUYÊN TẮC QUAN TRỌNG:
+        1. Nếu tài liệu có câu trả lời TRỰC TIẾP → trình bày ĐẦY ĐỦ toàn bộ nội dung liên quan, giữ nguyên mọi chi tiết, số liệu, danh sách — KHÔNG rút gọn hay bỏ bớt ý
+        2. PHẢI bao gồm: số liệu cụ thể (mg, ml, tuần, tháng), cơ chế/lý do nếu tài liệu có đề cập, các điều kiện/ngoại lệ quan trọng
+        3. Không thêm thông tin ngoài tài liệu
+        4. Không lặp lại câu hỏi, không mở đầu bằng "Dựa trên tài liệu..."
+        5. Nếu nhiều tài liệu mâu thuẫn → dùng tài liệu khớp sát nhất với câu hỏi
+        6. Nếu thực sự không có thông tin → nói "Tôi chưa tìm thấy thông tin này. Mẹ nên hỏi bác sĩ để được tư vấn chính xác."
+        7. Độ dài linh hoạt: câu hỏi đơn giản → 2-3 câu; câu hỏi cần giải thích hoặc có nhiều ý → trả lời ĐẦY ĐỦ, không giới hạn từ, dùng gạch đầu dòng nếu tài liệu có liệt kê nhiều điểm
+        8. Khi trả lời "tại sao" hoặc "như thế nào" → PHẢI giải thích cơ chế/lý do từ tài liệu, không chỉ nêu kết quả
 
         TÀI LIỆU THAM KHẢO:
         {context}
 
-        NGỮ CẢNH HỘI THOẠI:
-        {self.conversation_context}
+        NGỮ CẢNH HIỆN TẠI:
+        {self.conversation_context if self.conversation_context else "Không có ngữ cảnh đặc biệt"}
 
-        CÂU HỎI:
-        {enriched_question}
+        CÂU HỎI: {enriched_question}
 
-        TRẢ LỜI:"""
+        TRẢ LỜI (đầy đủ chi tiết từ tài liệu, trực tiếp):"""
 
         answer = call_llm(prompt, self.temperature)
         answer = check_output_guardrails(answer)

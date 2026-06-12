@@ -1,0 +1,10 @@
+﻿Model,ROUGE-L,BLEU,METEOR,BERTScore,Average,Ghi chu
+Llama3-7B (bai bao),55.52,25.33,67.97,71.36,55.05,Baseline ViMedAQA
+Llama2-7B (bai bao),24.34,6.93,24.36,41.65,24.32,Baseline ViMedAQA
+Gemma-2B (bai bao),53.57,32.04,53.48,64.28,50.84,Baseline ViMedAQA
+Gemma-7B (bai bao),57.03,31.17,63.52,68.49,55.05,Baseline ViMedAQA
+PhoGPT-4B (bai bao),50.75,21.06,59.76,68.94,50.13,Baseline ViMedAQA
+VinaLlama-7B (bai bao),59.08,31.7,64.29,72.47,56.89,Baseline ViMedAQA
+VinaLlama-2.7B (bai bao),54.96,26.07,59.77,70.09,52.72,Baseline ViMedAQA
+ViGPT (bai bao),34.27,10.94,44.39,59.07,37.17,Baseline ViMedAQA
+MomCare RAG (n=4496/4497),47.68,32.41,58.18,80.60,54.72,100.0% hoan thanh
