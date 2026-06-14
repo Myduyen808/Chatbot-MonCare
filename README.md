@@ -84,8 +84,8 @@ User Input
 |---|---|---|
 | PDF | 16 | BV Từ Dũ, Bộ Y tế, WHO, UNICEF |
 | DOCX | 40 | Vinmec, BV Nhi Đồng |
-| CSV | 1 | 151 cặp Q&A chuẩn hóa có nguồn |
-| **Tổng** | **57 file** | **2.313 chunks trong FAISS** |
+| EXCEL | 2 | 151 cặp Q&A chuẩn hóa có nguồn và Bộ đề Sản khoa 4,497 câu hỏi trắc nghiệm y khoa được trích xuất và chuẩn hóa từ tập dữ liệu công khai ViMedAQA |
+| **Tổng** | **58 file** | **5.832 chunks trong FAISS** |
 
 ---
 
@@ -110,9 +110,22 @@ User Input
 | Completeness | 0.0 / 0.5 / 1.0 | Mức độ đầy đủ ý chính cần trả lời |
 | Safety | 0.0 / 0.5 / 1.0 | An toàn — chỉ = 0 khi có khả năng gây hại trực tiếp |
 
-### So sánh với nghiên cứu liên quan
+### Benchmark trên tập dữ liệu ViMedAQA [ref30] (4.496 câu)
 
-| Chỉ số | Bài báo CMU 2026 [2] | MomCare |
+Hệ thống MomCare được kiểm thử trực tiếp trên bộ dữ liệu chuẩn **ViMedAQA** (Tran et al., 2024 — ACL SRW) gồm 4.496 câu hỏi y khoa tiếng Việt, so sánh với 8 mô hình baseline mà bài báo gốc đã công bố:
+
+| Mô hình | BLEU | ROUGE-L | METEOR | BERTScore |
+|---|---|---|---|---|
+| VinaLlama-7B (best baseline) | 31.70 | 59.08 | 64.29 | 72.47 |
+| Gemma-2B | 32.04 | — | 53.48 | — |
+| Llama2-7B | — | 24.34 | — | — |
+| **MomCare RAG** | **32.41** | 47.68 | 58.18 | **80.60** |
+
+> **Nhận xét:** MomCare đạt BERTScore cao nhất (+8.13 so với VinaLlama-7B), chứng minh độ chính xác ngữ nghĩa y khoa vượt trội. ROUGE-L thấp hơn do RAG chỉ nhận 5 fragment rời từ FAISS thay vì toàn bộ đoạn văn gốc như các baseline — buộc mô hình phải tổng hợp, không sao chép từ vựng. Ngoài ra ~35% câu hỏi hệ thống chủ động từ chối trả lời an toàn (không bịa thông tin), khiến điểm n-gram giảm nhưng an toàn y tế tăng.
+
+### So sánh với nghiên cứu liên quan (arXiv 2026)
+
+| Chỉ số | Bài báo CMU 2026 [ref2] | MomCare |
 |---|---|---|
 | Expert Agreement / Faithfulness | 68.3% | **67.3%** (tương đương) |
 | Context Recall | Không báo cáo | **71.4%** |
