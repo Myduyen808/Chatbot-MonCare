@@ -257,7 +257,7 @@ RAG-Mom-Chatbot/
 ├── data_store/
 │   ├── pdf/                    # 16 file PDF y khoa
 │   ├── word/                   # 40 file DOCX
-│   └── excel/                    # File Q&A chuẩn hóa (151 cặp)
+│   └── excel/                    # File Q&A chuẩn hóa 
 ├── experiments/
 │   ├── judge_clinical.py       # LLM-as-Judge v2 (Accuracy / Completeness / Safety)
 │   ├── run_ablation_studies.py # Ablation: Multi-Query / Re-ranking / Summarized
