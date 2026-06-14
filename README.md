@@ -223,7 +223,7 @@ GROQ_API_KEY_3=gsk_backup_key_3
 data_store/
 ├── pdf/      ← 16 file PDF
 ├── word/     ← 40 file DOCX
-└── csv/      ← file Q&A chuẩn hóa
+└── excel/      ← file Q&A chuẩn hóa
 ```
 
 ### Bước 4: Xây dựng Vector Database
@@ -257,7 +257,7 @@ RAG-Mom-Chatbot/
 ├── data_store/
 │   ├── pdf/                    # 16 file PDF y khoa
 │   ├── word/                   # 40 file DOCX
-│   └── csv/                    # File Q&A chuẩn hóa (151 cặp)
+│   └── excel/                    # File Q&A chuẩn hóa (151 cặp)
 ├── experiments/
 │   ├── judge_clinical.py       # LLM-as-Judge v2 (Accuracy / Completeness / Safety)
 │   ├── run_ablation_studies.py # Ablation: Multi-Query / Re-ranking / Summarized
