@@ -2,14 +2,8 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 import yaml
 import os
-# import base64
-# import cv2
-# import numpy as np
-# from PIL import Image
-# import io
-import asyncio
-
 from dotenv import load_dotenv
+from langchain_core.messages import HumanMessage, AIMessage
 load_dotenv()
 
 from utils import typewriter_effect
@@ -199,7 +193,12 @@ def Chatbot():
         st.session_state.locked_session = True
         st.session_state.send_input = False
 
-        chat_history_messages = get_chat_messages(history)
+        chat_history_messages = []
+        for msg in history.messages:
+            if msg["type"] == "human":
+                chat_history_messages.append(HumanMessage(content=msg["content"]))
+            else:
+                chat_history_messages.append(AIMessage(content=msg["content"]))
         user_text = st.session_state.user_question if st.session_state.user_question else "Hãy quan sát hình ảnh này."
 
         with chat_container:
@@ -248,10 +247,7 @@ def Chatbot():
                             number_of_documents=st.session_state.number_of_documents,
                             temperature=temperature
                         )
-                        loop = asyncio.new_event_loop()
-                        asyncio.set_event_loop(loop)
                         result = rag_chain.invoke({"question": query, "history": chat_history_messages})
-                        loop.close()
                         response = result["answer"]
                         source_docs = result["docs"]
 

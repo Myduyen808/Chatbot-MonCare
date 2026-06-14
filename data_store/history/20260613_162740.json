@@ -1,0 +1,14 @@
+{
+    "history_name": "Bé tháng tuổi dùng ml sữa #2",
+    "history_id": "20260613_162740",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "Bé 6 tháng tuổi dùng bao nhiêu ml sữa"
+        },
+        {
+            "type": "ai",
+            "content": "Theo tài liệu, trẻ 6 tháng tuổi cần uống 150 ml sữa mỗi bữa và có 6 bữa ăn/ngày. Tổng lượng sữa cần cho trẻ mỗi ngày là 900 ml.\n\nDưới đây là thông tin chi tiết từ tài liệu:\n\n- Từ khi sinh – 1 tháng: 8 bữa ăn/ngày, 60 ml/bữa, tổng lượng sữa/ngày: 480 ml\n- Từ 1 tháng – 2 tháng: 7 bữa ăn/ngày, 90 ml/bữa, tổng lượng sữa/ngày: 630 ml\n- Từ 2 tháng – 4 tháng: 6 bữa ăn/ngày, 120 ml/bữa, tổng lượng sữa/ngày: 720 ml\n- Từ 4 tháng – 6 tháng: 6 bữa ăn/ngày, 150 ml/bữa, tổng lượng sữa/ngày: 900 ml\n\nVậy, bé 6 tháng tuổi cần uống 150 ml sữa mỗi lần và tổng lượng sữa cần cho trẻ mỗi ngày là 900 ml."
+        }
+    ]
+}

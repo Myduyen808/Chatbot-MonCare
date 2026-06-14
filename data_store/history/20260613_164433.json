@@ -1,0 +1,30 @@
+{
+    "history_name": "Bé tháng tuổi dùng ml sữa #3",
+    "history_id": "20260613_164433",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "Bé 6 tháng tuổi dùng bao nhiêu ml sữa"
+        },
+        {
+            "type": "ai",
+            "content": "Theo tài liệu, trẻ từ 4 tháng - 6 tháng tuổi cần uống 150 ml sữa mỗi bữa và có 6 bữa mỗi ngày. Do đó, tổng lượng sữa mà bé 6 tháng tuổi cần uống mỗi ngày là:\n\n150 ml/bữa x 6 bữa/ngày = 900 ml/ngày\n\nVậy bé 6 tháng tuổi cần uống 900 ml sữa mỗi ngày."
+        },
+        {
+            "type": "human",
+            "content": "con tôi quấy khóc quá thì lm sao ạ"
+        },
+        {
+            "type": "ai",
+            "content": "Xin lỗi, tôi đang gặp sự cố."
+        },
+        {
+            "type": "human",
+            "content": "con tôi quấy khóc quá thì lm sao ạ"
+        },
+        {
+            "type": "ai",
+            "content": "Để giảm thiểu quấy khóc của con bạn 6 tháng tuổi, bạn có thể tham khảo các biện pháp sau:\n\n- Cho trẻ bú trong phòng có ánh sáng nhẹ để kích thích sự quan sát của trẻ. Từ đó, trẻ bị phân tâm mà bú ngoan hơn.\n- Đổi ngực khi cho con bú.\n- Hạn chế dùng sữa công thức khi trẻ chưa được 6 tháng tuổi. Nếu trẻ không bú, hướng dẫn mẹ hãy vắt sữa ra bình cho trẻ.\n- Thay đổi tư thế bú cho trẻ.\n\nNgoài ra, bạn cũng nên lưu ý rằng quấy khóc là một xu hướng bình thường đối với tất cả các bé, đặc biệt là ở giai đoạn 2 tháng tuổi. Quấy khóc thường bắt đầu từ khoảng 02 tuần sau sinh và sau đó bé khóc thường xuyên hơn. Khóc dạ dề cũng theo xu hướng như vậy nhưng cường độ mạnh hơn rất nhiều.\n\nHãy tự nhắc nhở bản thân rằng khóc dạ đề là hiện tượng bình thường và không kéo dài mãi mãi. Bạn cũng có thể cảm thấy tức giận, nhưng hãy để bé ở nơi an toàn như trong cũi và tạm rời xa bé vài phút cho đến khi bạn bình tĩnh lại và kiểm soát được bản thân."
+        }
+    ]
+}
