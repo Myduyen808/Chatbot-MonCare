@@ -31,50 +31,76 @@ Hệ thống giải quyết 3 vấn đề cốt lõi:
 User Input
     │
     ▼
-┌─────────────────────────────────┐
-│   Tầng 1: Guardrails 3 lớp      │
-│   BLOCKED → SMALLTALK → RAG     │
-│   (Luật KCB 15/2023, WHO mhGAP) │
-└─────────────┬───────────────────┘
+┌─────────────────────────────────────────────┐
+│  Tầng 1: Input Guardrails                   │
+│  ├── Mental Health Detection (WHO mhGAP)    │
+│  └── Blocked Inputs (Luật KCB 15/2023)      │
+└─────────────┬───────────────────────────────┘
+              │ PASS
+              ▼
+┌─────────────────────────────────────────────┐
+│  Tầng 2: Task Merging (1 lần gọi API)       │
+│  ├── Query Rewriting (làm giàu ngữ cảnh)    │
+│  ├── Intent Detection (BLOCKED/SMALLTALK/RAG)│
+│  └── Conversation Context Extraction         │
+└─────────────┬───────────────────────────────┘
               │ RAG
               ▼
-┌─────────────────────────────────┐
-│   Tầng 2: Query Rewriting       │
-│   + Multi-Query Expansion (n=3) │
-│   + Task Merging (1 API call)   │
-└─────────────┬───────────────────┘
+┌─────────────────────────────────────────────┐
+│  Tầng 3: Multi-Query Expansion (n=3)        │
+│  ├── Biến thể 1: Thuật ngữ y khoa chuyên ngành│
+│  ├── Biến thể 2: Từ khóa ngắn, cụ thể       │
+│  └── Biến thể 3: Mở rộng khái niệm liên quan │
+└─────────────┬───────────────────────────────┘
               │
               ▼
-┌─────────────────────────────────┐
-│   Tầng 3: FAISS MMR Retrieval   │
-│   + CrossEncoder Re-ranking     │
-│   + Map-Reduce Async (K>5)      │
-└─────────────┬───────────────────┘
+┌─────────────────────────────────────────────┐
+│  Tầng 4: FAISS MMR Retrieval                │
+│  ├── search_type: MMR                       │
+│  ├── fetch_k: 30, lambda_mult: 0.7          │
+│  ├── Keyword Overlap Filter                 │
+│  └── Adaptive K (tăng K cho câu hỏi ngắn)   │
+└─────────────┬───────────────────────────────┘
               │
               ▼
-┌─────────────────────────────────┐
-│   Tầng 4: Llama 3.1-8B (Groq)  │
-│   Strict Prompting + Output     │
-│   Guardrails + Source Citation  │
-└─────────────────────────────────┘
+┌─────────────────────────────────────────────┐
+│  Tầng 5: CrossEncoder Re-ranking            │
+│  ├── Model: ms-marco-MiniLM-L-6-v2          │
+│  ├── Rerank toàn bộ pool từ Multi-Query     │
+│  └── Lấy top-K tài liệu chất lượng cao nhất │
+└─────────────┬───────────────────────────────┘
+              │
+              ▼
+┌─────────────────────────────────────────────┐
+│  Tầng 6: Llama 3.1-8B-Instant (Groq LPU)   │
+│  ├── Strict Prompting (8 nguyên tắc)        │
+│  ├── Context Injection (ngữ cảnh hội thoại)  │
+│  └── Output Guardrails (chặn chẩn đoán)     │
+└─────────────┬───────────────────────────────┘
+              │
+              ▼
+    Response + Nguồn trích dẫn
 ```
 
 ---
 
 ## Tính năng nổi bật
 
-| Tính năng | Mô tả |
-|---|---|
-| **Guardrails 3 lớp** | Chặn kê đơn thuốc (Luật KCB 15/2023), nhận diện tâm lý nguy hiểm (WHO mhGAP), bypass xã giao |
-| **Query Rewriting** | Tự động làm giàu câu hỏi ngắn dựa trên lịch sử hội thoại |
-| **Multi-Query Expansion** | Sinh 3 biến thể câu hỏi để tăng độ phủ tài liệu |
-| **Summarized Memory** | Tóm tắt lịch sử bằng LLM thay vì cắt thô, bảo toàn thông tin y tế |
-| **Task Merging** | Gộp rewrite + intent detection vào 1 lần gọi API, giảm latency |
-| **Map-Reduce Async** | Xử lý song song tài liệu khi K>5, giảm latency ~14 lần |
-| **Re-ranking** | CrossEncoder `ms-marco-MiniLM-L-6-v2` tái xếp hạng kết quả retrieval |
-| **Hybrid Search** | Kết hợp FAISS (Vector) + BM25 (từ khóa) với Adaptive Weighting |
-| **Source Citation** | Hiển thị tài liệu nguồn sau mỗi câu trả lời |
-| **Quản lý Kho dữ liệu** | Giao diện upload/xóa tài liệu PDF, DOCX, CSV trực tiếp trên UI |
+| Tính năng | Mô tả | File triển khai |
+|---|---|---|
+| **Guardrails 3 lớp** | Chặn kê đơn thuốc/liều cụ thể (Luật KCB 15/2023), nhận diện tâm lý nguy hiểm (WHO mhGAP 17+ từ khóa), bypass xã giao (chào hỏi, cảm ơn, hỏi về bot) | `llm_chain.py` |
+| **Task Merging** | Gộp Query Rewriting + Intent Detection vào **1 lần gọi API duy nhất**, giảm 50% số lượt gọi LLM ở tầng tiền xử lý | `llm_chain.py` → `rewrite_and_detect_intent()` |
+| **Summarized Memory** | Tóm tắt lịch sử hội thoại bằng LLM (giữ lại tên bệnh, triệu chứng, độ tuổi, thời gian) thay vì cắt cơ học 200 ký tự | `llm_chain.py` → `summarize_history_message()` |
+| **Conversation Context Extraction** | Tự động trích xuất độ tuổi/đối tượng từ câu hỏi hiện tại, KHÔNG tự suy đoán từ câu trước để tránh inject sai ngữ cảnh | `llm_chain.py` → `update_conversation_context()` |
+| **Multi-Query Expansion** | Sinh 3 biến thể truy vấn: thuật ngữ y khoa, từ khóa ngắn, khái niệm liên quan. Giữ nguyên số liệu (liều, tuổi) trong ít nhất 1 biến thể | `llm_chain.py` → `generate_multi_queries()` |
+| **Adaptive K** | Tự động tăng K từ 5 → 6 khi câu hỏi có ≤ 5 từ (câu hỏi ngắn cần broader retrieval) | `llm_chain.py` → `RAGChain.invoke()` |
+| **MMR + Keyword Filter** | Tìm kiếm MMR (fetch_k=30, lambda_mult=0.7) kết hợp lọc overlap từ khóa câu hỏi, fallback nếu không có doc vượt ngưỡng | `vectordb.py` → `smart_retrieve()` |
+| **CrossEncoder Re-ranking** | Rerank toàn bộ pool tài liệu từ Multi-Query bằng ms-marco-MiniLM-L-6-v2, lấy top-K chất lượng nhất | `llm_chain.py` → `RAGChain.invoke()` |
+| **Map-Reduce Async** | Xử lý song song tài liệu khi K lớn bằng `asyncio.Semaphore(10)`, chạy trong Thread riêng để không block Streamlit | `llm_chain.py` → `summarize_docs_async()` |
+| **Output Guardrails** | Phát hiện từ khóa chẩn đoán ("bị bệnh", "chẩn đoán", "mắc bệnh"...) trong câu trả lời, tự động append khuyến cáo đến cơ sở y tế | `llm_chain.py` → `check_output_guardrails()` |
+| **API Key Rotation** | Quản lý 4 Groq API keys, tự động chọn ngẫu nhiên và retry với key khác khi gặp 429 Rate Limit | `llm_chain.py` → `call_llm()` |
+| **Nguồn trích dẫn minh bạch** | Hiển thị tên file tài liệu + preview nội dung 500 ký tự cho từng đoạn được trích dẫn | `application.py` |
+| **Quản lý kho kiến thức** | UI tải lên/xem chi tiết/xóa tài liệu (PDF, DOCX, CSV, XLSX), rebuild VectorDB một nút bấm | `application.py` → `Databases()` |
 
 ---
 
