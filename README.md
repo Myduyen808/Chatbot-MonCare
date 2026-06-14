@@ -5,7 +5,7 @@
 [![Groq](https://img.shields.io/badge/Groq-Llama%203.1--8B-orange?logo=groq&logoColor=white)](https://groq.com/)
 [![FAISS](https://img.shields.io/badge/FAISS-Vector%20Database-purple?logo=meta&logoColor=white)](https://github.com/facebookresearch/faiss)
 [![Streamlit](https://img.shields.io/badge/Streamlit-Web%20UI-red?logo=streamlit&logoColor=white)](https://streamlit.io/)
-[![License](https://img.shields.io/badge/License-MIT-brown?labelColor=white)](https://en.wikipedia.org/wiki/MIT_License)
+[![License](https://img.shields.io/badge/License-MIT-brown?labelColor=white)](LICENSE)
 
 > **Luận văn tốt nghiệp** — Ngành Hệ thống Thông tin, Đại học Cần Thơ (K48)  
 > **Sinh viên:** Trần Thị Mỹ Duyên — MSSV: B2203435  
@@ -18,6 +18,7 @@
 **MomCare** là hệ thống chatbot tư vấn y tế chuyên biệt, được xây dựng trên kiến trúc **Advanced RAG (Retrieval-Augmented Generation)** nâng cao, hỗ trợ các bà mẹ sau sinh tiếp cận thông tin chăm sóc sức khỏe chính xác, an toàn và có kiểm chứng nguồn gốc.
 
 Hệ thống giải quyết 3 vấn đề cốt lõi:
+
 - **Thông tin sai lệch** trên mạng xã hội về chăm sóc mẹ và bé
 - **Ảo giác AI (Hallucination)** của các mô hình LLM thông thường
 - **Mất ngữ cảnh hội thoại** khi người dùng hỏi nhiều lượt liên tiếp
@@ -31,29 +32,30 @@ User Input
     │
     ▼
 ┌─────────────────────────────────┐
-│   Tầng 3: Intent Detection      │
-│   Guardrails 3 lớp:             │
+│   Tầng 1: Guardrails 3 lớp      │
 │   BLOCKED → SMALLTALK → RAG     │
+│   (Luật KCB 15/2023, WHO mhGAP) │
 └─────────────┬───────────────────┘
               │ RAG
-    ▼
+              ▼
 ┌─────────────────────────────────┐
-│   Tầng 4: Query Rewriting       │
+│   Tầng 2: Query Rewriting       │
 │   + Multi-Query Expansion (n=3) │
+│   + Task Merging (1 API call)   │
 └─────────────┬───────────────────┘
               │
-    ▼
+              ▼
 ┌─────────────────────────────────┐
-│   Tầng 5: FAISS MMR Retrieval   │
+│   Tầng 3: FAISS MMR Retrieval   │
 │   + CrossEncoder Re-ranking     │
 │   + Map-Reduce Async (K>5)      │
 └─────────────┬───────────────────┘
               │
-    ▼
+              ▼
 ┌─────────────────────────────────┐
-│   Tầng 6: Llama 3.1-8B (Groq)  │
+│   Tầng 4: Llama 3.1-8B (Groq)  │
 │   Strict Prompting + Output     │
-│   Guardrails                    │
+│   Guardrails + Source Citation  │
 └─────────────────────────────────┘
 ```
 
@@ -65,10 +67,14 @@ User Input
 |---|---|
 | **Guardrails 3 lớp** | Chặn kê đơn thuốc (Luật KCB 15/2023), nhận diện tâm lý nguy hiểm (WHO mhGAP), bypass xã giao |
 | **Query Rewriting** | Tự động làm giàu câu hỏi ngắn dựa trên lịch sử hội thoại |
+| **Multi-Query Expansion** | Sinh 3 biến thể câu hỏi để tăng độ phủ tài liệu |
 | **Summarized Memory** | Tóm tắt lịch sử bằng LLM thay vì cắt thô, bảo toàn thông tin y tế |
-| **Task Merging** | Gộp rewrite + intent detection vào 1 lần gọi API |
+| **Task Merging** | Gộp rewrite + intent detection vào 1 lần gọi API, giảm latency |
 | **Map-Reduce Async** | Xử lý song song tài liệu khi K>5, giảm latency ~14 lần |
-| **Re-ranking** | CrossEncoder ms-marco-MiniLM-L-6-v2 tái xếp hạng kết quả |
+| **Re-ranking** | CrossEncoder `ms-marco-MiniLM-L-6-v2` tái xếp hạng kết quả retrieval |
+| **Hybrid Search** | Kết hợp FAISS (Vector) + BM25 (từ khóa) với Adaptive Weighting |
+| **Source Citation** | Hiển thị tài liệu nguồn sau mỗi câu trả lời |
+| **Quản lý Kho dữ liệu** | Giao diện upload/xóa tài liệu PDF, DOCX, CSV trực tiếp trên UI |
 
 ---
 
@@ -94,9 +100,19 @@ User Input
 | KB3 — Câu có nhiễu | 0.622 | 0.687 | 0.382 | 0.542 |
 | **Trung bình** | **0.673** | **0.714** | **0.510** | **0.615** |
 
+### LLM-as-Judge (Clinical Evaluation)
+
+Đánh giá bổ sung bằng mô hình `llama-3.3-70b-versatile` theo 3 tiêu chí y khoa:
+
+| Tiêu chí | Thang điểm | Mô tả |
+|---|---|---|
+| Clinical Accuracy | 0.0 / 0.5 / 1.0 | Độ chính xác y khoa theo ý nghĩa, không so từng chữ |
+| Completeness | 0.0 / 0.5 / 1.0 | Mức độ đầy đủ ý chính cần trả lời |
+| Safety | 0.0 / 0.5 / 1.0 | An toàn — chỉ = 0 khi có khả năng gây hại trực tiếp |
+
 ### So sánh với nghiên cứu liên quan
 
-| Chỉ số | Bài báo [2] CMU 2026 | MomCare |
+| Chỉ số | Bài báo CMU 2026 [2] | MomCare |
 |---|---|---|
 | Expert Agreement / Faithfulness | 68.3% | **67.3%** (tương đương) |
 | Context Recall | Không báo cáo | **71.4%** |
@@ -112,13 +128,30 @@ User Input
 | RAG | 100.0% |
 | **Tổng** | **97.0%** |
 
+### Ablation Studies
+
+| Thành phần loại bỏ | Faithfulness | Context Recall | Nhận xét |
+|---|---|---|---|
+| Full system (baseline) | — | — | Tất cả bật |
+| Tắt Multi-Query | ↓ | ↓ | Giảm độ phủ tài liệu |
+| Tắt Re-ranking | ↓ | — | Giảm độ chính xác xếp hạng |
+| Tắt Summarized Memory | — | ↓ | Mất ngữ cảnh lịch sử dài |
+
+### Hybrid Search vs Vector-Only
+
+| Phương pháp | Faithfulness | Nhận xét |
+|---|---|---|
+| Vector Only (FAISS MMR) | baseline | Tốt cho ngữ nghĩa |
+| Hybrid (FAISS + BM25) | +14.5% | Tốt hơn cho câu hỏi số liệu cụ thể |
+
 ---
 
 ## Cài đặt và Chạy
 
 ### Yêu cầu hệ thống
+
 - Python 3.10+
-- RAM 8GB+
+- RAM 8 GB trở lên
 - Groq API Key (miễn phí tại [console.groq.com](https://console.groq.com))
 
 ### Bước 1: Clone và cài đặt
@@ -131,7 +164,8 @@ pip install -r requirements.txt
 
 ### Bước 2: Cấu hình API Key
 
-Tạo file `.env`:
+Tạo file `.env` tại thư mục gốc:
+
 ```env
 GROQ_API_KEY=gsk_your_key_here
 GROQ_API_KEY_1=gsk_backup_key_1
@@ -139,13 +173,28 @@ GROQ_API_KEY_2=gsk_backup_key_2
 GROQ_API_KEY_3=gsk_backup_key_3
 ```
 
-### Bước 3: Xây dựng Vector Database
+> Hệ thống hỗ trợ nhiều key để xử lý rate limit tự động (key rotation).
+
+### Bước 3: Chuẩn bị dữ liệu
+
+Đặt tài liệu y tế vào đúng thư mục theo `db_config.yml`:
+
+```
+data_store/
+├── pdf/      ← 16 file PDF
+├── word/     ← 40 file DOCX
+└── csv/      ← file Q&A chuẩn hóa
+```
+
+### Bước 4: Xây dựng Vector Database
 
 ```bash
 python vectordb.py
 ```
 
-### Bước 4: Chạy ứng dụng
+Lệnh này sẽ chunk tài liệu, tạo embedding và lưu FAISS index xuống đĩa.
+
+### Bước 5: Chạy ứng dụng
 
 ```bash
 streamlit run application.py
@@ -159,51 +208,72 @@ Truy cập: `http://localhost:8501`
 
 ```
 RAG-Mom-Chatbot/
-├── application.py          # Giao diện Streamlit
-├── llm_chain.py            # RAGChain + Guardrails + Intent
-├── vectordb.py             # FAISS + Embedding + Retrieval
-├── db_config.yml           # Cấu hình đường dẫn dữ liệu
-├── model_config.yml        # Cấu hình model embedding
+├── application.py              # Giao diện Streamlit chính
+├── llm_chain.py                # RAGChain + Guardrails + Intent + Memory
+├── vectordb.py                 # FAISS + Embedding + Retrieval + Hybrid Search
+├── db_config.yml               # Cấu hình đường dẫn dữ liệu
+├── model_config.yml            # Cấu hình model embedding
+├── .env                        # API keys (không commit lên git)
 ├── data_store/
-│   ├── pdf/                # 16 file PDF y khoa
-│   ├── word/               # 40 file DOCX
-│   └── csv/                # File Q&A chuẩn hóa
+│   ├── pdf/                    # 16 file PDF y khoa
+│   ├── word/                   # 40 file DOCX
+│   └── csv/                    # File Q&A chuẩn hóa (151 cặp)
 ├── experiments/
-│   ├── evaluate_ragas_groq.py      # RAGAS evaluation
-│   ├── experiment_task_merging.py  # Thực nghiệm Task Merging
-│   ├── test_intent_200.py          # Kiểm thử Intent 200 câu
-│   ├── test_k_variation.py         # Biến thiên tham số K
-│   └── test_stress_conversation.py # Stress test 25 lượt
+│   ├── judge_clinical.py       # LLM-as-Judge v2 (Accuracy / Completeness / Safety)
+│   ├── run_ablation_studies.py # Ablation: Multi-Query / Re-ranking / Summarized
+│   ├── run_hybrid_search_ablation.py  # So sánh FAISS vs Hybrid (FAISS + BM25)
+│   ├── evaluate_ragas_groq.py  # RAGAS evaluation pipeline
+│   ├── test_intent_200.py      # Kiểm thử Intent 200 câu
+│   ├── test_k_variation.py     # Biến thiên tham số K
+│   └── test_stress_conversation.py    # Stress test 25 lượt hội thoại
 └── KB/
-    ├── KB1_Medical_Standard.xlsx   # 406 câu y khoa chuẩn
-    ├── KB2_Mom_Style.xlsx          # 400 câu mẹ bỉm
-    └── KB3_Information_Noise.xlsx  # 400 câu có nhiễu
+    ├── KB1_Medical_Standard.xlsx      # 406 câu y khoa chuẩn
+    ├── KB2_Mom_Style.xlsx             # 400 câu ngôn ngữ mẹ bỉm
+    └── KB3_Information_Noise.xlsx     # 400 câu có nhiễu thông tin
 ```
 
 ---
 
 ## Công nghệ sử dụng
 
-| Thành phần | Công nghệ |
+| Thành phần | Công nghệ / Model |
 |---|---|
-| LLM | Llama 3.1-8B-Instant (Groq LPU) |
-| Embedding | paraphrase-multilingual-MiniLM-L12-v2 |
-| Vector DB | FAISS (IndexFlatL2, Local) |
-| Retrieval | MMR (fetch_k=15, lambda_mult=0.7) |
-| Re-ranking | CrossEncoder ms-marco-MiniLM-L-6-v2 |
+| LLM chính | Llama 3.1-8B-Instant (Groq LPU) |
+| LLM Judge | Llama 3.3-70B-Versatile (Groq LPU) |
+| Embedding | `paraphrase-multilingual-MiniLM-L12-v2` |
+| Vector DB | FAISS (`IndexFlatL2`, lưu local) |
+| Retrieval | MMR (`fetch_k=15`, `lambda_mult=0.7`) |
+| Hybrid Search | FAISS + BM25Okapi + Adaptive Weighting |
+| Re-ranking | CrossEncoder `ms-marco-MiniLM-L-6-v2` |
 | Framework | LangChain + Custom RAGChain |
 | UI | Streamlit |
-| Evaluation | RAGAS (Faithfulness + Context Recall) |
+| Evaluation | RAGAS (Faithfulness, Context Recall, Answer Relevancy, Context Precision) |
 
 ---
 
-## Tài liệu tham khảo
+## Guardrails chi tiết
+
+Hệ thống áp dụng guardrails 3 lớp theo thứ tự ưu tiên:
+
+**Lớp 1 — BLOCKED** (từ chối, không trả lời): Phát hiện yêu cầu kê đơn thuốc, liều dùng cụ thể theo Luật KCB số 15/2023/QH15 (Điều 7). Phát hiện dấu hiệu tâm lý nguy hiểm (tự tử, tự làm hại) theo WHO mhGAP Guideline 2.0 — chuyển hướng đến đường dây hỗ trợ tâm lý.
+
+**Lớp 2 — SMALLTALK** (trả lời xã giao, không gọi RAG): Nhận diện lời chào, câu hỏi về bản thân chatbot, cảm ơn, tạm biệt.
+
+**Lớp 3 — RAG** (pipeline đầy đủ): Mọi câu hỏi y tế hợp lệ về chăm sóc mẹ và bé.
+
+---
+
+## Tài liệu tham khảo chính
 
 - Lewis et al. (2020). *Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks*. NeurIPS 2020.
-- Danescu-Niculescu-Mizil & Lee (2011). *Cornell Movie-Dialogs Corpus*. ACL 2011.
-- OpenAI (2025). *Usage Policies*. https://openai.com/policies/usage-policies
-- Quốc hội VN (2023). *Luật KCB số 15/2023/QH15*, Điều 7.
-- WHO (2022). *mhGAP Guideline 2.0*.
+- Developing and evaluating a chatbot to support maternal health care. (2026). *arXiv:2603.13168*.
+- RAG-X: Systematic Diagnosis of Retrieval-Augmented Generation for Medical QA. (2026). *arXiv:2603.03541*.
+- Johnson et al. (2019). *Billion-scale similarity search with GPUs*. IEEE Transactions on Big Data.
+- Reimers & Gurevych (2019). *Sentence-BERT*. EMNLP 2019.
+- Quốc hội Việt Nam (2023). *Luật Khám bệnh, chữa bệnh số 15/2023/QH15*, Điều 7.
+- WHO (2022). *mhGAP Intervention Guide 2.0*.
+
+> Xem đầy đủ danh mục tài liệu tham khảo trong file `main.tex` (mục `\begin{thebibliography}`).
 
 ---
 
