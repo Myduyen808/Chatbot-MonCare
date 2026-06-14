@@ -97,6 +97,7 @@ User Input
 | **MMR + Keyword Filter** | Tìm kiếm MMR (fetch_k=30, lambda_mult=0.7) kết hợp lọc overlap từ khóa câu hỏi, fallback nếu không có doc vượt ngưỡng | `vectordb.py` → `smart_retrieve()` |
 | **CrossEncoder Re-ranking** | Rerank toàn bộ pool tài liệu từ Multi-Query bằng ms-marco-MiniLM-L-6-v2, lấy top-K chất lượng nhất | `llm_chain.py` → `RAGChain.invoke()` |
 | **Map-Reduce Async** | Xử lý song song tài liệu khi K lớn bằng `asyncio.Semaphore(10)`, chạy trong Thread riêng để không block Streamlit | `llm_chain.py` → `summarize_docs_async()` |
+| **Hybrid Search** | Kết hợp FAISS (Vector) + BM25 (từ khóa) với Adaptive Weighting |
 | **Output Guardrails** | Phát hiện từ khóa chẩn đoán ("bị bệnh", "chẩn đoán", "mắc bệnh"...) trong câu trả lời, tự động append khuyến cáo đến cơ sở y tế | `llm_chain.py` → `check_output_guardrails()` |
 | **API Key Rotation** | Quản lý 4 Groq API keys, tự động chọn ngẫu nhiên và retry với key khác khi gặp 429 Rate Limit | `llm_chain.py` → `call_llm()` |
 | **Nguồn trích dẫn minh bạch** | Hiển thị tên file tài liệu + preview nội dung 500 ký tự cho từng đoạn được trích dẫn | `application.py` |
