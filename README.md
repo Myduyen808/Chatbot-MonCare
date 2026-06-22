@@ -47,26 +47,27 @@ User Input
               │ RAG
               ▼
 ┌─────────────────────────────────────────────┐
-│  Tầng 3: Multi-Query Expansion (n=3)        │
-│  ├── Biến thể 1: Thuật ngữ y khoa chuyên ngành│
-│  ├── Biến thể 2: Từ khóa ngắn, cụ thể       │
-│  └── Biến thể 3: Mở rộng khái niệm liên quan │
+│  Tầng 3: Adaptive Hybrid Search (Primary)   │
+│  ├── Vector Search (FAISS MMR)              │
+│  ├── BM25Okapi Search                       │
+│  └── Adaptive Weighting (Ưu tiên BM25      │
+│      nếu câu hỏi có số liệu mg/ml/tháng)   │
 └─────────────┬───────────────────────────────┘
               │
               ▼
 ┌─────────────────────────────────────────────┐
-│  Tầng 4: FAISS MMR Retrieval                │
-│  ├── search_type: MMR                       │
-│  ├── fetch_k: 30, lambda_mult: 0.7          │
-│  ├── Keyword Overlap Filter                 │
-│  └── Adaptive K (tăng K cho câu hỏi ngắn)   │
+│  Tầng 4: Multi-Query Expansion (Điều kiện)  │
+│  ├── CHỈ KÍCH HOẠT NẾU câu hỏi ≤ 5 từ     │
+│  ├── Biến thể 1: Thuật ngữ y khoa chuyên ngành│
+│  └── Biến thể 2: Mở rộng khái niệm liên quan │
+│  (Dùng FAISS MMR + Keyword Overlap Filter)  │
 └─────────────┬───────────────────────────────┘
               │
               ▼
 ┌─────────────────────────────────────────────┐
 │  Tầng 5: CrossEncoder Re-ranking            │
 │  ├── Model: ms-marco-MiniLM-L-6-v2          │
-│  ├── Rerank toàn bộ pool từ Multi-Query     │
+│  ├── Rerank toàn bộ pool (Primary + Multi)  │
 │  └── Lấy top-K tài liệu chất lượng cao nhất │
 └─────────────┬───────────────────────────────┘
               │
@@ -80,7 +81,7 @@ User Input
               │
               ▼
     Response + Nguồn trích dẫn
-```
+
 
 ---
 
@@ -92,11 +93,9 @@ User Input
 | **Task Merging** | Gộp Query Rewriting + Intent Detection vào **1 lần gọi API duy nhất**, giảm 50% số lượt gọi LLM ở tầng tiền xử lý | `llm_chain.py` → `rewrite_and_detect_intent()` |
 | **Summarized Memory** | Tóm tắt lịch sử hội thoại bằng LLM (giữ lại tên bệnh, triệu chứng, độ tuổi, thời gian) thay vì cắt cơ học 200 ký tự | `llm_chain.py` → `summarize_history_message()` |
 | **Conversation Context Extraction** | Tự động trích xuất độ tuổi/đối tượng từ câu hỏi hiện tại, KHÔNG tự suy đoán từ câu trước để tránh inject sai ngữ cảnh | `llm_chain.py` → `update_conversation_context()` |
-| **Multi-Query Expansion** | Sinh 3 biến thể truy vấn: thuật ngữ y khoa, từ khóa ngắn, khái niệm liên quan. Giữ nguyên số liệu (liều, tuổi) trong ít nhất 1 biến thể | `llm_chain.py` → `generate_multi_queries()` |
-| **Adaptive K** | Tự động tăng K từ 5 → 6 khi câu hỏi có ≤ 5 từ (câu hỏi ngắn cần broader retrieval) | `llm_chain.py` → `RAGChain.invoke()` |
+| **Multi-Query Expansion** | Điều kiện: Chỉ kích hoạt khi câu hỏi gốc có ≤ 5 từ. Sinh 2 biến thể mở rộng (thuật ngữ y khoa, khái niệm liên quan) + giữ nguyên câu gốc. Giữ nguyên số liệu (liều, tuổi) trong ít nhất 1 biến thể | `llm_chain.py → generate_multi_queries()` |
 | **MMR + Keyword Filter** | Tìm kiếm MMR (fetch_k=30, lambda_mult=0.7) kết hợp lọc overlap từ khóa câu hỏi, fallback nếu không có doc vượt ngưỡng | `vectordb.py` → `smart_retrieve()` |
 | **CrossEncoder Re-ranking** | Rerank toàn bộ pool tài liệu từ Multi-Query bằng ms-marco-MiniLM-L-6-v2, lấy top-K chất lượng nhất | `llm_chain.py` → `RAGChain.invoke()` |
-| **Map-Reduce Async** | Xử lý song song tài liệu khi K lớn bằng `asyncio.Semaphore(10)`, chạy trong Thread riêng để không block Streamlit | `llm_chain.py` → `summarize_docs_async()` |
 | **Hybrid Search** | Kết hợp FAISS (Vector) + BM25 (từ khóa) với Adaptive Weighting |
 | **Output Guardrails** | Phát hiện từ khóa chẩn đoán ("bị bệnh", "chẩn đoán", "mắc bệnh"...) trong câu trả lời, tự động append khuyến cáo đến cơ sở y tế | `llm_chain.py` → `check_output_guardrails()` |
 | **API Key Rotation** | Quản lý 4 Groq API keys, tự động chọn ngẫu nhiên và retry với key khác khi gặp 429 Rate Limit | `llm_chain.py` → `call_llm()` |
@@ -251,6 +250,8 @@ RAG-Mom-Chatbot/
 ├── application.py              # Giao diện Streamlit chính
 ├── llm_chain.py                # RAGChain + Guardrails + Intent + Memory
 ├── vectordb.py                 # FAISS + Embedding + Retrieval + Hybrid Search
+├── history_handle.py           # Quản lý lưu/load lịch sử hội thoại SQLite
+├── utils.py                    # Hàm tiện ích (tên file tự động, timestamp)
 ├── db_config.yml               # Cấu hình đường dẫn dữ liệu
 ├── model_config.yml            # Cấu hình model embedding
 ├── .env                        # API keys (không commit lên git)
@@ -280,9 +281,9 @@ RAG-Mom-Chatbot/
 |---|---|
 | LLM chính | Llama 3.1-8B-Instant (Groq LPU) |
 | LLM Judge | Llama 3.3-70B-Versatile (Groq LPU) |
-| Embedding | `paraphrase-multilingual-MiniLM-L12-v2` |
-| Vector DB | FAISS (`IndexFlatL2`, lưu local) |
-| Retrieval | MMR (`fetch_k=15`, `lambda_mult=0.7`) |
+| Embedding | `vietnamese-sbert` |
+| Vector DB | FAISS (`IndexFlatL2`, lưu local) |    
+| Retrieval (Secondary) | MMR (`fetch_k=30`, `lambda_mult=0.7`) + Keyword Filter || Retrieval (`Primary`) | Adaptive Hybrid (`FAISS fetch_k=40 + BM25Okapi`) |
 | Hybrid Search | FAISS + BM25Okapi + Adaptive Weighting |
 | Re-ranking | CrossEncoder `ms-marco-MiniLM-L-6-v2` |
 | Framework | LangChain + Custom RAGChain |
