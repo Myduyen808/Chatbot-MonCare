@@ -1,6 +1,5 @@
 import streamlit as st
 from datetime import datetime
-from underthesea import ner
 import time
 import re
 
@@ -17,7 +16,9 @@ def get_timestamp():
     return datetime.now().strftime("%Y%m%d_%H%M%S")
 
 def get_keyword_name(sentence):
+    # Đẩy import vào trong hàm để chỉ load khi cần thiết
     try:
+        from underthesea import ner
         entities = ner(sentence)
     except Exception:
         entities = []

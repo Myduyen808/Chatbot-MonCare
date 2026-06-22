@@ -6,7 +6,6 @@ from dotenv import load_dotenv
 from langchain_core.messages import HumanMessage, AIMessage
 load_dotenv()
 
-from utils import typewriter_effect
 from history_handle import CustomHistory, get_list_names, get_history_id, get_chat_messages
 import llm_chain
 from vectordb import get_list_documents, get_document, delete_document, get_details, create_vectordb_with_file
@@ -202,47 +201,13 @@ def Chatbot():
         user_text = st.session_state.user_question if st.session_state.user_question else "Hãy quan sát hình ảnh này."
 
         with chat_container:
-            # if uploaded_image:
-            #     col_img, col_txt = st.columns([1, 3])
-            #     with col_img:
-            #         st.image(uploaded_image, width=100)
-            #     with col_txt:
-            #         st.markdown(f"**Mẹ bỉm sữa:** {user_text}")
-            # else:
-                st.chat_message('human').write(user_text)
+            st.chat_message('human').write(user_text)
 
         with chat_container:
             with st.spinner("🤱 MomCare đang phân tích..."):
                 try:
                     if st.session_state.get("rag_chat", False):
                         query = user_text
-
-                        # if uploaded_image:
-                        #     img_pil = Image.open(uploaded_image)
-                        #     features = {}
-                        #     for name in llm_chain.create_momcare_kernels():
-                        #         _, intensity = llm_chain.apply_convolution_to_image(img_pil, name)
-                        #         features[name] = {'intensity': intensity}
-
-                        #     top3 = sorted(features.items(), key=lambda x: x[1]['intensity'], reverse=True)[:3]
-                        #     top_kernel_name = top3[0][0]
-                        #     col1, col2, col3 = st.columns(3)
-                        #     for i, (kname, _) in enumerate(top3):
-                        #         fmap, _ = llm_chain.apply_convolution_to_image(img_pil, kname)
-                        #         with [col1, col2, col3][i]:
-                        #             st.image(fmap, caption=f"{kname}: {features[kname]['intensity']:.0f}", width=120)
-
-                        #     vision_chain = llm_chain.describe_image_chain()
-                        #     vision_raw = vision_chain.invoke({"input": llm_chain.process_image_momcare(uploaded_image)})
-                        #     vision_data = llm_chain.parse_vision_output(vision_raw, features)
-
-                        #     query = llm_chain.build_query_from_question({
-                        #         "vision_summary": vision_data["vision_summary"],
-                        #         "question": user_text,
-                        #         "features": features
-                        #     })
-                            # st.success(f"Chẩn đoán: **{top_kernel_name.replace('_', ' ').title()}**")
-
                         rag_chain = llm_chain.load_rag_chain_with_sources(
                             number_of_documents=st.session_state.number_of_documents,
                             temperature=temperature
@@ -256,7 +221,10 @@ def Chatbot():
                         response = normal_chain.invoke({"question": user_text, "history": chat_history_messages})
                         source_docs = []
 
-                    st.chat_message('ai').write(response)
+                    if response:
+                        st.chat_message('ai').write(response)
+                    else:
+                        st.chat_message('ai').write("⚠️ Hệ thống AI đang gặp sự cố kết nối. Vui lòng thử lại sau.")
 
                     with st.expander("📎 Xem nguồn tài liệu", expanded=False):
                         if not source_docs:

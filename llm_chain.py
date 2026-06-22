@@ -10,6 +10,8 @@ Cải tiến v4.0:
 4. Xử lý "Tôi chưa tìm thấy" đúng cách (Stop Medicalization Bias Fallback)
 """
 import os
+os.environ["OMP_NUM_THREADS"] = "1"
+os.environ["MKL_NUM_THREADS"] = "1"
 import re
 import asyncio
 import threading
@@ -26,9 +28,17 @@ load_dotenv()
 # =========================================================
 # KHỞI TẠO MÔ HÌNH NHÚNG
 # =========================================================
-reranker = CrossEncoder(
-    "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1"
-)
+# Thay đổi dòng 29
+# Thay thế dòng: reranker = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2")
+# Bằng đoạn code sau:
+_reranker_cache = None
+
+def get_reranker():
+    global _reranker_cache
+    if _reranker_cache is None:
+        print("⏳ Đang nạp Reranker model...")
+        _reranker_cache = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2")
+    return _reranker_cache
 
 _ALL_KEYS = [k for k in [
     os.getenv("GROQ_API_KEY"),
@@ -555,15 +565,24 @@ def call_llm(prompt, system_prompt="Bạn là trợ lý MomCare, chuyên chăm s
                 model=MODEL_NAME,
                 temperature=temperature
             )
+
+            # ====== THÊM ĐOẠN NÀY ĐỂ ĐẾM TOKEN THỰC TẾ ======
+            tokens_used = chat_completion.usage.prompt_tokens
+            print(f"✅ [ĐÃ GỌI API] Độ dài prompt: {len(prompt)} ký tự -> Tốn: {tokens_used} tokens")
+            # ====================================================
+
             return chat_completion.choices[0].message.content
 
         except Exception as e:
             err = str(e)
+            # In lỗi thật ra terminal để biết là lỗi gì
+            print(f"❌ [LỖI API GROQ]: {err}")
+            
             if "429" in err:
                 import re as _re
                 m = _re.search(r'in (\d+)m([\d.]+)s', err)
                 wait = int(m.group(1)) * 60 + float(m.group(2)) + 10 if m else 60 * (attempt + 1)
-                print(f"\n⏳ Rate limit - đợi {wait:.0f}s (lần {attempt+1}/{max_retries})...")
+                print(f"⏳ Rate limit - đợi {wait:.0f}s (lần {attempt+1}/{max_retries})...")
                 _time.sleep(wait)
             else:
                 _time.sleep(3)
@@ -824,16 +843,9 @@ class RAGChain:
         # ════════════════════════════════════════════════════════════
         self.update_conversation_context(question)
 
-        rewrite_input = f"""
-        Ngữ cảnh hiện tại:
-        {self.conversation_context}
-
-        Câu hỏi:
-        {question}
-        """
-
+        # Chỉ truyền câu hỏi gốc, không bọc thêm template để tiết kiệm token
         enriched_question, intent = rewrite_and_detect_intent(
-            rewrite_input,
+            question,
             history
         )
 
@@ -842,19 +854,14 @@ class RAGChain:
 
         if intent == "SMALLTALK":
             prompt = f"Trả lời ngắn gọn, thân thiện: {enriched_question}"
-            answer = call_llm(prompt, self.temperature)
+            answer = call_llm(prompt, temperature=self.temperature)
             return {"answer": answer, "docs": []}
 
         # ════════════════════════════════════════════════════════════
         # 3. TRUY XUẤT TÀI LIỆU (HYBRID SEARCH + MULTI-QUERY)
         # ════════════════════════════════════════════════════════════
-        search_question = f"""
-        Ngữ cảnh hội thoại:
-        {self.conversation_context}
-
-        Câu hỏi:
-        {enriched_question}
-        """
+        # Dùng trực tiếp câu hỏi đã được viết lại
+        search_question = enriched_question
 
         # 3.1 Lấy tài liệu chính bằng Hybrid Search (Vector + BM25)
         primary_docs = _adaptive_hybrid_search(search_question, k=self.k)
@@ -878,6 +885,7 @@ class RAGChain:
 
         # 3.3 ÁP DỤNG RERANKING
         if len(all_docs) > self.k:
+            reranker = get_reranker() # <-- Sửa ở đây, gọi hàm ra
             pairs = [(enriched_question, d.page_content) for d in all_docs]
             scores = reranker.predict(pairs)
             ranked = sorted(zip(scores, all_docs), key=lambda x: x[0], reverse=True)
@@ -930,7 +938,15 @@ class RAGChain:
 
         TRẢ LỜI (đầy đủ chi tiết từ tài liệu, trực tiếp):"""
 
-        answer = call_llm(prompt, self.temperature)
+        answer = call_llm(prompt, temperature=self.temperature)
+        
+        # Nếu API lỗi trả về rỗng, báo ngay thay vì im lặng
+        if not answer or len(answer.strip()) == 0:
+            return {
+                "answer": "⚠️ Hệ thống AI đang quá tải hoặc gặp lỗi kết nối. Mẹ vui lòng gửi lại câu hỏi nhé!",
+                "docs": docs
+            }
+            
         answer = check_output_guardrails(answer, enriched_question)
         return {"answer": answer, "docs": docs}
 
@@ -952,5 +968,5 @@ Trả lời dễ hiểu, chính xác.
 
 Câu hỏi: {question}
 """
-            return call_llm(prompt, temperature)
+            return call_llm(prompt, temperature=temperature)
     return NormalChain()
