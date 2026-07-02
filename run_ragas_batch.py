@@ -241,19 +241,59 @@ final_df[num_cols] = final_df[num_cols].apply(pd.to_numeric, errors='coerce').ro
 
 final_df.to_csv(OUTPUT_FILE, index=False, encoding="utf-8-sig")
 
-# In báo cáo
+# === BỔ SUNG: LỌC CÁC CÂU BỊ CHẶN/KHÔNG TÌM THẤY TRƯỚC KHI TÍNH MEAN ===
+# Các pattern này tương ứng với guardrails hoặc fallback rỗng
+INVALID_ANSWER_PATTERNS = [
+    "không tìm thấy thông tin", "không thể hỗ trợ yêu cầu này", 
+    "momcare không thể", "đưa bé đến cơ sở y tế để được thăm khám",
+    "hệ thống ai đang quá tải", "không có câu trả lời"
+]
+
+# Tạo mask: True nếu câu trả lời HỢP LỆ (không bị chặn/không rỗng)
+def is_valid_for_ragas(answer):
+    if not answer or not isinstance(answer, str):
+        return False
+    ans_lower = answer.lower().strip()
+    if len(ans_lower) < 15: return False
+    for pattern in INVALID_ANSWER_PATTERNS:
+        if pattern in ans_lower:
+            return False
+    return True
+
+final_df['is_valid_rag'] = final_df['answer'].apply(is_valid_for_ragas)
+valid_rag_df = final_df[final_df['is_valid_rag'] == True]
+invalid_rag_df = final_df[final_df['is_valid_rag'] == False]
+
+# Tính điểm CHO TẤT CẢ (Original)
 f_avg  = final_df['faithfulness'].mean()      if 'faithfulness'      in final_df.columns else float("nan")
 cr_avg = final_df['context_recall'].mean()    if 'context_recall'    in final_df.columns else float("nan")
 ar_avg = final_df['answer_relevancy'].mean()  if 'answer_relevancy'  in final_df.columns else float("nan")
 cp_avg = final_df['context_precision'].mean() if 'context_precision' in final_df.columns else float("nan")
+
+# Tính điểm CHỈ CHO CÂU HỢP LỆ (Adjusted - Dùng để báo cáo)
+f_adj  = valid_rag_df['faithfulness'].mean()      if 'faithfulness'      in valid_rag_df.columns and len(valid_rag_df) > 0 else float("nan")
+cr_adj = valid_rag_df['context_recall'].mean()    if 'context_recall'    in valid_rag_df.columns and len(valid_rag_df) > 0 else float("nan")
+ar_adj = valid_rag_df['answer_relevancy'].mean()  if 'answer_relevancy'  in valid_rag_df.columns and len(valid_rag_df) > 0 else float("nan")
+cp_adj = valid_rag_df['context_precision'].mean() if 'context_precision' in valid_rag_df.columns and len(valid_rag_df) > 0 else float("nan")
 
 def fmt(v): return f"{v:.3f}" if pd.notna(v) else "N/A"
 
 print(f"\n{'='*60}")
 print(f"  KẾT QUẢ BATCH {BATCH_NUM} — {KB_NAME.upper()} (4 Metrics)")
 print(f"{'='*60}")
-print(f"  Faithfulness      : {fmt(f_avg)}")
-print(f"  Context Recall    : {fmt(cr_avg)}")
-print(f"  Answer Relevancy  : {fmt(ar_avg)}")
-print(f"  Context Precision : {fmt(cp_avg)}")
-print(f"  Lưu tại           : {OUTPUT_FILE}")
+print(f"  Tổng số câu: {len(final_df)}")
+print(f"  Câu hợp lệ (RAG thành công): {len(valid_rag_df)} ({len(valid_rag_df)/len(final_df)*100:.1f}%)")
+print(f"  Câu bị chặn/thất bại: {len(invalid_rag_df)} ({len(invalid_rag_df)/len(final_df)*100:.1f}%)")
+
+print(f"\n  ── ĐIỂM TOÀN BỘ (Gồm câu thất bại) ──")
+print(f"    Faithfulness      : {fmt(f_avg)}")
+print(f"    Context Recall    : {fmt(cr_avg)}")
+print(f"    Answer Relevancy  : {fmt(ar_avg)}")
+print(f"    Context Precision : {fmt(cp_avg)}")
+
+print(f"\n  ── ĐIỂM ĐIỀU CHỈNH (Chỉ tính câu RAG hợp lệ) <- DÙNG CHO BÁO CÁO ──")
+print(f"    Faithfulness      : {fmt(f_adj)}")
+print(f"    Context Recall    : {fmt(cr_adj)}")
+print(f"    Answer Relevancy  : {fmt(ar_adj)}")
+print(f"    Context Precision : {fmt(cp_adj)}")
+print(f"  Lưu tại             : {OUTPUT_FILE}")

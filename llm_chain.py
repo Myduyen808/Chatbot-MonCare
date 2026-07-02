@@ -83,7 +83,7 @@ def _get_production_hybrid_retriever():
     return _hybrid_retriever_cache
 
 def _adaptive_hybrid_search(question, k=5):
-    """Tìm kiếm lai có trọng số tự thích nghi dựa trên loại câu hỏi"""
+    """Tìm kiếm lai có trọng số tự thích nghi + Boost chunk bảng số liệu"""
     cache = _get_production_hybrid_retriever()
     db = load_vector_db()
     
@@ -91,17 +91,17 @@ def _adaptive_hybrid_search(question, k=5):
     has_numbers = bool(re.search(r'\d+\s*(mg|ml|g|%|tháng|tuần|ngày|lần)', question.lower()))
     
     # ADAPTIVE WEIGHTING: Nếu có số liệu -> ưu tiên BM25 nhiều hơn
-    alpha = 0.5 if has_numbers else 0.7 
+    alpha = 0.4 if has_numbers else 0.7 
 
-    # 2. Lấy pool ứng viên từ Vector
-    vector_docs = db.similarity_search(question, k=20, fetch_k=40, lambda_mult=0.5)
+    # 2. Lấy pool ứng viên từ Vector (Tăng fetch_k để tìm rộng hơn)
+    vector_docs = db.similarity_search(question, k=25, fetch_k=50, lambda_mult=0.5)
     
     # 3. Tính điểm BM25
     query_tokens = re.findall(r'[a-zA-Z0-9À-Ỹà-ỵ][a-zA-Z0-9À-Ỹà-ỵ]*', question.lower())
     bm25_scores = cache["bm25"].get_scores(query_tokens)
     max_bm25 = max(bm25_scores) if max(bm25_scores) > 0 else 1.0
     
-    # 4. Cộng điểm
+    # 4. Cộng điểm + BOOST DATA TABLE
     combined_scores = []
     for i, vec_doc in enumerate(vector_docs):
         vector_score = 1.0 / (i + 1)
@@ -109,6 +109,12 @@ def _adaptive_hybrid_search(question, k=5):
         bm25_score = (bm25_scores[bm25_idx] / max_bm25) if bm25_idx != -1 else 0.0
         
         final_score = (alpha * vector_score) + ((1 - alpha) * bm25_score)
+        
+        # === BOOST MỚI ===
+        # Nếu câu hỏi có số liệu VÀ doc là bảng dữ liệu -> Cộng điểm boost
+        if has_numbers and vec_doc.metadata.get("chunk_type") == "data_table":
+            final_score += 0.3  # Boost mạnh 0.3 điểm
+            
         combined_scores.append((final_score, vec_doc))
         
     combined_scores.sort(key=lambda x: x[0], reverse=True)
@@ -326,6 +332,11 @@ def check_input_guardrails(question: str):
     7. Fallback về v1 cho các case còn lại
     """
     q = question.lower().strip()
+
+    # >>> THÊM ĐOẠN NÀY ĐỂ DEBUG <<<
+    debug_blocked = False
+    debug_trigger = ""
+    # >>> KẾT THÚC DEBUG <<<
     
     # ═══ 1. PROMPT INJECTION — Ưu tiên cao nhất ═══
     for pattern in PROMPT_INJECTION_PATTERNS:
@@ -620,13 +631,31 @@ def rewrite_and_detect_intent(question, history):
 
     if history:
         lines = []
-        for msg in history[-20:]:
+        # 1. Gom toàn bộ lịch sử thô thành 1 cục text (không gọi API ở đây)
+        raw_history_text = ""
+        for msg in history[-10:]: # Lấy 10 tin gần nhất
             role = "Mẹ" if msg.__class__.__name__ == "HumanMessage" else "MomCare"
-            summarized = summarize_history_message(msg.content)
-            lines.append(f"{role}: {summarized}")
-        recent_history = "LỊCH SỬ:\n" + "\n".join(lines) + "\n\n"
+            raw_history_text += f"{role}: {msg.content}\n"
+            
+        # 2. GỌI LLM 1 LẦN DUY NHẤT để tóm tắt TOÀN BỘ cục text đó
+        # Điều này chứng minh cho báo cáo là em ĐANG dùng LLM để Summarized Memory
+        summary_prompt = f"""Tóm tắt đoạn hội thoại sau thành các ý chính ngắn gọn (tối đa 200 chữ). 
+Bắt buộc giữ lại: Tên bệnh, triệu chứng, độ tuổi của bé/mẹ, các số liệu quan trọng.
+Bỏ qua các câu chào hỏi, cảm ơn.
 
-    # ── PROMPT MỚI: thêm hướng dẫn xử lý câu ngắn ──
+{raw_history_text}
+Tóm tắt:"""
+        
+        history_summary = call_llm(summary_prompt, temperature=0).strip()
+        
+        # 3. Đưa phần tóm tắt đã gộp vào prompt chính
+        if history_summary and len(history_summary) > 10:
+            lines.append(f"TÓM TẮT LỊCH SỬ: {history_summary}")
+            
+        if lines:
+            recent_history = "LỊCH SỬ:\n" + "\n".join(lines) + "\n\n"
+
+    # ── PROMPT MỚI: thêm hướng dẫn xử lý câu ngắn & bỏ qua context lỗi ──
     prompt = f"""Dựa trên lịch sử hội thoại và thông tin cốt lõi bên dưới, hãy thực hiện 2 việc:
 
 1. Viết lại câu hỏi cuối thành câu ĐẦY ĐỦ, RÕ RÀNG để dùng tìm kiếm y khoa:
@@ -635,9 +664,10 @@ def rewrite_and_detect_intent(question, history):
    - Nếu dùng đại từ "con/bé/em/mình": thay bằng đối tượng cụ thể
    - Nếu hỏi tiếp nối ("vậy thì?", "còn cái đó?"): mở rộng thành câu độc lập
    - BẮT BUỘC giữ lại thông tin độ tuổi nếu có trong câu hỏi hoặc context
+   - QUAN TRỌNG: Chỉ tập trung vào CÂU HỎI GỐC gần nhất. Bỏ qua mọi câu hỏi cũ trong lịch sử nếu nó không liên quan trực tiếp.
 
 2. Phân loại ý định: BLOCKED / SMALLTALK / RAG
-   - BLOCKED: kê đơn thuốc, liều thuốc cụ thể, tự tử/tự hại
+   - BLOCKED: kê đơn thuốc, liều thuốc cụ thể, tự tử/tự hại, và các khái niệm y khoa quá trừu tượng.
    - SMALLTALK: chào hỏi, cảm ơn, hỏi về chatbot
    - RAG: mọi câu hỏi y khoa, dinh dưỡng, chăm sóc bé/mẹ
 

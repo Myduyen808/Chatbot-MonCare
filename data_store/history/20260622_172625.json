@@ -33,6 +33,14 @@
         {
             "type": "ai",
             "content": "Tôi chưa tìm thấy thông tin về cách giúp con 5 tháng giảm thiểu tình trạng nấc cục. Mẹ nên hỏi bác sĩ để được tư vấn chính xác."
+        },
+        {
+            "type": "human",
+            "content": "con tôi hay quấy khóc pải làm sao"
+        },
+        {
+            "type": "ai",
+            "content": "Tôi chưa tìm thấy thông tin về nguyên nhân và cách giúp con 5 tháng giảm thiểu tình trạng quấy khóc. Mẹ nên hỏi bác sĩ để được tư vấn chính xác."
         }
     ]
 }

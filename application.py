@@ -45,12 +45,12 @@ section[data-testid="stSidebar"] {background-color: #ffffff; box-shadow: 2px 0 1
 #         }
 #     ]
 
-# # ── Menu chính (ngoài function, chạy 1 lần mỗi render) ──────────────────────
+# ── Menu chính (ngoài function, chạy 1 lần mỗi render) ──────────────────────
 with st.sidebar:
     selected = option_menu(
         "Menu Chính",
-        ["Chatbot", "Quản lý Dữ liệu"],
-        icons=['chat', 'database'],
+        ["Chatbot", "Phân tích tiếng khóc", "Quản lý Dữ liệu"],
+        icons=['chat', 'mic', 'database'],
         menu_icon="menu-button-wide",
         default_index=0,
         styles={"container": {"font-family": "sans-serif"}, "nav-link-selected": {"background-color": "#ff4b4b"}}
@@ -241,8 +241,247 @@ def Chatbot():
                     print(traceback.format_exc())
                     response = "Xin lỗi, tôi đang gặp sự cố."
 
-        history.add_a_conversation(user_text, response)
+        # Chỉ lưu vào lịch sử nếu nó là câu hỏi RAG hợp lệ, không lưu câu bị Guardrails chặn oan
+        is_blocked_response = any(kw in response for kw in [
+            "MomCare không thể hỗ trợ yêu cầu này", 
+            "MomCare không thể tư vấn về các sản phẩm không rõ nguồn gốc",
+            "DỪNG LẠI! Hành động này rất nguy hiểm",
+            "MomCare không thể cung cấp thông tin kê đơn",
+            "MomCare không thể tư vấn về liều lượng thuốc",
+            "CẢNH BÁO: Tình trạng của mẹ cần được xử lý Y TẾ NGAY"
+        ])
+        
+        if not is_blocked_response:
+            history.add_a_conversation(user_text, response)
+            
         st.session_state.clear_input = True
+
+# ════════════════════════════════════════
+def Audio_Analysis():
+    from streamlit_mic_recorder import mic_recorder
+    import audio_utils
+    
+    st.markdown("""
+    <div style="text-align: center; padding: 20px 0;">
+        <span style="font-size: 50px;">🎤</span>
+        <h1 style="color: #ff4757; margin-top: -10px;">Phân tích tiếng khóc</h1>
+        <p style="color: #636e72;">Hệ thống sẽ xác định <b>NGUYÊN NHÂN</b> bé khóc và đưa ra tư vấn cụ thể</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.info("👉 Nhấn **Bắt đầu ghi âm**, khi bé khóc thì nhấn **Dừng ghi âm**. Hệ thống sẽ tự động phân tích nguyên nhân.")
+
+    # ═══════════════════════════════════════════════════════════════
+    # MAP NGUYÊN NHÂN → QUERY RAG CỤ THỂ
+    # Đây là KEY FIX: Thay vì query chung "bé đang khóc", 
+    # ta query CỤ THỂ theo nguyên nhân đã xác định
+    # ═══════════════════════════════════════════════════════════════
+    REASON_TO_QUERY_MAP = {
+"hunger":      "Dấu hiệu trẻ sơ sinh đói, cách cho bú đúng kỹ thuật, lượng sữa cần thiết theo tuổi",
+"pain":        "Trẻ sơ sinh khóc do đau, nguyên nhân đau bụng kolik, khi nào cần đưa bé đi viện gấp",
+"fatigue": "Cách dỗ trẻ sơ sinh buồn ngủ, kỹ thuật ru ngủ, giúp bé ngủ ngon, dấu hiệu bé buồn ngủ cần dỗ ngủ ngay",
+"discomfort":  "Cách thay tã đúng cách cho trẻ sơ sinh, dấu hiệu tã ướt cần thay, hăm tã ở trẻ sơ sinh",
+"temperature": "Nhiệt độ phòng lý tưởng cho trẻ sơ sinh, dấu hiệu bé quá nóng quá lạnh, cách mặc đồ theo thời tiết",
+"unknown":     "Trẻ sơ sinh khóc không rõ nguyên nhân, cách kiểm tra bé đói tã ướt buồn ngủ đau, cách dỗ bé nín khóc",
+    }
+
+    audio_data = None
+    source_type = ""
+
+    # ==========================================
+    # GHI ÂM TRỰC TIẾP & TỰ ĐỘNG PHÂN TÍCH
+    # ==========================================
+    audio_bytes = mic_recorder(
+        start_prompt="⏺ Bắt đầu ghi âm",
+        stop_prompt="⏹ Dừng ghi âm",
+        just_once=True,
+        use_container_width=True,
+        key="mic_recorder"
+    )
+    
+    current_audio_bytes = audio_bytes['bytes'] if audio_bytes else None
+    last_audio_bytes = st.session_state.get("last_audio_bytes")
+
+    if current_audio_bytes and current_audio_bytes != last_audio_bytes:
+        st.session_state.last_audio_bytes = current_audio_bytes
+        audio_data = current_audio_bytes
+        source_type = "Ghi âm trực tiếp"
+        st.success("✅ Đã ghi âm xong! Đang phân tích nguyên nhân...")
+
+        # ==================== PHÂN TÍCH ====================
+        with st.spinner("🧠 Đang phân tích dải tần số và chẩn đoán nguyên nhân khóc..."):
+            reason, reason_vi, confidence, acoustic_desc = audio_utils.analyze_baby_cry(audio_data)
+        
+        # ==================== XỬ LÝ KẾT QUẢ ====================
+        if reason != "none" and confidence >= 0.015:
+            
+            # ── HIỂN THỊ KẾT QUẢ PHÂN TÍCH ──
+            col1, col2, col3 = st.columns(3)
+            with col1:
+                st.metric("Nguồn âm thanh", source_type)
+            with col2:
+                # ✅ FIX: HIỂN THỊ NGUYÊN NHÂN CỤ THỂ thay vì "ĐANG KHÓC"
+                st.metric("⚠️ Nguyên nhân", reason_vi)
+            with col3:
+                st.metric("🔊 Phát hiện tiếng khóc", f"{confidence*100:.1f}%")
+            
+            # Hiển thị chi tiết phân tích (expandable)
+            if acoustic_desc:
+                with st.expander("📊 Xem chi tiết phân tích âm thanh (Pitch, Energy, Rhythm)", expanded=False):
+                    st.markdown(acoustic_desc)
+            
+            st.divider()
+            
+            # ── LẤY QUERY RAG CỤ THỂ THEO NGUYÊN NHÂN ──
+            rag_query = REASON_TO_QUERY_MAP.get(reason, REASON_TO_QUERY_MAP["unknown"])
+            
+            # Hiển thị tiêu đề phù hợp
+            if reason == "unknown":
+                st.subheader("🤖 Lời khuyên từ MomCare - Kiểm tra theo thứ tự ưu tiên")
+                
+                # Hiển thị thông báo rõ ràng hơn khi không xác định được
+                st.warning("""⚠️ **Hệ thống phát hiện tiếng khóc nhưng chưa đủ dữ liệu để xác định nguyên nhân chính xác.**
+
+            Mẹ hãy kiểm tra theo thứ tự ưu tiên sau (mỗi bước 2-3 phút):""")
+                
+                # Hiển thị checklist trực quan
+                checklist = [
+                    ("🥛 1. KIỂM TRA ĐÓI", "Đưa ngón tay lên môi bé, nếu bé quay đầu tìm ti hoặc mút tay → Bé đói", "hunger"),
+                    ("🧷 2. KIỂM TRA TẢ", "Mở tã xem có ướt/đầy không, kiểm tra vùng da có bị hăm đỏ không", "discomfort"),
+                    ("🌡️ 3. KIỂM TRA NHIỆT ĐỘ", "Chạm tay vào gáy bé - nếu ướt mồ hôi = quá nóng, nếu lạnh = cần ấm hơn", "temperature"),
+                    ("😴 4. KIỂM TRA BUỒN NGỦ", "Nếu bé đã thức quá lâu so với giờ giấc bình thường, mắt lờ đờ, ngáp → Bé buồn ngủ", "fatigue"),
+                    ("😰 5. KIỂM TRA ĐAU", "Nhẹ nhàng sờ toàn thân bé, nếu chạm vào đâu bé khóc to hơn → Có thể bị đau ở đó", "pain"),
+                ]
+                
+                for title, desc, reason_key in checklist:
+                    with st.container():
+                        col_check, col_text = st.columns([0.05, 0.95])
+                        with col_check:
+                            st.checkbox("✓", key=f"check_{reason_key}", label_visibility="hidden")
+                        with col_text:
+                            st.markdown(f"**{title}**\n> {desc}")
+                
+                st.markdown("---")
+                st.info("💡 **Mẹ nhấp vào checkbox khi đã kiểm tra xong từng bước** để nhớ xem đã thử cách nào chưa.")
+            else:
+                st.subheader(f"🤖 Lời khuyên từ MomCare - Xử lý: {reason_vi}")
+            
+            # ── GỌI RAG VỚI QUERY CỤ THỂ ──
+            with st.spinner("🤱 MomCare đang tìm kiếm tài liệu y khoa phù hợp..."):
+                try:
+                    rag_chain = llm_chain.load_rag_chain_with_sources(number_of_documents=5, temperature=0.3)
+                    result = rag_chain.invoke({"question": rag_query, "history": []})
+                    
+                    response = result["answer"]
+                    source_docs = result["docs"]
+                    
+                    st.markdown(response)
+                    
+                    with st.expander("📎 Xem nguồn tài liệu y khoa", expanded=False):
+                        if not source_docs:
+                            st.warning("❌ Không tìm thấy nguồn tài liệu phù hợp.")
+                        else:
+                            st.success(f"✅ Tìm thấy {len(source_docs)} nguồn tài liệu")
+                            for i, doc in enumerate(source_docs):
+                                st.info(f"**📄 {i+1}:** `{doc.metadata.get('source', 'N/A')}`\n\n{doc.page_content[:300]}...")
+                                
+                except Exception as e:
+                    st.error(f"Lỗi hệ thống: {e}")
+        
+        elif reason == "none":
+            st.warning("⚠️ Hệ thống không phát hiện tiếng khóc rõ ràng. Vui lòng ghi âm lại khi bé đang khóc hoặc thử tải file khác.")
+
+    # ==========================================
+    # CÁCH 2: TẢI FILE LÊN
+    # ==========================================
+    elif not audio_bytes:
+        st.markdown("---")
+        uploaded_audio = st.file_uploader("HOẶC Tải file âm thanh lên (.wav, .mp3)", type=["wav", "mp3"], key="audio_uploader")
+        
+        if uploaded_audio is not None:
+            audio_data = uploaded_audio.read()
+            source_type = "Tải file lên"
+            st.success("✅ Đã tải file lên thành công!")
+            
+            # Phân tích luôn khi tải file lên
+            with st.spinner("🧠 Đang phân tích dải tần số và chẩn đoán nguyên nhân khóc..."):
+                reason, reason_vi, confidence, acoustic_desc = audio_utils.analyze_baby_cry(audio_data)
+                
+            if reason != "none" and confidence >= 0.015:
+                # ── HIỂN THỊ KẾT QUẢ PHÂN TÍCH ──
+                col1, col2, col3 = st.columns(3)
+                with col1:
+                    st.metric("Nguồn âm thanh", source_type)
+                with col2:
+                    # ✅ FIX: HIỂN THỊ NGUYÊN NHÂN CỤ THỂ
+                    st.metric("⚠️ Nguyên nhân", reason_vi)
+                with col3:
+                    st.metric("🔊 Phát hiện tiếng khóc", f"{confidence*100:.1f}%")
+                
+                # Hiển thị chi tiết phân tích
+                if acoustic_desc:
+                    with st.expander("📊 Xem chi tiết phân tích âm thanh", expanded=False):
+                        st.markdown(acoustic_desc)
+                
+                st.divider()
+                
+                # ── LẤY QUERY RAG CỤ THỂ ──
+                rag_query = REASON_TO_QUERY_MAP.get(reason, REASON_TO_QUERY_MAP["unknown"])
+                
+                if reason == "unknown":
+                    st.subheader("🤖 Lời khuyên từ MomCare - Kiểm tra theo thứ tự ưu tiên")
+                    
+                    # Hiển thị thông báo rõ ràng hơn khi không xác định được
+                    st.warning("""⚠️ **Hệ thống phát hiện tiếng khóc nhưng chưa đủ dữ liệu để xác định nguyên nhân chính xác.**
+
+                Mẹ hãy kiểm tra theo thứ tự ưu tiên sau (mỗi bước 2-3 phút):""")
+                    
+                    # Hiển thị checklist trực quan
+                    checklist = [
+                        ("🥛 1. KIỂM TRA ĐÓI", "Đưa ngón tay lên môi bé, nếu bé quay đầu tìm ti hoặc mút tay → Bé đói", "hunger"),
+                        ("🧷 2. KIỂM TRA TẢ", "Mở tã xem có ướt/đầy không, kiểm tra vùng da có bị hăm đỏ không", "discomfort"),
+                        ("🌡️ 3. KIỂM TRA NHIỆT ĐỘ", "Chạm tay vào gáy bé - nếu ướt mồ hôi = quá nóng, nếu lạnh = cần ấm hơn", "temperature"),
+                        ("😴 4. KIỂM TRA BUỒN NGỦ", "Nếu bé đã thức quá lâu so với giờ giấc bình thường, mắt lờ đờ, ngáp → Bé buồn ngủ", "fatigue"),
+                        ("😰 5. KIỂM TRA ĐAU", "Nhẹ nhàng sờ toàn thân bé, nếu chạm vào đâu bé khóc to hơn → Có thể bị đau ở đó", "pain"),
+                    ]
+                    
+                    for title, desc, reason_key in checklist:
+                        with st.container():
+                            col_check, col_text = st.columns([0.05, 0.95])
+                            with col_check:
+                                st.checkbox("✓", key=f"check_{reason_key}", label_visibility="hidden")
+                            with col_text:
+                                st.markdown(f"**{title}**\n> {desc}")
+                    
+                    st.markdown("---")
+                    st.info("💡 **Mẹ nhấp vào checkbox khi đã kiểm tra xong từng bước** để nhớ xem đã thử cách nào chưa.")
+                else:
+                    st.subheader(f"🤖 Lời khuyên từ MomCare - Xử lý: {reason_vi}")
+                
+                # ── GỌI RAG VỚI QUERY CỤ THỂ ──
+                with st.spinner("🤱 MomCare đang tìm kiếm tài liệu y khoa phù hợp..."):
+                    try:
+                        rag_chain = llm_chain.load_rag_chain_with_sources(number_of_documents=5, temperature=0.3)
+                        result = rag_chain.invoke({"question": rag_query, "history": []})
+                        
+                        response = result["answer"]
+                        source_docs = result["docs"]
+                        
+                        st.markdown(response)
+                        
+                        with st.expander("📎 Xem nguồn tài liệu y khoa", expanded=False):
+                            if not source_docs:
+                                st.warning("❌ Không tìm thấy nguồn tài liệu phù hợp.")
+                            else:
+                                st.success(f"✅ Tìm thấy {len(source_docs)} nguồn tài liệu")
+                                for i, doc in enumerate(source_docs):
+                                    st.info(f"**📄 {i+1}:** `{doc.metadata.get('source', 'N/A')}`\n\n{doc.page_content[:300]}...")
+                                    
+                    except Exception as e:
+                        st.error(f"Lỗi hệ thống: {e}")
+            
+            elif reason == "none":
+                st.warning("⚠️ Hệ thống không phát hiện tiếng khóc rõ ràng. Vui lòng thử file khác.")
 
 
 # ════════════════════════════════════════════════════════════════════════════
@@ -297,8 +536,13 @@ def Databases():
                     st.rerun()
 
 
+# ── Xóa cache để load thư viện mới ──────────────────────────────────────────
+st.cache_resource.clear()
+
 # ── Router ───────────────────────────────────────────────────────────────────
 if selected == "Chatbot":
     Chatbot()
+elif selected == "Phân tích tiếng khóc":
+    Audio_Analysis()
 else:
     Databases()

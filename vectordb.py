@@ -281,6 +281,24 @@ def load_special_excel(file_path):
 
     return documents
 
+# Thêm hàm này vào vectordb.py
+def is_data_driven_chunk(text: str) -> bool:
+    """
+    Phát hiện đoạn văn chứa nhiều dữ liệu định lượng (bảng, thống kê).
+    Nếu là bảng dữ liệu -> KHÔNG cắt nhỏ, giữ nguyên 1 chunk.
+    """
+    # Đếm số dòng chứa số liệu (mg, ml, tháng, tuổi, %)
+    lines = text.split('\n')
+    data_lines = 0
+    for line in lines:
+        if re.search(r'(\d+\s*(mg|ml|g|%|tháng|tuổi|ngày|lần|tuần|kcal|kg))', line.lower()):
+            data_lines += 1
+            
+    # Nếu >30% dòng chứa số liệu -> đây là bảng/chuỗi thống kê -> Không cắt
+    if len(lines) > 2 and (data_lines / len(lines)) > 0.3:
+        return True
+    return False
+
 
 def create_vectordb_with_file(pdf_path=db_config["pdf_path"], word_path=db_config["word_path"], csv_path=db_config.get("csv_path", "data_store/csv"), chunk_size=db_config["database_config"]["chunk_size"], chunk_overlap=db_config["database_config"]["chunk_overlap"], db_path=db_config["database_path"]):
     os.makedirs(pdf_path, exist_ok=True); os.makedirs(word_path, exist_ok=True); os.makedirs(csv_path, exist_ok=True)
@@ -342,10 +360,10 @@ def create_vectordb_with_file(pdf_path=db_config["pdf_path"], word_path=db_confi
         cleaned_text = clean_web_boilerplate(doc.page_content)
         if len(cleaned_text) > 50: final_clean_documents.append(LC_Document(page_content=cleaned_text, metadata=doc.metadata))
             
-    # Tăng size và overlap để không bị cắt xẻ các bảng y khoa
+    # Sử dụng biến chunk_size và chunk_overlap được truyền từ cấu hình/YAML
     splitter = RecursiveCharacterTextSplitter(
-        chunk_size=2000,
-        chunk_overlap=400
+        chunk_size=chunk_size,
+        chunk_overlap=chunk_overlap
     )
 
     final_chunks = []
@@ -355,28 +373,30 @@ def create_vectordb_with_file(pdf_path=db_config["pdf_path"], word_path=db_confi
         # FAQ, ViMedAQA hoặc bộ đề y khoa giữ nguyên 1 document (không split)
         if doc.metadata.get("file_type") in ["medical_exam", "faq", "vimedaqa"]:
             cleaned_text = clean_chunk_text(doc.page_content)
-
             if len(cleaned_text.strip()) >= 50:
                 final_chunks.append(
-                    LC_Document(
-                        page_content=cleaned_text,
-                        metadata=doc.metadata
-                    )
+                    LC_Document(page_content=cleaned_text, metadata=doc.metadata)
+                )
+
+        # CÁI MỚI: Phát hiện bảng số liệu -> Giữ nguyên không cắt
+        elif is_data_driven_chunk(doc.page_content):
+            cleaned_text = clean_chunk_text(doc.page_content)
+            if len(cleaned_text.strip()) >= 80:
+                # Gắn thêm flag để Reranker ưu tiên sau này
+                doc.metadata["chunk_type"] = "data_table"
+                final_chunks.append(
+                    LC_Document(page_content=cleaned_text, metadata=doc.metadata)
                 )
 
         # Các tài liệu khác mới chia chunk
         else:
             chunks = splitter.split_documents([doc])
-
             for c in chunks:
                 cleaned_text = clean_chunk_text(c.page_content)
-
                 if len(cleaned_text.strip()) >= 50:
+                    c.metadata["chunk_type"] = "normal_text"
                     final_chunks.append(
-                        LC_Document(
-                            page_content=cleaned_text,
-                            metadata=c.metadata
-                        )
+                        LC_Document(page_content=cleaned_text, metadata=c.metadata)
                     )
 
     print(f"Chunks sau lọc: {len(final_chunks)}")
