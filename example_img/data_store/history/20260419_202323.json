@@ -1,0 +1,14 @@
+{
+    "history_name": "xin chào",
+    "history_id": "20260419_202323",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "xin chào"
+        },
+        {
+            "type": "ai",
+            "content": "Xin chào! Tôi là MomCare. Tôi sẵn sàng giúp đỡ bạn với bất kỳ câu hỏi hoặc thông tin nào bạn cần. Bạn có muốn hỏi về chăm sóc trẻ sơ sinh và trẻ nhỏ không?"
+        }
+    ]
+}

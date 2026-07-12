@@ -1,0 +1,14 @@
+{
+    "history_name": "ăn cơm",
+    "history_id": "20260424_185808",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "ăn cơm với gì"
+        },
+        {
+            "type": "ai",
+            "content": "Không tìm thấy thông tin trong tài liệu."
+        }
+    ]
+}

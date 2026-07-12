@@ -1,0 +1,7 @@
+﻿Label,Hit Rate@5,MRR@5,Avg Latency (ms),Indexing Time (s)
+Vietnamese-SBERT (Đang dùng),0.8,0.75,39.9,3.4
+BGE-M3 (Đa ngôn ngữ SOTA),0.86,0.78,142.5,12.4
+GTE-Multilingual (Alibaba),0.82,0.76,95.4,8.2
+Multilingual-E5-Large (Microsoft),0.84,0.77,188.2,15.1
+Multilingual-E5-Base,0.78,0.72,64.8,6.1
+BGE-Large-English,0.45,0.38,154.1,11.8

@@ -196,10 +196,12 @@ def classify_cry_reason(audio_input, confidence):
 
         # --- KHÓC NHIỆT ĐỘ ---
         if avg_pitch > 0 and 400 <= avg_pitch <= 650: scores["temperature"] += 1
-        if energy_variability < 0.025 and cry_ratio > 0.5: scores["temperature"] += 2
-        elif energy_variability < 0.035: scores["temperature"] += 1
-        if duration_sec > 8: scores["temperature"] += 2
-        elif duration_sec > 5: scores["temperature"] += 1
+        # Thêm điều kiện cry_ratio > 0.5 để tránh audio im lặng cũng được điểm:
+        if energy_variability < 0.025 and cry_ratio > 0.6: scores["temperature"] += 2
+        elif energy_variability < 0.035 and cry_ratio > 0.5: scores["temperature"] += 1
+        # Duration chỉ tính khi đang thực sự khóc liên tục:
+        if duration_sec > 8 and cry_ratio > 0.5: scores["temperature"] += 2
+        elif duration_sec > 5 and cry_ratio > 0.4: scores["temperature"] += 1
         if avg_pitch > 0 and pitch_std < 40: scores["temperature"] += 1
         
         # ═══════════════════════════════════════════════════

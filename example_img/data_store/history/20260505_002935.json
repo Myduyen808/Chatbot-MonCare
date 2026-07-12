@@ -1,0 +1,38 @@
+{
+    "history_name": "xin chào #8",
+    "history_id": "20260505_002935",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "xin chào"
+        },
+        {
+            "type": "ai",
+            "content": "Chào bạn! Tôi rất vui được gặp bạn! Tôi là trợ lý MomCare, chuyên chăm sóc mẹ và bé. Tôi ở đây để giúp bạn với bất kỳ câu hỏi hoặc vấn đề nào liên quan đến chăm sóc mẹ và bé. Bạn cần giúp đỡ gì không?"
+        },
+        {
+            "type": "human",
+            "content": "bạn là ai"
+        },
+        {
+            "type": "ai",
+            "content": "Tôi rất muốn biết thông tin về bạn! Bạn có muốn chia sẻ về bản thân mình không? Tôi ở đây để lắng nghe và giúp đỡ bạn về mọi vấn đề liên quan đến chăm sóc mẹ và bé."
+        },
+        {
+            "type": "human",
+            "content": "bạn là ai vậy"
+        },
+        {
+            "type": "ai",
+            "content": "Tôi rất hân hạnh được biết đến bạn! Bạn có thể giới thiệu về bản thân mình, và tôi sẽ lắng nghe và hỗ trợ bạn một cách tốt nhất có thể."
+        },
+        {
+            "type": "human",
+            "content": "bạn là ai vậy ạ"
+        },
+        {
+            "type": "ai",
+            "content": "Xin chào! Tôi là trợ lý MomCare, chuyên chăm sóc mẹ và bé. Tôi luôn sẵn sàng giúp đỡ và hỗ trợ các mẹ trong việc chăm sóc con, từ việc tư vấn dinh dưỡng, chăm sóc sức khỏe, đến các mẹo vặt giúp mẹ và bé có thời gian quality hơn. Tôi luôn ở đây để giúp đỡ và chia sẻ kinh nghiệm với các mẹ!"
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "history_name": "Nguyên nhân khiến trẻ khi sinh bị nhẹ cân #13",
+    "history_id": "20260424_011606",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "Nguyên nhân khiến trẻ khi sinh bị nhẹ cân"
+        },
+        {
+            "type": "ai",
+            "content": "Lỗi LLM: name 'MODEL_NAME' is not defined"
+        }
+    ]
+}

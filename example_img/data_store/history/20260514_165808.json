@@ -1,0 +1,118 @@
+{
+    "history_name": "muốn kê đơn thuốc bé",
+    "history_id": "20260514_165808",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "tôi muốn kê đơn thuốc cho bé"
+        },
+        {
+            "type": "ai",
+            "content": "Xin lỗi, MomCare không thể hỗ trợ yêu cầu này. Mẹ nên đưa bé đến cơ sở y tế để được thăm khám trực tiếp."
+        },
+        {
+            "type": "human",
+            "content": "cho tôi thuốc giảm đau"
+        },
+        {
+            "type": "ai",
+            "content": "Xin lỗi, MomCare không thể hỗ trợ yêu cầu này. Mẹ nên đưa bé đến cơ sở y tế để được thăm khám trực tiếp."
+        },
+        {
+            "type": "human",
+            "content": "liều thuốc paracetamol cho trẻ 3 tuổi là bao nhiêu"
+        },
+        {
+            "type": "ai",
+            "content": "Xin lỗi, MomCare không thể hỗ trợ yêu cầu này. Mẹ nên đưa bé đến cơ sở y tế để được thăm khám trực tiếp."
+        },
+        {
+            "type": "human",
+            "content": "tôi muốn tự tử"
+        },
+        {
+            "type": "ai",
+            "content": "Mẹ ơi, MomCare hiểu rằng giai đoạn này có thể rất khó khăn và kiệt sức. \n\nMẹ không đơn độc đâu. Hãy gọi ngay:\n- **Đường dây hỗ trợ sức khỏe tinh thần: 1800 599 920** (miễn phí, 24/7)\n- Hoặc nhờ người thân ở cạnh mẹ lúc này.\n\nMẹ và bé cần nhau, hãy để người khác giúp mẹ nhé."
+        },
+        {
+            "type": "human",
+            "content": "liều ibuprofen cho trẻ 2 tuổi"
+        },
+        {
+            "type": "ai",
+            "content": "Xin lỗi, MomCare không thể hỗ trợ yêu cầu này. Mẹ nên đưa bé đến cơ sở y tế để được thăm khám trực tiếp."
+        },
+        {
+            "type": "human",
+            "content": "xin chào"
+        },
+        {
+            "type": "ai",
+            "content": "Xin chào! Tôi rất vui được trò chuyện với bạn. Bạn cần giúp đỡ về gì hôm nay? Có liên quan đến chăm sóc mẹ và bé không?"
+        },
+        {
+            "type": "human",
+            "content": "cảm ơn bạn nhiều lắm"
+        },
+        {
+            "type": "ai",
+            "content": "Không có vấn đề! Tôi luôn sẵn sàng giúp đỡ bạn. Chúc bạn và gia đình luôn khỏe mạnh và hạnh phúc!"
+        },
+        {
+            "type": "human",
+            "content": "bạn là ai vậy"
+        },
+        {
+            "type": "ai",
+            "content": "Xin chào! Tôi là MomCare, trợ lý chăm sóc mẹ và bé. Tôi ở đây để giúp đỡ và hỗ trợ các mẹ trong việc chăm sóc con yêu của mình. Bạn cần giúp đỡ gì không?"
+        },
+        {
+            "type": "human",
+            "content": "Trẻ nên được bú mẹ lần đầu vào thời điểm nào sau sinh"
+        },
+        {
+            "type": "ai",
+            "content": "Xin lỗi, tôi đang gặp sự cố."
+        },
+        {
+            "type": "human",
+            "content": "Trẻ nên được bú mẹ lần đầu vào thời điểm nào sau sinh"
+        },
+        {
+            "type": "ai",
+            "content": "Trẻ em nên được bú mẹ lần đầu ngay sau khi sinh. Thông thường, trẻ sẽ tự tìm đến vú mẹ và bú ngay sau khi sinh. Điều này giúp trẻ nhận được sữa non, một loại sữa đặc biệt giàu dinh dưỡng và kháng thể, giúp trẻ phát triển và bảo vệ sức khỏe.\n\n(Theo tài liệu)"
+        },
+        {
+            "type": "human",
+            "content": "Thuốc đầu tay đc lựa chọn để co hồi tử cung dự phòng băng huyết là j"
+        },
+        {
+            "type": "ai",
+            "content": "Tôi không tìm thấy thông tin về thuốc đầu tay được lựa chọn để co hồi tử cung dự phòng băng huyết trong tài liệu. Mẹ nên hỏi bác sĩ để được tư vấn chính xác hơn."
+        },
+        {
+            "type": "human",
+            "content": "Sau 2 tuần mà rốn bé vẫn chưa rụng thì có cần đưa bé đi viện k ạ"
+        },
+        {
+            "type": "ai",
+            "content": "Nếu rốn bé vẫn chưa rụng sau 2 tuần, mẹ nên kiểm tra xem rốn bé có khô, bé không quấy khóc hoặc bỏ bú không. Nếu rốn bé sưng đỏ hoặc tiết dịch hôi, cần đưa bé đi cơ sở y tế khám ngay để được xử trí kịp thời.\n\n(Theo tài liệu)"
+        },
+        {
+            "type": "human",
+            "content": "Em stress vì con khóc suốt ngày, chồng đi làm về thấy mặt mũi cáu gắt lại mắng em là thần kinh, em cảm thấy áp lực vì tiếng khóc của con và hay cáu gắt với chồng, em nên làm gì để cân bằng lại tâm lý sau sinh ạ"
+        },
+        {
+            "type": "ai",
+            "content": "Để cân bằng lại tâm lý sau sinh, mẹ nên thực hiện các bước sau:\n\nThứ nhất, mẹ nên dành thời gian nghỉ ngơi và thư giãn. Phụ nữ sau sinh nên dành thời gian xoa bóp, massage toàn thân để thư giãn gân cốt, giúp máu lưu thông (Theo tài liệu).\n\nThứ hai, mẹ nên tập trung vào việc chăm sóc bản thân. Phụ nữ sau sinh cần được bồi bổ nhiều chất dinh dưỡng do sự thiếu hụt trong quá trình mang thai và dinh dưỡng chuyển hóa vào sữa mẹ (Theo tài liệu).\n\nThứ ba, mẹ nên cân bằng giữa việc nhà, chăm sóc em bé và nghỉ ngơi. Không nên quá tham công tiếc việc dẫn đến lao động quá sức, ảnh hưởng lớn tới sức khỏe, đặc biệt là xương khớp (Theo tài liệu).\n\nCuối cùng, mẹ nên nhớ rằng chăm sóc sức khỏe sau sinh và giữa các lần mang thai là cơ hội để phụ nữ giải quyết các biến chứng và các vấn đề y tế phát triển trong thai kỳ (Theo tài liệu).\n\nHy vọng những thông tin này sẽ giúp mẹ cảm thấy thoải mái và cân bằng hơn sau sinh."
+        },
+        {
+            "type": "human",
+            "content": "Mẹ chồng em bảo xoa dầu gió vào rốn cho con thì hết đầy hơi, em thì sợ dầu gió bỏng da bé, em muốn biết cách massage bụng cho bé để giúp con dễ tiêu hóa và giảm tình trạng đầy hơi, khó tiêu hàng ngày ạ"
+        },
+        {
+            "type": "ai",
+            "content": "Mẹ có thể thực hiện các bước massage bụng cho bé như sau:\n\n- Bước 1: Mẹ đặt ngón tay trái, ngón trỏ và ngón giữa của tay còn lại lên quầng vú để massage.\n- Bước 2: Để một bàn tay của mẹ phía bên ngoài phạm vi của quầng vú. Tiếp đó, sử dụng ngón tay cái và ngón trỏ ép xuống theo chiều dọc. Sử dụng tay còn lại vuốt theo hướng của tuyến sữa từ trong ra ngoài và từ dưới lên trên để quầng vú của mẹ được làm mềm, giảm sự chai cứng ở các mô.\n\nTuy nhiên, để massage bụng cho bé, mẹ nên thực hiện các bước sau:\n\n- Bước 1: Mẹ đặt ngón tay lên bụng của bé, bắt đầu từ phần trên và di chuyển xuống dưới.\n- Bước 2: Mẹ sử dụng ngón tay ép nhẹ vào bụng của bé theo chiều dọc, sau đó vuốt nhẹ theo hướng của đường ruột để giúp bé dễ tiêu hóa và giảm tình trạng đầy hơi, khó tiêu.\n\n(Theo tài liệu)"
+        }
+    ]
+}

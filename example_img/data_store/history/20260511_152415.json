@@ -1,0 +1,22 @@
+{
+    "history_name": "Sau khi sinh ms đc tắm rửa bé con z",
+    "history_id": "20260511_152415",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "Sau khi sinh bao lâu thì ms đc tắm hoặc rửa cho bé con z"
+        },
+        {
+            "type": "ai",
+            "content": "Sau khi sinh, mẹ có thể cho bé tắm hoặc rửa cơ thể từ ngày 1-2 nếu sinh thường, hoặc từ ngày 4 nếu sinh mổ khi vết mổ đã khô. Trước đó, mẹ có thể lau người cho bé bằng nước ấm sạch."
+        },
+        {
+            "type": "human",
+            "content": "Trước khi bế hoặc cho bé bú, mẹ bỉm cần làm j vậy ạ"
+        },
+        {
+            "type": "ai",
+            "content": "Lỗi LLM: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kpe1fsw0eh4rf5d12g49d8pe` service tier `on_demand` on tokens per day (TPD): Limit 500000, Used 499951, Requested 1467. Please try again in 4m5.0304s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+        }
+    ]
+}

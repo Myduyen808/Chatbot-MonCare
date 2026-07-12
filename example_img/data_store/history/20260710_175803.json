@@ -1,0 +1,38 @@
+{
+    "history_name": "Chỗ rạch bắt con nổi cục bầm tím lồi lên phải #2",
+    "history_id": "20260710_175803",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "Chỗ rạch bắt con tự dưng nổi cục bầm tím lồi lên thì phải làm sao"
+        },
+        {
+            "type": "ai",
+            "content": "Theo tài liệu, nếu bé 0-12 tháng tuổi có dấu hiệu bầm tím lồi lên tại chỗ rạch, thì cần xử trí như sau:\n\n- Thể hiện bằng một đám bầm tím gồ lên vết mổ.\n- Xử trí: cắt một mối chỉ lấy hết máu cục, rửa sạch vết thương, băng ép.\n\nVậy, khi bé 0-12 tháng tuổi có dấu hiệu bầm tím lồi lên tại chỗ rạch, cần cắt một mối chỉ lấy hết máu cục, rửa sạch vết thương, băng ép."
+        },
+        {
+            "type": "human",
+            "content": "Con em năm nay 7 tuổi thì nên mua bộ đồ chơi gì để bé ngồi chơi yên lặng một mình"
+        },
+        {
+            "type": "ai",
+            "content": "Tôi chưa tìm thấy thông tin về bộ đồ chơi phù hợp cho trẻ 7 tuổi để ngồi chơi yên lặng một mình trong các tài liệu đã được cung cấp. Mẹ nên hỏi bác sĩ để được tư vấn chính xác."
+        },
+        {
+            "type": "human",
+            "content": "Bé nhà em được 15 ngày, rốn khô và hoàn toàn KHÔNG bị sưng đỏ hay chảy nước có mùi hôi gì cả nhưng chưa rụng, thì em có cần đưa đi cơ sở y tế khám ngay không?"
+        },
+        {
+            "type": "ai",
+            "content": "Tôi chưa tìm thấy thông tin về bộ đồ chơi phù hợp cho trẻ 7 tuổi để ngồi chơi yên lặng một mình trong các tài liệu đã được cung cấp. Mẹ nên hỏi bác sĩ để được tư vấn chính xác."
+        },
+        {
+            "type": "human",
+            "content": "Bé nhà em được 15 ngày, rốn khô và hoàn toàn KHÔNG bị sưng đỏ hay chảy nước có mùi hôi gì cả nhưng chưa rụng, thì em có cần đưa đi cơ sở y tế khám ngay không"
+        },
+        {
+            "type": "ai",
+            "content": "Tôi chưa tìm thấy thông tin về bộ đồ chơi phù hợp cho trẻ 7 tuổi để ngồi chơi yên lặng một mình trong các tài liệu đã được cung cấp. Mẹ nên hỏi bác sĩ hoặc tìm kiếm thông tin từ các nguồn khác để được tư vấn chính xác."
+        }
+    ]
+}

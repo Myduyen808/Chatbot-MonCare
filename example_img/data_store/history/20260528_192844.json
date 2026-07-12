@@ -1,0 +1,14 @@
+{
+    "history_name": "Mẹ sau sinh cần bổ sung liều lượng",
+    "history_id": "20260528_192844",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "Mẹ sau sinh cần bổ sung Vitamin A với liều lượng bao nhiêu"
+        },
+        {
+            "type": "ai",
+            "content": "Mẹ sau sinh cần bổ sung Vitamin A với liều lượng 5000 IU/ngày."
+        }
+    ]
+}

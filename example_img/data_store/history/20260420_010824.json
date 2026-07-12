@@ -1,0 +1,22 @@
+{
+    "history_name": "be nhà bị nấm miệng",
+    "history_id": "20260420_010824",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "tại sao be nhà mình bị nấm miệng vậy"
+        },
+        {
+            "type": "ai",
+            "content": "Dựa vào tài liệu không có thông tin phù hợp để kết luận."
+        },
+        {
+            "type": "human",
+            "content": "tại sao bé nhà mình bị nổi trắng ở miệng vậy"
+        },
+        {
+            "type": "ai",
+            "content": "Xin lỗi, tôi đang gặp sự cố."
+        }
+    ]
+}

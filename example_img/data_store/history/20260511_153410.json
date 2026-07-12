@@ -1,0 +1,22 @@
+{
+    "history_name": "Trước khi bế bé bú mẹ bỉm cần làm j",
+    "history_id": "20260511_153410",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "Trước khi bế hoặc cho bé bú, mẹ bỉm cần làm j vậy ạ"
+        },
+        {
+            "type": "ai",
+            "content": "Trước khi bế hoặc cho bé bú, mẹ cần rửa mặt, súc miệng và chải răng mỗi ngày để đảm bảo vệ sinh cá nhân và tránh lây nhiễm bệnh cho bé."
+        },
+        {
+            "type": "human",
+            "content": " Tư thế bú đúng là như thế nào bs ơi"
+        },
+        {
+            "type": "ai",
+            "content": "Lỗi LLM: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kpe1fsw0eh4rf5d12g49d8pe` service tier `on_demand` on tokens per day (TPD): Limit 500000, Used 499759, Requested 926. Please try again in 1m58.368s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+        }
+    ]
+}

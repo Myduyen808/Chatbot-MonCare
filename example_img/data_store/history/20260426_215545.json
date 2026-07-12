@@ -1,0 +1,22 @@
+{
+    "history_name": "dinh dưỡng bé tuổi #3",
+    "history_id": "20260426_215545",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "dinh dưỡng cho bé 3 tuổi"
+        },
+        {
+            "type": "ai",
+            "content": "Chế độ dinh dưỡng cho bé 3 tuổi rất quan trọng để đảm bảo trẻ phát triển toàn diện. Theo tài liệu, nhu cầu năng lượng cho bé 3 tuổi là khoảng 1,000 - 1,400 calo/ngày, tùy thuộc vào trọng lượng và mức độ hoạt động thể chất.\n\nĐể đáp ứng nhu cầu dinh dưỡng, trẻ cần được cung cấp đủ các thành phần từ các nhóm thực phẩm, bao gồm:\n\n* Sữa và các sản phẩm từ sữa: giàu canxi và vitamin, cung cấp chất béo và cholesterol cần thiết cho sự tăng trưởng và phát triển của trẻ.\n* Nước trái cây: cung cấp vitamin và khoáng chất cần thiết.\n* Vitamin: cần thiết cho sự phát triển và chức năng của cơ thể.\n* Đường và muối: cần được sử dụng một cách hợp lý để tránh thừa cân và các vấn đề sức khỏe khác.\n\nNgoài ra, trẻ cần được bổ sung thêm 3 - 4 muỗng cà phê dầu lành mạnh, chẳng hạn như bơ thực vật hay dầu canola, để đáp ứng nhu cầu về chất béo và cholesterol.\n\nTóm lại, chế độ dinh dưỡng cho bé 3 tuổi cần được cung cấp đầy đủ các chất dinh dưỡng cần thiết để đảm bảo trẻ phát triển toàn diện."
+        },
+        {
+            "type": "human",
+            "content": "còn cách nào khác không"
+        },
+        {
+            "type": "ai",
+            "content": "Không có trong tài liệu."
+        }
+    ]
+}

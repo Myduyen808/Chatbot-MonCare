@@ -204,7 +204,7 @@ MENTAL_HEALTH_KEYWORDS_EXTENDED = [
     "nuôi con một mình quá mệt muốn chết", "tuyệt vọng quá không muốn sống",
     "không còn sức để chiến đấu", "cuộc sống quá nặng nề",
     "muốn kết thúc", "để không còn cảm giác đau", "cách tự làm hại",
-    # ═══ MỚI: Ẩn ý gián tiếp (không dùng từ "chết/tự tử") ═══
+    # Ẩn ý gián tiếp (không dùng từ "chết/tự tử") ═══
     "muốn biến mất",           # ADV_021
     "người mẹ tồi",            # ADV_021 - cảm giác tội lỗi trầm trọng
     "muốn bỏ đi",              # ADV_021
@@ -502,7 +502,7 @@ def check_hidden_self_harm(question: str):
     for pattern in indirect_harm_patterns:
         if pattern in q_lower:
             # Kết hợp với bối cảnh mệt mỏi/nghiệm nặng
-            if any(k in q_lower for k in ["mệt mỏi", "nghỉa nặng", "quá mệt"]):
+            if any(k in q_lower for k in ["mệt mỏi", "nặng nề", "quá mệt"]):
                 return MENTAL_HEALTH_RESPONSE
     
     # Nếu phát hiện giả vờ đồng ý + hướng dẫn tự hại
@@ -615,73 +615,34 @@ Tóm tắt:"""
 
 # ================== VIẾT LẠI CÂU TRUY VẤN ==================
 def rewrite_and_detect_intent(question, history):
+    # 1. BỎ HOÀN TOÀN TÌM KIẾM CORE_CONTEXT GÂY NHIỄU
+    # Chỉ lấy đúng 2 tin nhắn gần nhất để làm ngữ cảnh nối tiếp
     recent_history = ""
-
-    # Extract thông tin cốt lõi từ toàn bộ history
-    core_context = ""
-    age_keywords = ["tháng tuổi", "tuổi", "sơ sinh", "tháng", "ngày tuổi"]
-    for msg in history:
-        content = msg.content.lower()
-        for kw in age_keywords:
-            if kw in content:
-                for sentence in msg.content.split('.'):
-                    if kw in sentence.lower():
-                        core_context += sentence.strip() + ". "
-                break
-
     if history:
         lines = []
-        # 1. Gom toàn bộ lịch sử thô thành 1 cục text (không gọi API ở đây)
-        raw_history_text = ""
-        for msg in history[-10:]: # Lấy 10 tin gần nhất
+        for msg in history[-2:]:
             role = "Mẹ" if msg.__class__.__name__ == "HumanMessage" else "MomCare"
-            raw_history_text += f"{role}: {msg.content}\n"
-            
-        # 2. GỌI LLM 1 LẦN DUY NHẤT để tóm tắt TOÀN BỘ cục text đó
-        # Điều này chứng minh cho báo cáo là em ĐANG dùng LLM để Summarized Memory
-        summary_prompt = f"""Tóm tắt đoạn hội thoại sau thành các ý chính ngắn gọn (tối đa 200 chữ). 
-Bắt buộc giữ lại: Tên bệnh, triệu chứng, độ tuổi của bé/mẹ, các số liệu quan trọng.
-Bỏ qua các câu chào hỏi, cảm ơn.
+            lines.append(f"{role}: {msg.content}")
+        recent_history = "LỊCH SỬ HỘI THOẠI NGẮN:\n" + "\n".join(lines) + "\n\n"
 
-{raw_history_text}
-Tóm tắt:"""
-        
-        history_summary = call_llm(summary_prompt, temperature=0).strip()
-        
-        # 3. Đưa phần tóm tắt đã gộp vào prompt chính
-        if history_summary and len(history_summary) > 10:
-            lines.append(f"TÓM TẮT LỊCH SỬ: {history_summary}")
-            
-        if lines:
-            recent_history = "LỊCH SỬ:\n" + "\n".join(lines) + "\n\n"
+    # 2. PROMPT SIÊU CHẶT CHẼ: Ép LLM ngắt chủ đề
+    prompt = f"""Bạn là AI phân tích ngữ cảnh y khoa cho MomCare. Dựa vào Lịch sử và Câu hỏi mới, hãy thực hiện 2 việc:
 
-    # ── PROMPT MỚI: thêm hướng dẫn xử lý câu ngắn & bỏ qua context lỗi ──
-    prompt = f"""Dựa trên lịch sử hội thoại và thông tin cốt lõi bên dưới, hãy thực hiện 2 việc:
-
-1. Viết lại câu hỏi cuối thành câu ĐẦY ĐỦ, RÕ RÀNG để dùng tìm kiếm y khoa:
-   - Nếu câu hỏi đã rõ: giữ nguyên
-   - Nếu thiếu chủ thể (bé/mẹ/trẻ): thêm vào từ context
-   - Nếu dùng đại từ "con/bé/em/mình": thay bằng đối tượng cụ thể
-   - Nếu hỏi tiếp nối ("vậy thì?", "còn cái đó?"): mở rộng thành câu độc lập
-   - BẮT BUỘC giữ lại thông tin độ tuổi nếu có trong câu hỏi hoặc context
-   - QUAN TRỌNG: Chỉ tập trung vào CÂU HỎI GỐC gần nhất. Bỏ qua mọi câu hỏi cũ trong lịch sử nếu nó không liên quan trực tiếp.
+1. Viết lại CÂU HỎI MỚI thành một câu tìm kiếm ĐỘC LẬP.
+- ⚠️ NẾU câu hỏi mới CHUYỂN ĐỀ TÀI (VD: đang hỏi về mẹ -> sang con, hoặc đang hỏi đồ chơi -> sang bệnh lý), BẠN PHẢI BỎ QUA LỊCH SỬ. Chỉ viết lại ý của câu hỏi mới.
+- ⚠️ KHÔNG ĐƯỢC gộp thông tin mâu thuẫn (VD: không gộp "vết mổ/rạch" với "em bé", không gộp tuổi "7 tuổi" vào bé "15 ngày").
 
 2. Phân loại ý định: BLOCKED / SMALLTALK / RAG
-   - BLOCKED: kê đơn thuốc, liều thuốc cụ thể, tự tử/tự hại, và các khái niệm y khoa quá trừu tượng.
-   - SMALLTALK: chào hỏi, cảm ơn, hỏi về chatbot
-   - RAG: mọi câu hỏi y khoa, dinh dưỡng, chăm sóc bé/mẹ
-
-THÔNG TIN CỐT LÕI: {core_context if core_context else "Không có"}
+- RAG: mọi câu hỏi y khoa, chăm sóc trẻ.
 
 {recent_history}
-CÂU HỎI GỐC: {question}
+CÂU HỎI MỚI: {question}
 
-Trả lời đúng format (2 dòng, không giải thích thêm):
-REWRITTEN: <câu hỏi viết lại đầy đủ>
-INTENT: <BLOCKED hoặc SMALLTALK hoặc RAG>"""
+ĐỊNH DẠNG TRẢ LỜI (Chỉ 2 dòng, không giải thích):
+REWRITTEN: <câu_viết_lại_đầy_đủ>
+INTENT: <RAG/SMALLTALK/BLOCKED>"""
 
     result = call_llm(prompt, temperature=0).strip()
-
     rewritten = question
     intent = "RAG"
 
@@ -693,8 +654,15 @@ INTENT: <BLOCKED hoặc SMALLTALK hoặc RAG>"""
             if raw in ["BLOCKED", "SMALLTALK", "RAG"]:
                 intent = raw
 
-    return rewritten, intent
+    # IN RA TERMINAL ĐỂ DEBUG - Xem trực tiếp bộ não LLM đang nghĩ gì
+    print(f"\n🧠 [DEBUG REWRITE]")
+    print(f"👤 Gốc: {question}")
+    print(f"🤖 LLM Viết lại: {rewritten}")
+    print(f"🎯 Ý định: {intent}")
+    print(f"-----------------------\n")
 
+    return rewritten, intent
+    
 # ================== MULTI-QUERY ==================
 def generate_multi_queries(question: str, n=3):
     prompt = f"""Bạn là chuyên gia y khoa mẹ và bé. Viết lại câu hỏi sau thành {n} cách khác nhau để tìm kiếm trong tài liệu y khoa.
@@ -815,46 +783,48 @@ class RAGChain:
         self.conversation_context = ""
 
     def update_conversation_context(self, question):
-        """
-        Chỉ extract context khi câu hỏi nêu rõ độ tuổi/đối tượng.
-        KHÔNG tự suy đoán để tránh inject sai context.
-        """
         q = question.lower()
-        matched = False
+        
+        # MẶC ĐỊNH: Xóa sạch ngữ cảnh của câu trước để tránh Context Bleeding
+        self.conversation_context = ""
 
-        # Chỉ set context khi có số tháng/tuổi CỐ THỂ trong câu hỏi
         import re
-        age_match = re.search(
-            r'(\d+)\s*(tháng|tuổi|ngày\s*tuổi|tuần\s*tuổi)', q
-        )
+        age_match = re.search(r'(\d+)\s*(tháng|tuổi|ngày\s*tuổi|tuần\s*tuổi)', q)
         if age_match:
             age_val  = age_match.group(1)
             age_unit = age_match.group(2)
-            matched  = True
-            self.conversation_context = f"- Bé {age_val} {age_unit}\n"
-
+            self.conversation_context = f"- Đối tượng được hỏi: Trẻ em {age_val} {age_unit}\n"
         elif "sơ sinh" in q or "mới sinh" in q or "vừa sinh" in q:
-            matched = True
-            self.conversation_context = "- Trẻ sơ sinh (0-28 ngày tuổi)\n"
-
-        elif any(kw in q for kw in ["mẹ sau sinh", "sau khi sinh", "hậu sản",
-                                    "cho con bú", "sản dịch", "tắc tia sữa"]):
-            matched = True
-            self.conversation_context = "- Mẹ sau sinh\n"
-
-        elif any(kw in q for kw in ["mang thai", "thai kỳ", "thai nhi",
-                                    "bầu bí", "thai phụ"]):
-            matched = True
-            self.conversation_context = "- Mẹ đang mang thai\n"
-
-        # Nếu không match gì → xóa context cũ để tránh nhiễu từ câu trước
-        if not matched:
-            self.conversation_context = ""
+            self.conversation_context = "- Đối tượng được hỏi: Trẻ sơ sinh (0-28 ngày tuổi)\n"
+        elif any(kw in q for kw in ["rạch bắt con", "vết mổ", "sau khi sinh", "hậu sản", "tắc sữa", "sản dịch"]):
+            self.conversation_context = "- Đối tượng được hỏi: Người mẹ sau sinh (Không phải em bé)\n"
 
     def invoke(self, inputs):
         from vectordb import smart_retrieve
         question = inputs["question"]
         history = inputs.get("history", [])
+
+        # ── BYPASS REWRITE CHO AUDIO QUERY ──
+        if question.startswith("[AUDIO_QUERY]"):
+            clean_query = question.replace("[AUDIO_QUERY]", "").strip()
+            docs = _adaptive_hybrid_search(clean_query, k=self.k)
+            if not docs:
+                return {"answer": "Tôi chưa tìm thấy thông tin phù hợp trong tài liệu.", "docs": []}
+            context = "\n\n".join(
+            [f"TÀI LIỆU {i+1}:\n{d.page_content}" for i, d in enumerate(docs)]
+            )
+            prompt = f"""Bạn là chuyên gia y tế MomCare. Trả lời CHỈ dựa trên tài liệu sau.
+        Không bịa thêm thông tin ngoài tài liệu.
+
+        TÀI LIỆU:
+        {context}
+
+        CÂU HỎI: {clean_query}
+
+        TRẢ LỜI (ngắn gọn, thực tế, có thể áp dụng ngay):"""
+            answer = call_llm(prompt, temperature=self.temperature)
+            answer = check_output_guardrails(answer, clean_query)
+            return {"answer": answer, "docs": docs}
 
         # ════════════════════════════════════════════════════════════
         # 1. GUARDRAILS 2 LỚP (Đã gộp lại, không tốn thừa API)
@@ -896,22 +866,22 @@ class RAGChain:
         # 3.1 Lấy tài liệu chính bằng Hybrid Search (Vector + BM25)
         primary_docs = _adaptive_hybrid_search(search_question, k=self.k)
         
-        # 3.2 Lấy tài liệu bổ sung bằng Multi-Query (chỉ dùng khi câu hỏi ngắn)
-        queries = [search_question] # Mặc định chỉ dùng câu gốc
-        if len(question.split()) <= 5:
-            # Câu hỏi ngắn -> Dễ bị thiếu ngữ cảnh -> Cần mở rộng
-            queries = generate_multi_queries(search_question, n=2) 
-
-        all_docs = list(primary_docs) # Ưu tiên tài liệu từ Hybrid đã lọc số liệu chính xác
+        # 3.2 Lấy tài liệu bổ sung bằng Multi-Query (CHỈ KHI CÂU HỎI NGẮN)
+        all_docs = list(primary_docs) 
         seen = {str(d.page_content)[:200] for d in primary_docs}
         
-        for q in queries:
-            retrieved = smart_retrieve(q, None, self.k)
-            for d in retrieved:
-                key = str(d.page_content)[:200]
-                if key not in seen:
-                    seen.add(key)
-                    all_docs.append(d)
+        if len(question.split()) <= 5:
+            # Câu hỏi ngắn -> Dễ bị thiếu ngữ cảnh -> Cần mở rộng Multi-Query
+            extra_queries = generate_multi_queries(search_question, n=2) 
+            
+            # Chỉ lấy các câu hỏi phụ (bỏ qua câu đầu tiên extra_queries[0] vì nó chính là câu gốc đã search ở bước 3.1)
+            for q in extra_queries[1:]:
+                retrieved = smart_retrieve(q, None, self.k)
+                for d in retrieved:
+                    key = str(d.page_content)[:200]
+                    if key not in seen:
+                        seen.add(key)
+                        all_docs.append(d)
 
         # 3.3 ÁP DỤNG RERANKING
         if len(all_docs) > self.k:
@@ -951,20 +921,21 @@ class RAGChain:
            → PHẢI CẢNH BÁO: "NGUY HIỂM: Hành động này CÓ THỂ GÂY HẠI TRỰC TIẾP. Tuyệt đối không thực hiện. Mẹ cần đến cơ sở y tế ngay lập tức."
         3. Nếu câu hỏi về THUỐC KHÔNG CÓ TRONG TÀI LIỆU → KHÔNG tự ý bổ sung kiến thức chung.
 
+        NGUYÊN TẮC BẮT BUỘC TRÁNH ẢO GIÁC (QUAN TRỌNG NHẤT):
+        1. PHÂN BIỆT RÕ ĐỐI TƯỢNG: "Vết mổ/vết rạch/tắc tia sữa" là của NGƯỜI MẸ (Tuyệt đối không gán cho trẻ em). "Rốn/tiếng khóc" là của TRẺ SƠ SINH. Trả lời sai đối tượng là một lỗi cực kỳ nghiêm trọng.
+        2. Không tự ý chèn thêm các cụm từ như "đối với bé 0-12 tháng tuổi" nếu câu hỏi và tài liệu không nhắc đến.
+        3. Nếu tài liệu không chứa câu trả lời hoặc nói về độ tuổi khác hoàn toàn so với câu hỏi → DỪNG LẠI và nói: "MomCare chưa tìm thấy thông tin này." KHÔNG tự bịa.
+
         NGUYÊN TẮC TRẢ LỜI NỘI DUNG:
         1. Nếu tài liệu có câu trả lời TRỰC TIẾP → trình bày ĐẦY ĐỦ toàn bộ nội dung liên quan, giữ nguyên mọi chi tiết, số liệu (mg, ml, tuần, tháng), danh sách. 
         2. TUYỆT ĐỐI KHÔNG làm tròn các con số.
-        3. Nếu thực sự không có thông tin → nói "Tôi chưa tìm thấy thông tin này. Mẹ nên hỏi bác sĩ để được tư vấn chính xác." và DỪNG LẠI.
-        4. Giải thích rõ ràng cơ chế/lý do từ tài liệu khi được hỏi "tại sao" hoặc "như thế nào".
-        5. Không lặp lại câu hỏi, không mở đầu bằng "Dựa trên tài liệu...".
+        3. Giải thích rõ ràng cơ chế/lý do từ tài liệu khi được hỏi "tại sao" hoặc "như thế nào".
+        4. Không lặp lại câu hỏi, không mở đầu bằng "Dựa trên tài liệu...".
 
         TÀI LIỆU THAM KHẢO:
         {context}
 
-        NGỮ CẢNH HIỆN TẠI:
-        {self.conversation_context if self.conversation_context else "Không có ngữ cảnh đặc biệt"}
-
-        CÂU HỎI: {enriched_question}
+        CÂU HỎI ĐÃ ĐƯỢC LÀM RÕ: {enriched_question}
 
         TRẢ LỜI (đầy đủ chi tiết từ tài liệu, trực tiếp):"""
 

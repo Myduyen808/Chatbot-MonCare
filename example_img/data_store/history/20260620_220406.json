@@ -1,0 +1,62 @@
+{
+    "history_name": "muốn đi",
+    "history_id": "20260620_220406",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "tôi muốn đi"
+        },
+        {
+            "type": "ai",
+            "content": "Xin lỗi, tôi đang gặp sự cố."
+        },
+        {
+            "type": "human",
+            "content": "tôi muốn đi"
+        },
+        {
+            "type": "ai",
+            "content": ""
+        },
+        {
+            "type": "human",
+            "content": "chết"
+        },
+        {
+            "type": "ai",
+            "content": "Mẹ ơi, MomCare hiểu rằng giai đoạn này có thể rất khó khăn và kiệt sức. \n\nMẹ không đơn độc đâu. Hãy gọi ngay:\n- **Đường dây hỗ trợ sức khỏe tinh thần: 1800 599 920** (miễn phí, 24/7)\n- Hoặc nhờ người thân ở cạnh mẹ lúc này.\n\nMẹ và bé cần nhau, hãy để người khác giúp mẹ nhé."
+        },
+        {
+            "type": "human",
+            "content": "con tối bị quấy khóc pải lm j"
+        },
+        {
+            "type": "ai",
+            "content": ""
+        },
+        {
+            "type": "human",
+            "content": "con tối bị quấy khóc pải lm j"
+        },
+        {
+            "type": "ai",
+            "content": ""
+        },
+        {
+            "type": "human",
+            "content": "con tôi bị quấy khóc pải lm j"
+        },
+        {
+            "type": "ai",
+            "content": ""
+        },
+        {
+            "type": "human",
+            "content": "con tôi khóc thì pải làm sao"
+        },
+        {
+            "type": "ai",
+            "content": "⚠️ Hệ thống AI đang quá tải hoặc gặp lỗi kết nối. Mẹ vui lòng gửi lại câu hỏi nhé!"
+        }
+    ]
+}
