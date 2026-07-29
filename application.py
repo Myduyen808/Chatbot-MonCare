@@ -174,13 +174,18 @@ def Chatbot():
             st.rerun()
             return
 
-        # Chỉ trích xuất 2 tin nhắn gần nhất để làm ngữ cảnh hội thoại chặn Context Bleed
+        # Trích xuất 6 tin nhắn gần nhất để làm ngữ cảnh hội thoại, mỗi tin
+        # nhắn dài hơn 200 ký tự sẽ được nén qua summarize_history_message()
+        # để hạn chế Context Bleeding và tràn token khi gửi tới tầng Rewriter.
         chat_history_messages = []
-        for msg in history.messages[-2:]: 
+        for msg in history.messages[-6:]:
+            content = msg["content"]
+            if len(content) > 200:
+                content = llm_chain.summarize_history_message(content)
             if msg["type"] == "human":
-                chat_history_messages.append(HumanMessage(content=msg["content"]))
+                chat_history_messages.append(HumanMessage(content=content))
             else:
-                chat_history_messages.append(AIMessage(content=msg["content"]))
+                chat_history_messages.append(AIMessage(content=content))
 
         with chat_container:
             st.chat_message('human').write(user_text)

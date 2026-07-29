@@ -1,0 +1,30 @@
+{
+    "history_name": "chào #10",
+    "history_id": "20260718_190337",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "chào"
+        },
+        {
+            "type": "ai",
+            "content": "Chào mẹ yêu! Tôi rất vui được phục vụ và chăm sóc mẹ và bé. Có gì cần giúp không?"
+        },
+        {
+            "type": "human",
+            "content": "dinh dưỡng khi mang thai là gì v ạ"
+        },
+        {
+            "type": "ai",
+            "content": "Chế độ dinh dưỡng khi mang thai là yếu tố quan trọng đối với sức khỏe của mẹ và sự phát triển của thai nhi. Dinh dưỡng tốt, không chỉ giúp người mẹ đáp ứng đầy đủ các hoạt động, sinh hoạt hàng ngày của cơ thể, mà còn đáp ứng những thay đổi sinh lý về chuyển hóa, tích lũy mỡ, tăng cân, tăng khối lượng tử cung do mang thai. Dinh dưỡng hợp lý khi mang thai còn giúp người mẹ có đủ dự trữ cần thiết để có đủ sữa sau sinh.\n\nTùy theo tình trạng dinh dưỡng (chỉ số khối cơ thể: BMI) trước khi có thai của người mẹ để khuyến nghị mức tăng cân:\n\n- Tình trạng dinh dưỡng bình thường (BMI: 18,5-24,9): Mức tăng cân của người mẹ nên đạt là 10-12kg.\n- Tình trạng dinh dưỡng gầy (BMI <18,5): mức tăng cân nên đạt 25% cân nặng trước khi có thai.\n- Tình trạng dinh dưỡng thừa cân, béo phì (TC, BP) (BMI ≥25): mức tăng cân nên đạt 15% cân nặng trước khi có thai.\n\nCân nặng của mẹ trước khi có thai và sự tăng cân trong thai kỳ ảnh hưởng rõ rệt đến cân nặng của trẻ sơ sinh. Mẹ có cân nặng trước khi có thai dưới 40 kg, cân nặng trước khi đẻ dưới 47 kg và tăng cân trong khi có thai dưới 5 kg có nguy cơ đẻ con nhẹ cân < 2.500g."
+        },
+        {
+            "type": "human",
+            "content": "ở giai đoạn này nên đi khám ở những giai đoạn nào a"
+        },
+        {
+            "type": "ai",
+            "content": "Giai đoạn nào trong thai kỳ nên đi khám thai để đảm bảo sức khỏe của mẹ và thai nhi?\n\nTheo tài liệu, mỗi phụ nữ mang thai phải được quản lý thai và khám thai ít nhất 4 lần trong thai kỳ (1 lần trong 3 tháng đầu, 1 lần trong 3 tháng giữa, 2 lần trong 3 tháng cuối). Điều này giúp bác sĩ theo dõi và phát hiện sớm các vấn đề tiềm ẩn và đưa ra kế hoạch quản lý thai nghén thích hợp.\n\nCụ thể, giai đoạn khám thai trong 3 tháng đầu là rất quan trọng, vì đây là giai đoạn thai nhi phát triển nhanh chóng và mẹ cần được theo dõi để đảm bảo sức khỏe của cả hai. Giai đoạn khám thai trong 3 tháng giữa cũng rất quan trọng, vì đây là giai đoạn thai nhi tiếp tục phát triển và mẹ cần được theo dõi để đảm bảo sức khỏe của cả hai.\n\nGiai đoạn khám thai trong 3 tháng cuối là giai đoạn quan trọng nhất, vì đây là giai đoạn thai nhi đã phát triển hoàn toàn và mẹ cần được theo dõi để đảm bảo sức khỏe của cả hai. Trong giai đoạn này, mẹ cần được khám thai ít nhất 2 lần để đảm bảo sức khỏe của cả hai.\n\nTóm lại, giai đoạn nào trong thai kỳ nên đi khám thai để đảm bảo sức khỏe của mẹ và thai nhi là giai đoạn khám thai trong 3 tháng đầu, 3 tháng giữa và 3 tháng cuối. Mỗi giai đoạn đều quan trọng và cần được theo dõi để đảm bảo sức khỏe của cả hai."
+        }
+    ]
+}

@@ -55,9 +55,7 @@ except Exception as e:
     print("❌ Không import được llm_chain.py / vectordb.py thật.")
     print("   Hãy đặt file benchmark này CÙNG THƯ MỤC với 2 file đó rồi chạy lại.")
     print(f"   Lỗi chi tiết: {e}")
-    import traceback
-    traceback.print_exc() 
-    raise SystemExit(1)    
+    raise SystemExit(1)
 
 
 # ==============================================================================
@@ -81,11 +79,11 @@ def _set_tag(tag):
 
 
 def _tracked_call_llm(prompt, system_prompt="Bạn là trợ lý MomCare, chuyên chăm sóc mẹ và bé.",
-                       temperature=0.3, max_retries=4):
+                       temperature=0.3, max_retries=4, max_tokens=None):
     for attempt in range(max_retries):
         try:
             client = Groq(api_key=random.choice(llm_chain._ALL_KEYS))
-            chat_completion = client.chat.completions.create(
+            kwargs = dict(
                 messages=[
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": prompt},
@@ -93,6 +91,9 @@ def _tracked_call_llm(prompt, system_prompt="Bạn là trợ lý MomCare, chuyê
                 model=llm_chain.MODEL_NAME,
                 temperature=temperature,
             )
+            if max_tokens is not None:
+                kwargs["max_tokens"] = max_tokens
+            chat_completion = client.chat.completions.create(**kwargs)
             tokens_used = chat_completion.usage.prompt_tokens
             completion_tokens = getattr(chat_completion.usage, "completion_tokens", 0) or 0
             tag = _current_tag["value"]
@@ -157,8 +158,33 @@ def _run_capturing_tokens(fn, tag, *args, **kwargs):
     _set_tag(None)  # để các lệnh gọi NGOÀI phạm vi (vd judge_faithfulness) không bị tính nhầm vào đây
 
     relevant = [r for r in _call_log if r["tag"] == tag]
-    total_tokens = sum(r["prompt_tokens"] + r["completion_tokens"] for r in relevant)
-    return result, total_tokens, latency_ms
+    prompt_tokens = sum(r["prompt_tokens"] for r in relevant)
+    completion_tokens = sum(r["completion_tokens"] for r in relevant)
+    total_tokens = prompt_tokens + completion_tokens
+    return result, total_tokens, latency_ms, prompt_tokens, completion_tokens
+
+
+# ==============================================================================
+# BẬT/TẮT GUARDRAILS TRONG BENCHMARK
+#
+# Mặc định = False (TẮT), theo đúng thay đổi bạn đã tự áp dụng, vì guardrail
+# LLM-based đôi khi chặn nhầm câu hỏi y khoa hợp lệ (vd chứa "COVID-19"),
+# khiến RAG không chạy được -> tokens=0, faithfulness=0.
+#
+# ⚠️ HỆ QUẢ PHƯƠNG PHÁP LUẬN CẦN GHI RÕ TRONG BÁO CÁO:
+# Hệ thống MomCare THẬT (khi có user dùng) LUÔN chạy guardrails cho mọi câu hỏi.
+# Khi tắt ở đây, benchmark đang đo một pipeline "RAG core" đã bỏ bớt 1 tầng an
+# toàn — nghĩa là token/latency đo được sẽ THẤP HƠN chi phí vận hành thật của
+# MomCare (thiếu 1-2 lệnh gọi guardrail mỗi lượt). Nếu giữ tắt, hãy ghi chú rõ:
+# "Thí nghiệm cost-quality tradeoff loại trừ chi phí guardrails để cô lập biến
+# số RAG core; chi phí guardrails là chi phí CỐ ĐỊNH, như nhau cho cả 4 cấu
+# hình, nên không ảnh hưởng đến kết luận SO SÁNH GIỮA 4 cấu hình — chỉ ảnh
+# hưởng đến con số TUYỆT ĐỐI của chi phí vận hành toàn hệ thống."
+#
+# Đổi thành True nếu muốn chạy lại có guardrails (vd để báo cáo thêm 1 bảng
+# so sánh "có/không guardrails" cho phần đánh giá tổng chi phí hệ thống).
+# ==============================================================================
+INCLUDE_GUARDRAILS = False
 
 
 class ConfigurableRAGChain:
@@ -238,18 +264,16 @@ INTENT: <RAG/SMALLTALK/BLOCKED>"""
         history = inputs.get("history", [])
         history_text = self._build_history_text(history)
 
-        # === BỎ QUA GUARDRAILS TRONG BENCHMARK ===
-        # Reason: Guardrails đang block sai các câu hỏi Y khoa hợp lệ (vd: chứa "COVID-19"),
-        # khiến RAG không chạy -> tokens=0, faithfulness=0. Mục tiêu benchmark là đo RAG,
-        # không phải đo Guardrails.
-        # blocked_msg = check_input_guardrails_with_llm(question)
-        # if blocked_msg:
-        #     return {"answer": blocked_msg, "docs": []}
+        # Guardrails thật (giữ nguyên logic gốc). Có thể tắt qua INCLUDE_GUARDRAILS
+        # ở đầu file — xem ghi chú tại đó về lý do và hệ quả khi tắt.
+        if INCLUDE_GUARDRAILS:
+            blocked_msg = check_input_guardrails_with_llm(question)
+            if blocked_msg:
+                return {"answer": blocked_msg, "docs": []}
 
-        # context_block = context_aware_safety_check(question, history)
-        # if context_block:
-        #     return {"answer": context_block, "docs": []}
-        # =========================================
+            context_block = context_aware_safety_check(question, history)
+            if context_block:
+                return {"answer": context_block, "docs": []}
 
         enriched_question, intent = self._rewrite_and_intent(question, history_text)
 
@@ -259,7 +283,6 @@ INTENT: <RAG/SMALLTALK/BLOCKED>"""
             answer = call_llm(f"Trả lời ngắn gọn, thân thiện: {enriched_question}", temperature=0.3)
             return {"answer": answer, "docs": []}
 
-        # ... (GIỮ NGUYÊN PHẦN CODE DƯỚI ĐÂY KHÔNG THAY ĐỔI) ...
         # Truy xuất tài liệu thật (Hybrid Search thật từ vectordb + BM25 thật)
         primary_docs = _adaptive_hybrid_search(enriched_question, k=self.k)
         all_docs = list(primary_docs)
@@ -330,7 +353,9 @@ CÂU TRẢ LỜI CẦN CHẤM: {answer}
 
 CHỈ TRẢ VỀ 1 SỐ THẬP PHÂN DUY NHẤT, DÙNG DẤU CHẤM (ví dụ: 0.85, KHÔNG viết 0,85), KHÔNG GIẢI THÍCH GÌ THÊM."""
     raw = call_llm(prompt, temperature=0).strip()
-    return judge_faithfulness_raw_response_to_float(raw)
+    score = judge_faithfulness_raw_response_to_float(raw)
+    print(f"   🩺 [JUDGE RAW] model trả lời: {raw!r}  ->  parse ra: {score}")
+    return score
 
 
 def load_test_dataset(dataset_file=None, sample_size=20, random_state=42):
@@ -456,7 +481,7 @@ def execute_benchmarks(limit=None, dataset_file=None, sample_size=20, random_sta
                 )
                 # Cùng một đoạn lịch sử mô phỏng cho cả 4 cấu hình trên mỗi câu hỏi,
                 # để biến số duy nhất thay đổi là CÁCH XỬ LÝ lịch sử, không phải nội dung.
-                result, tokens, latency_ms = _run_capturing_tokens(
+                result, tokens, latency_ms, prompt_tokens, completion_tokens = _run_capturing_tokens(
                     chain.invoke, tag, {"question": q_text, "history": mock_history}
                 )
 
@@ -468,52 +493,109 @@ def execute_benchmarks(limit=None, dataset_file=None, sample_size=20, random_sta
             except Exception as e:
                 print(f"⚠️ Lỗi khi chạy cấu hình {cfg_key}: {e}")
                 traceback.print_exc()
-                tokens, latency_ms, faithfulness = 0, 0.0, 0.0
+                tokens, latency_ms, faithfulness, prompt_tokens, completion_tokens = 0, 0.0, 0.0, 0, 0
 
             results[cfg_key]["tokens"].append(tokens)
             results[cfg_key]["latency"].append(latency_ms)
             results[cfg_key]["faithfulness"].append(faithfulness)
             raw_rows.append(dict(config=cfg_key, question_idx=i, question=q_text,
-                                  tokens=tokens, latency_ms=latency_ms, faithfulness=faithfulness))
+                                  tokens=tokens, prompt_tokens=prompt_tokens,
+                                  completion_tokens=completion_tokens,
+                                  latency_ms=latency_ms, faithfulness=faithfulness))
 
             print(f"  👉 [{cfg_key}] {cfg['name']:<22} | tokens={tokens:<6} | "
                   f"latency={latency_ms:.0f}ms | faithfulness={faithfulness:.2f}")
 
     print("\n" + "=" * 85)
     print(" KẾT QUẢ TRUNG BÌNH — SỐ LIỆU THẬT TỪ GROQ API (KHÔNG PHẢI MÔ PHỎNG)")
+    print(f" (seed={random_state}, n={total} câu)")
     print("=" * 85)
-    print(f"{'Tên cấu hình':<28} | {'Tokens/Lượt':<12} | {'Độ trễ (ms)':<12} | {'Faithfulness':<12}")
+    print(f"{'Tên cấu hình':<28} | {'Tokens/Lượt':<14} | {'Độ trễ (ms)':<16} | {'Faithfulness':<16}")
     print("-" * 85)
     for cfg_key, cfg in CONFIGS.items():
         r = results[cfg_key]
         if not r["tokens"]:
             continue
-        print(f"{cfg['name']:<28} | {np.mean(r['tokens']):<12.0f} | "
-              f"{np.mean(r['latency']):<12.0f} | {np.mean(r['faithfulness']):<12.4f}")
+        print(f"{cfg['name']:<28} | {np.mean(r['tokens']):<7.0f}±{np.std(r['tokens']):<6.0f} | "
+              f"{np.mean(r['latency']):<9.0f}±{np.std(r['latency']):<6.0f} | "
+              f"{np.mean(r['faithfulness']):<7.3f}±{np.std(r['faithfulness']):<6.3f}")
     print("-" * 85)
 
     out_df = pd.DataFrame(raw_rows)
-    out_df.to_csv("telemetry_raw_log.csv", index=False, encoding="utf-8-sig")
-    print("\n✅ Đã lưu chi tiết từng câu/từng cấu hình vào 'telemetry_raw_log.csv'.")
+    telemetry_file = f"telemetry_raw_log_seed{random_state}.csv"
+    out_df.to_csv(telemetry_file, index=False, encoding="utf-8-sig")
+    print(f"\n✅ Đã lưu chi tiết từng câu/từng cấu hình vào '{telemetry_file}'.")
 
     # Log CHI TIẾT từng lệnh gọi API (kèm nhãn) — để chẩn đoán nếu số liệu vẫn có gì bất thường
     debug_df = pd.DataFrame(_call_log)
     if not debug_df.empty:
-        debug_df.to_csv("debug_call_log.csv", index=False, encoding="utf-8-sig")
-        print("🔍 Đã lưu log chi tiết từng lệnh gọi API (kèm nhãn) vào 'debug_call_log.csv' để đối chiếu nếu cần.")
+        debug_file = f"debug_call_log_seed{random_state}.csv"
+        debug_df.to_csv(debug_file, index=False, encoding="utf-8-sig")
+        print(f"🔍 Đã lưu log chi tiết từng lệnh gọi API (kèm nhãn) vào '{debug_file}' để đối chiếu nếu cần.")
 
     print("🎯 Dùng file này để vẽ biên Pareto / quy đổi tài chính ở bước sau.")
     print("=" * 85)
 
+    return raw_rows
+
+
+def run_multi_seed_experiment(seeds=(42, 123, 7), dataset_file="KB1_Medical_Standard.xlsx",
+                               sample_size=30, limit=None):
+    """
+    Chạy execute_benchmarks() LẶP LẠI với nhiều seed khác nhau (mỗi seed lấy 1 mẫu
+    ngẫu nhiên khác nhau từ bộ KB), rồi tổng hợp kết quả CUỐI CÙNG kèm độ lệch
+    chuẩn GIỮA CÁC LẦN CHẠY — để biết kết luận "cấu hình nào tốt hơn" có ổn định
+    hay chỉ là nhiễu ngẫu nhiên của 1 lần chạy.
+
+    Mỗi seed sẽ tự lưu file telemetry_raw_log_seed{N}.csv riêng (không ghi đè nhau).
+    Cuối cùng, tất cả gộp lại vào 'telemetry_all_seeds.csv' và in bảng tổng hợp.
+    """
+    all_rows = []
+    for seed in seeds:
+        print(f"\n\n########## CHẠY VỚI SEED = {seed} ##########\n")
+        rows = execute_benchmarks(limit=limit, dataset_file=dataset_file,
+                                   sample_size=sample_size, random_state=seed)
+        for r in rows:
+            r["seed"] = seed
+        all_rows.extend(rows)
+        time.sleep(5)  # nghỉ giữa các seed để giảm áp lực rate-limit dồn cục
+
+    all_df = pd.DataFrame(all_rows)
+    all_df.to_csv("telemetry_all_seeds.csv", index=False, encoding="utf-8-sig")
+
+    print("\n\n" + "=" * 85)
+    print(f" TỔNG HỢP ỔN ĐỊNH QUA {len(seeds)} SEED KHÁC NHAU (seeds={list(seeds)})")
+    print("=" * 85)
+    print(f"{'Tên cấu hình':<28} | {'Tokens/Lượt':<16} | {'Độ trễ (ms)':<18} | {'Faithfulness':<16}")
+    print("-" * 85)
+    for cfg_key, cfg in CONFIGS.items():
+        sub = all_df[all_df["config"] == cfg_key]
+        if sub.empty:
+            continue
+        print(f"{cfg['name']:<28} | {sub['tokens'].mean():<8.0f}±{sub['tokens'].std():<7.0f} | "
+              f"{sub['latency_ms'].mean():<10.0f}±{sub['latency_ms'].std():<7.0f} | "
+              f"{sub['faithfulness'].mean():<8.3f}±{sub['faithfulness'].std():<7.3f}")
+    print("-" * 85)
+    print(f"Tổng số điểm dữ liệu mỗi cấu hình: {len(seeds)} seed × {sample_size} câu = "
+          f"{len(seeds) * sample_size} lượt đo (nếu không có lỗi giữa chừng).")
+    print("✅ Đã lưu toàn bộ dữ liệu gộp vào 'telemetry_all_seeds.csv' — dùng file này")
+    print("   để vẽ Pareto/tính std, đáng tin cậy hơn 1 lần chạy đơn lẻ.")
+    print("=" * 85)
+
+    return all_df
+
 
 if __name__ == "__main__":
-    # Gợi ý chạy thử trước (đỡ tốn API quota): giới hạn 3 câu trong mẫu 20 câu đã lấy.
-    #   execute_benchmarks(limit=3, dataset_file="KB1_Medical_Standard.xlsx", sample_size=20)
+    # Chạy 3 seed khác nhau (mỗi seed lấy mẫu 30 câu ngẫu nhiên khác nhau từ
+    # KB1_Medical_Standard.xlsx — đúng domain mẹ & bé), để kiểm tra kết luận
+    # "cấu hình nào tốt hơn" có ổn định qua nhiều lần chạy hay không.
     #
-    # Sau khi chạy thử OK, bỏ limit để chạy full mẫu 20 câu đã lấy:
-    #   execute_benchmarks(dataset_file="KB1_Medical_Standard.xlsx", sample_size=20)
-    #
-    # Có thể đổi dataset_file sang "KB2_Mom_Style.xlsx" hoặc "KB3_Information_Noise.xlsx"
-    # nếu muốn benchmark trên phong cách câu hỏi khác (thí nghiệm riêng, không gộp chung
-    # với thí nghiệm cost-quality tradeoff).
-    execute_benchmarks(limit=5, dataset_file="KB_COVID_VN.xlsx", sample_size=20, random_state=42)
+    # Lưu ý: tổng cộng sẽ là 3 seed × 30 câu × 4 cấu hình ≈ 360 lượt invoke,
+    # có thể mất khá lâu (hàng chục phút tới vài giờ tùy tốc độ rate-limit).
+    # Muốn test nhanh trước, giảm sample_size xuống 5-10 hoặc bớt số seed.
+    run_multi_seed_experiment(
+        seeds=(42, 123, 7),
+        dataset_file="KB1_Medical_Standard.xlsx",
+        sample_size=30,
+        limit=None,
+    )

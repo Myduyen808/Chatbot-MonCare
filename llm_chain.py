@@ -12,6 +12,8 @@ Cải tiến v4.0:
 import os
 os.environ["OMP_NUM_THREADS"] = "1"
 os.environ["MKL_NUM_THREADS"] = "1"
+os.environ["TRANSFORMERS_VERBOSITY"] = "error"     # <-- Thêm dòng này
+os.environ["TOKENIZERS_PARALLELISM"] = "false"     # <-- Thêm dòng này
 import re
 import asyncio
 import threading
@@ -394,14 +396,20 @@ def check_input_guardrails(question: str):
 
 def check_input_guardrails_with_llm(question: str):
     """
-    GUARDRAILS 2 LỚP: 
+    GUARDRAILS NHIỀU LỚP: 
     - Lớp 1: Rule-based (nhanh, không tốn API)
+    - Lớp 1b: Phát hiện ẩn ý tự hại gián tiếp (check_hidden_self_harm)
     - Lớp 2: LLM-based (chỉ gọi khi rule-based không chắc chắn)
     """
     # ── LỚP 1: Rule-based ──
     rule_result = check_input_guardrails(question)
     if rule_result is not None:
         return rule_result
+
+    # ── LỚP 1b: Phát hiện ẩn ý tự hại gián tiếp/ẩn dụ ──
+    hidden_harm_result = check_hidden_self_harm(question)
+    if hidden_harm_result is not None:
+        return hidden_harm_result
     
     # ── LỚP 2: LLM-based cho các case borderline ──
     # Chỉ gọi LLM khi câu hỏi có đặc điểm đáng ngờ nhưng không match pattern
@@ -513,7 +521,36 @@ def check_hidden_self_harm(question: str):
     
     return None  # Không phát hiện ẩn ý
 
+def remove_repeated_paragraphs(text: str) -> str:
+    """
+    Lớp phòng thủ thứ 2 chống hiện tượng LLM rơi vào vòng lặp lặp lại
+    y hệt một đoạn văn nhiều lần (degenerate repetition) - lỗi sinh văn bản
+    đã biết, đặc biệt dễ xảy ra với model nhỏ (8B) ở temperature thấp.
+    Độc lập với frequency_penalty/presence_penalty ở call_llm(), phòng khi
+    2 tham số đó vẫn không đủ ngăn model lặp.
+
+    Giữ lại đoạn xuất hiện lần đầu tiên, cắt bỏ toàn bộ phần văn bản
+    kể từ lần đoạn đó bị lặp lại y hệt (so khớp sau khi chuẩn hoá khoảng trắng).
+    """
+    if not text:
+        return text
+    paragraphs = [p.strip() for p in re.split(r'\n\s*\n', text) if p.strip()]
+    if len(paragraphs) <= 1:
+        return text
+
+    seen = set()
+    cleaned = []
+    for p in paragraphs:
+        norm = re.sub(r'\s+', ' ', p).strip().lower()
+        if norm in seen:
+            break  # gặp lại đoạn đã xuất hiện -> dừng, cắt bỏ phần lặp lại phía sau
+        seen.add(norm)
+        cleaned.append(p)
+
+    return "\n\n".join(cleaned)
+
 def check_output_guardrails(answer: str, question: str = "") -> str:
+    answer = remove_repeated_paragraphs(answer)
     a = answer.lower()
     q = question.lower() if question else ""
     
@@ -564,18 +601,28 @@ def context_aware_safety_check(question: str, history: list = None):
     return None
 
 # ================== CALL GROQ ==================
-def call_llm(prompt, system_prompt="Bạn là trợ lý MomCare, chuyên chăm sóc mẹ và bé.", temperature=0.3, max_retries=4):
+def call_llm(prompt, system_prompt="Bạn là trợ lý MomCare, chuyên chăm sóc mẹ và bé.", temperature=0.3, max_retries=4, max_tokens=None, frequency_penalty=0.4, presence_penalty=0.3):
     for attempt in range(max_retries):
         try:
             _client = Groq(api_key=random.choice(_ALL_KEYS))
-            chat_completion = _client.chat.completions.create(
+
+            _kwargs = dict(
                 messages=[
-                    {"role": "system", "content": system_prompt}, 
+                    {"role": "system", "content": system_prompt},
                     {"role": "user", "content": prompt}
                 ],
                 model=MODEL_NAME,
-                temperature=temperature
+                temperature=temperature,
+                # frequency_penalty/presence_penalty: giảm nguy cơ model rơi vào
+                # vòng lặp lặp lại y hệt một đoạn văn nhiều lần (degenerate repetition),
+                # đặc biệt dễ xảy ra với model nhỏ (8B) ở temperature thấp.
+                frequency_penalty=frequency_penalty,
+                presence_penalty=presence_penalty
             )
+            if max_tokens is not None:
+                _kwargs["max_tokens"] = max_tokens
+
+            chat_completion = _client.chat.completions.create(**_kwargs)
 
             # ====== THÊM ĐOẠN NÀY ĐỂ ĐẾM TOKEN THỰC TẾ ======
             tokens_used = chat_completion.usage.prompt_tokens
@@ -588,7 +635,7 @@ def call_llm(prompt, system_prompt="Bạn là trợ lý MomCare, chuyên chăm s
             err = str(e)
             # In lỗi thật ra terminal để biết là lỗi gì
             print(f"❌ [LỖI API GROQ]: {err}")
-            
+
             if "429" in err:
                 import re as _re
                 m = _re.search(r'in (\d+)m([\d.]+)s', err)
@@ -605,32 +652,41 @@ def summarize_history_message(content: str) -> str:
     """Tóm tắt tin nhắn dài bằng LLM thay vì cắt ký tự thô"""
     if len(content) <= 200:
         return content
-    prompt = f"""Tóm tắt tin nhắn sau thành tối đa 100 ký tự, 
-giữ lại đầy đủ: tên bệnh, triệu chứng, độ tuổi, thời gian.
-Không bỏ sót thông tin y tế quan trọng.
+    # Bỏ câu "Không bỏ sót thông tin y tế quan trọng" vì nó MÂU THUẪN với
+    # yêu cầu "tối đa 100 ký tự" phía trên, khiến model (llama-3.1-8b) ưu
+    # tiên vế "đừng bỏ sót" và viết dài tràn lan thay vì tóm tắt. Đồng thời
+    # ép max_tokens để CHẶN CỨNG độ dài completion, không chỉ dựa vào chỉ
+    # dẫn trong prompt (model không phải lúc nào cũng tuân thủ đúng).
+    prompt = f"""Tóm tắt tin nhắn sau thành ĐÚNG 1 CÂU, tối đa 100 ký tự.
+Chỉ giữ: tên bệnh/triệu chứng chính, độ tuổi, thời gian nếu có.
+Bỏ qua chi tiết phụ. Không giải thích, không liệt kê, không xuống dòng.
 
 Tin nhắn: {content}
-Tóm tắt:"""
-    return call_llm(prompt, temperature=0).strip()
+Tóm tắt (1 câu, tối đa 100 ký tự):"""
+    summary = call_llm(prompt, temperature=0, max_tokens=80).strip()
+    # Chốt an toàn: nếu model vẫn lỡ viết dài, cắt cứng về ~100 ký tự
+    # thay vì để nguyên bản dài tràn lan lọt vào prompt sau.
+    if len(summary) > 150:
+        summary = summary[:150].rsplit(" ", 1)[0] + "..."
+    return summary
 
 # ================== VIẾT LẠI CÂU TRUY VẤN ==================
 def rewrite_and_detect_intent(question, history):
-    # 1. BỎ HOÀN TOÀN TÌM KIẾM CORE_CONTEXT GÂY NHIỄU
-    # Chỉ lấy đúng 2 tin nhắn gần nhất để làm ngữ cảnh nối tiếp
+    # 1. Lấy 4 tin nhắn gần nhất (không cắt 2 nữa để giữ đủ ngữ cảnh)
     recent_history = ""
     if history:
         lines = []
-        for msg in history[-2:]:
+        for msg in history[-4:]: 
             role = "Mẹ" if msg.__class__.__name__ == "HumanMessage" else "MomCare"
             lines.append(f"{role}: {msg.content}")
-        recent_history = "LỊCH SỬ HỘI THOẠI NGẮN:\n" + "\n".join(lines) + "\n\n"
+        recent_history = "LỊCH SỬ HỘI THOẠI:\n" + "\n".join(lines) + "\n\n"
 
-    # 2. PROMPT SIÊU CHẶT CHẼ: Ép LLM ngắt chủ đề
+    # 2. SỬA LỖI PROMPT: Ưu tiên giải quyết đại từ trước, không vội vã bỏ qua lịch sử
     prompt = f"""Bạn là AI phân tích ngữ cảnh y khoa cho MomCare. Dựa vào Lịch sử và Câu hỏi mới, hãy thực hiện 2 việc:
 
-1. Viết lại CÂU HỎI MỚI thành một câu tìm kiếm ĐỘC LẬP.
-- ⚠️ NẾU câu hỏi mới CHUYỂN ĐỀ TÀI (VD: đang hỏi về mẹ -> sang con, hoặc đang hỏi đồ chơi -> sang bệnh lý), BẠN PHẢI BỎ QUA LỊCH SỬ. Chỉ viết lại ý của câu hỏi mới.
-- ⚠️ KHÔNG ĐƯỢC gộp thông tin mâu thuẫn (VD: không gộp "vết mổ/rạch" với "em bé", không gộp tuổi "7 tuổi" vào bé "15 ngày").
+1. Viết lại CÂU HỎI MỚI thành một câu tìm kiếm ĐỘC LẬP, ĐẦY ĐỦ Ý.
+- ⚠️ ƯU TIÊN SỐ 1: Nếu câu hỏi mới chứa đại từ ("còn về...", "nó...", "thế...", "vậy...") HOẶC thiếu chủ thể (không nói rõ độ tuổi/bệnh nhân là ai) -> BẮT BUỘC phải nhìn LỊCH SỬ để tìm đối tượng đang nói tới và ghép vào. (VD: "còn về giấc ngủ" + lịch sử nói "trẻ 6 tháng" -> "Chế độ giấc ngủ của trẻ 6 tháng tuổi").
+- CHỈ BỎ QUA lịch sử khi câu hỏi mới là một thực thể HOÀN TOÀN KHÁC và không liên quan (VD: đang nói về bé, tự nhiên hỏi "thời tiết hôm nay thế nào").
 
 2. Phân loại ý định: BLOCKED / SMALLTALK / RAG
 - RAG: mọi câu hỏi y khoa, chăm sóc trẻ.
@@ -654,7 +710,7 @@ INTENT: <RAG/SMALLTALK/BLOCKED>"""
             if raw in ["BLOCKED", "SMALLTALK", "RAG"]:
                 intent = raw
 
-    # IN RA TERMINAL ĐỂ DEBUG - Xem trực tiếp bộ não LLM đang nghĩ gì
+    # IN RA TERMINAL ĐỂ DEBUG
     print(f"\n🧠 [DEBUG REWRITE]")
     print(f"👤 Gốc: {question}")
     print(f"🤖 LLM Viết lại: {rewritten}")
@@ -803,78 +859,61 @@ class RAGChain:
         from vectordb import smart_retrieve
         question = inputs["question"]
         history = inputs.get("history", [])
+        
+        # ════════════════════════════════════════════════════════════
+        # 0. AUDIO QUERY — bỏ qua Guardrails đầu vào + Rewrite/Intent
+        #    (câu hỏi đã được sinh sẵn, an toàn, từ REASON_TO_QUERY_MAP,
+        #     nên không cần kiểm duyệt/viết lại như câu hỏi tự do của người dùng)
+        # ════════════════════════════════════════════════════════════
+        is_audio_query = question.startswith("[AUDIO_QUERY]")
 
-        # ── BYPASS REWRITE CHO AUDIO QUERY ──
-        if question.startswith("[AUDIO_QUERY]"):
-            clean_query = question.replace("[AUDIO_QUERY]", "").strip()
-            docs = _adaptive_hybrid_search(clean_query, k=self.k)
-            if not docs:
-                return {"answer": "Tôi chưa tìm thấy thông tin phù hợp trong tài liệu.", "docs": []}
-            context = "\n\n".join(
-            [f"TÀI LIỆU {i+1}:\n{d.page_content}" for i, d in enumerate(docs)]
-            )
-            prompt = f"""Bạn là chuyên gia y tế MomCare. Trả lời CHỈ dựa trên tài liệu sau.
-        Không bịa thêm thông tin ngoài tài liệu.
+        if is_audio_query:
+            enriched_question = question.replace("[AUDIO_QUERY]", "").strip()
+            self.update_conversation_context(enriched_question)
+        else:
+            # ════════════════════════════════════════════════════════
+            # 1. GUARDRAILS & SMALLTALK (Nhanh, tiết kiệm token)
+            # ════════════════════════════════════════════════════════
+            blocked_msg = check_input_guardrails_with_llm(question)
+            if blocked_msg:
+                return {"answer": blocked_msg, "docs": []}
 
-        TÀI LIỆU:
-        {context}
+            # ── Lớp 2b: Phát hiện leo thang dần (gradual escalation) qua lịch sử ──
+            escalation_msg = context_aware_safety_check(question, history)
+            if escalation_msg:
+                return {"answer": escalation_msg, "docs": []}
 
-        CÂU HỎI: {clean_query}
+            if is_smalltalk(question):
+                prompt = f"Trả lời ngắn gọn, thân thiện chào lại mẹ: {question}"
+                answer = call_llm(prompt, temperature=self.temperature)
+                return {"answer": answer, "docs": []}
 
-        TRẢ LỜI (ngắn gọn, thực tế, có thể áp dụng ngay):"""
-            answer = call_llm(prompt, temperature=self.temperature)
-            answer = check_output_guardrails(answer, clean_query)
-            return {"answer": answer, "docs": docs}
+            # ════════════════════════════════════════════════════════
+            # 2. REWRITE + INTENT (Chỉ gọi 1 lần duy nhất)
+            # ════════════════════════════════════════════════════════
+            self.update_conversation_context(question)
+            enriched_question, intent = rewrite_and_detect_intent(question, history)
+
+            if intent == "BLOCKED":
+                return {"answer": MENTAL_HEALTH_RESPONSE, "docs": []}
+
+            if intent == "SMALLTALK":
+                prompt = f"Trả lời ngắn gọn, thân thiện: {enriched_question}"
+                answer = call_llm(prompt, temperature=self.temperature)
+                return {"answer": answer, "docs": []}
 
         # ════════════════════════════════════════════════════════════
-        # 1. GUARDRAILS 2 LỚP (Đã gộp lại, không tốn thừa API)
+        # 3. TRUY XUẤT TÀI LIỆU (HYBRID SEARCH [+ MULTI-QUERY nếu là
+        #    câu hỏi văn bản ngắn — audio luôn có câu hỏi đầy đủ nên bỏ qua])
         # ════════════════════════════════════════════════════════════
-        blocked_msg = check_input_guardrails_with_llm(question)
-        if blocked_msg:
-            return {"answer": blocked_msg, "docs": []}
-
-        # Kiểm tra ngữ cảnh hội thoại (Gradual Escalation)
-        context_block = context_aware_safety_check(question, history)
-        if context_block:
-            return {"answer": context_block, "docs": []}
-
-        # ════════════════════════════════════════════════════════════
-        # 2. REWRITE + INTENT 
-        # ════════════════════════════════════════════════════════════
-        self.update_conversation_context(question)
-
-        # Chỉ truyền câu hỏi gốc, không bọc thêm template để tiết kiệm token
-        enriched_question, intent = rewrite_and_detect_intent(
-            question,
-            history
-        )
-
-        if intent == "BLOCKED":
-            return {"answer": MENTAL_HEALTH_RESPONSE, "docs": []}
-
-        if intent == "SMALLTALK":
-            prompt = f"Trả lời ngắn gọn, thân thiện: {enriched_question}"
-            answer = call_llm(prompt, temperature=self.temperature)
-            return {"answer": answer, "docs": []}
-
-        # ════════════════════════════════════════════════════════════
-        # 3. TRUY XUẤT TÀI LIỆU (HYBRID SEARCH + MULTI-QUERY)
-        # ════════════════════════════════════════════════════════════
-        # Dùng trực tiếp câu hỏi đã được viết lại
         search_question = enriched_question
-
-        # 3.1 Lấy tài liệu chính bằng Hybrid Search (Vector + BM25)
         primary_docs = _adaptive_hybrid_search(search_question, k=self.k)
         
-        # 3.2 Lấy tài liệu bổ sung bằng Multi-Query (CHỈ KHI CÂU HỎI NGẮN)
         all_docs = list(primary_docs) 
         seen = {str(d.page_content)[:200] for d in primary_docs}
         
-        if len(question.split()) <= 5:
-            # Câu hỏi ngắn -> Dễ bị thiếu ngữ cảnh -> Cần mở rộng Multi-Query
+        if not is_audio_query and len(question.split()) <= 5:
             extra_queries = generate_multi_queries(search_question, n=2) 
-            
-            # Chỉ lấy các câu hỏi phụ (bỏ qua câu đầu tiên extra_queries[0] vì nó chính là câu gốc đã search ở bước 3.1)
             for q in extra_queries[1:]:
                 retrieved = smart_retrieve(q, None, self.k)
                 for d in retrieved:
@@ -883,9 +922,8 @@ class RAGChain:
                         seen.add(key)
                         all_docs.append(d)
 
-        # 3.3 ÁP DỤNG RERANKING
         if len(all_docs) > self.k:
-            reranker = get_reranker() # <-- Sửa ở đây, gọi hàm ra
+            reranker = get_reranker()
             pairs = [(enriched_question, d.page_content) for d in all_docs]
             scores = reranker.predict(pairs)
             ranked = sorted(zip(scores, all_docs), key=lambda x: x[0], reverse=True)
@@ -894,14 +932,13 @@ class RAGChain:
             docs = all_docs[:self.k]
 
         if not docs:
-            from vectordb import smart_retrieve
-            fallback_docs = smart_retrieve(question, None, self.k)
+            fallback_docs = smart_retrieve(enriched_question, None, self.k)
             if fallback_docs:
                 docs = fallback_docs
             else:
                 return {
                     "answer": "Tôi chưa tìm thấy thông tin này trong tài liệu. "
-                            "Mẹ nên đưa bé đến cơ sở y tế hoặc hỏi bác sĩ để được tư vấn trực tiếp.",
+                              "Mẹ nên đưa bé đến cơ sở y tế hoặc hỏi bác sĩ để được tư vấn trực tiếp.",
                     "docs": []
                 }
         
@@ -912,36 +949,39 @@ class RAGChain:
         # ════════════════════════════════════════════════════════════
         # 4. TẠO CÂU TRẢ LỜI (SAFETY-FIRST PROMPTING)
         # ════════════════════════════════════════════════════════════
+        user_context_block = self.conversation_context if self.conversation_context else "- (Không xác định được đối tượng cụ thể từ câu hỏi hiện tại)\n"
+
         prompt = f"""Bạn là chuyên gia y tế MomCare. Trả lời câu hỏi CHỈ dựa trên tài liệu.
 
-        NGUYÊN TẮC AN TOÀN QUAN TRỌNG:
-        1. Nếu câu hỏi liên quan đến HÀNH VI GÂY HẠI (dùng thuốc trái phép, tự can thiệp y tế tại nhà, chèn ống, bóp cổ họng...):
-           → PHẢI TỪ CHỐI NGAY: "Xin lỗi, MomCare không thể hỗ trợ yêu cầu này. Mẹ nên đưa bé đến cơ sở y tế."
-        2. Nếu phát hiện HÀNH VI CÓ NGUY CƠ CAO: 
-           → PHẢI CẢNH BÁO: "NGUY HIỂM: Hành động này CÓ THỂ GÂY HẠI TRỰC TIẾP. Tuyệt đối không thực hiện. Mẹ cần đến cơ sở y tế ngay lập tức."
-        3. Nếu câu hỏi về THUỐC KHÔNG CÓ TRONG TÀI LIỆU → KHÔNG tự ý bổ sung kiến thức chung.
+NGUYÊN TẮC AN TOÀN QUAN TRỌNG:
+1. Nếu câu hỏi liên quan đến HÀNH VI GÂY HẠI (dùng thuốc trái phép, tự can thiệp y tế tại nhà, chèn ống, bóp cổ họng...):
+   → PHẢI TỪ CHỐI NGAY: "Xin lỗi, MomCare không thể hỗ trợ yêu cầu này. Mẹ nên đưa bé đến cơ sở y tế."
+2. Nếu phát hiện HÀNH VI CÓ NGUY CƠ CAO: 
+   → PHẢI CẢNH BÁO: "NGUY HIỂM: Hành động này CÓ THỂ GÂY HẠI TRỰC TIẾP. Tuyệt đối không thực hiện. Mẹ cần đến cơ sở y tế ngay lập tức."
+3. Nếu câu hỏi về THUỐC KHÔNG CÓ TRONG TÀI LIỆU → KHÔNG tự ý bổ sung kiến thức chung.
 
-        NGUYÊN TẮC BẮT BUỘC TRÁNH ẢO GIÁC (QUAN TRỌNG NHẤT):
-        1. PHÂN BIỆT RÕ ĐỐI TƯỢNG: "Vết mổ/vết rạch/tắc tia sữa" là của NGƯỜI MẸ (Tuyệt đối không gán cho trẻ em). "Rốn/tiếng khóc" là của TRẺ SƠ SINH. Trả lời sai đối tượng là một lỗi cực kỳ nghiêm trọng.
-        2. Không tự ý chèn thêm các cụm từ như "đối với bé 0-12 tháng tuổi" nếu câu hỏi và tài liệu không nhắc đến.
-        3. Nếu tài liệu không chứa câu trả lời hoặc nói về độ tuổi khác hoàn toàn so với câu hỏi → DỪNG LẠI và nói: "MomCare chưa tìm thấy thông tin này." KHÔNG tự bịa.
+NGUYÊN TẮC BẮT BUỘC TRÁNH ẢO GIÁC (QUAN TRỌNG NHẤT):
+1. PHÂN BIỆT RÕ ĐỐI TƯỢNG: "Vết mổ/vết rạch/tắc tia sữa" là của NGƯỜI MẸ (Tuyệt đối không gán cho trẻ em). "Rốn/tiếng khóc" là của TRẺ SƠ SINH. Trả lời sai đối tượng là một lỗi cực kỳ nghiêm trọng.
+2. Không tự ý chèn thêm các cụm từ như "đối với bé 0-12 tháng tuổi" nếu câu hỏi và tài liệu không nhắc đến.
+3. Nếu tài liệu không chứa câu trả lời hoặc nói về độ tuổi khác hoàn toàn so với câu hỏi → DỪNG LẠI và nói: "MomCare chưa tìm thấy thông tin này." KHÔNG tự bịa.
 
-        NGUYÊN TẮC TRẢ LỜI NỘI DUNG:
-        1. Nếu tài liệu có câu trả lời TRỰC TIẾP → trình bày ĐẦY ĐỦ toàn bộ nội dung liên quan, giữ nguyên mọi chi tiết, số liệu (mg, ml, tuần, tháng), danh sách. 
-        2. TUYỆT ĐỐI KHÔNG làm tròn các con số.
-        3. Giải thích rõ ràng cơ chế/lý do từ tài liệu khi được hỏi "tại sao" hoặc "như thế nào".
-        4. Không lặp lại câu hỏi, không mở đầu bằng "Dựa trên tài liệu...".
+NGUYÊN TẮC TRẢ LỜI NỘI DUNG:
+1. Nếu tài liệu có câu trả lời TRỰC TIẾP → trình bày ĐẦY ĐỦ toàn bộ nội dung liên quan, giữ nguyên mọi chi tiết, số liệu (mg, ml, tuần, tháng), danh sách. 
+2. TUYỆT ĐỐI KHÔNG làm tròn các con số.
+3. Giải thích rõ ràng cơ chế/lý do từ tài liệu khi được hỏi "tại sao" hoặc "như thế nào".
+4. Không lặp lại câu hỏi, không mở đầu bằng "Dựa trên tài liệu...".
 
-        TÀI LIỆU THAM KHẢO:
-        {context}
+TÀI LIỆU THAM KHẢO:
+{context}
 
-        CÂU HỎI ĐÃ ĐƯỢC LÀM RÕ: {enriched_question}
+NGỮ CẢNH NGƯỜI DÙNG:
+{user_context_block}
+CÂU HỎI ĐÃ ĐƯỢC LÀM RÕ: {enriched_question}
 
-        TRẢ LỜI (đầy đủ chi tiết từ tài liệu, trực tiếp):"""
+TRẢ LỜI (đầy đủ chi tiết từ tài liệu, trực tiếp):"""
 
         answer = call_llm(prompt, temperature=self.temperature)
         
-        # Nếu API lỗi trả về rỗng, báo ngay thay vì im lặng
         if not answer or len(answer.strip()) == 0:
             return {
                 "answer": "⚠️ Hệ thống AI đang quá tải hoặc gặp lỗi kết nối. Mẹ vui lòng gửi lại câu hỏi nhé!",

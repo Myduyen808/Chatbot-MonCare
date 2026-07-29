@@ -43,7 +43,7 @@ def preprocess_audio(audio_bytes):
         return None, None
 
 
-def classify_cry_reason(audio_input, confidence):
+def classify_cry_reason(audio_input, confidence, processed_audio=None, sr=None):
     """
     Phân tích chính xác dựa trên:
     - KHÓC ĐÓI: Pitch 400-800Hz, Rhythm LÊN XUỐNG rõ, ZCR trung bình
@@ -51,14 +51,19 @@ def classify_cry_reason(audio_input, confidence):
     - KHÓC BUỒN NGỦ: Pitch THẤP <350Hz, Energy THẤP, ZCR THẤP
     - KHÓC KHÓ CHỊU: Pitch 350-600Hz, ngắt quãng rõ
     - KHÓC NHIỆT ĐỘ: Pitch trung bình, Rhythm ĐỀU, kéo dài
+
+    Nếu `processed_audio`/`sr` đã được xử lý sẵn (từ analyze_baby_cry), hàm sẽ
+    tái sử dụng trực tiếp thay vì chạy lại preprocess_audio() (denoising) lần nữa,
+    tránh lãng phí tài nguyên khi noisereduce vốn khá tốn CPU.
     """
     try:
-        if isinstance(audio_input, bytes):
-            processed_audio, sr = preprocess_audio(audio_input)
-            if processed_audio is None:
-                processed_audio, sr = librosa.load(io.BytesIO(audio_input), sr=16000)
-        else:
-            processed_audio, sr = librosa.load(audio_input, sr=16000)
+        if processed_audio is None:
+            if isinstance(audio_input, bytes):
+                processed_audio, sr = preprocess_audio(audio_input)
+                if processed_audio is None:
+                    processed_audio, sr = librosa.load(io.BytesIO(audio_input), sr=16000)
+            else:
+                processed_audio, sr = librosa.load(audio_input, sr=16000)
         
         # 1. THỜI LƯỢNG
         duration_sec = len(processed_audio) / sr
@@ -69,9 +74,9 @@ def classify_cry_reason(audio_input, confidence):
         # 3. PHÂN TÍCH PITCH (dùng pyin thay piptrack)
         try:
             f0, voiced_flag, _ = librosa.pyin(
-                processed_audio, 
-                fmin=librosa.note_to_hz('C2'),  # ~65Hz
-                fmax=librosa.note_to_hz('C7'),  # ~2093Hz
+                processed_audio,
+                fmin=150,   # Giới hạn dưới, vẫn đủ thấp cho khóc buồn ngủ (avg_pitch < 300)
+                fmax=1600,  # Giới hạn trên, vẫn đủ cao để giữ ngưỡng "khóc đau" (max_pitch > 1500)
                 sr=sr
             )
             valid_f0 = f0[voiced_flag & ~np.isnan(f0)]
@@ -304,7 +309,9 @@ def analyze_baby_cry(audio_input):
         
         if cry_label and cry_score > 0.015:
             print(f"🔊 Phát hiện tiếng khóc: {cry_label} ({cry_score:.2f})")
-            reason, reason_vi, acoustic_desc = classify_cry_reason(audio_input, cry_score)
+            reason, reason_vi, acoustic_desc = classify_cry_reason(
+                audio_input, cry_score, processed_audio=processed_audio, sr=sr
+            )
             return reason, reason_vi, cry_score, acoustic_desc
             
         else:

@@ -1,0 +1,38 @@
+{
+    "history_name": "Có trường hợp mẹ khuyến nghị cần vắt sữa",
+    "history_id": "20260725_232807",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "Có bao nhiêu trường hợp bà mẹ được khuyến nghị cần vắt sữa?"
+        },
+        {
+            "type": "ai",
+            "content": "Dựa trên tài liệu, MomCare chưa tìm thấy thông tin về số lượng trường hợp bà mẹ được khuyến nghị cần vắt sữa."
+        },
+        {
+            "type": "human",
+            "content": "Cách rã đông và làm nóng sữa mẹ đã vắt ra đúng cách?"
+        },
+        {
+            "type": "ai",
+            "content": "Để rã đông và làm nóng sữa mẹ đã vắt ra đúng cách, bạn có thể tham khảo các bước sau:\n\n1. Rã đông sữa mẹ:\n - Để trong tủ lạnh qua đêm.\n - Đặt trong một ly/thau nước ấm.\n - Để dưới vòi nước ấm.\n - Không bao giờ rã đông hoặc hâm nóng sữa mẹ trong lò vi sóng. Lò vi sóng có thể phá hủy các chất dinh dưỡng trong sữa mẹ và tạo ra các điểm nóng, có thể làm bỏng miệng trẻ.\n\n2. Sử dụng sữa mẹ sau khi rã đông:\n - Sau khi sữa mẹ được rã đông và làm ấm, chỉ sử dụng trong vòng 2 giờ.\n - Không nên đông lạnh lại sữa mẹ đã rã đông.\n - Nếu bạn rã đông sữa mẹ trong tủ lạnh, hãy sử dụng nó trong vòng 24 giờ (tính từ lúc sữa mẹ được rã đông hoàn toàn, không phải từ khi bạn lấy sữa ra khỏi tủ đông).\n\n3. Làm nóng sữa mẹ:\n - Không đun sôi sữa, không làm nóng sữa bằng lò vi sóng.\n - Đặt bình chứa sữa vào một tô nước nóng.\n - Lắc đều bình sữa trước khi cho bé ăn.\n - Kiểm tra nhiệt độ của sữa trước khi cho bé bú bằng cách nhỏ vài giọt lên cổ tay.\n\n4. Lưu ý khi sử dụng sữa mẹ đã rã đông:\n - Sữa mẹ đã rã đông có thể có mùi hoặc độ đặc khác với sữa mới vắt. Sữa mẹ rã đông vẫn an toàn khi cho bé bú.\n - Nếu con bạn từ chối sữa trữ đông, tham khảo bài viết tại link sau: Nuôi con bằng sữa mẹ trữ đông.\n - Sau khi hâm nóng, nếu trẻ bú không hết, sữa mẹ còn thừa lại chỉ nên sử dụng trong vòng 2 giờ, sau đó nên được đổ bỏ."
+        },
+        {
+            "type": "human",
+            "content": "tôi rất mệt mỏi"
+        },
+        {
+            "type": "ai",
+            "content": "Mệt mỏi (rất mệt mỏi) có thể là nguyên nhân chính gây ra chứng trầm cảm sau sinh. Nhiều người cảm thấy rất mệt mỏi sau khi sinh con và có thể mất nhiều tuần để lấy lại sức lực và năng lượng. Quá trình phục hồi có thể mất nhiều thời gian hơn sau khi sinh mổ."
+        },
+        {
+            "type": "human",
+            "content": "bé cần uống bn ml sữa"
+        },
+        {
+            "type": "ai",
+            "content": "Từ tài liệu, chúng tôi thấy có 5 trường hợp khác nhau về lượng sữa cần cho trẻ mỗi ngày:\n\n- Từ khi sinh – 1 tháng: 8 bữa/ngày, 60 ml/bữa, tổng lượng sữa/ngày là 480 ml.\n- Từ 1 tháng – 2 tháng: 7 bữa/ngày, 90 ml/bữa, tổng lượng sữa/ngày là 630 ml.\n- Từ 2 tháng – 4 tháng: 6 bữa/ngày, 120 ml/bữa, tổng lượng sữa/ngày là 720 ml.\n- Từ 4 tháng – 6 tháng: 6 bữa/ngày, 150 ml/bữa, tổng lượng sữa/ngày là 900 ml.\n\nVậy, lượng sữa cần cho trẻ mỗi ngày sẽ phụ thuộc vào độ tuổi của trẻ."
+        }
+    ]
+}

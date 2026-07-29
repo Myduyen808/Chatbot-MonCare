@@ -7,6 +7,7 @@ from groq import Groq
 
 load_dotenv()
 
+# Thu thập các API Key hợp lệ
 ALL_KEYS = [k for k in [
     os.getenv("GROQ_API_KEY"),
     os.getenv("GROQ_API_KEY_1"),
@@ -23,10 +24,9 @@ def get_rotated_client():
     return Groq(api_key=selected_key)
 
 def evaluate_ragas_robust(question, answer, contexts):
-    """Hàm chấm điểm siêu bền bỉ: Sử dụng JSON Mode của Groq để ép LLM trả về JSON chuẩn 100%"""
+    """Hàm chấm điểm siêu bền bỉ: Fix lỗi vòng lặp vô hạn 429 và tối ưu fallback"""
     context_str = "\n---\n".join([f"TÀI LIỆU {i+1}: {c}" for i, c in enumerate(contexts)])
     
-    # Rút gọn prompt và cấu trúc rõ ràng để LLM hoạt động tốt nhất với JSON Mode
     prompt = f"""You are an automated RAGAS evaluation system. Analyze the provided text and score the following 4 metrics from 0.0 to 1.0.
 
 METRICS:
@@ -50,12 +50,14 @@ CRITICAL: Return ONLY a valid JSON object matching this structure exactly. Do no
 }}"""
 
     attempt = 0
-    while True:
+    max_attempts = 3  # 👉 KHỐNG CHẾ: Thử tối đa 3 lần cho BẤT KỲ lỗi nào
+    text = ""
+
+    while attempt < max_attempts:
         attempt += 1
         try:
             client = get_rotated_client()
             
-            # KÍCH HOẠT JSON MODE CỦA GROQ BẰNG response_format
             res = client.chat.completions.create(
                 messages=[{"role": "user", "content": prompt}], 
                 model=MODEL_NAME, 
@@ -64,43 +66,37 @@ CRITICAL: Return ONLY a valid JSON object matching this structure exactly. Do no
             )
             text = res.choices[0].message.content.strip()
             
+            # Giải mã JSON
             try:
                 scores = json.loads(text)
-                # Đảm bảo trả về đủ 4 key cần thiết, nếu thiếu gán mặc định 0.0
-                return {
-                    "faithfulness": float(scores.get("faithfulness", 0.0)),
-                    "context_recall": float(scores.get("context_recall", 0.0)),
-                    "answer_relevancy": float(scores.get("answer_relevancy", 0.0)),
-                    "context_precision": float(scores.get("context_precision", 0.0))
-                }
             except (json.JSONDecodeError, ValueError):
-                # Thử trích xuất nếu có ký tự lạ bao quanh
                 start_idx, end_idx = text.find('{'), text.rfind('}') + 1
                 if start_idx != -1 and end_idx > start_idx: 
                     scores = json.loads(text[start_idx:end_idx])
-                    return {
-                        "faithfulness": float(scores.get("faithfulness", 0.0)),
-                        "context_recall": float(scores.get("context_recall", 0.0)),
-                        "answer_relevancy": float(scores.get("answer_relevancy", 0.0)),
-                        "context_precision": float(scores.get("context_precision", 0.0))
-                    }
-                raise Exception("JSON_PARSE_ERROR")
+                else:
+                    raise Exception("JSON_PARSE_ERROR")
+            
+            # Trả về kết quả thành công
+            return {
+                "faithfulness": float(scores.get("faithfulness", 0.0)),
+                "context_recall": float(scores.get("context_recall", 0.0)),
+                "answer_relevancy": float(scores.get("answer_relevancy", 0.0)),
+                "context_precision": float(scores.get("context_precision", 0.0))
+            }
                 
         except Exception as e:
             err_str = str(e)
             if "429" in err_str or "limit" in err_str.lower():
-                print(f"\n⚠️ [Lượt thử {attempt}] Rate Limit (429). Đang đổi Key và ngủ đông 60 giây...")
-                time.sleep(60)
+                print(f"\n⚠️ [Lượt thử {attempt}/{max_attempts}] Rate Limit (429). Ngủ đông 65 giây để hồi TPM...")
+                time.sleep(65)  # Groq khuyên nên ngủ trên 60s để reset cửa sổ TPM
             else:
-                print(f"\n⚠️ Lỗi ở lượt thử {attempt}: {err_str}.")
-                # Nếu thử quá 3 lần vẫn lỗi format (trường hợp cực kỳ hiếm khi dùng JSON Mode)
-                # Ta sẽ in text thô ra để kiểm tra và tự động fallback về 0.0 thay vì bị treo vô hạn
-                if attempt >= 3:
-                    print(f"--- Nội dung phản hồi thô lỗi từ LLM ---\n{text if 'text' in locals() else 'Không có phản hồi'}\n---------------------------------")
-                    print("👉 Tự động Fallback về 0.0 để tránh treo luồng.")
-                    return {"faithfulness": 0.0, "context_recall": 0.0, "answer_relevancy": 0.0, "context_precision": 0.0}
-                print("Đang thử lại sau 5 giây...")
+                print(f"\n⚠️ Lỗi hệ thống ở lượt thử {attempt}/{max_attempts}: {err_str}.")
                 time.sleep(5)
+                
+    # 👉 ĐÃ ĐƯA RA NGOÀI VÒNG LẶP: Nếu quá 3 lần thử (kể cả dính 429) mà vẫn tịt thì tự động fallback
+    print(f"\n🚨 Không thể lấy kết quả sau {max_attempts} lần thử. Tự động Fallback về 0.0.")
+    print(f"--- Nội dung thô cuối cùng từ LLM (nếu có) ---\n{text if text else 'Không có phản hồi'}\n---------------------------------")
+    return {"faithfulness": 0.0, "context_recall": 0.0, "answer_relevancy": 0.0, "context_precision": 0.0}
 
 def start_evaluation():
     datasets_to_eval = ["KB1_Standard", "KB2_TeenCode", "KB3_Noise", "ViMedAQA"]
@@ -118,7 +114,6 @@ def start_evaluation():
             
         methods_list = list(raw_data.keys())
         
-        # Nạp checkpoint chấm điểm cũ nếu có
         if os.path.exists(score_file):
             with open(score_file, "r", encoding="utf-8") as f: score_results = json.load(f)
         else:
@@ -149,17 +144,19 @@ def start_evaluation():
                 score_results[method_name]["relevancy"].append(scores.get("answer_relevancy", 0.0))
                 score_results[method_name]["latency"].append(lat)
                 
-                time.sleep(2)
+                # 👉 TĂNG THỜI GIAN NGHỈ CHỦ ĐỘNG: Nghỉ 8 giây giữa các phương pháp 
+                # để giảm áp lực dồn dập token lên API, né lỗi 429 chủ động.
+                time.sleep(8)
                 
             print(" | Xong câu!")
             
             with open(score_file, "w", encoding="utf-8") as f:
                 json.dump(score_results, f, ensure_ascii=False, indent=2)
                 
+        # (Giữ nguyên phần in bảng kết quả cuối cùng của bạn...)
         print(f"\n{'-'*100}\n📊 BẢNG KẾT QUẢ ĐÃ CHẤM XONG XỊN: {dataset_name}\n{'-'*100}")
         table_header = f"{'Method':<25} | {'Faithfulness':<12} | {'Context Prec':<12} | {'Context Recall':<12} | {'Answer Rel.':<12} | {'Latency (s)':<10}\n" + "-"*100
         print(table_header)
-        
         log_lines = [f"🔥 CHẠY THỰC NGHIỆM TRÊN TẬP: {dataset_name}", "="*100, table_header]
         
         for name, res in score_results.items():
@@ -168,7 +165,6 @@ def start_evaluation():
             avg_r = sum(res["recall"]) / len(res["recall"]) if res["recall"] else 0.0
             avg_rel = sum(res["relevancy"]) / len(res["relevancy"]) if res["relevancy"] else 0.0
             avg_l = sum(res["latency"]) / len(res["latency"]) if res["latency"] else 0.0
-            
             row = f"{name:<25} | {avg_f:<12.3f} | {avg_p:<12.3f} | {avg_r:<12.3f} | {avg_rel:<12.3f} | {avg_l:<10.2f}"
             print(row)
             log_lines.append(row)

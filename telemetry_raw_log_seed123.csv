@@ -1,0 +1,121 @@
+﻿config,question_idx,question,tokens,prompt_tokens,completion_tokens,latency_ms,faithfulness
+A,0,"Em sờ thấy có cục cứng trong bầu ngực, nếu em không điều trị sớm thì có nguy hiểm gì không ạ?",4938,4293,645,1573.986799980048,0.0
+B,0,"Em sờ thấy có cục cứng trong bầu ngực, nếu em không điều trị sớm thì có nguy hiểm gì không ạ?",3128,2245,883,2044.622600020375,0.0
+C,0,"Em sờ thấy có cục cứng trong bầu ngực, nếu em không điều trị sớm thì có nguy hiểm gì không ạ?",4087,3398,689,1662.365399999544,0.95
+D,0,"Em sờ thấy có cục cứng trong bầu ngực, nếu em không điều trị sớm thì có nguy hiểm gì không ạ?",4383,3676,707,10624.162399966735,0.95
+A,1,Thời gian bảo quản sữa mẹ trong ngăn đá tủ lạnh (-18 đến -20°C)?,6500,6115,385,1518.2022000080906,0.95
+B,1,Thời gian bảo quản sữa mẹ trong ngăn đá tủ lạnh (-18 đến -20°C)?,2399,1775,624,7801.527199975681,0.2
+C,1,Thời gian bảo quản sữa mẹ trong ngăn đá tủ lạnh (-18 đến -20°C)?,6482,6131,351,4462.302900035866,0.95
+D,1,Thời gian bảo quản sữa mẹ trong ngăn đá tủ lạnh (-18 đến -20°C)?,7126,6615,511,1989.289999997709,0.95
+A,2,"Khi điều trị béo phì cho trẻ, gia đình có cần phải phối hợp cùng bác sĩ tâm lý không hay chỉ cần ăn kiêng là đủ ạ?",6723,6030,693,10629.725000006147,0.95
+B,2,"Khi điều trị béo phì cho trẻ, gia đình có cần phải phối hợp cùng bác sĩ tâm lý không hay chỉ cần ăn kiêng là đủ ạ?",2415,1642,773,2164.4168000202626,0.2
+C,2,"Khi điều trị béo phì cho trẻ, gia đình có cần phải phối hợp cùng bác sĩ tâm lý không hay chỉ cần ăn kiêng là đủ ạ?",7414,7060,354,1747.3808999639004,0.85
+D,2,"Khi điều trị béo phì cho trẻ, gia đình có cần phải phối hợp cùng bác sĩ tâm lý không hay chỉ cần ăn kiêng là đủ ạ?",5417,4744,673,29975.832099968102,0.85
+A,3,Khi nào thì rốn của bé bị sưng đỏ được coi là nhiễm trùng mức độ nặng ạ?,5697,5032,665,6989.823399984743,0.0
+B,3,Khi nào thì rốn của bé bị sưng đỏ được coi là nhiễm trùng mức độ nặng ạ?,2068,1305,763,1600.7821999955922,0.0
+C,3,Khi nào thì rốn của bé bị sưng đỏ được coi là nhiễm trùng mức độ nặng ạ?,6628,6065,563,1165.0906999711879,0.85
+D,3,Khi nào thì rốn của bé bị sưng đỏ được coi là nhiễm trùng mức độ nặng ạ?,3951,3163,788,10727.0308000152,0.85
+A,4,"Ngoài việc phát âm, em cần quan sát những phản ứng nào khác của con đối với lời nói của cha mẹ để biết bé phát triển tâm sinh lý bình thường ạ",5951,5219,732,8181.315599998925,0.2
+B,4,"Ngoài việc phát âm, em cần quan sát những phản ứng nào khác của con đối với lời nói của cha mẹ để biết bé phát triển tâm sinh lý bình thường ạ",1708,1362,346,1444.9953999719582,0.0
+C,4,"Ngoài việc phát âm, em cần quan sát những phản ứng nào khác của con đối với lời nói của cha mẹ để biết bé phát triển tâm sinh lý bình thường ạ",8723,8268,455,1916.492799995467,0.8
+D,4,"Ngoài việc phát âm, em cần quan sát những phản ứng nào khác của con đối với lời nói của cha mẹ để biết bé phát triển tâm sinh lý bình thường ạ",2182,1576,606,1863.050599989947,0.2
+A,5,"Con em đã 6 tháng rồi mà vẫn chưa biết lật từ sau ra trước, liệu như vậy có phải là bé đang chậm phát triển không?",6756,6185,571,19609.95830001775,0.8
+B,5,"Con em đã 6 tháng rồi mà vẫn chưa biết lật từ sau ra trước, liệu như vậy có phải là bé đang chậm phát triển không?",2294,1460,834,1850.643299985677,0.8
+C,5,"Con em đã 6 tháng rồi mà vẫn chưa biết lật từ sau ra trước, liệu như vậy có phải là bé đang chậm phát triển không?",7095,6362,733,8106.6137999878265,0.85
+D,5,"Con em đã 6 tháng rồi mà vẫn chưa biết lật từ sau ra trước, liệu như vậy có phải là bé đang chậm phát triển không?",7911,7125,786,2390.481300011743,0.85
+A,6,Kỹ thuật cho trẻ ăn bằng cốc đúng cách là gì?,3602,3271,331,14485.767500009388,0.95
+B,6,Kỹ thuật cho trẻ ăn bằng cốc đúng cách là gì?,4557,3339,1218,6581.6216000239365,0.2
+C,6,Kỹ thuật cho trẻ ăn bằng cốc đúng cách là gì?,9547,8750,797,56214.80800001882,0.2
+D,6,Kỹ thuật cho trẻ ăn bằng cốc đúng cách là gì?,4396,3408,988,1808.3052999572828,0.2
+A,7,"Bé nhà em hiện tại đang ở giai đoạn sơ sinh, em nên sắp xếp lịch giặt tã vải như thế nào để luôn có đủ tã sạch cho con dùng?",6574,5760,814,2447.63020001119,0.95
+B,7,"Bé nhà em hiện tại đang ở giai đoạn sơ sinh, em nên sắp xếp lịch giặt tã vải như thế nào để luôn có đủ tã sạch cho con dùng?",2421,1617,804,1710.6170000042766,0.65
+C,7,"Bé nhà em hiện tại đang ở giai đoạn sơ sinh, em nên sắp xếp lịch giặt tã vải như thế nào để luôn có đủ tã sạch cho con dùng?",6882,6008,874,29005.767999973614,0.65
+D,7,"Bé nhà em hiện tại đang ở giai đoạn sơ sinh, em nên sắp xếp lịch giặt tã vải như thế nào để luôn có đủ tã sạch cho con dùng?",7050,5777,1273,2871.748799982015,0.65
+A,8,Những ai có nguy cơ bị nhau bong non ạ?,6018,5191,827,1914.367699995637,0.2
+B,8,Những ai có nguy cơ bị nhau bong non ạ?,2273,1564,709,1476.895899977535,0.8
+C,8,Những ai có nguy cơ bị nhau bong non ạ?,4643,3772,871,1341.9223999953829,0.95
+D,8,Những ai có nguy cơ bị nhau bong non ạ?,5178,4723,455,1830.385000037495,0.0
+A,9,Em nghe nói nếu không bú mẹ thì con dễ bị béo phì khi lớn lên phải không?,4275,3820,455,9958.950500003994,0.2
+B,9,Em nghe nói nếu không bú mẹ thì con dễ bị béo phì khi lớn lên phải không?,1598,1293,305,4624.230899964459,0.0
+C,9,Em nghe nói nếu không bú mẹ thì con dễ bị béo phì khi lớn lên phải không?,4975,4198,777,1434.7548999940045,0.2
+D,9,Em nghe nói nếu không bú mẹ thì con dễ bị béo phì khi lớn lên phải không?,4068,3472,596,1610.0849999929778,0.6
+A,10,"Con em thường xuyên thức giấc giữa đêm và khóc, em phải làm gì để bé ngủ sâu hơn?",5729,4708,1021,4361.665699980222,0.65
+B,10,"Con em thường xuyên thức giấc giữa đêm và khóc, em phải làm gì để bé ngủ sâu hơn?",1811,1161,650,1952.9924999806099,0.2
+C,10,"Con em thường xuyên thức giấc giữa đêm và khóc, em phải làm gì để bé ngủ sâu hơn?",5868,5031,837,14876.985399983823,0.8
+D,10,"Con em thường xuyên thức giấc giữa đêm và khóc, em phải làm gì để bé ngủ sâu hơn?",4558,3616,942,3028.182099980768,0.95
+A,11,"Em nghe nói sau sinh phải nằm yên một chỗ, vậy em có được ngồi dậy hay đi lại nhẹ nhàng trong phòng không?",5184,4547,637,3026.6168000525795,0.85
+B,11,"Em nghe nói sau sinh phải nằm yên một chỗ, vậy em có được ngồi dậy hay đi lại nhẹ nhàng trong phòng không?",1358,1096,262,1680.7199000031687,0.85
+C,11,"Em nghe nói sau sinh phải nằm yên một chỗ, vậy em có được ngồi dậy hay đi lại nhẹ nhàng trong phòng không?",5645,4764,881,16042.535600019619,0.95
+D,11,"Em nghe nói sau sinh phải nằm yên một chỗ, vậy em có được ngồi dậy hay đi lại nhẹ nhàng trong phòng không?",3385,2877,508,1855.5929000140168,0.85
+A,12,"Sau khi sinh thường xong, em cần ăn uống như thế nào để mau hồi phục sức khỏe và có nhiều sữa cho con bú ạ?",6157,5474,683,1781.98779997183,0.85
+B,12,"Sau khi sinh thường xong, em cần ăn uống như thế nào để mau hồi phục sức khỏe và có nhiều sữa cho con bú ạ?",1992,1485,507,3672.5054000271484,0.95
+C,12,"Sau khi sinh thường xong, em cần ăn uống như thế nào để mau hồi phục sức khỏe và có nhiều sữa cho con bú ạ?",6234,5766,468,1804.9277000245638,0.85
+D,12,"Sau khi sinh thường xong, em cần ăn uống như thế nào để mau hồi phục sức khỏe và có nhiều sữa cho con bú ạ?",6667,6070,597,32084.34010000201,0.65
+A,13,Sữa mẹ chứa bao nhiêu phần trăm là nước?,4831,4107,724,21406.02220001165,0.95
+B,13,Sữa mẹ chứa bao nhiêu phần trăm là nước?,1731,1068,663,1317.1395999961533,0.0
+C,13,Sữa mẹ chứa bao nhiêu phần trăm là nước?,7767,5633,2134,19301.47330003092,0.8
+D,13,Sữa mẹ chứa bao nhiêu phần trăm là nước?,2125,1526,599,1755.2866999758407,0.85
+A,14,Làm sao để em biết bé nhà em bị sốt và khi nào thì mức nhiệt đó là nguy hiểm ạ?,5465,4729,736,2014.520199969411,0.8
+B,14,Làm sao để em biết bé nhà em bị sốt và khi nào thì mức nhiệt đó là nguy hiểm ạ?,1937,1358,579,1840.7957999734208,0.85
+C,14,Làm sao để em biết bé nhà em bị sốt và khi nào thì mức nhiệt đó là nguy hiểm ạ?,5142,4403,739,1518.903299991507,0.85
+D,14,Làm sao để em biết bé nhà em bị sốt và khi nào thì mức nhiệt đó là nguy hiểm ạ?,5791,4981,810,2379.805699980352,0.2
+A,15,"Con em dạo này da cứ mát lạnh, nhợt nhạt mà chân tay hơi xanh, lại còn bú kém và khóc yếu nữa, liệu đây có phải là dấu hiệu bé đang bị hạ thân nhiệt không",5741,5314,427,13237.703999970108,0.8
+B,15,"Con em dạo này da cứ mát lạnh, nhợt nhạt mà chân tay hơi xanh, lại còn bú kém và khóc yếu nữa, liệu đây có phải là dấu hiệu bé đang bị hạ thân nhiệt không",2277,1622,655,7169.5592000032775,0.85
+C,15,"Con em dạo này da cứ mát lạnh, nhợt nhạt mà chân tay hơi xanh, lại còn bú kém và khóc yếu nữa, liệu đây có phải là dấu hiệu bé đang bị hạ thân nhiệt không",5878,5391,487,1657.834899961017,0.85
+D,15,"Con em dạo này da cứ mát lạnh, nhợt nhạt mà chân tay hơi xanh, lại còn bú kém và khóc yếu nữa, liệu đây có phải là dấu hiệu bé đang bị hạ thân nhiệt không",6712,6207,505,22549.558500002604,0.95
+A,16,"Bé nhà em bị đau tai và hay quấy khóc, lấy tay dụi tai, có phải bé bị viêm tai không ạ?",8210,7380,830,12473.677299974952,0.85
+B,16,"Bé nhà em bị đau tai và hay quấy khóc, lấy tay dụi tai, có phải bé bị viêm tai không ạ?",2818,1936,882,9127.373899973463,0.85
+C,16,"Bé nhà em bị đau tai và hay quấy khóc, lấy tay dụi tai, có phải bé bị viêm tai không ạ?",6708,6110,598,1271.7743000248447,0.0
+D,16,"Bé nhà em bị đau tai và hay quấy khóc, lấy tay dụi tai, có phải bé bị viêm tai không ạ?",4607,3773,834,7703.8432999979705,0.2
+A,17,"Bác sĩ ơi, sau sinh em cần vệ sinh vùng kín như thế nào để đảm bảo an toàn và không bị nhiễm trùng ạ?",5417,4544,873,18278.745600022376,0.95
+B,17,"Bác sĩ ơi, sau sinh em cần vệ sinh vùng kín như thế nào để đảm bảo an toàn và không bị nhiễm trùng ạ?",2721,1588,1133,4522.911800013389,0.65
+C,17,"Bác sĩ ơi, sau sinh em cần vệ sinh vùng kín như thế nào để đảm bảo an toàn và không bị nhiễm trùng ạ?",4117,3499,618,27557.819499983452,0.65
+D,17,"Bác sĩ ơi, sau sinh em cần vệ sinh vùng kín như thế nào để đảm bảo an toàn và không bị nhiễm trùng ạ?",2174,1559,615,1914.9813000112772,0.85
+A,18,Sữa mẹ bảo quản trong ngăn mát tủ lạnh (<4°C) được bao lâu?,6609,5363,1246,23919.62160001276,0.2
+B,18,Sữa mẹ bảo quản trong ngăn mát tủ lạnh (<4°C) được bao lâu?,2389,1866,523,10643.736500001978,0.2
+C,18,Sữa mẹ bảo quản trong ngăn mát tủ lạnh (<4°C) được bao lâu?,5982,5442,540,19336.443100008182,0.6
+D,18,Sữa mẹ bảo quản trong ngăn mát tủ lạnh (<4°C) được bao lâu?,6566,6021,545,2189.3651999998838,0.95
+A,19,Cách xử trí tại nhà khi trẻ sơ sinh bị sốt cao?,5469,4448,1021,5496.928600012325,0.95
+B,19,Cách xử trí tại nhà khi trẻ sơ sinh bị sốt cao?,1559,1101,458,1541.7185999685898,0.0
+C,19,Cách xử trí tại nhà khi trẻ sơ sinh bị sốt cao?,6972,6238,734,16900.329199968837,0.85
+D,19,Cách xử trí tại nhà khi trẻ sơ sinh bị sốt cao?,6768,5335,1433,22012.00250000693,0.2
+A,20,Làm sao để em nhận biết được bé nhà em đang bắt đầu học hỏi và khám phá thế giới xung quanh ạ?,5896,5035,861,19361.157100007404,0.85
+B,20,Làm sao để em nhận biết được bé nhà em đang bắt đầu học hỏi và khám phá thế giới xung quanh ạ?,2499,1559,940,7012.452700000722,0.2
+C,20,Làm sao để em nhận biết được bé nhà em đang bắt đầu học hỏi và khám phá thế giới xung quanh ạ?,7056,6426,630,1512.1419999632053,0.2
+D,20,Làm sao để em nhận biết được bé nhà em đang bắt đầu học hỏi và khám phá thế giới xung quanh ạ?,4096,3287,809,1685.5782000347972,0.95
+A,21,"Sau khi giặt xong, em nên phơi tã vải ở đâu để tã nhanh khô mà vẫn giữ được độ mềm mại cho da bé?",7358,6760,598,2448.618499969598,0.95
+B,21,"Sau khi giặt xong, em nên phơi tã vải ở đâu để tã nhanh khô mà vẫn giữ được độ mềm mại cho da bé?",2504,1870,634,1898.4317000140436,0.85
+C,21,"Sau khi giặt xong, em nên phơi tã vải ở đâu để tã nhanh khô mà vẫn giữ được độ mềm mại cho da bé?",7416,6912,504,1930.8310999767855,0.95
+D,21,"Sau khi giặt xong, em nên phơi tã vải ở đâu để tã nhanh khô mà vẫn giữ được độ mềm mại cho da bé?",4475,4056,419,1809.978500008583,0.6
+A,22,Những yếu tố nào khiến tử cung bị căng quá mức dẫn đến đờ tử cung?,5346,4480,866,9107.625200005714,0.2
+B,22,Những yếu tố nào khiến tử cung bị căng quá mức dẫn đến đờ tử cung?,1748,1399,349,2685.0787000148557,0.0
+C,22,Những yếu tố nào khiến tử cung bị căng quá mức dẫn đến đờ tử cung?,6186,5280,906,1489.669899980072,0.2
+D,22,Những yếu tố nào khiến tử cung bị căng quá mức dẫn đến đờ tử cung?,5971,5068,903,16104.448599973693,0.0
+A,23,"Làm sao để khuyến khích con tự lập trong việc vệ sinh cá nhân như đánh răng, rửa tay?",6906,5887,1019,3117.513000033796,0.2
+B,23,"Làm sao để khuyến khích con tự lập trong việc vệ sinh cá nhân như đánh răng, rửa tay?",2732,1529,1203,3307.5179000152275,0.65
+C,23,"Làm sao để khuyến khích con tự lập trong việc vệ sinh cá nhân như đánh răng, rửa tay?",6258,5334,924,25293.582100013737,0.8
+D,23,"Làm sao để khuyến khích con tự lập trong việc vệ sinh cá nhân như đánh răng, rửa tay?",7812,6495,1317,3121.1890999693424,0.2
+A,24,Sữa mẹ vắt ra có thể bảo quản ở nhiệt độ thường trong bao lâu?,6909,6695,214,20923.532999993768,0.95
+B,24,Sữa mẹ vắt ra có thể bảo quản ở nhiệt độ thường trong bao lâu?,2207,1877,330,1768.8117999932729,0.2
+C,24,Sữa mẹ vắt ra có thể bảo quản ở nhiệt độ thường trong bao lâu?,7401,7287,114,1190.4069999582134,0.95
+D,24,Sữa mẹ vắt ra có thể bảo quản ở nhiệt độ thường trong bao lâu?,6519,6053,466,4336.21320000384,0.95
+A,25,Nguyên nhân gây tắc ống dẫn sữa và viêm vú là gì?,6091,5109,982,22975.415499997325,0.2
+B,25,Nguyên nhân gây tắc ống dẫn sữa và viêm vú là gì?,2384,1825,559,8719.553500006441,0.2
+C,25,Nguyên nhân gây tắc ống dẫn sữa và viêm vú là gì?,4155,3514,641,1636.2810999853536,0.65
+D,25,Nguyên nhân gây tắc ống dẫn sữa và viêm vú là gì?,7162,5824,1338,26188.827299978584,0.45
+A,26,Việc cho con bú ngay trong vòng một giờ đầu sau sinh có lợi gì cho người mẹ?,4455,4059,396,18844.166999973822,0.85
+B,26,Việc cho con bú ngay trong vòng một giờ đầu sau sinh có lợi gì cho người mẹ?,2064,1552,512,1498.1744000106119,0.6
+C,26,Việc cho con bú ngay trong vòng một giờ đầu sau sinh có lợi gì cho người mẹ?,4722,4114,608,5485.658299992792,0.8
+D,26,Việc cho con bú ngay trong vòng một giờ đầu sau sinh có lợi gì cho người mẹ?,3566,2934,632,20647.01899996726,0.2
+A,27,"Những ngày trời nắng nóng thế này, em sợ con chỉ bú mẹ sẽ bị khát, em có cần bổ sung thêm nước lọc cho bé không ạ?",5115,4523,592,4892.933600000106,0.95
+B,27,"Những ngày trời nắng nóng thế này, em sợ con chỉ bú mẹ sẽ bị khát, em có cần bổ sung thêm nước lọc cho bé không ạ?",2076,1284,792,1786.5167999989353,0.85
+C,27,"Những ngày trời nắng nóng thế này, em sợ con chỉ bú mẹ sẽ bị khát, em có cần bổ sung thêm nước lọc cho bé không ạ?",5907,5249,658,1709.1714999987744,0.85
+D,27,"Những ngày trời nắng nóng thế này, em sợ con chỉ bú mẹ sẽ bị khát, em có cần bổ sung thêm nước lọc cho bé không ạ?",3549,2887,662,1853.6798999994062,0.2
+A,28,Khi nào thì con em mới bắt đầu có thể uống thêm nước đun sôi để nguội và lượng uống như thế nào là phù hợp ạ?,6074,5310,764,1877.0573000074364,0.85
+B,28,Khi nào thì con em mới bắt đầu có thể uống thêm nước đun sôi để nguội và lượng uống như thế nào là phù hợp ạ?,2075,1525,550,1369.5280000101775,0.5
+C,28,Khi nào thì con em mới bắt đầu có thể uống thêm nước đun sôi để nguội và lượng uống như thế nào là phù hợp ạ?,6405,5644,761,1412.4686000286601,0.85
+D,28,Khi nào thì con em mới bắt đầu có thể uống thêm nước đun sôi để nguội và lượng uống như thế nào là phù hợp ạ?,4301,3474,827,2233.467500016559,0.2
+A,29,"Khi đưa con đi đánh giá sự phát triển, các bác sĩ chuyên khoa thường sẽ đặt những câu hỏi gì cho cha mẹ chúng em ạ?",6956,5344,1612,3580.7437999756075,0.95
+B,29,"Khi đưa con đi đánh giá sự phát triển, các bác sĩ chuyên khoa thường sẽ đặt những câu hỏi gì cho cha mẹ chúng em ạ?",2136,1505,631,1660.6781999580562,0.2
+C,29,"Khi đưa con đi đánh giá sự phát triển, các bác sĩ chuyên khoa thường sẽ đặt những câu hỏi gì cho cha mẹ chúng em ạ?",6580,5666,914,13904.725300031714,0.95
+D,29,"Khi đưa con đi đánh giá sự phát triển, các bác sĩ chuyên khoa thường sẽ đặt những câu hỏi gì cho cha mẹ chúng em ạ?",6798,5828,970,24592.612899956293,0.95

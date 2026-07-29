@@ -1,0 +1,46 @@
+{
+    "history_name": "xin chào chatbot",
+    "history_id": "20260715_153551",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "xin chào chatbot ạ"
+        },
+        {
+            "type": "ai",
+            "content": "Xin chào mẹ ơi! Tôi rất vui được phục vụ mẹ và bé trong mọi vấn đề liên quan đến chăm sóc sức khỏe và đời sống gia đình. Mẹ cần giúp đỡ gì hôm nay không?"
+        },
+        {
+            "type": "human",
+            "content": "con tôi 6 tháng tuổi thì dinh dưỡng ntn v"
+        },
+        {
+            "type": "ai",
+            "content": "Trẻ từ 6 tháng tuổi cần được ăn dặm bổ sung ngoài nguồn sữa mẹ vì lúc này nhu cầu dinh dưỡng của trẻ tăng lên, nếu chỉ cho trẻ bú sữa mẹ hoàn toàn sẽ không đáp ứng đủ nhu cầu của trẻ. Trên thực tế, nguồn sữa mẹ vẫn đóng vai trò quan trọng, chiếm hơn 1⁄2 nhu cầu dinh dưỡng hàng ngày của trẻ từ 6 - 12 tháng tuổi và khoảng 1⁄3 khi trẻ từ 12 - 24 tháng tuổi.\n\nCần quan tâm ăn dặm mấy bữa mỗi ngày, loại thực phẩm và cách chế biến như thế nào là phù hợp với sự phát triển của trẻ trong từng giai đoạn để trẻ có thể hấp thụ hết các dưỡng chất từ thức ăn dặm bổ sung, tránh tình trạng trẻ không nhận đủ dinh dưỡng dẫn đến còi xương, thiếu máu, ...\n\nSố bữa ăn dặm của trẻ từ 6 - 24 tháng tuổi như sau:\n\n- 6 - 7 tháng tuổi: 1 bữa/ngày, kết hợp bú sữa mẹ. Lượng thức ăn từ 100 - 200ml/bữa.\n- 8 - 9 tháng tuổi: 2 bữa/ngày, kết hợp bú sữa mẹ. Lượng thức ăn khoảng 200ml/bữa.\n- 10 - 12 tháng tuổi: 3 bữa/ngày, kết hợp bú sữa mẹ. Lượng thức ăn tăng lên khoảng từ 200 - 250ml/bữa.\n- 12 - 24 tháng tuổi: 3 bữa/ngày, kết hợp bú sữa mẹ. Lượng thức ăn tăng lên từ 250 - 300ml/bữa.\n\nTrẻ ăn dặm mấy bữa phụ thuộc vào độ tuổi của trẻ và khả năng hợp tác của trẻ. Ở thời điểm bắt đầu, trẻ có thể chỉ ăn được khoảng 1 - 2 muỗng, nếu trẻ tỏ ra thích thú, mẹ có thể tăng dần lượng thức ăn trong mỗi bữa đến khi trẻ có thể ăn được từ 50 - 100ml trong mỗi lần ăn.\n\nVề nguyên tắc tăng số bữa ăn dặm, mẹ có thể ghi nhớ cho trẻ bắt đầu bằng 1 bữa/ngày trong 2 tháng đầu tiên, sau đó tăng thêm 1 bữa trong 2 tháng tiếp theo đến khi trẻ có thể ăn được 3 bữa/ngày.\n\nLưu ý, khi cho trẻ ăn dặm mấy bữa mỗi ngày tăng lên cùng lượng thức ăn, lượng sữa trẻ bú mẹ sẽ giảm. Tuy nhiên, cần tiếp tục duy trì nguồn sữa mẹ cho đến khi trẻ được 1 tuổi.\n\nTrẻ từ 6 - 8 tháng tuổi: Chất bột (20g tinh bột gạo tẻ), chất đạm có thể là bột tôm tươi bỏ vỏ và giã nhỏ (15g), trứng (10g tương đương 1 lòng đỏ trứng gà hoặc 4 lòng đỏ trứng cút), thịt nạc (10g), cá (10g, bỏ xương), chất xơ (2 muỗng rau xanh giã nhỏ), chất béo (1 muỗng cà phê dầu ăn hoặc mỡ).\n\nTrẻ từ 9 - 11 tháng tuổi: Chất bột (25g tinh bột gạo tẻ), chất đạm có thể là bột tôm tươi bỏ vỏ và giã nhỏ (15g), bột cua (30g), thịt nạc (15g), cá (15g, bỏ xương), chất xơ (2 muỗng rau xanh giã nhỏ), chất béo (1 muỗng cà phê dầu ăn hoặc mỡ).\n\nTrẻ từ 12 - 23 tháng tuổi: Chất bột (40g tinh bột gạo tẻ), chất đạm có thể là tôm tươi bỏ vỏ và giã nhỏ (25g), trứng (30g tương đương 1 quả trứng gà), thịt nạc (25g), cá (25g, bỏ xương), lươn (25g), chất xơ (2 - 3 muỗng rau xanh giã nhỏ), chất béo (1,5 - 2 muỗng cà phê dầu ăn hoặc mỡ).\n\nTrẻ dưới 6 tháng tuổi nên được bú sữa mẹ để bổ sung canxi."
+        },
+        {
+            "type": "human",
+            "content": "còn về chế độ ngủ"
+        },
+        {
+            "type": "ai",
+            "content": "Trẻ từ 6 tháng tuổi cần ăn dặm mấy bữa mỗi ngày để đảm bảo đáp ứng đủ nhu cầu dinh dưỡng cho sự phát triển và hoạt động cũng như sức khỏe của trẻ.\n\nTheo tài liệu 1, trẻ từ 6 - 24 tháng tuổi cần ăn dặm 3 bữa mỗi ngày, kết hợp bú sữa mẹ. Lượng thức ăn tăng lên từ 250 - 300ml/bữa. Tuy nhiên, việc cho trẻ ăn dặm mấy bữa mỗi ngày còn phụ thuộc vào khả năng hợp tác của trẻ và sự háo hức của trẻ đối với thức ăn.\n\nTài liệu 2 cũng cho biết trẻ từ 6 tháng tuổi nên bắt đầu ăn bổ sung các thức ăn mềm và giàu dinh dưỡng. Từ 9 tháng trở lên, tăng lên 3 đến 4 bữa mỗi ngày. Cho bé ăn các bữa ăn phụ đều đặn giữa các bữa chính như chuối, đu đủ, các loại bánh mềm làm từ gạo hoặc bột mỳ, sữa chua hoặc khoai lang.\n\nTài liệu 3 không đề cập trực tiếp đến số bữa ăn dặm của trẻ 6 tháng tuổi, nhưng cho biết trẻ 6 tháng tuổi có thể bắt đầu ăn cháo ca rốt nếu được bác sĩ cho phép. Tuy nhiên, trẻ cần được điều trị dứt điểm tình trạng tiêu chảy trước khi thay đổi chế độ dinh dưỡng.\n\nTài liệu 4 không liên quan đến số bữa ăn dặm của trẻ 6 tháng tuổi.\n\nTài liệu 5 không đề cập trực tiếp đến số bữa ăn dặm của trẻ 6 tháng tuổi, nhưng cho biết trẻ sơ sinh phát triển các kỹ năng khác nhau và có thể đạt được mốc này và các mốc khác muộn hơn so với các bạn cùng tuổi.\n\nTóm lại, trẻ từ 6 tháng tuổi cần ăn dặm 3 bữa mỗi ngày, kết hợp bú sữa mẹ, và có thể bắt đầu ăn bổ sung các thức ăn mềm và giàu dinh dưỡng từ 9 tháng trở lên."
+        },
+        {
+            "type": "human",
+            "content": "còn về giấc ngủ"
+        },
+        {
+            "type": "ai",
+            "content": "Câu hỏi: Con tôi thường thức ban đêm, ngủ vào ban ngày, vậy bé có gì bất thường không?\n\nTrả lời: Giấc ngủ của trẻ sơ sinh là điều rất được các mẹ quan tâm, vì nó có ảnh hưởng trực tiếp đến sức khỏe của trẻ. Trẻ sơ sinh thay đổi môi trường từ trong bụng mẹ ra môi trường tự nhiên bên ngoài, đồng thời trẻ cũng chưa phân biệt được ngày và đêm, nên có những trẻ sẽ ngủ nhiều vào ban ngày và thức giấc nhiều hơn vào ban đêm.\n\nTrẻ sơ sinh gần như ngủ suốt ngày đêm, chỉ thức dậy để bú (khoảng 2 đến 3 giờ bú một lần). Thông thường, không cần phải đánh thức trẻ sơ sinh dậy để cho bú, nhưng cũng không nên để bé ngủ quá lâu >3 giờ mà không cho bú.\n\nVậy, bé của bạn không có gì bất thường, vì giấc ngủ của trẻ sơ sinh thường thay đổi và không phân biệt được ngày và đêm."
+        },
+        {
+            "type": "human",
+            "content": "cần bổ sung vitamin gì trong giai đoạn này"
+        },
+        {
+            "type": "ai",
+            "content": "Câu hỏi: cần bổ sung vitamin gì trong giai đoạn 3 tháng giữa thai kỳ?\n\nTrả lời: Trong giai đoạn 3 tháng giữa thai kỳ, thai phụ cần tăng đáp ứng năng lượng cho cơ thể. Theo nhu cầu dinh dưỡng khuyến nghị của Viện Dinh dưỡng - Bộ Y tế năm 2016, mức năng lượng khuyến nghị hàng ngày khi có thai 3 tháng giữa thai kỳ là 250 kcal/ngày. Ngoài ra, thai phụ cần ăn nhiều thực phẩm giàu canxi, kẽm như tôm, cua, trứng, sữa, thủy sản để đáp ứng nhu cầu canxi 1200mg/ngày.\n\nThai phụ cũng cần tiếp tục uống bổ sung viên sắt/acid folic hoặc viên đa vi chất theo qui định."
+        }
+    ]
+}

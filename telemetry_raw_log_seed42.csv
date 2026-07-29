@@ -1,0 +1,121 @@
+﻿config,question_idx,question,tokens,prompt_tokens,completion_tokens,latency_ms,faithfulness
+A,0,"Bé nhà em hay hỏi ""Tại sao?"" liên tục, đôi khi em thấy rất mệt mỏi, em có nên trả lời hết các câu hỏi đó không?",2786,2233,553,13666.42890003277,0.8
+B,0,"Bé nhà em hay hỏi ""Tại sao?"" liên tục, đôi khi em thấy rất mệt mỏi, em có nên trả lời hết các câu hỏi đó không?",1348,877,471,2226.357300009113,0.95
+C,0,"Bé nhà em hay hỏi ""Tại sao?"" liên tục, đôi khi em thấy rất mệt mỏi, em có nên trả lời hết các câu hỏi đó không?",912,671,241,978.8141999742948,0.95
+D,0,"Bé nhà em hay hỏi ""Tại sao?"" liên tục, đôi khi em thấy rất mệt mỏi, em có nên trả lời hết các câu hỏi đó không?",1050,798,252,1593.2745999889448,0.95
+A,1,"Em lo ngại các hóa chất trong tã giấy, có loại tã nào không chứa gel siêu thấm hay chất tẩy trắng clo để an toàn hơn cho da bé không ạ?",3523,3209,314,1903.4428999875672,0.85
+B,1,"Em lo ngại các hóa chất trong tã giấy, có loại tã nào không chứa gel siêu thấm hay chất tẩy trắng clo để an toàn hơn cho da bé không ạ?",1195,845,350,5720.1011999859475,0.95
+C,1,"Em lo ngại các hóa chất trong tã giấy, có loại tã nào không chứa gel siêu thấm hay chất tẩy trắng clo để an toàn hơn cho da bé không ạ?",3502,3230,272,25682.61119996896,0.8
+D,1,"Em lo ngại các hóa chất trong tã giấy, có loại tã nào không chứa gel siêu thấm hay chất tẩy trắng clo để an toàn hơn cho da bé không ạ?",3931,3561,370,32546.836500056088,0.85
+A,2,Sữa mẹ chứa bao nhiêu phần trăm là nước?,2755,2388,367,5186.111800023355,0.85
+B,2,Sữa mẹ chứa bao nhiêu phần trăm là nước?,767,516,251,1419.440100027714,0.85
+C,2,Sữa mẹ chứa bao nhiêu phần trăm là nước?,2829,2786,43,888.4383999975398,0.8
+D,2,Sữa mẹ chứa bao nhiêu phần trăm là nước?,1052,759,293,2085.5289999744855,0.85
+A,3,"Làm sao để em giúp bé nhận biết và học tên các màu sắc, hình khối một cách tự nhiên nhất ạ?",2679,2081,598,3285.66980001051,0.65
+B,3,"Làm sao để em giúp bé nhận biết và học tên các màu sắc, hình khối một cách tự nhiên nhất ạ?",1317,654,663,2333.7535000173375,0.8
+C,3,"Làm sao để em giúp bé nhận biết và học tên các màu sắc, hình khối một cách tự nhiên nhất ạ?",4274,3833,441,1536.323899985291,0.8
+D,3,"Làm sao để em giúp bé nhận biết và học tên các màu sắc, hình khối một cách tự nhiên nhất ạ?",1116,782,334,1692.765399988275,0.8
+A,4,Sữa non của em màu vàng và đặc thì có tốt cho bé không ạ?,2986,2642,344,14601.369699987117,0.2
+B,4,Sữa non của em màu vàng và đặc thì có tốt cho bé không ạ?,1004,726,278,1467.583499965258,0.2
+C,4,Sữa non của em màu vàng và đặc thì có tốt cho bé không ạ?,4555,4358,197,34627.50750000123,0.85
+D,4,Sữa non của em màu vàng và đặc thì có tốt cho bé không ạ?,1012,776,236,1539.8308000294492,0.2
+A,5,"Em mới sinh bé xong, trong mấy tiếng đầu bác sĩ sẽ theo dõi em thế nào?",2655,2438,217,1857.9586000414565,0.2
+B,5,"Em mới sinh bé xong, trong mấy tiếng đầu bác sĩ sẽ theo dõi em thế nào?",1110,627,483,1805.215500004124,0.2
+C,5,"Em mới sinh bé xong, trong mấy tiếng đầu bác sĩ sẽ theo dõi em thế nào?",2920,2540,380,1555.6475999765098,0.2
+D,5,"Em mới sinh bé xong, trong mấy tiếng đầu bác sĩ sẽ theo dõi em thế nào?",3672,3255,417,17672.25350002991,0.2
+A,6,"Em có cần phải đánh giá lại sự phát triển của bé thường xuyên không, hay chỉ cần thực hiện một lần khi bé có dấu hiệu lạ ạ?",3034,2739,295,1605.7042000466026,0.85
+B,6,"Em có cần phải đánh giá lại sự phát triển của bé thường xuyên không, hay chỉ cần thực hiện một lần khi bé có dấu hiệu lạ ạ?",1596,885,711,1966.4761999738403,0.95
+C,6,"Em có cần phải đánh giá lại sự phát triển của bé thường xuyên không, hay chỉ cần thực hiện một lần khi bé có dấu hiệu lạ ạ?",3262,2890,372,18793.72900002636,0.95
+D,6,"Em có cần phải đánh giá lại sự phát triển của bé thường xuyên không, hay chỉ cần thực hiện một lần khi bé có dấu hiệu lạ ạ?",3326,2640,686,4476.772499969229,0.95
+A,7,"Em bị đau núm vú quá, có cách nào để bớt đau khi cho con bú không?",2564,2230,334,1627.9072999604978,0.8
+B,7,"Em bị đau núm vú quá, có cách nào để bớt đau khi cho con bú không?",1054,629,425,1609.607300022617,0.85
+C,7,"Em bị đau núm vú quá, có cách nào để bớt đau khi cho con bú không?",2870,2452,418,1415.5828000511974,0.8
+D,7,"Em bị đau núm vú quá, có cách nào để bớt đau khi cho con bú không?",2694,2145,549,9681.369199999608,0.2
+A,8,"Em nghe nói sau sinh không nên ngồi xổm lâu hoặc rặn mạnh khi đi vệ sinh để tránh sa tử cung, có đúng không?",3147,2743,404,9240.57389999507,0.65
+B,8,"Em nghe nói sau sinh không nên ngồi xổm lâu hoặc rặn mạnh khi đi vệ sinh để tránh sa tử cung, có đúng không?",1411,929,482,1788.6298999655992,0.2
+C,8,"Em nghe nói sau sinh không nên ngồi xổm lâu hoặc rặn mạnh khi đi vệ sinh để tránh sa tử cung, có đúng không?",2601,2137,464,72522.99040002981,0.85
+D,8,"Em nghe nói sau sinh không nên ngồi xổm lâu hoặc rặn mạnh khi đi vệ sinh để tránh sa tử cung, có đúng không?",2845,2506,339,2083.5431999876164,0.85
+A,9,Em nghe nói gây tê ngoài màng cứng cũng làm mình bị bí tiểu lâu hơn phải không ạ?,2275,1979,296,1655.8153000078164,0.0
+B,9,Em nghe nói gây tê ngoài màng cứng cũng làm mình bị bí tiểu lâu hơn phải không ạ?,779,556,223,1477.0114999846555,0.0
+C,9,Em nghe nói gây tê ngoài màng cứng cũng làm mình bị bí tiểu lâu hơn phải không ạ?,2984,2538,446,1590.2320999884978,0.2
+D,9,Em nghe nói gây tê ngoài màng cứng cũng làm mình bị bí tiểu lâu hơn phải không ạ?,3107,2692,415,2014.270099985879,0.8
+A,10,Cách xử trí tại nhà khi trẻ sơ sinh bị sốt cao?,2917,2359,558,2085.9137999941595,0.2
+B,10,Cách xử trí tại nhà khi trẻ sơ sinh bị sốt cao?,977,610,367,2040.9287000074983,0.0
+C,10,Cách xử trí tại nhà khi trẻ sơ sinh bị sốt cao?,3213,2844,369,8657.11349999765,0.85
+D,10,Cách xử trí tại nhà khi trẻ sơ sinh bị sốt cao?,3422,2840,582,2420.083099976182,0.2
+A,11,Bệnh thủy đậu ở trẻ nhỏ là như thế nào?,2079,1723,356,1646.923099993728,0.05
+B,11,Bệnh thủy đậu ở trẻ nhỏ là như thế nào?,608,526,82,1425.0002999906428,0.0
+C,11,Bệnh thủy đậu ở trẻ nhỏ là như thế nào?,2590,2121,469,15159.873500000685,0.2
+D,11,Bệnh thủy đậu ở trẻ nhỏ là như thế nào?,2419,2089,330,2126.5392000204884,0.0
+A,12,Phụ nữ Châu Á mang thai nên tăng bao nhiêu kg là hợp lý?,3077,2697,380,14951.523100025952,0.95
+B,12,Phụ nữ Châu Á mang thai nên tăng bao nhiêu kg là hợp lý?,825,549,276,4731.274800025858,0.95
+C,12,Phụ nữ Châu Á mang thai nên tăng bao nhiêu kg là hợp lý?,2769,2704,65,1004.7940000076778,0.95
+D,12,Phụ nữ Châu Á mang thai nên tăng bao nhiêu kg là hợp lý?,2984,2857,127,1870.2979000518098,0.95
+A,13,Những thực phẩm nào mẹ mang thai nên dùng để cung cấp năng lượng?,2168,1719,449,9968.617800041102,0.2
+B,13,Những thực phẩm nào mẹ mang thai nên dùng để cung cấp năng lượng?,1157,552,605,2931.1779999989085,0.05
+C,13,Những thực phẩm nào mẹ mang thai nên dùng để cung cấp năng lượng?,4938,2847,2091,11308.791899995413,0.05
+D,13,Những thực phẩm nào mẹ mang thai nên dùng để cung cấp năng lượng?,1153,767,386,1787.6862999983132,0.2
+A,14,Em thấy sản dịch có màu đen sậm và mùi hôi kèm sốt nhẹ là dấu hiệu gì ạ?,2407,2098,309,16152.739799988922,0.2
+B,14,Em thấy sản dịch có màu đen sậm và mùi hôi kèm sốt nhẹ là dấu hiệu gì ạ?,833,604,229,1651.0988000081852,0.95
+C,14,Em thấy sản dịch có màu đen sậm và mùi hôi kèm sốt nhẹ là dấu hiệu gì ạ?,2283,1944,339,1416.6542000020854,0.85
+D,14,Em thấy sản dịch có màu đen sậm và mùi hôi kèm sốt nhẹ là dấu hiệu gì ạ?,2203,1874,329,1878.882099990733,0.2
+A,15,Thời gian bảo quản sữa mẹ trong ngăn đá tủ lạnh (-18 đến -20°C)?,2981,2906,75,5831.000100006349,0.95
+B,15,Thời gian bảo quản sữa mẹ trong ngăn đá tủ lạnh (-18 đến -20°C)?,1166,930,236,1437.9779000300914,0.0
+C,15,Thời gian bảo quản sữa mẹ trong ngăn đá tủ lạnh (-18 đến -20°C)?,3085,2901,184,1328.6015000194311,0.95
+D,15,Thời gian bảo quản sữa mẹ trong ngăn đá tủ lạnh (-18 đến -20°C)?,3195,3054,141,1712.2877999790944,0.95
+A,16,"em thấy trên thị trường có nhiều loại tã quá, làm sao để em chọn được loại tã giấy vừa vặn và thoải mái nhất cho bé nhà em ạ?",3894,3458,436,18254.42379998276,0.85
+B,16,"em thấy trên thị trường có nhiều loại tã quá, làm sao để em chọn được loại tã giấy vừa vặn và thoải mái nhất cho bé nhà em ạ?",1465,1030,435,1873.3021999942139,0.85
+C,16,"em thấy trên thị trường có nhiều loại tã quá, làm sao để em chọn được loại tã giấy vừa vặn và thoải mái nhất cho bé nhà em ạ?",3906,3381,525,26993.922399997246,0.85
+D,16,"em thấy trên thị trường có nhiều loại tã quá, làm sao để em chọn được loại tã giấy vừa vặn và thoải mái nhất cho bé nhà em ạ?",1057,791,266,1696.2661999859847,0.2
+A,17,Nhau bong non là gì?,2817,2350,467,13674.007900001016,0.0
+B,17,Nhau bong non là gì?,1545,937,608,2713.7770000263117,0.0
+C,17,Nhau bong non là gì?,571,528,43,430.24890002561733,0.0
+D,17,Nhau bong non là gì?,1106,773,333,1936.0924000502564,0.0
+A,18,"Ngoài việc cải thiện chuyện tiểu tiện, tập phục hồi sàn chậu có giúp ích gì cho đời sống vợ chồng sau sinh không ạ?",2853,2450,403,19149.039099982474,0.8
+B,18,"Ngoài việc cải thiện chuyện tiểu tiện, tập phục hồi sàn chậu có giúp ích gì cho đời sống vợ chồng sau sinh không ạ?",1372,914,458,9867.76260001352,0.65
+C,18,"Ngoài việc cải thiện chuyện tiểu tiện, tập phục hồi sàn chậu có giúp ích gì cho đời sống vợ chồng sau sinh không ạ?",3027,2548,479,1640.259200008586,0.8
+D,18,"Ngoài việc cải thiện chuyện tiểu tiện, tập phục hồi sàn chậu có giúp ích gì cho đời sống vợ chồng sau sinh không ạ?",3378,2970,408,2113.2595000090078,0.85
+A,19,Cách phòng bệnh tay chân miệng hiệu quả?,2494,2089,405,1625.744900025893,0.95
+B,19,Cách phòng bệnh tay chân miệng hiệu quả?,853,491,362,1577.2564000217244,0.2
+C,19,Cách phòng bệnh tay chân miệng hiệu quả?,3744,3394,350,1449.6719000162557,0.85
+D,19,Cách phòng bệnh tay chân miệng hiệu quả?,3232,2495,737,2469.1940999473445,0.2
+A,20,Nguyên nhân phổ biến nhất gây băng huyết sau sinh là gì?,2745,2548,197,1797.8181000216864,0.8
+B,20,Nguyên nhân phổ biến nhất gây băng huyết sau sinh là gì?,1087,679,408,1853.5214000148699,0.2
+C,20,Nguyên nhân phổ biến nhất gây băng huyết sau sinh là gì?,2788,2495,293,1447.2293000435457,0.2
+D,20,Nguyên nhân phổ biến nhất gây băng huyết sau sinh là gì?,3065,2508,557,2407.103899982758,0.2
+A,21,Sữa mẹ vắt ra có thể bảo quản ở nhiệt độ thường trong bao lâu?,3342,3261,81,17644.450000021607,0.2
+B,21,Sữa mẹ vắt ra có thể bảo quản ở nhiệt độ thường trong bao lâu?,1146,900,246,1536.586600006558,0.2
+C,21,Sữa mẹ vắt ra có thể bảo quản ở nhiệt độ thường trong bao lâu?,3385,3318,67,31604.102800018154,0.95
+D,21,Sữa mẹ vắt ra có thể bảo quản ở nhiệt độ thường trong bao lâu?,3391,3259,132,1765.595500008203,0.95
+A,22,viêm hạch bạch huyết sau tiêm ngừa lao là gì?,2666,2144,522,1704.7813999815844,0.95
+B,22,viêm hạch bạch huyết sau tiêm ngừa lao là gì?,659,453,206,1303.489100013394,0.2
+C,22,viêm hạch bạch huyết sau tiêm ngừa lao là gì?,3295,2817,478,1821.918400004506,0.95
+D,22,viêm hạch bạch huyết sau tiêm ngừa lao là gì?,2933,2163,770,16916.482100030407,0.95
+A,23,"Làm sao để em biết mình đã mặc tã cho con vừa vặn, không quá chật gây lằn da nhưng cũng không quá lỏng làm tràn tã ạ?",4076,3547,529,10611.751599994022,0.2
+B,23,"Làm sao để em biết mình đã mặc tã cho con vừa vặn, không quá chật gây lằn da nhưng cũng không quá lỏng làm tràn tã ạ?",1488,934,554,1922.7364999824204,0.2
+C,23,"Làm sao để em biết mình đã mặc tã cho con vừa vặn, không quá chật gây lằn da nhưng cũng không quá lỏng làm tràn tã ạ?",3545,3129,416,20894.464200013317,0.2
+D,23,"Làm sao để em biết mình đã mặc tã cho con vừa vặn, không quá chật gây lằn da nhưng cũng không quá lỏng làm tràn tã ạ?",4204,3773,431,7524.270199995954,0.2
+A,24,Trẻ sơ sinh được định nghĩa là trẻ trong độ tuổi nào,3592,3434,158,2685.934300010558,0.0
+B,24,Trẻ sơ sinh được định nghĩa là trẻ trong độ tuổi nào,1061,977,84,5495.999600039795,0.0
+C,24,Trẻ sơ sinh được định nghĩa là trẻ trong độ tuổi nào,4016,3969,47,33632.3481000145,0.0
+D,24,Trẻ sơ sinh được định nghĩa là trẻ trong độ tuổi nào,3124,2794,330,2161.4079999853857,0.0
+A,25,Cần đưa trẻ đi khám ngay khi bị nôn ói?,2537,2125,412,12968.609599978663,0.85
+B,25,Cần đưa trẻ đi khám ngay khi bị nôn ói?,1343,959,384,5037.156599981245,0.0
+C,25,Cần đưa trẻ đi khám ngay khi bị nôn ói?,581,533,48,408.7681999662891,0.0
+D,25,Cần đưa trẻ đi khám ngay khi bị nôn ói?,3299,2693,606,20486.980699992273,0.85
+A,26,Khoảng bao nhiêu ngày thì cổ tử cung của em sẽ đóng kín hoàn toàn sau khi đẻ ạ?,2243,2048,195,8827.6831000112,0.95
+B,26,Khoảng bao nhiêu ngày thì cổ tử cung của em sẽ đóng kín hoàn toàn sau khi đẻ ạ?,1201,1005,196,1369.4904000149108,0.0
+C,26,Khoảng bao nhiêu ngày thì cổ tử cung của em sẽ đóng kín hoàn toàn sau khi đẻ ạ?,2936,2605,331,1587.2891999897547,0.0
+D,26,Khoảng bao nhiêu ngày thì cổ tử cung của em sẽ đóng kín hoàn toàn sau khi đẻ ạ?,905,774,131,1806.7641999805346,0.45
+A,27,Con em đang bị nấm miệng thì em có cần phải tiệt trùng bình sữa hay núm vú giả kỹ hơn bình thường không ạ?,2345,1978,367,8277.32079999987,0.95
+B,27,Con em đang bị nấm miệng thì em có cần phải tiệt trùng bình sữa hay núm vú giả kỹ hơn bình thường không ạ?,1146,663,483,1993.030000012368,0.2
+C,27,Con em đang bị nấm miệng thì em có cần phải tiệt trùng bình sữa hay núm vú giả kỹ hơn bình thường không ạ?,2362,2040,322,1425.4819000489078,0.85
+D,27,Con em đang bị nấm miệng thì em có cần phải tiệt trùng bình sữa hay núm vú giả kỹ hơn bình thường không ạ?,2529,2094,435,9767.092199996114,0.85
+A,28,"Tình trạng đau nhức toàn thân sau sinh của em thì xoa bóp, massage toàn thân như thế nào để hiệu quả ạ?",3281,2864,417,12421.801900025457,0.85
+B,28,"Tình trạng đau nhức toàn thân sau sinh của em thì xoa bóp, massage toàn thân như thế nào để hiệu quả ạ?",1089,752,337,1795.1990999863483,0.2
+C,28,"Tình trạng đau nhức toàn thân sau sinh của em thì xoa bóp, massage toàn thân như thế nào để hiệu quả ạ?",3262,2812,450,11217.913599975873,0.85
+D,28,"Tình trạng đau nhức toàn thân sau sinh của em thì xoa bóp, massage toàn thân như thế nào để hiệu quả ạ?",1163,789,374,6102.936099981889,0.85
+A,29,"Tại sao sau khi sinh em lại thấy tức vùng bụng dưới, tia nước tiểu rất chậm và nhỏ giọt ạ?",2668,2153,515,2076.2771000154316,0.95
+B,29,"Tại sao sau khi sinh em lại thấy tức vùng bụng dưới, tia nước tiểu rất chậm và nhỏ giọt ạ?",1063,680,383,4223.683300020639,0.2
+C,29,"Tại sao sau khi sinh em lại thấy tức vùng bụng dưới, tia nước tiểu rất chậm và nhỏ giọt ạ?",3231,2722,509,28341.504200012423,0.2
+D,29,"Tại sao sau khi sinh em lại thấy tức vùng bụng dưới, tia nước tiểu rất chậm và nhỏ giọt ạ?",3218,2740,478,2490.1911999913864,0.2

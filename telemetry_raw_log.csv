@@ -1,0 +1,81 @@
+﻿config,question_idx,question,tokens,latency_ms,faithfulness
+A,0,"Bé nhà em hay hỏi ""Tại sao?"" liên tục, đôi khi em thấy rất mệt mỏi, em có nên trả lời hết các câu hỏi đó không?",2986,11480.549100000644,0.8
+B,0,"Bé nhà em hay hỏi ""Tại sao?"" liên tục, đôi khi em thấy rất mệt mỏi, em có nên trả lời hết các câu hỏi đó không?",1404,2087.946500018006,0.95
+C,0,"Bé nhà em hay hỏi ""Tại sao?"" liên tục, đôi khi em thấy rất mệt mỏi, em có nên trả lời hết các câu hỏi đó không?",821,890.8908999874257,0.95
+D,0,"Bé nhà em hay hỏi ""Tại sao?"" liên tục, đôi khi em thấy rất mệt mỏi, em có nên trả lời hết các câu hỏi đó không?",1047,1654.4364000146743,0.85
+A,1,"Em lo ngại các hóa chất trong tã giấy, có loại tã nào không chứa gel siêu thấm hay chất tẩy trắng clo để an toàn hơn cho da bé không ạ?",3486,1740.9324999898672,0.8
+B,1,"Em lo ngại các hóa chất trong tã giấy, có loại tã nào không chứa gel siêu thấm hay chất tẩy trắng clo để an toàn hơn cho da bé không ạ?",1308,1830.6553000002168,0.85
+C,1,"Em lo ngại các hóa chất trong tã giấy, có loại tã nào không chứa gel siêu thấm hay chất tẩy trắng clo để an toàn hơn cho da bé không ạ?",3527,4500.74869999662,0.85
+D,1,"Em lo ngại các hóa chất trong tã giấy, có loại tã nào không chứa gel siêu thấm hay chất tẩy trắng clo để an toàn hơn cho da bé không ạ?",3988,30532.208899996476,0.85
+A,2,Sữa mẹ chứa bao nhiêu phần trăm là nước?,2669,5323.959200002719,0.95
+B,2,Sữa mẹ chứa bao nhiêu phần trăm là nước?,720,1549.589800008107,0.85
+C,2,Sữa mẹ chứa bao nhiêu phần trăm là nước?,2829,1048.7312999903224,0.8
+D,2,Sữa mẹ chứa bao nhiêu phần trăm là nước?,1085,1691.0313999978825,0.85
+A,3,"Làm sao để em giúp bé nhận biết và học tên các màu sắc, hình khối một cách tự nhiên nhất ạ?",4116,12375.590100011323,0.8
+B,3,"Làm sao để em giúp bé nhận biết và học tên các màu sắc, hình khối một cách tự nhiên nhất ạ?",1164,2379.1730999946594,0.65
+C,3,"Làm sao để em giúp bé nhận biết và học tên các màu sắc, hình khối một cách tự nhiên nhất ạ?",4394,5009.774200007087,0.2
+D,3,"Làm sao để em giúp bé nhận biết và học tên các màu sắc, hình khối một cách tự nhiên nhất ạ?",1124,5960.642799997004,0.8
+A,4,Sữa non của em màu vàng và đặc thì có tốt cho bé không ạ?,2946,19989.65619999217,0.2
+B,4,Sữa non của em màu vàng và đặc thì có tốt cho bé không ạ?,1029,6620.370799995726,0.0
+C,4,Sữa non của em màu vàng và đặc thì có tốt cho bé không ạ?,4574,39977.682999975514,0.85
+D,4,Sữa non của em màu vàng và đặc thì có tốt cho bé không ạ?,1043,1972.121499973582,0.0
+A,5,"Em mới sinh bé xong, trong mấy tiếng đầu bác sĩ sẽ theo dõi em thế nào?",2642,1759.8485000198707,0.8
+B,5,"Em mới sinh bé xong, trong mấy tiếng đầu bác sĩ sẽ theo dõi em thế nào?",1049,1750.3269000153523,0.2
+C,5,"Em mới sinh bé xong, trong mấy tiếng đầu bác sĩ sẽ theo dõi em thế nào?",2262,1478.4016000048723,0.8
+D,5,"Em mới sinh bé xong, trong mấy tiếng đầu bác sĩ sẽ theo dõi em thế nào?",3550,6638.599700003397,0.2
+A,6,"Em có cần phải đánh giá lại sự phát triển của bé thường xuyên không, hay chỉ cần thực hiện một lần khi bé có dấu hiệu lạ ạ?",3158,1875.6060000159778,0.95
+B,6,"Em có cần phải đánh giá lại sự phát triển của bé thường xuyên không, hay chỉ cần thực hiện một lần khi bé có dấu hiệu lạ ạ?",1529,1813.3120999846142,0.95
+C,6,"Em có cần phải đánh giá lại sự phát triển của bé thường xuyên không, hay chỉ cần thực hiện một lần khi bé có dấu hiệu lạ ạ?",3236,17123.906299995724,0.95
+D,6,"Em có cần phải đánh giá lại sự phát triển của bé thường xuyên không, hay chỉ cần thực hiện một lần khi bé có dấu hiệu lạ ạ?",3261,9944.320400012657,0.8
+A,7,"Em bị đau núm vú quá, có cách nào để bớt đau khi cho con bú không?",2553,12862.075300014112,0.8
+B,7,"Em bị đau núm vú quá, có cách nào để bớt đau khi cho con bú không?",1071,5839.831599994795,0.2
+C,7,"Em bị đau núm vú quá, có cách nào để bớt đau khi cho con bú không?",2911,8791.736999992281,0.8
+D,7,"Em bị đau núm vú quá, có cách nào để bớt đau khi cho con bú không?",2570,14474.61399997701,0.8
+A,8,"Em nghe nói sau sinh không nên ngồi xổm lâu hoặc rặn mạnh khi đi vệ sinh để tránh sa tử cung, có đúng không?",3001,25293.50100000738,0.8
+B,8,"Em nghe nói sau sinh không nên ngồi xổm lâu hoặc rặn mạnh khi đi vệ sinh để tránh sa tử cung, có đúng không?",1328,1726.6801999940071,0.2
+C,8,"Em nghe nói sau sinh không nên ngồi xổm lâu hoặc rặn mạnh khi đi vệ sinh để tránh sa tử cung, có đúng không?",2610,1829.5591000060085,0.85
+D,8,"Em nghe nói sau sinh không nên ngồi xổm lâu hoặc rặn mạnh khi đi vệ sinh để tránh sa tử cung, có đúng không?",2873,2226.5638999815565,0.8
+A,9,Em nghe nói gây tê ngoài màng cứng cũng làm mình bị bí tiểu lâu hơn phải không ạ?,2298,3340.2475000184495,0.2
+B,9,Em nghe nói gây tê ngoài màng cứng cũng làm mình bị bí tiểu lâu hơn phải không ạ?,704,3483.3674999827053,0.0
+C,9,Em nghe nói gây tê ngoài màng cứng cũng làm mình bị bí tiểu lâu hơn phải không ạ?,2594,4308.133900020039,0.0
+D,9,Em nghe nói gây tê ngoài màng cứng cũng làm mình bị bí tiểu lâu hơn phải không ạ?,3175,2529.4916999991983,0.85
+A,10,Cách xử trí tại nhà khi trẻ sơ sinh bị sốt cao?,2993,15566.306299995631,0.95
+B,10,Cách xử trí tại nhà khi trẻ sơ sinh bị sốt cao?,996,5202.964800002519,0.0
+C,10,Cách xử trí tại nhà khi trẻ sơ sinh bị sốt cao?,3258,1666.580699995393,0.95
+D,10,Cách xử trí tại nhà khi trẻ sơ sinh bị sốt cao?,3547,23287.728700001026,0.85
+A,11,Bệnh thủy đậu ở trẻ nhỏ là như thế nào?,2156,2479.4591999961995,0.85
+B,11,Bệnh thủy đậu ở trẻ nhỏ là như thế nào?,608,1442.3214000125881,0.0
+C,11,Bệnh thủy đậu ở trẻ nhỏ là như thế nào?,2514,3125.333900010446,0.05
+D,11,Bệnh thủy đậu ở trẻ nhỏ là như thế nào?,2380,2224.721699982183,0.0
+A,12,Phụ nữ Châu Á mang thai nên tăng bao nhiêu kg là hợp lý?,3058,2057.6950999966357,0.85
+B,12,Phụ nữ Châu Á mang thai nên tăng bao nhiêu kg là hợp lý?,945,1959.7587999887764,0.95
+C,12,Phụ nữ Châu Á mang thai nên tăng bao nhiêu kg là hợp lý?,2918,1402.6604999962728,0.8
+D,12,Phụ nữ Châu Á mang thai nên tăng bao nhiêu kg là hợp lý?,3177,2395.2056000125594,0.95
+A,13,Những thực phẩm nào mẹ mang thai nên dùng để cung cấp năng lượng?,2107,7118.133799987845,0.2
+B,13,Những thực phẩm nào mẹ mang thai nên dùng để cung cấp năng lượng?,1158,2028.4966000181157,0.2
+C,13,Những thực phẩm nào mẹ mang thai nên dùng để cung cấp năng lượng?,3223,19035.782399994787,0.2
+D,13,Những thực phẩm nào mẹ mang thai nên dùng để cung cấp năng lượng?,1111,1752.6711000245996,0.2
+A,14,Em thấy sản dịch có màu đen sậm và mùi hôi kèm sốt nhẹ là dấu hiệu gì ạ?,2352,1749.1834000102244,0.85
+B,14,Em thấy sản dịch có màu đen sậm và mùi hôi kèm sốt nhẹ là dấu hiệu gì ạ?,689,1399.791700008791,0.0
+C,14,Em thấy sản dịch có màu đen sậm và mùi hôi kèm sốt nhẹ là dấu hiệu gì ạ?,2180,1281.6053999995347,0.85
+D,14,Em thấy sản dịch có màu đen sậm và mùi hôi kèm sốt nhẹ là dấu hiệu gì ạ?,2274,2081.2277999939397,0.2
+A,15,Thời gian bảo quản sữa mẹ trong ngăn đá tủ lạnh (-18 đến -20°C)?,2977,15917.81469999114,0.95
+B,15,Thời gian bảo quản sữa mẹ trong ngăn đá tủ lạnh (-18 đến -20°C)?,1155,1628.8706000195816,0.2
+C,15,Thời gian bảo quản sữa mẹ trong ngăn đá tủ lạnh (-18 đến -20°C)?,2980,16475.505099981092,0.95
+D,15,Thời gian bảo quản sữa mẹ trong ngăn đá tủ lạnh (-18 đến -20°C)?,3229,27605.626000004122,0.85
+A,16,"em thấy trên thị trường có nhiều loại tã quá, làm sao để em chọn được loại tã giấy vừa vặn và thoải mái nhất cho bé nhà em ạ?",3959,2388.526399998227,0.85
+B,16,"em thấy trên thị trường có nhiều loại tã quá, làm sao để em chọn được loại tã giấy vừa vặn và thoải mái nhất cho bé nhà em ạ?",1503,1854.170200007502,0.85
+C,16,"em thấy trên thị trường có nhiều loại tã quá, làm sao để em chọn được loại tã giấy vừa vặn và thoải mái nhất cho bé nhà em ạ?",3824,13421.586000011303,0.85
+D,16,"em thấy trên thị trường có nhiều loại tã quá, làm sao để em chọn được loại tã giấy vừa vặn và thoải mái nhất cho bé nhà em ạ?",1062,4938.871199992718,0.2
+A,17,Nhau bong non là gì?,2918,23202.09160001832,0.0
+B,17,Nhau bong non là gì?,1304,5499.076700012665,0.0
+C,17,Nhau bong non là gì?,571,416.07740000472404,0.0
+D,17,Nhau bong non là gì?,1056,1821.835300012026,0.0
+A,18,"Ngoài việc cải thiện chuyện tiểu tiện, tập phục hồi sàn chậu có giúp ích gì cho đời sống vợ chồng sau sinh không ạ?",2894,2048.717800003942,0.2
+B,18,"Ngoài việc cải thiện chuyện tiểu tiện, tập phục hồi sàn chậu có giúp ích gì cho đời sống vợ chồng sau sinh không ạ?",1340,1901.6656999883708,0.8
+C,18,"Ngoài việc cải thiện chuyện tiểu tiện, tập phục hồi sàn chậu có giúp ích gì cho đời sống vợ chồng sau sinh không ạ?",2994,10242.798599996604,0.85
+D,18,"Ngoài việc cải thiện chuyện tiểu tiện, tập phục hồi sàn chậu có giúp ích gì cho đời sống vợ chồng sau sinh không ạ?",3490,4718.397299991921,0.85
+A,19,Cách phòng bệnh tay chân miệng hiệu quả?,2398,15960.893200011924,0.95
+B,19,Cách phòng bệnh tay chân miệng hiệu quả?,644,1464.483999996446,0.0
+C,19,Cách phòng bệnh tay chân miệng hiệu quả?,3790,1599.646799993934,0.85
+D,19,Cách phòng bệnh tay chân miệng hiệu quả?,3114,4872.890899976483,0.2
