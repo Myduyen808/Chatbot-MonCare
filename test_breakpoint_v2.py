@@ -1,10 +1,10 @@
 """
-So sánh Điểm Gãy Ngữ Cảnh v2 — Tiêu chí chặt hơn
+Đánh giá duy trì ngữ cảnh v3 — Tiêu chí chặt và không tính lượt bỏ qua
 ===================================================
-Tiêu chí mới: AI phải trả lời ĐÚNG với độ tuổi 6 tháng
-(không chỉ có chữ "bé" là pass)
+Tiêu chí: phản hồi phải thể hiện đúng ngữ cảnh trẻ 6 tháng hoặc người mẹ,
+không chỉ dựa vào các từ chung như "bé" hay "trẻ".
 
-Cách chạy: python test_breakpoint_v2.py
+Cách chạy: python test_breakpoint_v2_fixed.py
 """
 
 import time
@@ -94,7 +94,7 @@ SCENARIO_B = [
     (13, "Mẹ tôi bảo kiêng tắm cả tháng sau sinh.",
          "mẹ",      "Chuyển hẳn sang chủ đề mẹ"),
     (14, "Đúng không?",
-         "6 tháng", "Câu 2 từ - không rõ hỏi gì"),
+         "mẹ", "Câu nối tiếp chủ đề mẹ sau sinh"),
     (15, "Tiếp tục đi.",
          "6 tháng", "Câu không có nội dung"),
     (16, "Còn gì nữa không?",
@@ -116,25 +116,9 @@ SCENARIO_B = [
 # Danh sách nội dung ĐẶC THÙ của bé 6 tháng
 # (không xuất hiện ở độ tuổi khác)
 CONTEXT_6_MONTHS = [
-    # Con số tuổi rõ ràng
-    "6 tháng", "sáu tháng", "6-8 tháng", "6 đến 8",
-    # Ăn dặm
-    "ăn dặm", "bắt đầu ăn", "tháng thứ 6",
-    # Tiêm chủng
-    "cúm", "tiêm nhắc", "mũi 3",
-    # Vận động
-    "lật", "ngồi có đỡ", "chống tay",
-    # Vitamin
-    "vitamin d", "vitamin a", "sắt",
-    # Cân nặng
-    "7 kg", "8 kg", "7,5", "7.5",
-    # Giấc ngủ
-    "14 tiếng", "15 tiếng", "14-15",
-    # THÊM MỚI — từ khóa chung hơn cho câu về tắm, nhận biết, v.v.
-    "trẻ sơ sinh", "trẻ nhỏ", "em bé", "bú mẹ",
-    "tắm", "vệ sinh", "nhận biết", "nghe nhạc",
-    "phát triển", "mọc răng", "nước dãi",
-    "bình thường", "không sao", "không cần",
+    "6 tháng", "sáu tháng", "6-8 tháng", "6 đến 8 tháng", "tháng thứ 6",
+    "bắt đầu ăn dặm", "tập ăn dặm", "tập lật", "biết lật",
+    "ngồi có hỗ trợ", "ngồi có đỡ", "mọc răng sữa", "chảy nước dãi",
 ]
 
 CONTEXT_MOM = [
@@ -162,14 +146,6 @@ def check_context_strict(answer: str, expected_context: str) -> tuple:
         if len(answer.strip()) < 20:
             return False, "Trả lời quá ngắn"
 
-        # THÊM: Pass nếu câu hỏi là cảm xúc/không liên quan y tế
-        # → AI không thể trả lời về 6 tháng, không phải lỗi hệ thống
-        non_medical = [
-            "hay quên", "tiếp tục", "còn gì", "nhắc lại",
-            "sao?", "đúng không", "mấy tháng rồi"
-        ]
-        # Lấy câu hỏi từ context (không có trong hàm này)
-        # → Xử lý ở run_scenario thay vì ở đây
 
         return False, "Không có từ khóa đặc thù 6 tháng"
 
@@ -185,16 +161,11 @@ def check_context_strict(answer: str, expected_context: str) -> tuple:
 # Câu không thể đánh giá ngữ cảnh (phi y tế hoàn toàn)
 SKIP_EVAL_QUESTIONS = [
     "tôi hay quên lắm",
-    "nhắc lại đi",
-    "tiếp tục đi",
-    "còn gì nữa không",
-    "sao?",
-    "đúng không?",
-    "mấy tháng rồi nhỉ",
     "giá sữa bây giờ bao nhiêu",
+    "nước xả vải được không",
 ]
 
-def run_scenario(scenario, scenario_name, chain_k=3):
+def run_scenario(scenario, scenario_name, chain_k=5):
     chain   = RAGChain(k=chain_k)
     history = []
     results = []
@@ -229,23 +200,32 @@ def run_scenario(scenario, scenario_name, chain_k=3):
             error_413  = "413" in answer or "too large" in answer.lower()
 
             if skip_eval:
-                context_ok = True  # không đánh giá câu phi y tế
-                reason     = "⏭️ Skip (câu phi y tế)"
+                context_ok = None
+                reason = "Bỏ qua khi tính tỷ lệ (câu nhiễu ngoài mục tiêu)"
             else:
                 context_ok, reason = check_context_strict(answer, expected_ctx)
 
             history.append(HumanMessage(content=question))
             history.append(AIMessage(content=answer))
 
-            if not context_ok and not skip_eval and first_fail is None:
+            if context_ok is False and first_fail is None:
                 first_fail = turn_num
 
-            status = "✅ OK" if (context_ok and not error_413) else \
-                     "❌ 413" if error_413 else "⚠️  Mất ngữ cảnh"
+            if error_413:
+                status = "❌ 413"
+            elif skip_eval:
+                status = "⏭️ Bỏ qua đánh giá"
+            elif context_ok:
+                status = "✅ Đạt"
+            else:
+                status = "⚠️ Không đạt"
 
             print(f"  Thời gian : {elapsed:.2f}s | Docs: {docs_count} | {status}")
             print(f"  Trả lời   : {answer[:120]}...")
-            print(f"  Ngữ cảnh  : {'✅' if context_ok else '❌'} {reason}")
+            if skip_eval:
+                print(f"  Ngữ cảnh  : ⏭️ {reason}")
+            else:
+                print(f"  Ngữ cảnh  : {'✅' if context_ok else '❌'} {reason}")
             print(f"  History   : {len(history)} dòng ({len(history)//2} lượt)")
 
         except Exception as e:
@@ -283,7 +263,7 @@ def run_scenario(scenario, scenario_name, chain_k=3):
 # ══════════════════════════════════════════════════════════════════════════════
 # CHẠY 2 KỊCH BẢN
 # ══════════════════════════════════════════════════════════════════════════════
-print("🚀 BẮT ĐẦU SO SÁNH ĐIỂM GÃY — Tiêu chí chặt v2")
+print("🚀 BẮT ĐẦU ĐÁNH GIÁ DUY TRÌ NGỮ CẢNH — Tiêu chí chặt v3")
 print("   Kịch bản A: Câu hỏi luôn nhắc tuổi → Gãy muộn/không gãy")
 print("   Kịch bản B: Câu hỏi ngắn mơ hồ, lạc đề → Gãy sớm")
 
@@ -298,48 +278,50 @@ results_b, fail_b = run_scenario(SCENARIO_B, "B (Mơ hồ, lạc đề)")
 # ══════════════════════════════════════════════════════════════════════════════
 all_results = results_a + results_b
 df = pd.DataFrame(all_results)
-df.to_csv('breakpoint_v2_report.csv',   index=False, encoding='utf-8-sig')
-df.to_excel('breakpoint_v2_report.xlsx', index=False)
+df.to_csv('breakpoint_v2_fixed_report.csv', index=False, encoding='utf-8-sig')
+df.to_excel('breakpoint_v2_fixed_report.xlsx', index=False)
 
 def summarize(results, name, first_fail):
-    ok_count = sum(1 for r in results if r["context_ok"])
-    avg_time = sum(r["elapsed_s"] for r in results) / len(results)
-    has_413  = any(r["error_413"] for r in results)
-    fail_turns = [r["turn"] for r in results if not r["context_ok"]]
+    evaluated_results = [r for r in results if not r["skip_eval"]]
+    ok_count = sum(1 for r in evaluated_results if r["context_ok"] is True)
+    fail_turns = [r["turn"] for r in evaluated_results if r["context_ok"] is False]
+    avg_time = sum(r["elapsed_s"] for r in results) / len(results) if results else 0.0
+    has_413 = any(r["error_413"] for r in results)
+    evaluated_count = len(evaluated_results)
 
     print(f"\n  {'─'*60}")
     print(f"  Kịch bản {name}:")
-    print(f"    Điểm gãy lần đầu   : Lượt {first_fail if first_fail else 'Không gãy ✅'}")
-    print(f"    Các lượt mất ngữ cảnh: {fail_turns if fail_turns else 'Không có'}")
-    print(f"    Tổng duy trì đúng  : {ok_count}/{len(results)} "
-          f"({ok_count/len(results)*100:.1f}%)")
-    print(f"    Thời gian TB       : {avg_time:.2f}s/lượt")
-    print(f"    Lỗi 413            : {'Có ❌' if has_413 else 'Không ✅'}")
+    print(f"    Lượt không đạt đầu tiên: {first_fail if first_fail else 'Không có'}")
+    print(f"    Các lượt không đạt     : {fail_turns if fail_turns else 'Không có'}")
+    print(f"    Số lượt được đánh giá  : {evaluated_count}/{len(results)}")
+    if evaluated_count > 0:
+        print(f"    Tổng duy trì đúng      : {ok_count}/{evaluated_count} ({ok_count/evaluated_count*100:.1f}%)")
+    else:
+        print("    Tổng duy trì đúng      : Không có lượt để đánh giá")
+    print(f"    Thời gian TB           : {avg_time:.2f}s/lượt")
+    print(f"    Lỗi 413                : {'Có' if has_413 else 'Không'}")
 
 print("\n" + "═"*70)
-print("  KẾT QUẢ SO SÁNH ĐIỂM GÃY (Tiêu chí chặt v2)")
+print("  KẾT QUẢ ĐÁNH GIÁ DUY TRÌ NGỮ CẢNH (v3)")
 print("═"*70)
 summarize(results_a, "A (Nhắc tuổi rõ)", fail_a)
 summarize(results_b, "B (Mơ hồ, lạc đề)", fail_b)
 
 print(f"\n  {'─'*60}")
-print(f"  PHÂN TÍCH SO SÁNH:")
-ok_a = sum(1 for r in results_a if r["context_ok"])
-ok_b = sum(1 for r in results_b if r["context_ok"])
-print(f"    Kịch bản A duy trì : {ok_a}/20 lượt ({ok_a*5}%)")
-print(f"    Kịch bản B duy trì : {ok_b}/20 lượt ({ok_b*5}%)")
+print("  PHÂN TÍCH SO SÁNH:")
 
-if fail_a and fail_b:
-    print(f"    Kịch bản A gãy lượt {fail_a}, B gãy lượt {fail_b}")
-    print(f"    → Nhắc tuổi rõ giúp duy trì lâu hơn {fail_b - fail_a} lượt")
-elif not fail_a and fail_b:
-    print(f"    Kịch bản A: Không gãy ✅")
-    print(f"    Kịch bản B gãy lượt: {fail_b}")
-    print(f"    → Query Rewriting hoạt động tốt khi câu hỏi rõ ngữ cảnh")
-    print(f"      nhưng gãy ở lượt {fail_b} khi câu quá mơ hồ/lạc đề")
-elif not fail_a and not fail_b:
-    print(f"    Cả 2 kịch bản không gãy trong 20 lượt")
-    print(f"    → Cần chạy thêm 30 lượt để tìm điểm gãy")
+evaluated_a = [r for r in results_a if not r["skip_eval"]]
+evaluated_b = [r for r in results_b if not r["skip_eval"]]
+ok_a = sum(1 for r in evaluated_a if r["context_ok"] is True)
+ok_b = sum(1 for r in evaluated_b if r["context_ok"] is True)
+rate_a = ok_a / len(evaluated_a) * 100 if evaluated_a else 0.0
+rate_b = ok_b / len(evaluated_b) * 100 if evaluated_b else 0.0
 
-print(f"\n✅ Lưu: breakpoint_v2_report.csv | .xlsx")
+print(f"    Kịch bản A duy trì: {ok_a}/{len(evaluated_a)} lượt ({rate_a:.1f}%)")
+print(f"    Kịch bản B duy trì: {ok_b}/{len(evaluated_b)} lượt ({rate_b:.1f}%)")
+print(f"    Lượt không đạt đầu tiên của A: {fail_a if fail_a is not None else 'Không có'}")
+print(f"    Lượt không đạt đầu tiên của B: {fail_b if fail_b is not None else 'Không có'}")
+print("    Lưu ý: các lượt skip_eval không được tính vào tỷ lệ duy trì đúng.")
+
+print(f"\n✅ Lưu: breakpoint_v2_fixed_report.csv | breakpoint_v2_fixed_report.xlsx")
 print("═"*70)

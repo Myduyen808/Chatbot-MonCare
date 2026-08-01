@@ -10,6 +10,40 @@ from history_handle import CustomHistory, get_list_names, get_history_id, get_ch
 import llm_chain
 from vectordb import get_list_documents, get_document, delete_document, get_details, create_vectordb_with_file
 
+DEFAULT_TOP_K = 5
+DEFAULT_TEMPERATURE = 0.2
+
+# =========================================================
+# PHẢN HỒI KHÔNG ĐƯỢC DÙNG LÀM NGỮ CẢNH HỘI THOẠI
+# =========================================================
+BLOCKED_RESPONSE_MARKERS = [
+    "MomCare không thể hỗ trợ yêu cầu này",
+    "MomCare không thể xử lý yêu cầu này",
+    "MomCare không thể tư vấn về các sản phẩm không rõ nguồn gốc",
+    "DỪNG LẠI! Hành động này rất nguy hiểm",
+    "MomCare không thể cung cấp thông tin kê đơn",
+    "MomCare không thể tư vấn về liều lượng thuốc",
+    "CẢNH BÁO: Tình trạng của mẹ cần được xử lý Y TẾ NGAY",
+
+    # Phản hồi hỗ trợ sức khỏe tinh thần
+    "Mẹ không đơn độc đâu",
+    "Đường dây hỗ trợ sức khỏe tinh thần",
+    "hãy để người khác giúp mẹ",
+]
+
+
+def is_blocked_or_safety_response(text: str) -> bool:
+    """Kiểm tra phản hồi từ chối hoặc cảnh báo an toàn."""
+    if not text:
+        return False
+
+    normalized_text = text.lower()
+
+    return any(
+        marker.lower() in normalized_text
+        for marker in BLOCKED_RESPONSE_MARKERS
+    )
+
 with open("db_config.yml", "r", encoding="utf-8") as f:
     db_config = yaml.safe_load(f)
 
@@ -31,11 +65,14 @@ section[data-testid="stSidebar"] {background-color: #ffffff; box-shadow: 2px 0 1
 with st.sidebar:
     selected = option_menu(
         "Menu Chính",
-        ["Chatbot", "Phân tích tiếng khóc", "Quản lý Dữ liệu"],
-        icons=['chat', 'mic', 'database'],
+        ["Chatbot", "Quản lý Dữ liệu"],
+        icons=["chat", "database"],
         menu_icon="menu-button-wide",
         default_index=0,
-        styles={"container": {"font-family": "sans-serif"}, "nav-link-selected": {"background-color": "#ff4b4b"}}
+        styles={
+            "container": {"font-family": "sans-serif"},
+            "nav-link-selected": {"background-color": "#ff4b4b"},
+        },
     )
 
 def clear_cache():
@@ -64,11 +101,12 @@ def Chatbot():
     defaults = {
         "clear_input": False,
         "send_input": False,
-        "number_of_documents": 5,
+        "number_of_documents": DEFAULT_TOP_K,
         "rag_chat": True,
         "history_choice": "New Session",
         "locked_session": False,
-        "user_question": ""
+        "user_question": "",
+        "previous_turn_blocked": False,
     }
     for key, val in defaults.items():
         if key not in st.session_state:
@@ -91,7 +129,13 @@ def Chatbot():
     # ── Sidebar ──────────────────────────────────────────────────────────────
     with st.sidebar:
         st.markdown("### ⚙️ Cài đặt Hệ thống")
-        temperature = st.slider("Độ sáng tạo (Temperature)", min_value=0.0, max_value=1.0, value=0.3, step=0.1)
+        temperature = st.slider(
+            "Độ sáng tạo (Temperature)",
+            min_value=0.0,
+            max_value=0.5,
+            value=DEFAULT_TEMPERATURE,
+            step=0.1
+        )
         rag_button = st.toggle("Bật Chế độ RAG", value=st.session_state.rag_chat)
 
         if rag_button != st.session_state.rag_chat:
@@ -100,9 +144,10 @@ def Chatbot():
 
         if st.session_state.rag_chat:
             st.info("🟢 Đang dùng tài liệu.")
-            number_of_documents = st.slider("Số đoạn tài liệu (K)", min_value=1, max_value=15, value=st.session_state.number_of_documents)
-            if number_of_documents != st.session_state.number_of_documents:
-                st.session_state.number_of_documents = number_of_documents
+            st.session_state.number_of_documents = DEFAULT_TOP_K
+            st.caption(
+                "Hệ thống sử dụng 5 đoạn tài liệu phù hợp nhất sau bước tái xếp hạng."
+            )
         else:
             st.warning("🟠 Đang dùng kiến thức chung.")
 
@@ -177,15 +222,71 @@ def Chatbot():
         # Trích xuất 6 tin nhắn gần nhất để làm ngữ cảnh hội thoại, mỗi tin
         # nhắn dài hơn 200 ký tự sẽ được nén qua summarize_history_message()
         # để hạn chế Context Bleeding và tràn token khi gửi tới tầng Rewriter.
+        # =========================================================
+        # LỌC CÁC LƯỢT BỊ CHẶN KHỎI NGỮ CẢNH REWRITER
+        # =========================================================
+        filtered_history = []
+
+        for msg in history.messages:
+            msg_type = msg.get("type", "")
+            content = str(msg.get("content", ""))
+
+            # Nếu phản hồi AI là cảnh báo hoặc từ chối:
+            # - không đưa phản hồi này vào ngữ cảnh;
+            # - xóa luôn câu hỏi người dùng ngay trước đó.
+            if (
+                msg_type == "ai"
+                and is_blocked_or_safety_response(content)
+            ):
+                if (
+                    filtered_history
+                    and filtered_history[-1].get("type") == "human"
+                ):
+                    filtered_history.pop()
+
+                print(
+                    "🛡️ [HISTORY FILTER] "
+                    "Đã loại một lượt bị chặn khỏi ngữ cảnh Rewriter."
+                )
+                continue
+
+            filtered_history.append(msg)
+
+
+        # Chỉ lấy 6 tin nhắn an toàn gần nhất
         chat_history_messages = []
-        for msg in history.messages[-6:]:
-            content = msg["content"]
+
+        for msg in filtered_history[-6:]:
+            content = str(msg.get("content", ""))
+
             if len(content) > 200:
                 content = llm_chain.summarize_history_message(content)
-            if msg["type"] == "human":
-                chat_history_messages.append(HumanMessage(content=content))
+
+            if msg.get("type") == "human":
+                chat_history_messages.append(
+                    HumanMessage(content=content)
+                )
             else:
-                chat_history_messages.append(AIMessage(content=content))
+                chat_history_messages.append(
+                    AIMessage(content=content)
+                )
+
+
+        # Debug: kiểm tra lịch sử thực sự gửi sang Rewriter
+        print("\n📚 [DEBUG HISTORY SENT TO REWRITER]")
+        print(f"Số tin nhắn: {len(chat_history_messages)}")
+
+        for index, message in enumerate(
+            chat_history_messages,
+            start=1
+        ):
+            print(
+                f"{index}. "
+                f"{message.__class__.__name__}: "
+                f"{message.content[:150]}"
+            )
+
+        print("------------------------------------\n")
 
         with chat_container:
             st.chat_message('human').write(user_text)
@@ -195,7 +296,7 @@ def Chatbot():
                 try:
                     if st.session_state.rag_chat:
                         rag_chain = llm_chain.load_rag_chain_with_sources(
-                            number_of_documents=st.session_state.number_of_documents,
+                            number_of_documents=DEFAULT_TOP_K,
                             temperature=temperature
                         )
                         result = rag_chain.invoke({"question": user_text, "history": chat_history_messages})
@@ -215,29 +316,51 @@ def Chatbot():
                     if st.session_state.rag_chat and source_docs:
                         with st.expander("📎 Xem nguồn tài liệu", expanded=False):
                             st.success(f"✅ Tìm thấy {len(source_docs)} nguồn tài liệu")
-                            for i, doc in enumerate(source_docs):
-                                source_name = doc.metadata.get('source', 'Không rõ')
-                                st.info(f"**📄 {i+1}:** `{source_name}`\n\n{doc.page_content[:500]}...")
+                            for i, doc in enumerate(source_docs, start=1):
+                                source_name = doc.metadata.get(
+                                    "source",
+                                    "Không rõ"
+                                )
+                                page = doc.metadata.get(
+                                    "page_display",
+                                    doc.metadata.get("page", "Không xác định")
+                                )
+                                chunk_id = doc.metadata.get(
+                                    "chunk_id",
+                                    "Không xác định"
+                                )
+                                file_type = doc.metadata.get(
+                                    "file_type",
+                                    "Không xác định"
+                                )
 
+                                st.info(
+                                    f"**📄 Nguồn {i}:** `{source_name}`  \n"
+                                    f"**Loại:** `{file_type}` | "
+                                    f"**Trang:** `{page}` | "
+                                    f"**Chunk:** `{chunk_id}`  \n\n"
+                                    f"{doc.page_content[:500]}..."
+                                )
                 except Exception as e:
                     import traceback
                     st.error(f"Lỗi: {e}")
                     print(traceback.format_exc())
                     response = "Xin lỗi, tôi đang gặp sự cố."
 
-        # Chặn Guardrails cảnh báo nếu bot từ chối trả lời, chỉ lưu các hội thoại hợp lệ
-        is_blocked_response = any(kw in response for kw in [
-            "MomCare không thể hỗ trợ yêu cầu này", 
-            "MomCare không thể tư vấn về các sản phẩm không rõ nguồn gốc",
-            "DỪNG LẠI! Hành động này rất nguy hiểm",
-            "MomCare không thể cung cấp thông tin kê đơn",
-            "MomCare không thể tư vấn về liều lượng thuốc",
-            "CẢNH BÁO: Tình trạng của mẹ cần được xử lý Y TẾ NGAY"
-        ])
-        
-        if not is_blocked_response:
-            history.add_a_conversation(user_text, response)
-            
+        # Luôn lưu mọi lượt để giao diện giữ nguyên cuộc trò chuyện
+        history.add_a_conversation(user_text, response)
+
+        if is_blocked_or_safety_response(response):
+            st.session_state.previous_turn_blocked = True
+
+            print(
+                "🛡️ [HISTORY] Đã lưu để hiển thị, "
+                "nhưng sẽ loại khỏi ngữ cảnh Rewriter."
+            )
+        else:
+            st.session_state.previous_turn_blocked = False
+            print("💾 [HISTORY] Đã lưu lượt hội thoại hợp lệ.")
+                    
 
 # ════════════════════════════════════════
 def _show_analysis_result(reason, reason_vi, confidence, acoustic_desc, source_type, REASON_TO_QUERY_MAP):
@@ -276,8 +399,17 @@ def _show_analysis_result(reason, reason_vi, confidence, acoustic_desc, source_t
 
         with st.spinner("🤱 MomCare đang tìm kiếm tài liệu y khoa phù hợp..."):
             try:
-                rag_chain = llm_chain.load_rag_chain_with_sources(number_of_documents=5, temperature=0.3)
-                result = rag_chain.invoke({"question": f"[AUDIO_QUERY] {rag_query}", "history": []})
+                rag_chain = llm_chain.load_rag_chain_with_sources(
+                    number_of_documents=DEFAULT_TOP_K,
+                    temperature=DEFAULT_TEMPERATURE
+                )
+                result = rag_chain.invoke({
+                    "question": user_text,
+                    "history": chat_history_messages,
+                    "previous_turn_blocked": (
+                        st.session_state.previous_turn_blocked
+                    ),
+                })
                 st.markdown(result["answer"])
                 with st.expander("📎 Xem nguồn tài liệu y khoa", expanded=False):
                     if result["docs"]:
@@ -397,7 +529,5 @@ def Databases():
 # ── Router ───────────────────────────────────────────────────────────────────
 if selected == "Chatbot":
     Chatbot()
-elif selected == "Phân tích tiếng khóc":
-    Audio_Analysis()
 else:
     Databases()

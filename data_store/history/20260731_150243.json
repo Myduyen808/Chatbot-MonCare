@@ -1,0 +1,30 @@
+{
+    "history_name": "Em kiệt sức cảm thấy muốn tiếp tục thứ",
+    "history_id": "20260731_150243",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "Em kiệt sức và cảm thấy không muốn tiếp tục mọi thứ nữa"
+        },
+        {
+            "type": "ai",
+            "content": "Mẹ ơi, MomCare hiểu rằng giai đoạn này có thể rất khó khăn và kiệt sức. \n\nMẹ không đơn độc đâu. Hãy gọi ngay:\n- **Đường dây hỗ trợ sức khỏe tinh thần: 1800 599 920** (miễn phí, 24/7)\n- Hoặc nhờ người thân ở cạnh mẹ lúc này.\n\nMẹ và bé cần nhau, hãy để người khác giúp mẹ nhé."
+        },
+        {
+            "type": "human",
+            "content": "Hướng dẫn em sửa lỗi động cơ xe máy bị chết máy"
+        },
+        {
+            "type": "ai",
+            "content": "Xin lỗi, MomCare không thể hỗ trợ yêu cầu này. Mẹ nên đưa bé đến cơ sở y tế."
+        },
+        {
+            "type": "human",
+            "content": "Bé 6 tháng nên ăn dặm mấy bữa mỗi ngày?"
+        },
+        {
+            "type": "ai",
+            "content": "Trẻ từ 6 - 7 tháng tuổi nên ăn 1 bữa/ngày, kết hợp bú sữa mẹ. Lượng thức ăn từ 100 - 200ml/bữa. Bắt đầu từ bột, cháo nấu loãng cùng thức ăn xay, nghiền, sau đó tăng dần độ sệt, đặc."
+        }
+    ]
+}

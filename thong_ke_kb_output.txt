@@ -1,0 +1,36 @@
+======================================================================
+THỐNG KÊ TÁI LẬP KHO TRI THỨC MOMCARE
+======================================================================
+Thời điểm chạy script này: 2026-07-30 16:38:16
+Phương pháp đếm token   : tiktoken (cl100k_base)
+
+Đang nạp FAISS index (có thể mất vài giây)...
+Nạp thành công.
+
+Tổng số chunk đọc được từ FAISS index: 6176
+
+----------------------------------------------------------------------
+KẾT QUẢ THỐNG KÊ
+----------------------------------------------------------------------
+Số ký tự trung bình / chunk   : 1017.3 ký tự  (trung vị: 898)
+Số token trung bình / chunk   : 511.9 tokens (trung vị: 453)
+Token nhỏ nhất / lớn nhất     : 24 / 3846
+
+>>> Con số cần điền vào Bảng 'Thông tin tổng quát của kho tri thức':
+>>>   Trung bình số token/chunk: khoảng 512 tokens
+
+----------------------------------------------------------------------
+THỜI ĐIỂM CẬP NHẬT FAISS INDEX (dựa trên file index.faiss tìm thấy)
+----------------------------------------------------------------------
+File: .\data_store\vector_db\faiss\index.faiss
+>>> Thời điểm cập nhật gần nhất: 30/06/2026
+
+File: .\example_img\data_store\vector_db\faiss\index.faiss
+>>> Thời điểm cập nhật gần nhất: 30/06/2026
+
+File: .\faiss_index_covid\index.faiss
+>>> Thời điểm cập nhật gần nhất: 11/07/2026
+
+======================================================================
+HOÀN TẤT. Kết quả đã được lưu vào thong_ke_kb_output.txt
+======================================================================

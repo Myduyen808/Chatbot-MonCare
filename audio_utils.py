@@ -221,8 +221,8 @@ def classify_cry_reason(audio_input, confidence, processed_audio=None, sr=None):
             best_reason = "unknown"
         
         REASON_MAP_VI = {
-            "hunger": "🥛 ĐÓI - Cần cho bú ngay",
-            "pain": "😰 ĐAU ĐỚN - Cần kiểm tra ngay",
+            "hunger": "🥛 Có dấu hiệu phù hợp với nhóm đói",
+            "pain": "😰 Có dấu hiệu phù hợp với nhóm đau hoặc khó chịu",
             "fatigue": "😴 BUỒN NGỦ/THIẾU NGỦ - Cần giúp bé ngủ",
             "discomfort": "🧷 KHÓ CHỊU - Kiểm tra tã/quần áo",
             "temperature": "🌡️ QUÁ NÓNG/LẠNH - Kiểm tra nhiệt độ",
@@ -243,7 +243,7 @@ def classify_cry_reason(audio_input, confidence, processed_audio=None, sr=None):
 | Số cụm khóc | {cry_bursts} | {"1 cụm" if cry_bursts <= 1 else "2-3 cụm" if cry_bursts <= 3 else "Nhiều cụm"} |
 | Xu hướng energy | {"Tăng ↗" if energy_trend > 0.003 else "Giảm ↘" if energy_trend < -0.003 else "Ổn định →"} | {"Bé khóc to dần" if energy_trend > 0.003 else "Bé yếu dần" if energy_trend < -0.003 else "Đều"} |
 
-**🎯 Bảng điểm chẩn đoán:**
+**🎯 Bảng điểm phân loại nguyên nhân:**
 | Nguyên nhân | Điểm | Thanh điểm |
 |-------------|------|------------|
 | 🥛 Khóc đói | {scores['hunger']} | {"█" * scores['hunger']}{"░" * (10 - scores['hunger'])} |

@@ -1,0 +1,30 @@
+{
+    "history_name": "Bé nhà em tháng bắt đầu ăn dặm",
+    "history_id": "20260731_134046",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "Bé nhà em 6 tháng mới bắt đầu ăn dặm."
+        },
+        {
+            "type": "ai",
+            "content": "Trẻ từ 6 - 24 tháng cần ăn dặm mấy bữa mỗi ngày để đảm bảo đáp ứng đủ nhu cầu dinh dưỡng cho sự phát triển và hoạt động cũng như sức khỏe của trẻ.\n\nTrẻ từ 6 - 8 tháng tuổi cần ăn 1 bữa/ngày, kết hợp bú sữa mẹ. Lượng thức ăn từ 100 - 200ml/bữa. Bắt đầu từ bột, cháo nấu loãng cùng thức ăn xay, nghiền, sau đó tăng dần độ sệt, đặc.\n\nTrẻ từ 8 - 9 tháng tuổi cần ăn 2 bữa/ngày, kết hợp bú sữa mẹ. Lượng thức ăn khoảng 200ml/bữa. Cho trẻ ăn cháo hoặc bột nấu đặc cùng thức ăn nghiền hoặc thái nhỏ.\n\nTrẻ từ 10 - 12 tuổi cần ăn 3 bữa/ngày, kết hợp bú sữa mẹ. Lượng thức ăn tăng lên khoảng từ 200 - 250ml/bữa. Cho trẻ ăn cháo hoặc bột nấu đặc cùng thức ăn thái nhỏ. Ngoài ra, cần tập cho trẻ cầm nắm thức ăn cắt khúc đã được hấp, luộc, nấu chín.\n\nTrẻ từ 12 - 24 tháng cần ăn 3 bữa/ngày, kết hợp bú sữa mẹ. Lượng thức ăn tăng lên từ 250 - 300ml/bữa.\n\nVề nguyên tắc tăng số bữa ăn dặm, mẹ có thể ghi nhớ cho trẻ bắt đầu bằng 1 bữa/ngày trong 2 tháng đầu tiên, sau đó tăng thêm 1 bữa trong 2 tháng tiếp theo đến khi trẻ có thể ăn được 3 bữa/ngày.\n\nLưu ý, khi cho trẻ ăn dặm mấy bữa mỗi ngày tăng lên cùng lượng thức ăn, lượng sữa trẻ bú mẹ sẽ giảm. Tuy nhiên, cần tiếp tục duy trì nguồn sữa mẹ cho đến khi trẻ được 1 tuổi."
+        },
+        {
+            "type": "human",
+            "content": "Mỗi ngày nên ăn mấy bữa?"
+        },
+        {
+            "type": "ai",
+            "content": "Trẻ từ 6 - 7 tháng tuổi nên ăn 1 bữa/ngày, kết hợp bú sữa mẹ. Lượng thức ăn từ 100 - 200ml/bữa. Bắt đầu từ bột, cháo nấu loãng cùng thức ăn xay, nghiền, sau đó tăng dần độ sệt, đặc."
+        },
+        {
+            "type": "human",
+            "content": "Còn lượng thức ăn thì sao?"
+        },
+        {
+            "type": "ai",
+            "content": "Trẻ từ 6 - 7 tháng tuổi cần ăn 1 bữa/ngày, mỗi bữa ăn dặm khoảng 100 - 200ml. Lượng thức ăn tăng dần theo độ tuổi của trẻ."
+        }
+    ]
+}

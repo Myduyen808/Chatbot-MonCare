@@ -398,6 +398,17 @@ def create_vectordb_with_file(pdf_path=db_config["pdf_path"], word_path=db_confi
                     final_chunks.append(
                         LC_Document(page_content=cleaned_text, metadata=c.metadata)
                     )
+                    
+    # Gắn định danh truy vết cho từng chunk.
+    for chunk_index, chunk in enumerate(final_chunks):
+        chunk.metadata["chunk_id"] = chunk_index
+
+        # PyPDFLoader thường đánh số trang từ 0.
+        # Tạo page_display để giao diện hiển thị từ trang 1.
+        raw_page = chunk.metadata.get("page")
+
+        if isinstance(raw_page, int):
+            chunk.metadata["page_display"] = raw_page + 1
 
     print(f"Chunks sau lọc: {len(final_chunks)}")
 
