@@ -1,323 +1,426 @@
-# MomCare — Hệ thống Chatbot Tư vấn Chăm sóc Mẹ Bỉm Sau Sinh
+# MomCare — Trợ lý hỏi đáp tiếng Việt về chăm sóc mẹ và trẻ nhỏ
 
-[![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python&logoColor=white)](https://www.python.org/)
-[![LangChain](https://img.shields.io/badge/LangChain-RAG%20Pipeline-green?logo=langchain&logoColor=white)](https://docs.langchain.com/)
-[![Groq](https://img.shields.io/badge/Groq-Llama%203.1--8B-orange?logo=groq&logoColor=white)](https://groq.com/)
-[![FAISS](https://img.shields.io/badge/FAISS-Vector%20Database-purple?logo=meta&logoColor=white)](https://github.com/facebookresearch/faiss)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![LangChain](https://img.shields.io/badge/LangChain-RAG-green)](https://python.langchain.com/)
+[![FAISS](https://img.shields.io/badge/FAISS-Vector%20Index-purple)](https://github.com/facebookresearch/faiss)
+[![Groq](https://img.shields.io/badge/Groq-Llama%203.1--8B-orange)](https://groq.com/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-Web%20UI-red?logo=streamlit&logoColor=white)](https://streamlit.io/)
-[![License](https://img.shields.io/badge/License-MIT-brown?labelColor=white)](LICENSE)
 
-> **Luận văn tốt nghiệp** — Ngành Hệ thống Thông tin, Đại học Cần Thơ (K48)  
-> **Sinh viên:** Trần Thị Mỹ Duyên — MSSV: B2203435  
+> **Luận văn tốt nghiệp — Ngành Hệ thống Thông tin, Đại học Cần Thơ (K48)**  
+> **Sinh viên:** Trần Thị Mỹ Duyên — **MSSV:** B2203435  
 > **Giảng viên hướng dẫn:** PGS.TS Nguyễn Thanh Hải
 
 ---
 
-## Giới thiệu
+## 1. Giới thiệu
 
-**MomCare** là hệ thống chatbot tư vấn y tế chuyên biệt, được xây dựng trên kiến trúc **Advanced RAG (Retrieval-Augmented Generation)** nâng cao, hỗ trợ các bà mẹ sau sinh tiếp cận thông tin chăm sóc sức khỏe chính xác, an toàn và có kiểm chứng nguồn gốc.
+**MomCare** là hệ thống hỏi đáp tiếng Việt dựa trên kiến trúc **Retrieval-Augmented Generation (RAG)**, hỗ trợ tra cứu thông tin về thai kỳ, chăm sóc mẹ sau sinh, trẻ sơ sinh, trẻ nhỏ và dinh dưỡng. Hệ thống sinh phản hồi từ kho tri thức đã được thu thập, làm sạch và lập chỉ mục, đồng thời hiển thị các đoạn tài liệu được dùng làm căn cứ.
 
-Hệ thống giải quyết 3 vấn đề cốt lõi:
+MomCare tập trung vào ba yêu cầu chính:
 
-- **Thông tin sai lệch** trên mạng xã hội về chăm sóc mẹ và bé
-- **Ảo giác AI (Hallucination)** của các mô hình LLM thông thường
-- **Mất ngữ cảnh hội thoại** khi người dùng hỏi nhiều lượt liên tiếp
+- truy xuất tài liệu phù hợp và hạn chế sinh thông tin không có căn cứ;
+- kiểm soát truy vấn nguy hiểm, tự hại, kê đơn hoặc liều dùng cụ thể;
+- duy trì ngữ cảnh hội thoại nhiều lượt với lượng lịch sử được đưa vào mô hình nhỏ hơn.
 
----
-
-## Kiến trúc hệ thống
-
-```
-User Input
-    │
-    ▼
-┌─────────────────────────────────────────────┐
-│  Tầng 1: Input Guardrails                   │
-│  ├── Mental Health Detection (WHO mhGAP)    │
-│  └── Blocked Inputs (Luật KCB 15/2023)      │
-└─────────────┬───────────────────────────────┘
-              │ PASS
-              ▼
-┌─────────────────────────────────────────────┐
-│  Tầng 2: Task Merging (1 lần gọi API)       │
-│  ├── Query Rewriting (làm giàu ngữ cảnh)    │
-│  ├── Intent Detection (BLOCKED/SMALLTALK/RAG)│
-│  └── Conversation Context Extraction         │
-└─────────────┬───────────────────────────────┘
-              │ RAG
-              ▼
-┌─────────────────────────────────────────────┐
-│  Tầng 3: Adaptive Hybrid Search (Primary)   │
-│  ├── Vector Search (FAISS MMR)              │
-│  ├── BM25Okapi Search                       │
-│  └── Adaptive Weighting (Ưu tiên BM25      │
-│      nếu câu hỏi có số liệu mg/ml/tháng)   │
-└─────────────┬───────────────────────────────┘
-              │
-              ▼
-┌─────────────────────────────────────────────┐
-│  Tầng 4: Multi-Query Expansion (Điều kiện)  │
-│  ├── CHỈ KÍCH HOẠT NẾU câu hỏi ≤ 5 từ     │
-│  ├── Biến thể 1: Thuật ngữ y khoa chuyên ngành│
-│  └── Biến thể 2: Mở rộng khái niệm liên quan │
-│  (Dùng FAISS MMR + Keyword Overlap Filter)  │
-└─────────────┬───────────────────────────────┘
-              │
-              ▼
-┌─────────────────────────────────────────────┐
-│  Tầng 5: CrossEncoder Re-ranking            │
-│  ├── Model: ms-marco-MiniLM-L-6-v2          │
-│  ├── Rerank toàn bộ pool (Primary + Multi)  │
-│  └── Lấy top-K tài liệu chất lượng cao nhất │
-└─────────────┬───────────────────────────────┘
-              │
-              ▼
-┌─────────────────────────────────────────────┐
-│  Tầng 6: Llama 3.1-8B-Instant (Groq LPU)   │
-│  ├── Strict Prompting (8 nguyên tắc)        │
-│  ├── Context Injection (ngữ cảnh hội thoại)  │
-│  └── Output Guardrails (chặn chẩn đoán)     │
-└─────────────┬───────────────────────────────┘
-              │
-              ▼
-    Response + Nguồn trích dẫn
-
-```
----
-
-## Tính năng nổi bật
-
-| Tính năng | Mô tả | File triển khai |
-|---|---|---|
-| **Guardrails 3 lớp** | Chặn kê đơn thuốc/liều cụ thể (Luật KCB 15/2023), nhận diện tâm lý nguy hiểm (WHO mhGAP 17+ từ khóa), bypass xã giao (chào hỏi, cảm ơn, hỏi về bot) | `llm_chain.py` |
-| **Task Merging** | Gộp Query Rewriting + Intent Detection vào **1 lần gọi API duy nhất**, giảm 50% số lượt gọi LLM ở tầng tiền xử lý | `llm_chain.py` → `rewrite_and_detect_intent()` |
-| **Summarized Memory** | Tóm tắt lịch sử hội thoại bằng LLM (giữ lại tên bệnh, triệu chứng, độ tuổi, thời gian) thay vì cắt cơ học 200 ký tự | `llm_chain.py` → `summarize_history_message()` |
-| **Conversation Context Extraction** | Tự động trích xuất độ tuổi/đối tượng từ câu hỏi hiện tại, KHÔNG tự suy đoán từ câu trước để tránh inject sai ngữ cảnh | `llm_chain.py` → `update_conversation_context()` |
-| **Multi-Query Expansion** | Điều kiện: Chỉ kích hoạt khi câu hỏi gốc có ≤ 5 từ. Sinh 2 biến thể mở rộng (thuật ngữ y khoa, khái niệm liên quan) + giữ nguyên câu gốc. Giữ nguyên số liệu (liều, tuổi) trong ít nhất 1 biến thể | `llm_chain.py → generate_multi_queries()` |
-| **MMR + Keyword Filter** | Tìm kiếm MMR (fetch_k=30, lambda_mult=0.7) kết hợp lọc overlap từ khóa câu hỏi, fallback nếu không có doc vượt ngưỡng | `vectordb.py` → `smart_retrieve()` |
-| **CrossEncoder Re-ranking** | Rerank toàn bộ pool tài liệu từ Multi-Query bằng ms-marco-MiniLM-L-6-v2, lấy top-K chất lượng nhất | `llm_chain.py` → `RAGChain.invoke()` |
-| **Hybrid Search** | Kết hợp FAISS (Vector) + BM25 (từ khóa) với Adaptive Weighting |
-| **Output Guardrails** | Phát hiện từ khóa chẩn đoán ("bị bệnh", "chẩn đoán", "mắc bệnh"...) trong câu trả lời, tự động append khuyến cáo đến cơ sở y tế | `llm_chain.py` → `check_output_guardrails()` |
-| **API Key Rotation** | Quản lý 4 Groq API keys, tự động chọn ngẫu nhiên và retry với key khác khi gặp 429 Rate Limit | `llm_chain.py` → `call_llm()` |
-| **Nguồn trích dẫn minh bạch** | Hiển thị tên file tài liệu + preview nội dung 500 ký tự cho từng đoạn được trích dẫn | `application.py` |
-| **Quản lý kho kiến thức** | UI tải lên/xem chi tiết/xóa tài liệu (PDF, DOCX, CSV, XLSX), rebuild VectorDB một nút bấm | `application.py` → `Databases()` |
+> **Lưu ý y tế:** MomCare chỉ hỗ trợ tra cứu thông tin. Hệ thống không thay thế việc thăm khám, chẩn đoán, kê đơn hoặc tư vấn trực tiếp của nhân viên y tế.
 
 ---
 
-## Kho tri thức (Knowledge Base)
+## 2. Các thành phần chính
 
-| Định dạng | Số file | Nguồn |
-|---|---|---|
-| PDF | 16 | BV Từ Dũ, Bộ Y tế, WHO, UNICEF |
-| DOCX | 40 | Vinmec, BV Nhi Đồng |
-| EXCEL | 2 | 151 cặp Q&A chuẩn hóa có nguồn và Bộ đề Sản khoa 4,497 câu hỏi trắc nghiệm y khoa được trích xuất và chuẩn hóa từ tập dữ liệu công khai ViMedAQA |
-| **Tổng** | **58 file** | **5.832 chunks trong FAISS** |
-
----
-
-## Kết quả thực nghiệm
-
-### RAGAS Evaluation (300 câu — 3 kịch bản)
-
-| Kịch bản | Faithfulness | Context Recall | Answer Relevancy | Context Precision |
-|---|---|---|---|---|
-| KB1 — Y khoa chuẩn | 0.743 | 0.759 | 0.636 | 0.684 |
-| KB2 — Ngôn ngữ mẹ bỉm | 0.654 | 0.697 | 0.511 | 0.619 |
-| KB3 — Câu có nhiễu | 0.622 | 0.687 | 0.382 | 0.542 |
-| **Trung bình** | **0.673** | **0.714** | **0.510** | **0.615** |
-
-### LLM-as-Judge (Clinical Evaluation)
-
-Đánh giá bổ sung bằng mô hình `llama-3.3-70b-versatile` theo 3 tiêu chí y khoa:
-
-| Tiêu chí | Thang điểm | Mô tả |
-|---|---|---|
-| Clinical Accuracy | 0.0 / 0.5 / 1.0 | Độ chính xác y khoa theo ý nghĩa, không so từng chữ |
-| Completeness | 0.0 / 0.5 / 1.0 | Mức độ đầy đủ ý chính cần trả lời |
-| Safety | 0.0 / 0.5 / 1.0 | An toàn — chỉ = 0 khi có khả năng gây hại trực tiếp |
-
-### Benchmark trên tập dữ liệu ViMedAQA [ref30] (4.496 câu)
-
-Hệ thống MomCare được kiểm thử trực tiếp trên bộ dữ liệu chuẩn **ViMedAQA** (Tran et al., 2024 — ACL SRW) gồm 4.496 câu hỏi y khoa tiếng Việt, so sánh với 8 mô hình baseline mà bài báo gốc đã công bố:
-
-| Mô hình | BLEU | ROUGE-L | METEOR | BERTScore |
-|---|---|---|---|---|
-| VinaLlama-7B (best baseline) | 31.70 | 59.08 | 64.29 | 72.47 |
-| Gemma-2B | 32.04 | — | 53.48 | — |
-| Llama2-7B | — | 24.34 | — | — |
-| **MomCare RAG** | **32.41** | 47.68 | 58.18 | **80.60** |
-
-> **Nhận xét:** MomCare đạt BERTScore cao nhất (+8.13 so với VinaLlama-7B), chứng minh độ chính xác ngữ nghĩa y khoa vượt trội. ROUGE-L thấp hơn do RAG chỉ nhận 5 fragment rời từ FAISS thay vì toàn bộ đoạn văn gốc như các baseline — buộc mô hình phải tổng hợp, không sao chép từ vựng. Ngoài ra ~35% câu hỏi hệ thống chủ động từ chối trả lời an toàn (không bịa thông tin), khiến điểm n-gram giảm nhưng an toàn y tế tăng.
-
-### So sánh với nghiên cứu liên quan (arXiv 2026)
-
-| Chỉ số | Bài báo CMU 2026 [ref2] | MomCare |
-|---|---|---|
-| Expert Agreement / Faithfulness | 68.3% | **67.3%** (tương đương) |
-| Context Recall | Không báo cáo | **71.4%** |
-| Số kịch bản kiểm thử | 1 | **3** |
-| Ngôn ngữ | Đa ngôn ngữ Ấn Độ | **Tiếng Việt** |
-
-### Intent Classification (200 câu)
-
-| Lớp | Accuracy |
+| Thành phần | Mô tả triển khai |
 |---|---|
-| BLOCKED | 94.0% |
-| SMALLTALK | 94.0% |
-| RAG | 100.0% |
-| **Tổng** | **97.0%** |
-
-### Ablation Studies
-
-| Thành phần loại bỏ | Faithfulness | Context Recall | Nhận xét |
-|---|---|---|---|
-| Full system (baseline) | — | — | Tất cả bật |
-| Tắt Multi-Query | ↓ | ↓ | Giảm độ phủ tài liệu |
-| Tắt Re-ranking | ↓ | — | Giảm độ chính xác xếp hạng |
-| Tắt Summarized Memory | — | ↓ | Mất ngữ cảnh lịch sử dài |
-
-### Hybrid Search vs Vector-Only
-
-| Phương pháp | Faithfulness | Nhận xét |
-|---|---|---|
-| Vector Only (FAISS MMR) | baseline | Tốt cho ngữ nghĩa |
-| Hybrid (FAISS + BM25) | +14.5% | Tốt hơn cho câu hỏi số liệu cụ thể |
+| **Input Guardrails** | Kiểm tra theo luật, phát hiện biểu đạt tự hại trực tiếp và gián tiếp, prompt injection, thuốc không rõ nguồn gốc, can thiệp nguy hiểm, yêu cầu liều dùng và một số tình huống leo thang theo lịch sử hội thoại. |
+| **Adaptive Context Management** | Rolling Summary tích lũy; luôn giữ nguyên hai tin nhắn gần nhất; chỉ cập nhật phần lịch sử cũ chưa được tóm tắt khi có ít nhất hai tin nhắn và đạt ngưỡng 250 ký tự. |
+| **Task Merging** | Gộp Query Rewriting và Intent Detection trong một lần gọi LLM. |
+| **Intent Router** | Phân loại thành bốn nhãn: `BLOCKED`, `SMALLTALK`, `OUT_OF_SCOPE`, `RAG`. |
+| **Adaptive Hybrid Search** | Tạo hai danh sách ứng viên độc lập từ FAISS và BM25, hợp nhất rồi tính điểm bằng trọng số Adaptive Alpha theo loại truy vấn. |
+| **Adaptive Alpha** | Phân loại truy vấn thành `quantitative`, `exact_lexical`, `noisy_conversational`, `semantic`; đọc trọng số từ `adaptive_alpha_config.json`, có bộ tham số fallback. |
+| **Table Bonus** | Cộng điểm ưu tiên cho tài liệu có `chunk_type=data_table` khi truy vấn thuộc nhóm định lượng. |
+| **Multi-Query Expansion** | Chỉ kích hoạt với câu hỏi văn bản có không quá 5 từ; sinh tối đa hai biến thể bổ sung, mỗi biến thể lấy tối đa 10 tài liệu bằng MMR. |
+| **Cross-Encoder Re-ranking** | Giới hạn tối đa 40 ứng viên, tái xếp hạng bằng `cross-encoder/ms-marco-MiniLM-L-6-v2`, chọn Top-5 cho prompt. |
+| **Document Injection Filtering** | Loại các dòng trong tài liệu có hình thức chỉ dẫn điều khiển mô hình trước khi ghép vào prompt. |
+| **Safety-first Generation** | Llama 3.1-8B-Instant chỉ được yêu cầu trả lời từ tài liệu truy xuất, giới hạn tối đa 350 token và tối đa 4 ý khi liệt kê. |
+| **Output Guardrails** | Loại đoạn lặp, kiểm tra phản hồi thiếu cảnh báo trong tình huống nguy cơ cao và bổ sung lưu ý khi câu trả lời có cách diễn đạt mang tính chẩn đoán. |
+| **Source Traceability** | Hiển thị tên tệp, loại tệp, số trang, `chunk_id` và phần xem trước nội dung nguồn. |
 
 ---
 
-## Cài đặt và Chạy
+## 3. Kiến trúc xử lý
 
-### Yêu cầu hệ thống
+```text
+CÂU HỎI NGƯỜI DÙNG
+        │
+        ▼
+Lọc các lượt bị chặn khỏi lịch sử dùng cho Rewriter
+        │
+        ▼
+Adaptive Context Management — Rolling Summary
+        │
+        ▼
+Input Guardrails + kiểm tra leo thang theo hội thoại
+        │
+        ├── BLOCKED ───────────────► phản hồi an toàn, không truy xuất
+        ├── SMALLTALK ─────────────► phản hồi xã giao, không truy xuất
+        │
+        ▼
+Task Merging: Query Rewriting + Intent Detection
+        │
+        ├── OUT_OF_SCOPE ──────────► thông báo giới hạn phạm vi
+        ├── BLOCKED/SMALLTALK ─────► xử lý theo nhãn
+        └── RAG
+             │
+             ▼
+Adaptive Hybrid Search
+FAISS Top-50 thô + BM25 Top-50 thô
+             │
+             ▼
+Hợp nhất, khử trùng lặp, Adaptive Alpha + Table Bonus
+             │
+             ▼
+Giữ tối đa 25 ứng viên chính
+             │
+             ├── Câu hỏi ≤ 5 từ: thêm tối đa 2 Multi-Query
+             │                    mỗi truy vấn lấy tối đa 10 tài liệu MMR
+             ▼
+Hợp nhất và giới hạn tối đa 40 ứng viên
+             │
+             ▼
+Cross-Encoder Re-ranking
+             │
+             ▼
+Top-5 tài liệu + lọc document prompt injection
+             │
+             ▼
+Llama 3.1-8B-Instant — Safety-first Prompt
+             │
+             ▼
+Output Guardrails
+             │
+             ▼
+PHẢN HỒI + NGUỒN TÀI LIỆU
+```
 
-- Python 3.10+
-- RAM 8 GB trở lên
-- Groq API Key (miễn phí tại [console.groq.com](https://console.groq.com))
+### Tham số triển khai chính
 
-### Bước 1: Clone và cài đặt
+| Tham số | Giá trị |
+|---|---:|
+| LLM | `llama-3.1-8b-instant` |
+| Temperature mặc định | 0.2 |
+| Số tài liệu chính sau Adaptive Hybrid Search | 25 |
+| Số ứng viên tối đa trước Cross-Encoder | 40 |
+| Số tài liệu cuối đưa vào LLM | 5 |
+| Số token tối đa của phản hồi RAG | 350 |
+| Số ý tối đa khi liệt kê | 4 |
+| Multi-Query | kích hoạt khi câu hỏi `≤ 5` từ |
+| MMR cho truy vấn mở rộng | `fetch_k=30`, `lambda_mult=0.7` |
+| Rolling Summary | giữ 2 tin gần nhất; ngưỡng cập nhật 2 tin và 250 ký tự |
+
+---
+
+## 4. Xây dựng kho tri thức
+
+Kho tri thức được tạo từ dữ liệu tiếng Việt thuộc ba định dạng đang thống kê trong luận văn:
+
+| Định dạng | Số tệp | Nội dung chính |
+|---|---:|---|
+| PDF | 19 | Hướng dẫn, phác đồ và tài liệu chuyên môn từ các cơ quan, bệnh viện và tổ chức y tế. |
+| DOCX | 45 | Bài viết chuyên khoa về chăm sóc mẹ sau sinh, nuôi con bằng sữa mẹ và chăm sóc trẻ. |
+| XLSX | 2 | Dữ liệu hỏi–đáp có cấu trúc, gồm các dạng FAQ, ViMedAQA và bộ đề y khoa. |
+| **Tổng** | **66** | **6.176 chunk trong chỉ mục FAISS** |
+
+### Thông tin kỹ thuật
+
+| Thuộc tính | Giá trị |
+|---|---|
+| Ngôn ngữ | Tiếng Việt |
+| Embedding | `keepitreal/vietnamese-sbert` |
+| Kích thước vector | 768 chiều |
+| Vector index | FAISS `IndexFlatL2` |
+| Số ký tự trung bình/chunk | 1.017,3 |
+| Số ký tự trung vị/chunk | 898 |
+| Token ước lượng trung bình/chunk | 511,9 |
+| Token ước lượng trung vị/chunk | 453 |
+
+Mã nguồn vẫn hỗ trợ đọc **CSV** trong pipeline và giao diện quản lý dữ liệu. Tuy nhiên, thống kê kho tri thức cuối cùng trong luận văn gồm 19 PDF, 45 DOCX và 2 XLSX; không ghi nhận tệp CSV trong tổng số 66 tài liệu.
+
+### Chính sách phân mảnh
+
+- PDF được làm sạch lỗi font, ký tự điều khiển và khoảng trắng.
+- DOCX được loại boilerplate và nội dung điều hướng web.
+- Bản ghi `medical_exam`, `faq` và `vimedaqa` được giữ nguyên để bảo toàn quan hệ câu hỏi–đáp án–ngữ cảnh.
+- Đoạn có tỷ lệ dòng chứa dữ liệu định lượng lớn được gắn `chunk_type=data_table` và không chia nhỏ.
+- Văn bản thông thường được phân mảnh bằng `RecursiveCharacterTextSplitter` theo `db_config.yml`.
+- Chunk thông thường phải còn ít nhất 50 ký tự; chunk bảng phải có ít nhất 80 ký tự.
+
+---
+
+## 5. Kết quả thực nghiệm chính
+
+### 5.1. RAGAS trên 300 câu hỏi
+
+Kết quả trung bình trên ba kịch bản KB1, KB2 và KB3:
+
+| Chỉ số | Điểm trung bình |
+|---|---:|
+| Faithfulness | 0.741 |
+| Context Precision | 0.704 |
+| Context Recall | 0.780 |
+| Answer Relevancy | 0.572 |
+
+### 5.2. LLM-as-a-Judge
+
+Trên 300 câu hỏi thuộc ba kịch bản:
+
+| Chỉ số | Kết quả |
+|---|---:|
+| Tỷ lệ `HAS_ANSWER` trung bình | 87,3% |
+| Tỷ lệ `NOT_FOUND` trung bình | 12,6% |
+| Clinical Accuracy trên nhóm `HAS_ANSWER` | 65,4% |
+| Completeness trên toàn bộ tập | 66,0% |
+| Safety | 100,0% |
+
+### 5.3. Intent Classification — 200 câu, 4 lớp cân bằng
+
+| Lớp | Precision | Recall | F1-score | Support |
+|---|---:|---:|---:|---:|
+| `BLOCKED` | 1.0000 | 0.9000 | 0.9474 | 50 |
+| `SMALLTALK` | 0.9804 | 1.0000 | 0.9901 | 50 |
+| `OUT_OF_SCOPE` | 1.0000 | 0.9000 | 0.9474 | 50 |
+| `RAG` | 0.8475 | 1.0000 | 0.9174 | 50 |
+| **Macro Average** | **0.9570** | **0.9500** | **0.9506** | **200** |
+| **Weighted Average** | **0.9570** | **0.9500** | **0.9506** | **200** |
+
+- **Accuracy:** 95,0% — 190/200 câu đúng.
+- **Macro F1:** 0.9506.
+- **Weighted F1:** 0.9506.
+- Ma trận lỗi: 5 `BLOCKED → RAG`, 4 `OUT_OF_SCOPE → RAG`, 1 `OUT_OF_SCOPE → SMALLTALK`.
+
+### 5.4. Adaptive Context Management
+
+| Phương pháp | Khôi phục ngữ cảnh | Ký tự lịch sử trung bình | Mức giảm |
+|---|---:|---:|---:|
+| No Memory | 0,00% | 0 | 100,00% |
+| Fixed Window | 33,33% | 1.078 | 26,84% |
+| Full History | 100,00% | 1.474 | 0,00% |
+| Summary Only | 100,00% | 369 | 74,96% |
+| **Adaptive Context Management** | **100,00%** | **495** | **66,39%** |
+
+Adaptive Context Management giữ tỷ lệ khôi phục ngữ cảnh tương đương Full History, trong khi giảm 66,39% kích thước lịch sử đưa vào Query Rewriting.
+
+### 5.5. Task Merging
+
+**Intent Detection:**
+
+| Phương pháp | Accuracy | LLM calls | Thời gian |
+|---|---:|---:|---:|
+| Pipeline tách rời | 98,46% | 50 | 19,17 s |
+| Task Merging | 98,46% | 33 | 25,87 s |
+
+**Query Rewriting:**
+
+| Phương pháp | Rewrite Success | LLM calls | Thời gian |
+|---|---:|---:|---:|
+| Pipeline tách rời | 75,00% | 15 | 13,29 s |
+| Task Merging | 100,00% | 8 | 27,22 s |
+
+Task Merging giảm số lần gọi LLM nhưng trong thiết lập thực nghiệm có thời gian xử lý cao hơn. README không khẳng định cơ chế này làm giảm latency hoặc token khi các chỉ số đó chưa được chứng minh trực tiếp trong bảng Task Merging.
+
+### 5.6. Hybrid Search so với Vector Search
+
+| Chỉ số RAGAS | Vector Search | Hybrid Search | Thay đổi |
+|---|---:|---:|---:|
+| Context Recall | 0.822 | 0.710 | -0.112 |
+| Context Precision | 0.587 | 0.642 | +0.055 |
+| Answer Relevancy | 0.619 | 0.598 | -0.021 |
+| Faithfulness | 0.541 | 0.686 | +0.145 |
+
+Thực nghiệm này sử dụng trọng số cố định để đánh giá tác động của việc bổ sung BM25. Cấu hình triển khai cuối cùng sử dụng Adaptive Alpha.
+
+### 5.7. Adaptive Alpha — 212 câu test độc lập
+
+| Cấu hình | Hit Rate@5 | MRR@5 | Latency |
+|---|---:|---:|---:|
+| Fixed α = 0.3 | 0.4717 | 0.3711 | 0.1462 s |
+| Fixed α = 0.4 | 0.4575 | 0.3745 | 0.1409 s |
+| Fixed α = 0.5 | 0.4623 | 0.3590 | 0.1394 s |
+| Fixed α = 0.7 | 0.4575 | 0.3289 | 0.1379 s |
+| **Adaptive Alpha** | **0.4764** | **0.3762** | **0.1377 s** |
+
+Kiểm định Wilcoxon cho thấy cải thiện có ý nghĩa thống kê ở hai phép so sánh:
+
+- Hit Rate@5: Adaptive Alpha so với α = 0.4, `p = 0.0455`.
+- MRR@5: Adaptive Alpha so với α = 0.7, `p = 0.0084`.
+
+### 5.8. ViMedAQA
+
+MomCare xử lý thành công 4.496/4.497 mẫu đã chọn từ ViMedAQA.
+
+| Hệ thống | ROUGE-L | BLEU | METEOR | BERTScore | Average |
+|---|---:|---:|---:|---:|---:|
+| **MomCare RAG** | **47.68** | **32.41** | **58.18** | **80.60** | **54.72** |
+
+Kết quả đối chiếu với các baseline trong nghiên cứu ViMedAQA chỉ mang tính tham khảo vì MomCare tự truy xuất tối đa 5 đoạn ngữ cảnh, còn thiết lập open-book của nghiên cứu gốc được cung cấp trực tiếp paragraph tương ứng.
+
+---
+
+## 6. Cài đặt
+
+### Yêu cầu
+
+- Python 3.10 trở lên;
+- RAM khuyến nghị từ 8 GB;
+- Groq API key;
+- các thư viện trong `requirements.txt` của dự án.
+
+### Cài thư viện
 
 ```bash
-git clone https://github.com/your-username/RAG-Mom-Chatbot.git
-cd RAG-Mom-Chatbot
 pip install -r requirements.txt
 ```
 
-### Bước 2: Cấu hình API Key
+Nếu dự án chưa có `requirements.txt` hoàn chỉnh, các nhóm thư viện chính gồm Streamlit, LangChain, FAISS, sentence-transformers, rank-bm25, Groq, pandas, python-docx, pypdf, PyYAML và python-dotenv.
 
-Tạo file `.env` tại thư mục gốc:
+### Cấu hình API
+
+Tạo tệp `.env` tại thư mục gốc:
 
 ```env
-GROQ_API_KEY=gsk_your_key_here
-GROQ_API_KEY_1=gsk_backup_key_1
-GROQ_API_KEY_2=gsk_backup_key_2
-GROQ_API_KEY_3=gsk_backup_key_3
+GROQ_API_KEY=gsk_your_primary_key
+GROQ_API_KEY_1=gsk_optional_key_1
+GROQ_API_KEY_2=gsk_optional_key_2
+GROQ_API_KEY_3=gsk_optional_key_3
 ```
 
-> Hệ thống hỗ trợ nhiều key để xử lý rate limit tự động (key rotation).
+Hệ thống chọn ngẫu nhiên một key khả dụng cho mỗi lần gọi và retry tối đa 4 lần khi gặp lỗi.
 
-### Bước 3: Chuẩn bị dữ liệu
+### Cấu hình dữ liệu
 
-Đặt tài liệu y tế vào đúng thư mục theo `db_config.yml`:
+Các đường dẫn được khai báo trong `db_config.yml`. Cấu trúc thường dùng:
 
-```
+```text
 data_store/
-├── pdf/      ← 16 file PDF
-├── word/     ← 40 file DOCX
-└── excel/      ← file Q&A chuẩn hóa
+├── pdf/
+├── word/
+├── csv/
+└── excel/
 ```
 
-### Bước 4: Xây dựng Vector Database
+Mô hình embedding được khai báo trong `model_config.yml`.
+
+### Cấu hình Adaptive Alpha
+
+Tệp `adaptive_alpha_config.json` được tạo từ bước hiệu chỉnh trên tập development. Khi tệp không tồn tại hoặc không đọc được, code dùng cấu hình fallback:
+
+```json
+{
+  "quantitative": 0.30,
+  "exact_lexical": 0.30,
+  "noisy_conversational": 0.40,
+  "semantic": 0.40,
+  "table_bonus": 0.08
+}
+```
+
+Các giá trị triển khai thực tế ưu tiên nội dung trong `adaptive_alpha_config.json`.
+
+---
+
+## 7. Chạy hệ thống
+
+### Xây dựng lại FAISS index
 
 ```bash
 python vectordb.py
 ```
 
-Lệnh này sẽ chunk tài liệu, tạo embedding và lưu FAISS index xuống đĩa.
+Quy trình này đọc dữ liệu, làm sạch, phân mảnh, tạo embedding và lưu chỉ mục FAISS theo cấu hình dự án.
 
-### Bước 5: Chạy ứng dụng
+### Khởi động giao diện
 
 ```bash
 streamlit run application.py
 ```
 
-Truy cập: `http://localhost:8501`
+Mặc định truy cập tại:
+
+```text
+http://localhost:8501
+```
+
+Giao diện gồm hai khu vực đang được định tuyến chính thức:
+
+- **Chatbot:** hỏi đáp, xem nguồn tài liệu và quản lý lịch sử hội thoại;
+- **Quản lý Dữ liệu:** tải PDF/DOCX/CSV, xem tài liệu, xóa tài liệu và xây dựng lại VectorDB. Tệp XLSX được đọc từ thư mục cấu hình khi xây dựng chỉ mục.
 
 ---
 
-## Cấu trúc dự án
+## 8. Cấu trúc mã nguồn cốt lõi
 
-```
-RAG-Mom-Chatbot/
-├── application.py              # Giao diện Streamlit chính
-├── llm_chain.py                # RAGChain + Guardrails + Intent + Memory
-├── vectordb.py                 # FAISS + Embedding + Retrieval + Hybrid Search
-├── history_handle.py           # Quản lý lưu/load lịch sử hội thoại SQLite
-├── utils.py                    # Hàm tiện ích (tên file tự động, timestamp)
-├── db_config.yml               # Cấu hình đường dẫn dữ liệu
-├── model_config.yml            # Cấu hình model embedding
-├── .env                        # API keys (không commit lên git)
-├── data_store/
-│   ├── pdf/                    # 16 file PDF y khoa
-│   ├── word/                   # 40 file DOCX
-│   └── excel/                    # File Q&A chuẩn hóa 
-├── experiments/
-│   ├── judge_clinical.py       # LLM-as-Judge v2 (Accuracy / Completeness / Safety)
-│   ├── run_ablation_studies.py # Ablation: Multi-Query / Re-ranking / Summarized
-│   ├── run_hybrid_search_ablation.py  # So sánh FAISS vs Hybrid (FAISS + BM25)
-│   ├── evaluate_ragas_groq.py  # RAGAS evaluation pipeline
-│   ├── test_intent_200.py      # Kiểm thử Intent 200 câu
-│   ├── test_k_variation.py     # Biến thiên tham số K
-│   └── test_stress_conversation.py    # Stress test 25 lượt hội thoại
-└── KB/
-    ├── KB1_Medical_Standard.xlsx      # 406 câu y khoa chuẩn
-    ├── KB2_Mom_Style.xlsx             # 400 câu ngôn ngữ mẹ bỉm
-    └── KB3_Information_Noise.xlsx     # 400 câu có nhiễu thông tin
+```text
+RAG-MomCare-Chatbot/
+├── application.py
+│   ├── Streamlit UI
+│   ├── Adaptive Context Management
+│   ├── lọc lượt bị chặn khỏi ngữ cảnh Rewriter
+│   └── hiển thị nguồn tài liệu
+│
+├── llm_chain.py
+│   ├── Guardrails đầu vào/đầu ra
+│   ├── Task Merging
+│   ├── Intent Router 4 lớp
+│   ├── Rolling Summary
+│   ├── Adaptive Hybrid Search + BM25 cache
+│   ├── Multi-Query có điều kiện
+│   ├── Cross-Encoder Re-ranking
+│   ├── document injection filtering
+│   └── RAGChain
+│
+├── vectordb.py
+│   ├── loader PDF, DOCX, CSV, XLSX
+│   ├── làm sạch và chunking
+│   ├── Vietnamese-SBERT embeddings
+│   ├── FAISS index
+│   └── MMR retrieval cho nhánh Multi-Query/fallback
+│
+├── history_handle.py
+├── db_config.yml
+├── model_config.yml
+├── adaptive_alpha_config.json
+├── .env
+└── main.tex
 ```
 
 ---
 
-## Công nghệ sử dụng
+## 9. Công nghệ sử dụng
 
-| Thành phần | Công nghệ / Model |
+| Thành phần | Công nghệ / mô hình |
 |---|---|
-| LLM chính | Llama 3.1-8B-Instant (Groq LPU) |
-| LLM Judge | Llama 3.3-70B-Versatile (Groq LPU) |
-| Embedding | `vietnamese-sbert` |
-| Vector DB | FAISS (`IndexFlatL2`, lưu local) |    
-| Retrieval (Secondary) | MMR (`fetch_k=30`, `lambda_mult=0.7`) + Keyword Filter || Retrieval (`Primary`) | Adaptive Hybrid (`FAISS fetch_k=40 + BM25Okapi`) |
-| Hybrid Search | FAISS + BM25Okapi + Adaptive Weighting |
-| Re-ranking | CrossEncoder `ms-marco-MiniLM-L-6-v2` |
-| Framework | LangChain + Custom RAGChain |
+| LLM chính | Groq `llama-3.1-8b-instant` |
+| LLM-as-a-Judge trong luận văn | Llama 3.3-70B |
+| Embedding | `keepitreal/vietnamese-sbert` |
+| Vector database | FAISS `IndexFlatL2` |
+| Keyword retrieval | `BM25Okapi` |
+| Re-ranking | `cross-encoder/ms-marco-MiniLM-L-6-v2` |
+| Framework | LangChain + custom `RAGChain` |
 | UI | Streamlit |
-| Evaluation | RAGAS (Faithfulness, Context Recall, Answer Relevancy, Context Precision) |
+| Dữ liệu | PDF, DOCX, CSV, XLSX |
+| Đánh giá | RAGAS, LLM-as-a-Judge, BLEU, ROUGE-L, METEOR, BERTScore, Hit Rate@5, MRR@5, Wilcoxon |
 
 ---
 
-## Guardrails chi tiết
+## 10. Giới hạn hiện tại
 
-Hệ thống áp dụng guardrails 3 lớp theo thứ tự ưu tiên:
-
-**Lớp 1 — BLOCKED** (từ chối, không trả lời): Phát hiện yêu cầu kê đơn thuốc, liều dùng cụ thể theo Luật KCB số 15/2023/QH15 (Điều 7). Phát hiện dấu hiệu tâm lý nguy hiểm (tự tử, tự làm hại) theo WHO mhGAP Guideline 2.0 — chuyển hướng đến đường dây hỗ trợ tâm lý.
-
-**Lớp 2 — SMALLTALK** (trả lời xã giao, không gọi RAG): Nhận diện lời chào, câu hỏi về bản thân chatbot, cảm ơn, tạm biệt.
-
-**Lớp 3 — RAG** (pipeline đầy đủ): Mọi câu hỏi y tế hợp lệ về chăm sóc mẹ và bé.
-
----
-
-## Tài liệu tham khảo chính
-
-- Lewis et al. (2020). *Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks*. NeurIPS 2020.
-- Developing and evaluating a chatbot to support maternal health care. (2026). *arXiv:2603.13168*.
-- RAG-X: Systematic Diagnosis of Retrieval-Augmented Generation for Medical QA. (2026). *arXiv:2603.03541*.
-- Johnson et al. (2019). *Billion-scale similarity search with GPUs*. IEEE Transactions on Big Data.
-- Reimers & Gurevych (2019). *Sentence-BERT*. EMNLP 2019.
-- Quốc hội Việt Nam (2023). *Luật Khám bệnh, chữa bệnh số 15/2023/QH15*, Điều 7.
-- WHO (2022). *mhGAP Intervention Guide 2.0*.
-
-> Xem đầy đủ danh mục tài liệu tham khảo trong file `main.tex` (mục `\begin{thebibliography}`).
+- Bộ định tuyến vẫn bỏ sót một số truy vấn nguy hiểm và truy vấn ngoài phạm vi; Recall của `BLOCKED` và `OUT_OF_SCOPE` là 90% trên benchmark 200 câu.
+- Adaptive Alpha cải thiện chất lượng trung bình nhưng chỉ đạt ý nghĩa thống kê ở một số phép so sánh.
+- Multi-Query có thể làm tăng nhiễu ở câu hỏi đã đủ rõ, nên chỉ được kích hoạt có điều kiện.
+- Kết quả benchmark ViMedAQA không phải so sánh cùng điều kiện tuyệt đối với các baseline open-book.
+- Các guardrails dựa nhiều vào luật và mẫu ngôn ngữ; cần tiếp tục mở rộng với cách diễn đạt mới.
+- Hệ thống không được dùng để chẩn đoán, kê đơn hoặc xử lý tình huống khẩn cấp thay cho nhân viên y tế.
 
 ---
 
-## License
+## 11. Tài liệu luận văn
 
-MIT License — Xem file [LICENSE](LICENSE) để biết thêm chi tiết.
+Các mô tả thiết kế, công thức, dữ liệu thực nghiệm, bảng kết quả và danh mục tài liệu tham khảo đầy đủ được trình bày trong `main.tex`.
