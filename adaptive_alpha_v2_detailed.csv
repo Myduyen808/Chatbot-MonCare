@@ -1,0 +1,1061 @@
+﻿split,dataset,profile,question,alpha,table_bonus,hit_at_5,rr_at_5,latency_seconds,config
+test,KB1_Standard,exact_lexical,Nguyên tắc cho trẻ ăn dặm về độ đặc và số lượng là gì?,0.3,0.0,0,0.0,0.11839329998474568,Fixed alpha = 0.3
+test,KB1_Standard,exact_lexical,Làm sao để phân biệt vàng da sinh lý và vàng da bệnh lý ở trẻ sơ sinh ạ?,0.3,0.0,0,0.0,0.1357428999908734,Fixed alpha = 0.3
+test,KB1_Standard,exact_lexical,"Trong một bát bột ăn dặm chuẩn cho bé, em cần phải đảm bảo có đủ 4 nhóm chất dinh dưỡng nào ạ?",0.3,0.0,1,1.0,0.14404220000142232,Fixed alpha = 0.3
+test,KB1_Standard,exact_lexical,Giải pháp hỗ trợ phản xạ oxytocin hoạt động tốt?,0.3,0.0,1,1.0,0.09082120002130978,Fixed alpha = 0.3
+test,KB1_Standard,exact_lexical,Thiếu vitamin D gây ảnh hưởng như thế nào?,0.3,0.0,0,0.0,0.09279920000699349,Fixed alpha = 0.3
+test,KB1_Standard,exact_lexical,"Khi con em bước sang tháng thứ 7 đến tháng thứ 9, em có cần tăng thêm số lượng bữa ăn dặm cho bé không bác sĩ?",0.3,0.0,1,0.3333333333333333,0.17137510000611655,Fixed alpha = 0.3
+test,KB1_Standard,exact_lexical,"Cho em hỏi vì sao em vẫn cho con bú đều mà vẫn bị tắc tia sữa, nguyên nhân thường gặp là gì ạ?",0.3,0.0,1,1.0,0.20723299999372102,Fixed alpha = 0.3
+test,KB1_Standard,exact_lexical,Các nguồn bổ sung vitamin D khác?,0.3,0.0,0,0.0,0.09403760000714101,Fixed alpha = 0.3
+test,KB1_Standard,exact_lexical,"Những ngày trời nắng nóng thế này, em sợ con chỉ bú mẹ sẽ bị khát, em có cần bổ sung thêm nước lọc cho bé không ạ?",0.3,0.0,1,1.0,0.19885839999187738,Fixed alpha = 0.3
+test,KB1_Standard,exact_lexical,Băng huyết sau sinh sớm và muộn khác nhau ra sao?,0.3,0.0,0,0.0,0.1142905000015162,Fixed alpha = 0.3
+test,KB1_Standard,exact_lexical,Thuốc đầu tay được lựa chọn để co hồi tử cung dự phòng băng huyết là gì?,0.3,0.0,0,0.0,0.13298890000442043,Fixed alpha = 0.3
+test,KB1_Standard,exact_lexical,Em thấy sản dịch có màu đen sậm và mùi hôi kèm sốt nhẹ là dấu hiệu gì ạ?,0.3,0.0,0,0.0,0.12675880000460893,Fixed alpha = 0.3
+test,KB1_Standard,exact_lexical,"Để không bị tắc tia sữa lại lần nữa, em nên thay đổi thói quen sinh hoạt và ăn uống như thế nào ạ?",0.3,0.0,1,1.0,0.14630640001269057,Fixed alpha = 0.3
+test,KB1_Standard,exact_lexical,Băng huyết sau sinh được định nghĩa như thế nào?,0.3,0.0,0,0.0,0.10504480000236072,Fixed alpha = 0.3
+test,KB1_Standard,noisy_conversational,cho em hỏi lộ trình phát triển vận động bình thường của một em bé khỏe mạnh từ khi sinh ra đến khi biết ngồi vững là thế nào ạ?,0.3,0.0,1,0.3333333333333333,0.16545999998925254,Fixed alpha = 0.3
+test,KB1_Standard,noisy_conversational,Sữa mẹ bảo quản trong ngăn mát tủ lạnh (<4°C) được bao lâu?,0.3,0.0,1,1.0,0.1103863000171259,Fixed alpha = 0.3
+test,KB1_Standard,noisy_conversational,"Ngoài việc cải thiện chuyện tiểu tiện, tập phục hồi sàn chậu có giúp ích gì cho đời sống vợ chồng sau sinh không ạ?",0.3,0.0,1,1.0,0.13984779999009334,Fixed alpha = 0.3
+test,KB1_Standard,noisy_conversational,có các biện pháp nào để duy trì nguồn sữa mẹ không ạ?,0.3,0.0,0,0.0,0.1011999000038486,Fixed alpha = 0.3
+test,KB1_Standard,noisy_conversational,"Em cảm thấy rất tội lỗi khi không thể chăm sóc con tốt như mong đợi, đây có phải là dấu hiệu của trầm cảm không?",0.3,0.0,0,0.0,0.18848819998675026,Fixed alpha = 0.3
+test,KB1_Standard,noisy_conversational,"Làm sao để em biết mình đã mặc tã cho con vừa vặn, không quá chật gây lằn da nhưng cũng không quá lỏng làm tràn tã ạ?",0.3,0.0,1,0.25,0.17842559999553487,Fixed alpha = 0.3
+test,KB1_Standard,noisy_conversational,Nếu con em bị béo phì từ nhỏ thì sau này lớn lên có dễ mắc các bệnh mạn tính nguy hiểm nào không?,0.3,0.0,1,0.3333333333333333,0.14320340001722798,Fixed alpha = 0.3
+test,KB1_Standard,noisy_conversational,"Bé nhà em chưa biết nói nhưng hay bập bẹ ""ba ba, ma ma"", em nên phản ứng thế nào để khuyến khích bé ạ?",0.3,0.0,0,0.0,0.14419990000897087,Fixed alpha = 0.3
+test,KB1_Standard,noisy_conversational,Tại sao phụ nữ mang thai bị phù (cân) phải giảm ăn mặn?,0.3,0.0,1,1.0,0.10937719998764805,Fixed alpha = 0.3
+test,KB1_Standard,noisy_conversational,"Em đang mang thai tháng cuối, có loại thuốc đặt âm đạo nào an toàn để dự phòng nấm không?",0.3,0.0,0,0.0,0.13032299999031238,Fixed alpha = 0.3
+test,KB1_Standard,noisy_conversational,Tại sao việc tiêm chủng đúng lịch lại quan trọng đối với sức khỏe của bé vậy bác sĩ?,0.3,0.0,0,0.0,0.126872299995739,Fixed alpha = 0.3
+test,KB1_Standard,noisy_conversational,Chỉ em cách xử lý khi chẳng may bé bị bỏng nước sôi tại nhà với ạ?,0.3,0.0,0,0.0,0.11863850001827814,Fixed alpha = 0.3
+test,KB1_Standard,noisy_conversational,"Trong thời kỳ hậu sản, một vài tuần đầu em thấy có chất dịch chảy ra thì có sao không ạ?",0.3,0.0,0,0.0,0.13918009999906644,Fixed alpha = 0.3
+test,KB1_Standard,noisy_conversational,Con em đang bị nấm miệng thì em có cần phải tiệt trùng bình sữa hay núm vú giả kỹ hơn bình thường không ạ?,0.3,0.0,1,1.0,0.13705570000456646,Fixed alpha = 0.3
+test,KB1_Standard,noisy_conversational,"em thấy trên thị trường có nhiều loại tã quá, làm sao để em chọn được loại tã giấy vừa vặn và thoải mái nhất cho bé nhà em ạ?",0.3,0.0,1,1.0,0.16971089999424294,Fixed alpha = 0.3
+test,KB1_Standard,noisy_conversational,Âm đạo của em tiết mùi hồi gây khó chịu là bị gì vậy ạ,0.3,0.0,0,0.0,0.1089225999894552,Fixed alpha = 0.3
+test,KB1_Standard,noisy_conversational,Trẻ nhận sữa mẹ hoàn toàn có cần uống thêm nước trắng không?,0.3,0.0,1,1.0,0.10647500000777654,Fixed alpha = 0.3
+test,KB1_Standard,noisy_conversational,Liệu bế con không đúng tư thế có phải là một trong những nguyên nhân dẫn đến đau nhức mỏi lưng phải không ạ?,0.3,0.0,1,1.0,0.13778370001818985,Fixed alpha = 0.3
+test,KB1_Standard,noisy_conversational,Tại sao bé nhà em dạo này hay khóc nhè và bám mẹ không rời vậy?,0.3,0.0,0,0.0,0.1211442000058014,Fixed alpha = 0.3
+test,KB1_Standard,noisy_conversational,Chế độ sinh hoạt của bè mẹ sau sinh?,0.3,0.0,0,0.0,0.09605500000179745,Fixed alpha = 0.3
+test,KB1_Standard,quantitative,"bé nhà em 6 tháng tuổi đang tập ăn dặm mà bị tiêu chảy kéo dài, em có nên tiếp tục cho con ăn cháo cà rốt hay thay đổi chế độ ăn như thế nào không ạ?",0.3,0.0,1,1.0,0.1846062999975402,Fixed alpha = 0.3
+test,KB1_Standard,quantitative,"Bé em được 11 tháng tuổi, cận nặng 8,8kg, hiện bé mới đi tiêu và có ra giun kim, em muốn hỏi xem hiện nay bé đã xổ giun được chưa và nếu được thì sử dụng thuốc loại gì, liều dùng ra sao?",0.3,0.0,1,1.0,0.23419769998872653,Fixed alpha = 0.3
+test,KB1_Standard,quantitative,"Ở nhà em nên để nhiệt độ phòng bao nhiêu là tốt nhất và cần làm gì ngay khi sinh để giữ ấm cho bé, tránh cho con bị nhiễm lạnh ạ",0.3,0.0,1,0.5,0.16522190000978298,Fixed alpha = 0.3
+test,KB1_Standard,quantitative,"Em bị sốt cao, rét run và đau bụng dữ dội sau sinh 2 tuần là dấu hiệu bệnh gì vậy?",0.3,0.0,0,0.0,0.13192569999955595,Fixed alpha = 0.3
+test,KB1_Standard,quantitative,Lượng sữa cần cho trẻ từ khi sinh đến 1 tháng tuổi là bao nhiêu mỗi ngày?,0.3,0.0,1,0.5,0.12884059999487363,Fixed alpha = 0.3
+test,KB1_Standard,quantitative,"Em mới mổ đẻ được 2 ngày mà giờ bị sốt 38,5 độ C thì có làm sao không ạ?",0.3,0.0,0,0.0,0.13278189999982715,Fixed alpha = 0.3
+test,KB1_Standard,quantitative,Bé 2 tháng tuổi thì cần phải đi tiêm những loại vắc xin gì theo định kỳ ạ?,0.3,0.0,0,0.0,0.1307082999846898,Fixed alpha = 0.3
+test,KB1_Standard,quantitative,"định nghĩa chính xác về việc ""nuôi con hoàn toàn bằng sữa mẹ"" trong 6 tháng đầu là như thế nào ạ?",0.3,0.0,1,0.2,0.13322869999683462,Fixed alpha = 0.3
+test,KB1_Standard,quantitative,"Con em được 10 tháng tuổi rồi, em thấy bé có vẻ nhanh đói, em nên sắp xếp lịch ăn dặm cho bé như thế nào cho phù hợp?",0.3,0.0,0,0.0,0.18642670000554062,Fixed alpha = 0.3
+test,KB1_Standard,quantitative,Sau 2 tuần mà rốn bé vẫn chưa rụng thì em có cần đưa bé đi viện không ạ?,0.3,0.0,0,0.0,0.12638139998307452,Fixed alpha = 0.3
+test,KB1_Standard,quantitative,Hậu quả của thiếu dinh dưỡng trong 3 tháng cuối thai kỳ là gì?,0.3,0.0,1,1.0,0.10406939999666065,Fixed alpha = 0.3
+test,KB1_Standard,quantitative,Mẹ sau sinh cần bổ sung Vitamin A với liều lượng bao nhiêu?,0.3,0.0,0,0.0,0.1027417000150308,Fixed alpha = 0.3
+test,KB1_Standard,quantitative,"Để tránh tình trạng suy dinh dưỡng ở trẻ 34 tháng tuổi, em nên làm gì ạ?",0.3,0.0,1,0.5,0.13347499998053536,Fixed alpha = 0.3
+test,KB1_Standard,quantitative,"Bé nhà em vừa tròn 6 tháng và mới tập ăn dặm, mỗi ngày em nên cho con ăn mấy bữa bột là đủ ạ?",0.3,0.0,1,1.0,0.14687820000108331,Fixed alpha = 0.3
+test,KB1_Standard,quantitative,"Bé nhà em dưới 6 tháng tuổi, em có nên cho con uống thêm chút nước sau khi bú để tráng miệng cho sạch không bác sĩ?",0.3,0.0,1,1.0,0.15258049999829382,Fixed alpha = 0.3
+test,KB1_Standard,quantitative,Bé nhà em được 3 tháng tuổi rồi ạ. Bé nhà em có nổi nốt sần khắp người. Em có mang bé đi khám thì bác sĩ họ bảo bị viêm da cơ địa. Em xin hỏi cách điều trị bệnh viêm da cơ địa trẻ 3 tháng tuổi?,0.3,0.0,1,1.0,0.24107899999944493,Fixed alpha = 0.3
+test,KB1_Standard,quantitative,Trẻ từ 7-12 tháng tuổi cần ăn bao nhiêu bữa bột một ngày?,0.3,0.0,1,0.5,0.1164087999786716,Fixed alpha = 0.3
+test,KB1_Standard,quantitative,Nếu em bị chảy máu nhiều sau sinh (trên 300ml) thì bác sĩ sẽ xử trí gì đầu tiên ạ?,0.3,0.0,0,0.0,0.13407899998128414,Fixed alpha = 0.3
+test,KB1_Standard,quantitative,Trẻ từ 12-24 tháng tuổi cần ăn bao nhiêu bữa một ngày?,0.3,0.0,1,0.5,0.10443660002783872,Fixed alpha = 0.3
+test,KB1_Standard,quantitative,"Bé nhà em đã 18 tháng tuổi rồi mà vẫn chưa biết đi, liệu đây có phải là tình trạng chậm biết đi cần phải can thiệp y tế không bác sĩ?",0.3,0.0,1,1.0,0.18287999997846782,Fixed alpha = 0.3
+test,KB1_Standard,semantic,Bốn nhóm thực phẩm cần có trong bữa ăn của trẻ là gì?,0.3,0.0,0,0.0,0.10481799999251962,Fixed alpha = 0.3
+test,KB1_Standard,semantic,Lợi ích của việc nuôi con bằng sữa mẹ đối với tử cung của mẹ sau sinh?,0.3,0.0,1,0.3333333333333333,0.12177789999986999,Fixed alpha = 0.3
+test,KB1_Standard,semantic,"Khi về khoa hậu sản, có những dấu hiệu nào em phải gọi cấp cứu ngay?",0.3,0.0,0,0.0,0.11616080001113005,Fixed alpha = 0.3
+test,KB1_Standard,semantic,Lợi ích của việc cho trẻ tiếp xúc da kề da ngay sau sinh?,0.3,0.0,1,1.0,0.1026107000070624,Fixed alpha = 0.3
+test,KB1_Standard,semantic,Dấu hiệu nào cho thấy trẻ bú tốt?,0.3,0.0,0,0.0,0.09175029999460094,Fixed alpha = 0.3
+test,KB1_Standard,semantic,Viêm tiểu phế quản ở trẻ sơ sinh là gì?,0.3,0.0,0,0.0,0.10798010000144131,Fixed alpha = 0.3
+test,KB1_Standard,semantic,Liệt kê các dấu hiệu nguy hiểm ở trẻ sơ sinh cần đi khám ngay?,0.3,0.0,0,0.0,0.12344559998018667,Fixed alpha = 0.3
+test,KB1_Standard,semantic,"Con em hay bị táo bón, đi ngoài rất khó khăn, em nên điều chỉnh chế độ ăn cho bé thế nào?",0.3,0.0,0,0.0,0.1691618000040762,Fixed alpha = 0.3
+test,KB1_Standard,semantic,Nuôi con bằng sữa mẹ giúp giảm nguy cơ mắc bệnh gì cho mẹ sau này?,0.3,0.0,1,0.25,0.12547920001088642,Fixed alpha = 0.3
+test,KB1_Standard,semantic,Những thực phẩm nào mẹ mang thai nên dùng để cung cấp năng lượng?,0.3,0.0,1,1.0,0.11977210000623018,Fixed alpha = 0.3
+test,KB1_Standard,semantic,"Con em thường xuyên thức giấc giữa đêm và khóc, em phải làm gì để bé ngủ sâu hơn?",0.3,0.0,0,0.0,0.12953259999630973,Fixed alpha = 0.3
+test,KB1_Standard,semantic,Cần đưa trẻ đi khám ngay khi bị nôn ói?,0.3,0.0,0,0.0,0.0920056999893859,Fixed alpha = 0.3
+test,KB1_Standard,semantic,Cách chuẩn bị dụng cụ đựng sữa trước khi vắt như thế nào?,0.3,0.0,1,1.0,0.10958650000975467,Fixed alpha = 0.3
+test,KB1_Standard,semantic,Bố mẹ phải nói như thế nào để giúp con có thể học nói?,0.3,0.0,0,0.0,0.10470349999377504,Fixed alpha = 0.3
+test,KB1_Standard,semantic,Việc cho con bú ngay trong vòng một giờ đầu sau sinh có lợi gì cho người mẹ?,0.3,0.0,0,0.0,0.12657629998284392,Fixed alpha = 0.3
+test,KB1_Standard,semantic,Giải pháp phòng ngừa bệnh xuất huyết não ở trẻ,0.3,0.0,0,0.0,0.0963878000038676,Fixed alpha = 0.3
+test,KB1_Standard,semantic,Chế độ nghỉ ngơi của bè mẹ sau sinh?,0.3,0.0,0,0.0,0.08843970001908019,Fixed alpha = 0.3
+test,KB1_Standard,semantic,Cách xử trí khi vú bị căng sữa hoặc cương tức?,0.3,0.0,1,1.0,0.10274119998211972,Fixed alpha = 0.3
+test,KB1_Standard,semantic,Nghén điều trị như thế nào?,0.3,0.0,0,0.0,0.08492520000436343,Fixed alpha = 0.3
+test,KB1_Standard,semantic,Khuyến nghị về số lần khám thai tối thiểu trong thai kỳ?,0.3,0.0,0,0.0,0.10303639998892322,Fixed alpha = 0.3
+test,KB2_Mom_Style,exact_lexical,Làm sao để phân biệt vàng da sinh lý và vàng da bệnh lý ở bé sơ sinh mn ơi,0.3,0.0,0,0.0,0.152820299990708,Fixed alpha = 0.3
+test,KB2_Mom_Style,exact_lexical,giải pháp hỗ trợ phản xạ oxytocin hoạt động tốt ạ,0.3,0.0,1,1.0,0.1037709999945946,Fixed alpha = 0.3
+test,KB2_Mom_Style,exact_lexical,Kích thích phản xạ oxytocin trước khi vắt sữa có quan trọng không z ạ,0.3,0.0,1,1.0,0.11470180001924746,Fixed alpha = 0.3
+test,KB2_Mom_Style,exact_lexical,Thiếu vitamin D gây ảnh hưởng ntn,0.3,0.0,0,0.0,0.08858000001055188,Fixed alpha = 0.3
+test,KB2_Mom_Style,exact_lexical,"Hướng dẫn em cách xử lý, chăm sóc khi bị sản dịch hôi v ạ",0.3,0.0,0,0.0,0.1140159000060521,Fixed alpha = 0.3
+test,KB2_Mom_Style,exact_lexical,"Khi con em bước sang tháng thứ 7 đến tháng thứ 9, em có cần tăng thêm số lượng bữa ăn dặm cho bé con k",0.3,0.0,1,0.3333333333333333,0.15362120000645518,Fixed alpha = 0.3
+test,KB2_Mom_Style,exact_lexical,Các nguồn bổ sung vitamin D khác ko a,0.3,0.0,0,0.0,0.11172840002109297,Fixed alpha = 0.3
+test,KB2_Mom_Style,exact_lexical,Băng huyết sau sinh sớm và muộn khác nhau ra sao bs ơi,0.3,0.0,0,0.0,0.12606579999555834,Fixed alpha = 0.3
+test,KB2_Mom_Style,exact_lexical,Thuốc đầu tay đc lựa chọn để co hồi tử cung dự phòng băng huyết là j,0.3,0.0,0,0.0,0.12490739999338984,Fixed alpha = 0.3
+test,KB2_Mom_Style,exact_lexical,Em thấy sản dịch có màu đen sậm và mùi hôi kèm sốt nhẹ là dấu hiệu j a,0.3,0.0,0,0.0,0.12794629999552853,Fixed alpha = 0.3
+test,KB2_Mom_Style,exact_lexical,"Trong 1 bát bột ăn dặm chuẩn cho bé, em cần fải đảm bảo có đủ 4 nhóm chất dinh dưỡng nào",0.3,0.0,1,1.0,0.1634038000192959,Fixed alpha = 0.3
+test,KB2_Mom_Style,exact_lexical,Băng huyết sau sinh đc kđịnh nghĩa như thế nào nhỉ,0.3,0.0,0,0.0,0.10796590000973083,Fixed alpha = 0.3
+test,KB2_Mom_Style,noisy_conversational,Làm sao để nhận biết nhau bong non a,0.3,0.0,0,0.0,0.0890961000113748,Fixed alpha = 0.3
+test,KB2_Mom_Style,noisy_conversational,"Bé nhà t rất nhát, gặp người lạ là khóc và trốn sau lưng mẹ thì có bình thường k mn ơi",0.3,0.0,0,0.0,0.14406019999296404,Fixed alpha = 0.3
+test,KB2_Mom_Style,noisy_conversational,Khi nào thì cần đưa bé con đi khám sức khỏe định kỳ dù bé vẫn đang khỏe mạnh ạ,0.3,0.0,0,0.0,0.13891249999869615,Fixed alpha = 0.3
+test,KB2_Mom_Style,noisy_conversational,Kỹ thuật cho bé ăn bằng cốc đúng cách là như thế nào mn ơi,0.3,0.0,1,0.3333333333333333,0.14634050001041032,Fixed alpha = 0.3
+test,KB2_Mom_Style,noisy_conversational,Bị nhau bằng non có cần đến bệnh viện ko a,0.3,0.0,0,0.0,0.1043931000167504,Fixed alpha = 0.3
+test,KB2_Mom_Style,noisy_conversational,Âm đạo của em tiết mùi hồi gây khó chịu là bị j v a,0.3,0.0,0,0.0,0.18581719999201596,Fixed alpha = 0.3
+test,KB2_Mom_Style,noisy_conversational,"Em nghe nói dùng tã vải ít bị hăm da hơn tã giấy, điều này có đúng k và em cần lưu ý j thêm",0.3,0.0,1,1.0,0.22532810000120662,Fixed alpha = 0.3
+test,KB2_Mom_Style,noisy_conversational,Hormon nào chịu trách nhiệm tạo sưa và hormon nào giúp phun sưa ai ơi,0.3,0.0,0,0.0,0.12848630000371486,Fixed alpha = 0.3
+test,KB2_Mom_Style,noisy_conversational,Nếu em bị nhiễm nấm âm đạo thì bé sơ sinh có bị lây k các Mom,0.3,0.0,0,0.0,0.12699010001961142,Fixed alpha = 0.3
+test,KB2_Mom_Style,noisy_conversational,Chế độ ăn uống ntn giúp em giảm bớt tình trạng đau mỏi xương khớp sau khi sinh em bé,0.3,0.0,1,0.5,0.1407218000094872,Fixed alpha = 0.3
+test,KB2_Mom_Style,noisy_conversational,Tại sao cứ khuyến khích mẹ nên ngồi để cho con bú thay vì nằm bú vậy ạ,0.3,0.0,1,1.0,0.12576609998359345,Fixed alpha = 0.3
+test,KB2_Mom_Style,noisy_conversational,"EEm nghe nói sau sinh sẽ rối loạn nội tiết tố nữ phải không, dấu hiệu nhận biết rối loạn nội tiết tố là j v ạ",0.3,0.0,0,0.0,0.18579209997551516,Fixed alpha = 0.3
+test,KB2_Mom_Style,noisy_conversational,"Con em dạo này hay bắt chước các hành động của bố mẹ, đây có phải là 1 dấu hiệu tốt k",0.3,0.0,0,0.0,0.15918330001295544,Fixed alpha = 0.3
+test,KB2_Mom_Style,noisy_conversational,"Em thấy chân của bé con có vẻ yếu và k chịu đứng vững khi em dắt tay, những dấu hiệu nào khác cảnh báo con em đang bị chậm vận động?",0.3,0.0,1,1.0,0.19048869999824092,Fixed alpha = 0.3
+test,KB2_Mom_Style,noisy_conversational,Chồng em cần làm j để giúp em vượt qua giai đoạn bị trầm cảm sau sinh nhẹ v nho,0.3,0.0,0,0.0,0.14610959999845363,Fixed alpha = 0.3
+test,KB2_Mom_Style,noisy_conversational,"Bé nhà t bị ho và chảy nước mũi nhiều, có nên tự mua thuốc ho cho bé uống k mn ơi",0.3,0.0,0,0.0,0.15112359999329783,Fixed alpha = 0.3
+test,KB2_Mom_Style,noisy_conversational,Khi nào thì rốn của bé bị sưng đỏ đc coi là nhiễm trùng mức độ nặng mn,0.3,0.0,0,0.0,0.12397699998109601,Fixed alpha = 0.3
+test,KB2_Mom_Style,noisy_conversational,"Sau khi cho con bú xong, em nên làm j để bé k bị ọc sưa hay bị sặc khi nằm xuống",0.3,0.0,1,1.0,0.14926639999612235,Fixed alpha = 0.3
+test,KB2_Mom_Style,noisy_conversational,"Miệng bé nhà t có mấy mảng trắng như cặn sưa mà lau k sạch, liệu có phải con bị nấm miệng k",0.3,0.0,1,1.0,0.15247649999218993,Fixed alpha = 0.3
+test,KB2_Mom_Style,noisy_conversational,Làm sao để dạy con cách kiểm soát cảm giác tức giận mà k la hét mn ơi,0.3,0.0,0,0.0,0.12039900000672787,Fixed alpha = 0.3
+test,KB2_Mom_Style,quantitative,Tại sao lại dặn là k nên nêm thêm mắm hay muối vào thức ăn dặm của trẻ dưới 1 tuổi,0.3,0.0,1,1.0,0.1374608000041917,Fixed alpha = 0.3
+test,KB2_Mom_Style,quantitative,"Em có cần fải đánh giá lại sự phát triển của bé thường xuyên k, hay chỉ cần thực hiện 1 lần khi bé có dấu hiệu lạ?",0.3,0.0,1,1.0,0.15569569999934174,Fixed alpha = 0.3
+test,KB2_Mom_Style,quantitative,"Bé nhà t vừa tròn 6 tháng và mới tập ăn dặm, mỗi ngày em nên cho con ăn mấy bữa bột là đủ",0.3,0.0,1,1.0,0.14195180000388063,Fixed alpha = 0.3
+test,KB2_Mom_Style,quantitative,"Bé nhà mình đã hơn 6 tháng rùi mà vẫn chưa thấy biết ""ê, a"" hay bập bẹ nói chuyện j hết, liệu con em có đang gặp vấn đề về ngôn ngữ k?",0.3,0.0,1,1.0,0.19726290000835434,Fixed alpha = 0.3
+test,KB2_Mom_Style,quantitative,"Em bị sốt cao, rét run và đau bụng dữ dội sau sinh 2 tuần là dấu hiệu bệnh j vậy c",0.3,0.0,0,0.0,0.14233339999918826,Fixed alpha = 0.3
+test,KB2_Mom_Style,quantitative,Lượng sưa cần cho bé nhà mình từ khi sinh đến 1 tháng tuổi là bao nhiêu mỗi ngày,0.3,0.0,1,0.2,0.1306147999712266,Fixed alpha = 0.3
+test,KB2_Mom_Style,quantitative,"Em mới mổ đẻ đc 2 ngày mà giờ bị sốt 38,5 độ C thì có làm sao k ai oi",0.3,0.0,0,0.0,0.12324799998896196,Fixed alpha = 0.3
+test,KB2_Mom_Style,quantitative,Bé 2 tháng tuổi thì fải đi tiêm những loại vắc xin j theo định kỳ mn ơi,0.3,0.0,0,0.0,0.12237940001068637,Fixed alpha = 0.3
+test,KB2_Mom_Style,quantitative,"Bé nhà mình đc 2 tháng tuổi và hay đi ngoài nhiều vào ban đêm, em nên dùng loại tã j để con ngủ ngon mà k bị tràn tã",0.3,0.0,1,0.5,0.15420190000440925,Fixed alpha = 0.3
+test,KB2_Mom_Style,quantitative,"Con em đã 22 tháng tuổi rồi mà vẫn chậm nói, chưa thể phát âm được những từ ngữ cơ bản, bé cứ dùng tay chân để chỉ trỏ mỗi khi muốn gì đó thì có phải là dấu hiệu đáng lo k v a",0.3,0.0,1,1.0,0.23852320000878535,Fixed alpha = 0.3
+test,KB2_Mom_Style,quantitative,"Bé nhà t đã 18 tháng tuổi rùi mà vẫn chưa biết đi, liệu đây có phải là tình trạng chậm biết đi cần fải can thiệp y tế k?",0.3,0.0,1,1.0,0.17709119999199174,Fixed alpha = 0.3
+test,KB2_Mom_Style,quantitative,Sau 2 tuần mà rốn bé vẫn chưa rụng thì có cần đưa bé đi viện k ạ,0.3,0.0,0,0.0,0.1158694000041578,Fixed alpha = 0.3
+test,KB2_Mom_Style,quantitative,Hậu quả của thiếu dinh dưỡng trong 3 tháng cuối thai kỳ là j v,0.3,0.0,1,1.0,0.10656200000084937,Fixed alpha = 0.3
+test,KB2_Mom_Style,quantitative,"Khi sử dụng tã vải, em có cần fải thay tã cho bé thường xuyên như khi dùng tã giấy dùng 1 lần k",0.3,0.0,1,1.0,0.1453075000026729,Fixed alpha = 0.3
+test,KB2_Mom_Style,quantitative,"Để tránh tình trạng suy dinh dưỡng ở trẻ 34 tháng tuổi, em nên lam j a",0.3,0.0,1,1.0,0.11638409999432042,Fixed alpha = 0.3
+test,KB2_Mom_Style,quantitative,"Bé nhà t đc 34 tháng rùi, em nên sắp xếp các bữa chính và bữa phụ trong ngày ntn để đảm bảo con đủ chất?",0.3,0.0,1,0.5,0.1548932000005152,Fixed alpha = 0.3
+test,KB2_Mom_Style,quantitative,"Bé nhà mình dưới 6 tháng tuổi, em có nên cho con uống thêm chút nước sau khi bú để tráng miệng cho sạch k",0.3,0.0,1,1.0,0.14248789998237044,Fixed alpha = 0.3
+test,KB2_Mom_Style,quantitative,Bé nhà em được 3 tháng tuổi rồi ạ. Bé nhà em có nổi nốt sần khắp người. Em có mang bé đi khám thì bác sĩ họ bảo bị viêm da cơ địa. Em xin hỏi cách điều trị bệnh viêm da cơ địa trẻ 3 tháng tuổi v a,0.3,0.0,1,1.0,0.245667900016997,Fixed alpha = 0.3
+test,KB2_Mom_Style,quantitative,Bé từ 7-12 tháng tuổi cần ăn bao nhiêu bữa bột 1 ngày các v a,0.3,0.0,1,0.25,0.11924319999525324,Fixed alpha = 0.3
+test,KB2_Mom_Style,quantitative,Nếu em bị chảy máu nhiều sau sinh (trên 300ml) thì bs sẽ xử trí j đầu tiên ok,0.3,0.0,0,0.0,0.1282964000129141,Fixed alpha = 0.3
+test,KB2_Mom_Style,semantic,Chồng và người thân nên làm j để giúp em cảm thấy bớt căng thẳng khi chăm sóc bé nhà t,0.3,0.0,0,0.0,0.1232243999838829,Fixed alpha = 0.3
+test,KB2_Mom_Style,semantic,"Ngoài việc phát âm, em cần quan sát những phản ứng nào khác của con đối với lời nói của cha mẹ để biết bé phát triển tâm sinh lý bình thường k?",0.3,0.0,1,1.0,0.17163630001596175,Fixed alpha = 0.3
+test,KB2_Mom_Style,semantic,"Có phải các bệnh lý về cơ hay thần kinh là nguyên nhân chính khiến trẻ chậm biết đi k, hay còn do yếu tố nào khác?",0.3,0.0,1,0.5,0.14505419999477454,Fixed alpha = 0.3
+test,KB2_Mom_Style,semantic,Lợi ích của việc nuôi con bằng sưa mẹ đối với tử cung của mẹ sau sinh,0.3,0.0,1,0.3333333333333333,0.10764999999082647,Fixed alpha = 0.3
+test,KB2_Mom_Style,semantic,Con em đang bị nấm miệng thì có cần fải tiệt trùng bình sưa hay núm vú giả kỹ hơn bình thường k,0.3,0.0,1,1.0,0.13260039998567663,Fixed alpha = 0.3
+test,KB2_Mom_Style,semantic,"Sau sinh tuần đầu, em và bé cần được cán bộ y tế đến thăm khám vào những gì v a",0.3,0.0,0,0.0,0.13149910001084208,Fixed alpha = 0.3
+test,KB2_Mom_Style,semantic,10 điều kiện nuôi con bằng sưa mẹ thành công bao gồm những j,0.3,0.0,1,1.0,0.09785089999786578,Fixed alpha = 0.3
+test,KB2_Mom_Style,semantic,Nguyên nhân xuất huyết não ở trẻ sơ sinh l j,0.3,0.0,0,0.0,0.090624399977969,Fixed alpha = 0.3
+test,KB2_Mom_Style,semantic,Cách xử trí nứt núm vú cho mẹ bỉm sau bú bs ơi,0.3,0.0,1,0.3333333333333333,0.09132279999903403,Fixed alpha = 0.3
+test,KB2_Mom_Style,semantic,"Khi đưa con đi đánh giá sự phát triển, thường sẽ đặt những câu hỏi j cho cha mẹ chúng em?",0.3,0.0,1,1.0,0.12867850001202896,Fixed alpha = 0.3
+test,KB2_Mom_Style,semantic,Bệnh chàm da là j,0.3,0.0,0,0.0,0.06942509999498725,Fixed alpha = 0.3
+test,KB2_Mom_Style,semantic,Em nghe nói gây tê ngoài màng cứng cũng làm mình bị bí tiểu lâu hơn fải k?,0.3,0.0,0,0.0,0.11340210001799278,Fixed alpha = 0.3
+test,KB2_Mom_Style,semantic,Khi nào thì em có thể bắt đầu tập thể dục hoặc vận động nhẹ nhàng sau sinh chat,0.3,0.0,0,0.0,0.1147052000160329,Fixed alpha = 0.3
+test,KB2_Mom_Style,semantic,Bệnh tay chân miệng biểu hiện ra sao vay a,0.3,0.0,0,0.0,0.08392129998537712,Fixed alpha = 0.3
+test,KB2_Mom_Style,semantic,"Khi bé bị tiêu chảy ở nhà, mẹ bỉm cần cho bé uống nước j",0.3,0.0,0,0.0,0.10736049999832176,Fixed alpha = 0.3
+test,KB2_Mom_Style,semantic,"Ngực em tự nhiên bị sưng cứng và đau nhức quá, có phải em đã bị tắc tia sưa rồi k",0.3,0.0,1,1.0,0.14182700001401827,Fixed alpha = 0.3
+test,KB2_Mom_Style,semantic,"Ngoài việc tập đi, em có nên bổ sung thêm các vi chất dinh dưỡng nào để giúp xương chắc khỏe và hỗ trợ bé vận động tốt hơn k?",0.3,0.0,1,0.2,0.17982339998707175,Fixed alpha = 0.3
+test,KB2_Mom_Style,semantic,Làm thế nào để khuyến khích bé yêu thích việc khám phá thiên nhiên và môi trường bên ngoài,0.3,0.0,0,0.0,0.13723100000061095,Fixed alpha = 0.3
+test,KB2_Mom_Style,semantic,Nuôi con bằng sưa mẹ giúp giảm nguy cơ mắc bệnh j cho mẹ sau này,0.3,0.0,1,0.3333333333333333,0.11292379998485558,Fixed alpha = 0.3
+test,KB2_Mom_Style,semantic,Thời kỳ hậu sản là j,0.3,0.0,0,0.0,0.08086350001394749,Fixed alpha = 0.3
+test,KB3_Information_Noise,exact_lexical,"Mẹ em bảo lúc trước cho em ăn dặm là muối mặn chát cho quen mồi, nhưng em nghe bây giờ phải nhạt thếch, khi mới bắt đầu tập ăn, em nên cho bé ăn những loại thức ăn có độ đặc và hương vị như thế nào để con dễ thích nghi ạ",0.3,0.0,1,1.0,0.2795023999933619,Fixed alpha = 0.3
+test,KB3_Information_Noise,exact_lexical,"Người ta bảo cho ăn thêm nước trắng cũng là bú mẹ, thế nào là nuôi con bằng sữa mẹ hoàn toàn chuẩn y khoa vậy ạ",0.3,0.0,0,0.0,0.15765269999974407,Fixed alpha = 0.3
+test,KB3_Information_Noise,exact_lexical,"Em nấu cháo đặc cho con nhưng bé khóc không ăn, nguyên tắc cho trẻ ăn dặm về độ đặc và số lượng là gì ạ",0.3,0.0,0,0.0,0.1544673999887891,Fixed alpha = 0.3
+test,KB3_Information_Noise,exact_lexical,"Em nghe quảng cáo TV bảo cho bé uống canxi nước Mỹ là nhanh biết bò đi, ngoài việc tập luyện, em có cần bổ sung thêm dưỡng chất gì để hỗ trợ hệ cơ xương và tiêu hóa giúp bé vận động nhanh nhẹn hơn không",0.3,0.0,1,0.2,0.23826050001662225,Fixed alpha = 0.3
+test,KB3_Information_Noise,exact_lexical,"Em vừa mua thuốc bổ não cho con, giải pháp hỗ trợ phản xạ oxytocin hoạt động tốt ạ",0.3,0.0,1,1.0,0.12582849999307655,Fixed alpha = 0.3
+test,KB3_Information_Noise,exact_lexical,"Em đang lướt Shopee mua thuốc tâm thần, hướng dẫn em cách xử lý, chăm sóc khi bị sản dịch hôi với ạ",0.3,0.0,0,0.0,0.1512057000072673,Fixed alpha = 0.3
+test,KB3_Information_Noise,exact_lexical,"Em xem quảng cáo bảo cho bé dùng thuốc sủi dạng nước chứa canxi là răng chắc khỏe ngay, ngoài chế độ ăn, em có cần bổ sung thêm vi chất gì để hỗ trợ hệ răng của con chắc khỏe và bé ăn ngon miệng hơn không",0.3,0.0,1,0.5,0.23706449999008328,Fixed alpha = 0.3
+test,KB3_Information_Noise,exact_lexical,"Em đang uống nhiều nước mía vì thấy ít sữa, cho em hỏi vì sao em vẫn cho con bú đều mà vẫn bị tắc tia sữa, nguyên nhân thường gặp là gì ạ",0.3,0.0,1,1.0,0.17515560000902042,Fixed alpha = 0.3
+test,KB3_Information_Noise,exact_lexical,"Hôm nay chồng em mới đi làm về, cho em hỏi các nguồn bổ sung vitamin D khác?",0.3,0.0,0,0.0,0.12608419999014586,Fixed alpha = 0.3
+test,KB3_Information_Noise,exact_lexical,"Em đang bật điều hòa 20 độ vì sợ con nóng, những ngày trời nắng nóng thế này, em sợ con chỉ bú mẹ sẽ bị khát, em có cần bổ sung thêm nước lọc cho bé không ạ",0.3,0.0,1,0.5,0.20251490001101047,Fixed alpha = 0.3
+test,KB3_Information_Noise,exact_lexical,"Em tính sinh mổ vì sợ đau, băng huyết sau sinh sớm và muộn khác nhau ra sao ạ",0.3,0.0,0,0.0,0.11944470001617447,Fixed alpha = 0.3
+test,KB3_Information_Noise,exact_lexical,"Em đang bị dị ứng thuốc, thuốc đầu tay được lựa chọn để co hồi tử cung dự phòng băng huyết là gì ạ",0.3,0.0,0,0.0,0.1382739000255242,Fixed alpha = 0.3
+test,KB3_Information_Noise,exact_lexical,"Em đang dùng băng vệ sinh thơm, em thấy sản dịch có màu đen sậm và mùi hôi kèm sốt nhẹ là dấu hiệu gì ạ",0.3,0.0,0,0.0,0.1510767000145279,Fixed alpha = 0.3
+test,KB3_Information_Noise,exact_lexical,"Em đang ăn nhiều đồ ăn nhanh vì mệt không muốn nấu, để không bị tắc tia sữa lại lần nữa, em nên thay đổi thói quen sinh hoạt động và ăn uống như thế nào ạ",0.3,0.0,1,0.2,0.1838741000101436,Fixed alpha = 0.3
+test,KB3_Information_Noise,exact_lexical,"Em đang bị rong kinh lại mang thai, lo quá, băng huyết sau sinh được định nghĩa như thế nào ạ",0.3,0.0,0,0.0,0.12864609999815002,Fixed alpha = 0.3
+test,KB3_Information_Noise,noisy_conversational,"Em đang thèm ăn bún đậu mắm tôm cực kỳ, những thực phẩm nào mẹ mang thai nên dùng để cung cấp năng lượng ạ",0.3,0.0,1,0.5,0.1372704999812413,Fixed alpha = 0.3
+test,KB3_Information_Noise,noisy_conversational,"Em đang định đi nặn mụn ở spa, tại sao sau khi sinh xong em lại thấy mặt nổi nhiều mụn bọc và mụn mủ vậy",0.3,0.0,0,0.0,0.13988269999390468,Fixed alpha = 0.3
+test,KB3_Information_Noise,noisy_conversational,"Em đang bận làm việc nhà không để ý đến con, làm sao để gia đình em có thể nhận biết sớm các dấu hiệu em bị trầm cảm sau sinh ạ",0.3,0.0,0,0.0,0.17735949999769218,Fixed alpha = 0.3
+test,KB3_Information_Noise,noisy_conversational,"Nhà em có nhiều không qian và rộng rãi, em muốn biết không gian nào trong gia đình là phù hợp nhất để dạy con học nói?",0.3,0.0,0,0.0,0.15055170000414364,Fixed alpha = 0.3
+test,KB3_Information_Noise,noisy_conversational,"Em coi trên mạng thấy nhiều bé bị bệnh em sợ quá, cho em hỏi biểu hiện và cách điều trị của viêm hạnh bạch huyết?",0.3,0.0,0,0.0,0.143498899997212,Fixed alpha = 0.3
+test,KB3_Information_Noise,noisy_conversational,"Em stress quá vì điện nước hay bị cắt, bé nhà em đang ở giai đoạn sơ sinh, em nên sắp xếp lịch giặt tã vải như thế nào để luôn có đủ tã sạch cho con dùng",0.3,0.0,1,1.0,0.18676560002495535,Fixed alpha = 0.3
+test,KB3_Information_Noise,noisy_conversational,"Em đang tính mua máy massage lưng, em nghe nói gây tê ngoài màng cứng cũng làm mình bị bí tiểu lâu hơn phải không ạ",0.3,0.0,0,0.0,0.13980029997765087,Fixed alpha = 0.3
+test,KB3_Information_Noise,noisy_conversational,"Bà nội bảo cho bé uống nước đường để sạch họng, các loại nước uống nào tuyệt đối không cho trẻ uống trước bữa bú đầu tiên ạ",0.3,0.0,1,1.0,0.16573090001475066,Fixed alpha = 0.3
+test,KB3_Information_Noise,noisy_conversational,"Em bị sỏi thận từ trước, đang uống thuốc đông y, những trường hợp nào bà mẹ không nên cho con bú mà phải dùng sữa thay thế ạ",0.3,0.0,0,0.0,0.1614623999921605,Fixed alpha = 0.3
+test,KB3_Information_Noise,noisy_conversational,"Em đang tức giận lắm muốn đánh đòn, em có nên đánh đòn khi con không nghe lời không ạ",0.3,0.0,0,0.0,0.1267465999990236,Fixed alpha = 0.3
+test,KB3_Information_Noise,noisy_conversational,"Con em thích bú nằm ngủ, hậu quả của việc trẻ ngậm bắt vú sai là gì ạ",0.3,0.0,1,1.0,0.11590350000187755,Fixed alpha = 0.3
+test,KB3_Information_Noise,noisy_conversational,"Em đang sốt ruột nhìn con chơi chậm quá, em thấy bé có vẻ lúng túng khi chơi một trò chơi mới, em có nên làm hộ bé luôn cho nhanh không ạ",0.3,0.0,0,0.0,0.18136289998074062,Fixed alpha = 0.3
+test,KB3_Information_Noise,noisy_conversational,"Tủ lạnh nhà em hay bị ngắt điện, sữa mẹ bảo quản trong ngăn mát tủ lạnh (<4°C) được bao lâu ạ",0.3,0.0,1,1.0,0.14126129998476245,Fixed alpha = 0.3
+test,KB3_Information_Noise,noisy_conversational,"Em đang định bôi thuốc mỡ đặc vào miệng con, bé bị nấm miệng như vậy thì có đau lắm không, sao dạo này em thấy con hay khóc khi đang bú và ăn kém đi hẳn ạ",0.3,0.0,1,1.0,0.19611459999578074,Fixed alpha = 0.3
+test,KB3_Information_Noise,noisy_conversational,"Mẹ chồng em bảo mặc quần dài cộc cho mát cho bé tập bò, nhưng em thì sợ con đau đầu gối, cho em hỏi nên chọn quần áo như thế nào cho bé trong giai đoạn tập bò để con dễ dàng vận động mà không bị đau đầu gối",0.3,0.0,1,1.0,0.24723929999163374,Fixed alpha = 0.3
+test,KB3_Information_Noise,noisy_conversational,"Em đang thèm ăn lẩu cay nóng, chế độ ăn uống thế nào để giúp em cải thiện tình trạng rối loạn nội tiết sau sinh ạ",0.3,0.0,0,0.0,0.15863020002143458,Fixed alpha = 0.3
+test,KB3_Information_Noise,noisy_conversational,"Em thấy ở phòng khám bắt con xếp hình như chơi trò chơi thôi mà, ngoài việc trả lời câu hỏi, con em sẽ phải trải qua những bài kiểm tra thực tế nào để bác sĩ đưa ra kết luận chính xác ạ",0.3,0.0,1,0.5,0.20891200000187382,Fixed alpha = 0.3
+test,KB3_Information_Noise,noisy_conversational,"Em dạo này hay bị stress nên hay nhạy cảm thái quá, nếu em cảm thấy con mình có gì đó ""không ổn"" so với các bạn cùng lứa nhưng bài kiểm tra cho kết quả bình thường thì em nên làm gì",0.3,0.0,1,1.0,0.22561630001291633,Fixed alpha = 0.3
+test,KB3_Information_Noise,noisy_conversational,"Đang nấu ăn thì nghe con khóc, em run quá, cách xử trí tại nhà khi trẻ sơ sinh bị sốt cao là làm gì ạ",0.3,0.0,0,0.0,0.14712170002167113,Fixed alpha = 0.3
+test,KB3_Information_Noise,noisy_conversational,"Em đang xem drama khóc lắm, nếu em bị bí tiểu sau sinh mà không điều trị sớm thì có gặp biến chứng gì nguy hiểm không ạ?",0.3,0.0,0,0.0,0.16164480001316406,Fixed alpha = 0.3
+test,KB3_Information_Noise,quantitative,"Em đang ăn cháo dinh dưỡng loại đặc, nhu cầu năng lượng bổ sung hàng ngày cho bà mẹ nuôi con bú 6 tháng đầu là bao nhiêu ạ",0.3,0.0,0,0.0,0.15694310000981204,Fixed alpha = 0.3
+test,KB3_Information_Noise,quantitative,"Em đang định cho con nằm yên không đụng vào 24 tiếng, bé nhà em bị ngã đập đầu xuống đất, em cần theo dõi những dấu hiệu gì trong 24 giờ tới ạ",0.3,0.0,0,0.0,0.17406029999256134,Fixed alpha = 0.3
+test,KB3_Information_Noise,quantitative,"Em đang định dùng tã giấy dùng 1 lần để gấp thành gối cho con nằm cao, em muốn dùng tã vải cho con thì cần chuẩn bị những loại tã và phụ kiện đi kèm nào cho đúng ạ",0.3,0.0,1,1.0,0.19468359998427331,Fixed alpha = 0.3
+test,KB3_Information_Noise,quantitative,"Em đang định cho con uống thuốc tiêu hóa vì bé hay khóc, bé nhà em 2 ngày đầu phân màu xanh đen và nhầy thì có bình thường không ạ",0.3,0.0,0,0.0,0.1718193999840878,Fixed alpha = 0.3
+test,KB3_Information_Noise,quantitative,"Em cho con bú nhiều nhưng bé vẫn khóc, đến ngày thứ 3 sau sinh, dung tích dạ dày của bé tăng lên bao nhiêu nhỉ",0.3,0.0,0,0.0,0.15749089999007992,Fixed alpha = 0.3
+test,KB3_Information_Noise,quantitative,"Em thấy trên mạng bảo bé bị nổi mẩn là do thời tiết dị ứng thôi, nhưng em thì thấy con ngứa khóc quấy lắm, Bé nhà em được 3 tháng tuổi rồi ạ. Bé nhà em có nổi nốt sần khắp người. Em có mang bé đi khám thì bác sĩ họ bảo bị viêm da cơ địa. Em xin hỏi cách điều trị bệnh viêm da cơ địa trẻ 3 tháng tuổi?",0.3,0.0,1,1.0,0.33532199999899603,Fixed alpha = 0.3
+test,KB3_Information_Noise,quantitative,"Em đang giấu chuyện cơ thể đau nhức vì sợ mẹ chồng lo, cho em biết tỷ lệ phụ nữ trầm cảm sau sinh là bao nhiêu vậy ạ",0.3,0.0,0,0.0,0.17092749997391365,Fixed alpha = 0.3
+test,KB3_Information_Noise,quantitative,"Em đang định không thay tã ban đêm để cho con ngủ sâu, bé nhà em được 2 tháng tuổi và hay đi ngoài nhiều vào ban đêm, em nên dùng loại tã nào để con ngủ ngon mà không bị tràn tã ạ",0.3,0.0,1,0.5,0.23904129999573343,Fixed alpha = 0.3
+test,KB3_Information_Noise,quantitative,"Em thấy trên mạng bỉm sữa bảo cho con ăn dặm sớm từ 4 tháng để bé cao lớn, nhưng ông nội lại bảo chờ 6 tháng cho chắc bụng, nếu em cho con tập ăn dặm quá sớm từ lúc 4 tháng tuổi thì có gây ra tác hại gì cho sức khỏe của bé không",0.3,0.0,1,1.0,0.2652325000090059,Fixed alpha = 0.3
+test,KB3_Information_Noise,quantitative,"Em đang dùng nhiệt kế đo mà thấy 37.5 độ, sau sinh em bị sốt bao nhiêu độ thì được coi là nguy hiểm phải báo y tá ạ",0.3,0.0,0,0.0,0.17333409999264404,Fixed alpha = 0.3
+test,KB3_Information_Noise,quantitative,"Bác sĩ ơi, em lo quá, con em sinh non 8 tháng nghe nói sẽ chậm lật mãi không theo kịp bạn bè, đối với các bé sinh non thì cột mốc biết lật có khác biệt gì so với các bạn sinh đủ tháng không",0.3,0.0,1,1.0,0.242044500017073,Fixed alpha = 0.3
+test,KB3_Information_Noise,quantitative,"Em đang cho con nếm thử vị chua vì thấy thú vị, định nghĩa chính xác về việc ""nuôi con hoàn toàn bằng sữa mẹ"" trong 6 tháng đầu là như thế nào ạ",0.3,0.0,1,1.0,0.182036899990635,Fixed alpha = 0.3
+test,KB3_Information_Noise,quantitative,"Em đang định uống thuốc giảm đau mạnh, cơn đau dạ con sau sinh, đâu mạnh thường sẽ kéo dài trong bao nhiêu ngày thì hết ạ",0.3,0.0,0,0.0,0.15036830000462942,Fixed alpha = 0.3
+test,KB3_Information_Noise,quantitative,"Em đang định pha thêm nước lọc vào bình sữa vì trời quá nóng, bé nhà em dưới 6 tháng tuổi, em có nên cho con uống thêm chút nước sau khi bú để tráng miệng cho sạch không bác sĩ",0.3,0.0,1,1.0,0.19513899998855777,Fixed alpha = 0.3
+test,KB3_Information_Noise,quantitative,"Em đang nấu cháo đặc cho con 4 tháng ăn dặm sớm, tổng lượng sữa cần thiết cho trẻ từ 4 đến 6 tháng tuổi mỗi ngày là bao nhiêu ạ",0.3,0.0,1,0.25,0.18121609999798238,Fixed alpha = 0.3
+test,KB3_Information_Noise,quantitative,"Chị đồng nghiệp bảo bé 10 tháng ăn 1 bữa cháo đặc là đủ kẻo chán bú, nhưng em thấy bé nhà em nhanh đói lắm, em nên sắp xếp lịch ăn dặm cho bé 10 tháng tuổi như thế nào cho phù hợp",0.3,0.0,1,0.3333333333333333,0.2303593999822624,Fixed alpha = 0.3
+test,KB3_Information_Noise,quantitative,"Con em lười bú sữa mẹ mà thích ăn bột, trẻ từ 7-12 tháng tuổi cần ăn bao nhiêu bữa bột một ngày ạ",0.3,0.0,1,0.3333333333333333,0.14073829998960719,Fixed alpha = 0.3
+test,KB3_Information_Noise,quantitative,"Con em bú 5 phút đã ngủ, tại sao mẹ nên cho trẻ bú hết một bên vú rồi mới chuyển sang vú kia ạ",0.3,0.0,1,1.0,0.15527499999734573,Fixed alpha = 0.3
+test,KB3_Information_Noise,quantitative,"Em tính mua bình sữa lớn cho con 2 tuần sau, dung tích dạ dày trẻ từ ngày thứ 5 đến ngày thứ 7 sau đẻ là bao nhiêu ạ",0.3,0.0,1,1.0,0.16540389999863692,Fixed alpha = 0.3
+test,KB3_Information_Noise,quantitative,"Mẹ em bảo ngày xưa bận làm ruộng 7 tháng mới lật là thường, nhưng em thì thấy con 6 tháng chưa lật là chậm rồi, con em đã 6 tháng rồi mà vẫn chưa biết lật từ sau ra trước, liệu như vậy có phải là bé đang chậm phát triển không",0.3,0.0,1,1.0,0.27882200002204627,Fixed alpha = 0.3
+test,KB3_Information_Noise,semantic,"Em với chồng nói chuyện quá trời với bà bội, em thắc mắc là bố mẹ phải nói như thế nào để giúp con có thể học nói?",0.3,0.0,0,0.0,0.1583039999823086,Fixed alpha = 0.3
+test,KB3_Information_Noise,semantic,"Đang ăn cơm cũng phải vội lên để hỏi cho đỡ thắc mắc, những dấu hiệu cảnh báo bệnh tay chân miệng?",0.3,0.0,0,0.0,0.1429049999860581,Fixed alpha = 0.3
+test,KB3_Information_Noise,semantic,"Em đang coi trên tivi thấy nhiều ca mắc bệnh tay chân miệng quá, em lo quá cho em hỏi bệnh tay chân miệng nguy hiểm ra sao?",0.3,0.0,0,0.0,0.1443579999904614,Fixed alpha = 0.3
+test,KB3_Information_Noise,semantic,"Em bị cảm cúm sợ lây cho con, em thắc mắc là đặc tính của sữa non có những gì",0.3,0.0,0,0.0,0.1307399999932386,Fixed alpha = 0.3
+test,KB3_Information_Noise,semantic,"Em đang cho con bú, em hỏi là quy trình tái khám sau sinh thường diễn ra như thế nào?",0.3,0.0,0,0.0,0.1306328999926336,Fixed alpha = 0.3
+test,KB3_Information_Noise,semantic,"Con em đang bị chàm da, em lo quá, hãy hướng dẫn chăm sóc trẻ bị chàm da?",0.3,0.0,0,0.0,0.12446459999773651,Fixed alpha = 0.3
+test,KB3_Information_Noise,semantic,"Em đang ở ngoài đường với bé, cho em hỏi thời kỳ hậu sản kéo dài bao lâu?",0.3,0.0,0,0.0,0.12527639998006634,Fixed alpha = 0.3
+test,KB3_Information_Noise,semantic,"Em mới vừa xuất viện về nhà xong, cho em hỏi quy trình tái khám sau sinh mổ diễn ra như thế nào?",0.3,0.0,0,0.0,0.14440900000045076,Fixed alpha = 0.3
+test,KB3_Information_Noise,semantic,"Bà nội đang chơi với cháu, cho em hỏi giải pháp điều trị xuất huyết não ở trẻ sơ sinh?",0.3,0.0,0,0.0,0.13117830001283437,Fixed alpha = 0.3
+test,KB3_Information_Noise,semantic,"Bà nội em chăm cháu mà cứ cằn nhằn em suốt bảo làm sao để con bị bệnh như thế này, em buồn quá cho em hỏi các điều trị và chăm sóc bệnh tay chân miệng như thế nào?",0.3,0.0,0,0.0,0.20931949999067,Fixed alpha = 0.3
+test,KB3_Information_Noise,semantic,"Em đang tức giận dữ dội muốn đập đồ vỡ, khi em đang mệt mỏi và lo lắng, em cần chồng hỗ trợ như thế nào là tốt nhất thay vì chỉ đưa ra những lời khuyên sáo rỗng",0.3,0.0,0,0.0,0.19004100002348423,Fixed alpha = 0.3
+test,KB1_Standard,exact_lexical,Nguyên tắc cho trẻ ăn dặm về độ đặc và số lượng là gì?,0.4,0.0,0,0.0,0.11683020001510158,Fixed alpha = 0.4
+test,KB1_Standard,exact_lexical,Làm sao để phân biệt vàng da sinh lý và vàng da bệnh lý ở trẻ sơ sinh ạ?,0.4,0.0,0,0.0,0.12180809999699704,Fixed alpha = 0.4
+test,KB1_Standard,exact_lexical,"Trong một bát bột ăn dặm chuẩn cho bé, em cần phải đảm bảo có đủ 4 nhóm chất dinh dưỡng nào ạ?",0.4,0.0,1,1.0,0.13649960001930594,Fixed alpha = 0.4
+test,KB1_Standard,exact_lexical,Giải pháp hỗ trợ phản xạ oxytocin hoạt động tốt?,0.4,0.0,1,1.0,0.09789539998746477,Fixed alpha = 0.4
+test,KB1_Standard,exact_lexical,Thiếu vitamin D gây ảnh hưởng như thế nào?,0.4,0.0,0,0.0,0.09291439998196438,Fixed alpha = 0.4
+test,KB1_Standard,exact_lexical,"Khi con em bước sang tháng thứ 7 đến tháng thứ 9, em có cần tăng thêm số lượng bữa ăn dặm cho bé không bác sĩ?",0.4,0.0,1,0.3333333333333333,0.14925420001964085,Fixed alpha = 0.4
+test,KB1_Standard,exact_lexical,"Cho em hỏi vì sao em vẫn cho con bú đều mà vẫn bị tắc tia sữa, nguyên nhân thường gặp là gì ạ?",0.4,0.0,1,1.0,0.14305769998463802,Fixed alpha = 0.4
+test,KB1_Standard,exact_lexical,Các nguồn bổ sung vitamin D khác?,0.4,0.0,0,0.0,0.08686900002066977,Fixed alpha = 0.4
+test,KB1_Standard,exact_lexical,"Những ngày trời nắng nóng thế này, em sợ con chỉ bú mẹ sẽ bị khát, em có cần bổ sung thêm nước lọc cho bé không ạ?",0.4,0.0,1,1.0,0.1624698000086937,Fixed alpha = 0.4
+test,KB1_Standard,exact_lexical,Băng huyết sau sinh sớm và muộn khác nhau ra sao?,0.4,0.0,0,0.0,0.10689920000731945,Fixed alpha = 0.4
+test,KB1_Standard,exact_lexical,Thuốc đầu tay được lựa chọn để co hồi tử cung dự phòng băng huyết là gì?,0.4,0.0,0,0.0,0.11564450000878423,Fixed alpha = 0.4
+test,KB1_Standard,exact_lexical,Em thấy sản dịch có màu đen sậm và mùi hôi kèm sốt nhẹ là dấu hiệu gì ạ?,0.4,0.0,0,0.0,0.11773910000920296,Fixed alpha = 0.4
+test,KB1_Standard,exact_lexical,"Để không bị tắc tia sữa lại lần nữa, em nên thay đổi thói quen sinh hoạt và ăn uống như thế nào ạ?",0.4,0.0,1,1.0,0.14928909999434836,Fixed alpha = 0.4
+test,KB1_Standard,exact_lexical,Băng huyết sau sinh được định nghĩa như thế nào?,0.4,0.0,0,0.0,0.09972180001204833,Fixed alpha = 0.4
+test,KB1_Standard,noisy_conversational,cho em hỏi lộ trình phát triển vận động bình thường của một em bé khỏe mạnh từ khi sinh ra đến khi biết ngồi vững là thế nào ạ?,0.4,0.0,1,0.3333333333333333,0.15778189999400638,Fixed alpha = 0.4
+test,KB1_Standard,noisy_conversational,Sữa mẹ bảo quản trong ngăn mát tủ lạnh (<4°C) được bao lâu?,0.4,0.0,1,1.0,0.10944910001126118,Fixed alpha = 0.4
+test,KB1_Standard,noisy_conversational,"Ngoài việc cải thiện chuyện tiểu tiện, tập phục hồi sàn chậu có giúp ích gì cho đời sống vợ chồng sau sinh không ạ?",0.4,0.0,1,1.0,0.13842239999212325,Fixed alpha = 0.4
+test,KB1_Standard,noisy_conversational,có các biện pháp nào để duy trì nguồn sữa mẹ không ạ?,0.4,0.0,0,0.0,0.1097314000071492,Fixed alpha = 0.4
+test,KB1_Standard,noisy_conversational,"Em cảm thấy rất tội lỗi khi không thể chăm sóc con tốt như mong đợi, đây có phải là dấu hiệu của trầm cảm không?",0.4,0.0,0,0.0,0.1570402999932412,Fixed alpha = 0.4
+test,KB1_Standard,noisy_conversational,"Làm sao để em biết mình đã mặc tã cho con vừa vặn, không quá chật gây lằn da nhưng cũng không quá lỏng làm tràn tã ạ?",0.4,0.0,1,0.25,0.17329439998138696,Fixed alpha = 0.4
+test,KB1_Standard,noisy_conversational,Nếu con em bị béo phì từ nhỏ thì sau này lớn lên có dễ mắc các bệnh mạn tính nguy hiểm nào không?,0.4,0.0,1,0.5,0.1419086000241805,Fixed alpha = 0.4
+test,KB1_Standard,noisy_conversational,"Bé nhà em chưa biết nói nhưng hay bập bẹ ""ba ba, ma ma"", em nên phản ứng thế nào để khuyến khích bé ạ?",0.4,0.0,0,0.0,0.1488522000145167,Fixed alpha = 0.4
+test,KB1_Standard,noisy_conversational,Tại sao phụ nữ mang thai bị phù (cân) phải giảm ăn mặn?,0.4,0.0,1,1.0,0.11134199998923577,Fixed alpha = 0.4
+test,KB1_Standard,noisy_conversational,"Em đang mang thai tháng cuối, có loại thuốc đặt âm đạo nào an toàn để dự phòng nấm không?",0.4,0.0,0,0.0,0.12989189999643713,Fixed alpha = 0.4
+test,KB1_Standard,noisy_conversational,Tại sao việc tiêm chủng đúng lịch lại quan trọng đối với sức khỏe của bé vậy bác sĩ?,0.4,0.0,0,0.0,0.1294810000108555,Fixed alpha = 0.4
+test,KB1_Standard,noisy_conversational,Chỉ em cách xử lý khi chẳng may bé bị bỏng nước sôi tại nhà với ạ?,0.4,0.0,0,0.0,0.1208209999895189,Fixed alpha = 0.4
+test,KB1_Standard,noisy_conversational,"Trong thời kỳ hậu sản, một vài tuần đầu em thấy có chất dịch chảy ra thì có sao không ạ?",0.4,0.0,0,0.0,0.13422189999255352,Fixed alpha = 0.4
+test,KB1_Standard,noisy_conversational,Con em đang bị nấm miệng thì em có cần phải tiệt trùng bình sữa hay núm vú giả kỹ hơn bình thường không ạ?,0.4,0.0,1,1.0,0.1424264000088442,Fixed alpha = 0.4
+test,KB1_Standard,noisy_conversational,"em thấy trên thị trường có nhiều loại tã quá, làm sao để em chọn được loại tã giấy vừa vặn và thoải mái nhất cho bé nhà em ạ?",0.4,0.0,1,1.0,0.16805310000199825,Fixed alpha = 0.4
+test,KB1_Standard,noisy_conversational,Âm đạo của em tiết mùi hồi gây khó chịu là bị gì vậy ạ,0.4,0.0,0,0.0,0.11139239999465644,Fixed alpha = 0.4
+test,KB1_Standard,noisy_conversational,Trẻ nhận sữa mẹ hoàn toàn có cần uống thêm nước trắng không?,0.4,0.0,1,1.0,0.11094349998165853,Fixed alpha = 0.4
+test,KB1_Standard,noisy_conversational,Liệu bế con không đúng tư thế có phải là một trong những nguyên nhân dẫn đến đau nhức mỏi lưng phải không ạ?,0.4,0.0,1,1.0,0.1343273000093177,Fixed alpha = 0.4
+test,KB1_Standard,noisy_conversational,Tại sao bé nhà em dạo này hay khóc nhè và bám mẹ không rời vậy?,0.4,0.0,0,0.0,0.127878499974031,Fixed alpha = 0.4
+test,KB1_Standard,noisy_conversational,Chế độ sinh hoạt của bè mẹ sau sinh?,0.4,0.0,0,0.0,0.10454660002142191,Fixed alpha = 0.4
+test,KB1_Standard,quantitative,"bé nhà em 6 tháng tuổi đang tập ăn dặm mà bị tiêu chảy kéo dài, em có nên tiếp tục cho con ăn cháo cà rốt hay thay đổi chế độ ăn như thế nào không ạ?",0.4,0.0,1,1.0,0.21449300000676885,Fixed alpha = 0.4
+test,KB1_Standard,quantitative,"Bé em được 11 tháng tuổi, cận nặng 8,8kg, hiện bé mới đi tiêu và có ra giun kim, em muốn hỏi xem hiện nay bé đã xổ giun được chưa và nếu được thì sử dụng thuốc loại gì, liều dùng ra sao?",0.4,0.0,1,1.0,0.23686130001442507,Fixed alpha = 0.4
+test,KB1_Standard,quantitative,"Ở nhà em nên để nhiệt độ phòng bao nhiêu là tốt nhất và cần làm gì ngay khi sinh để giữ ấm cho bé, tránh cho con bị nhiễm lạnh ạ",0.4,0.0,1,0.5,0.1693297000019811,Fixed alpha = 0.4
+test,KB1_Standard,quantitative,"Em bị sốt cao, rét run và đau bụng dữ dội sau sinh 2 tuần là dấu hiệu bệnh gì vậy?",0.4,0.0,0,0.0,0.13203120001708157,Fixed alpha = 0.4
+test,KB1_Standard,quantitative,Lượng sữa cần cho trẻ từ khi sinh đến 1 tháng tuổi là bao nhiêu mỗi ngày?,0.4,0.0,1,0.5,0.1238422000024002,Fixed alpha = 0.4
+test,KB1_Standard,quantitative,"Em mới mổ đẻ được 2 ngày mà giờ bị sốt 38,5 độ C thì có làm sao không ạ?",0.4,0.0,0,0.0,0.1332914999802597,Fixed alpha = 0.4
+test,KB1_Standard,quantitative,Bé 2 tháng tuổi thì cần phải đi tiêm những loại vắc xin gì theo định kỳ ạ?,0.4,0.0,0,0.0,0.13877220000722446,Fixed alpha = 0.4
+test,KB1_Standard,quantitative,"định nghĩa chính xác về việc ""nuôi con hoàn toàn bằng sữa mẹ"" trong 6 tháng đầu là như thế nào ạ?",0.4,0.0,0,0.0,0.13767540000844747,Fixed alpha = 0.4
+test,KB1_Standard,quantitative,"Con em được 10 tháng tuổi rồi, em thấy bé có vẻ nhanh đói, em nên sắp xếp lịch ăn dặm cho bé như thế nào cho phù hợp?",0.4,0.0,0,0.0,0.1692709999915678,Fixed alpha = 0.4
+test,KB1_Standard,quantitative,Sau 2 tuần mà rốn bé vẫn chưa rụng thì em có cần đưa bé đi viện không ạ?,0.4,0.0,0,0.0,0.1221390999853611,Fixed alpha = 0.4
+test,KB1_Standard,quantitative,Hậu quả của thiếu dinh dưỡng trong 3 tháng cuối thai kỳ là gì?,0.4,0.0,1,1.0,0.11424729999271221,Fixed alpha = 0.4
+test,KB1_Standard,quantitative,Mẹ sau sinh cần bổ sung Vitamin A với liều lượng bao nhiêu?,0.4,0.0,0,0.0,0.10231719998409972,Fixed alpha = 0.4
+test,KB1_Standard,quantitative,"Để tránh tình trạng suy dinh dưỡng ở trẻ 34 tháng tuổi, em nên làm gì ạ?",0.4,0.0,1,1.0,0.13325290000648238,Fixed alpha = 0.4
+test,KB1_Standard,quantitative,"Bé nhà em vừa tròn 6 tháng và mới tập ăn dặm, mỗi ngày em nên cho con ăn mấy bữa bột là đủ ạ?",0.4,0.0,1,1.0,0.14941550002549775,Fixed alpha = 0.4
+test,KB1_Standard,quantitative,"Bé nhà em dưới 6 tháng tuổi, em có nên cho con uống thêm chút nước sau khi bú để tráng miệng cho sạch không bác sĩ?",0.4,0.0,1,1.0,0.16025429998990148,Fixed alpha = 0.4
+test,KB1_Standard,quantitative,Bé nhà em được 3 tháng tuổi rồi ạ. Bé nhà em có nổi nốt sần khắp người. Em có mang bé đi khám thì bác sĩ họ bảo bị viêm da cơ địa. Em xin hỏi cách điều trị bệnh viêm da cơ địa trẻ 3 tháng tuổi?,0.4,0.0,1,1.0,0.226971699972637,Fixed alpha = 0.4
+test,KB1_Standard,quantitative,Trẻ từ 7-12 tháng tuổi cần ăn bao nhiêu bữa bột một ngày?,0.4,0.0,1,0.5,0.11923760001081973,Fixed alpha = 0.4
+test,KB1_Standard,quantitative,Nếu em bị chảy máu nhiều sau sinh (trên 300ml) thì bác sĩ sẽ xử trí gì đầu tiên ạ?,0.4,0.0,0,0.0,0.14768570000887848,Fixed alpha = 0.4
+test,KB1_Standard,quantitative,Trẻ từ 12-24 tháng tuổi cần ăn bao nhiêu bữa một ngày?,0.4,0.0,1,0.5,0.14212939998833463,Fixed alpha = 0.4
+test,KB1_Standard,quantitative,"Bé nhà em đã 18 tháng tuổi rồi mà vẫn chưa biết đi, liệu đây có phải là tình trạng chậm biết đi cần phải can thiệp y tế không bác sĩ?",0.4,0.0,1,1.0,0.18389230000320822,Fixed alpha = 0.4
+test,KB1_Standard,semantic,Bốn nhóm thực phẩm cần có trong bữa ăn của trẻ là gì?,0.4,0.0,0,0.0,0.13024399999994785,Fixed alpha = 0.4
+test,KB1_Standard,semantic,Lợi ích của việc nuôi con bằng sữa mẹ đối với tử cung của mẹ sau sinh?,0.4,0.0,1,0.3333333333333333,0.12584279998554848,Fixed alpha = 0.4
+test,KB1_Standard,semantic,"Khi về khoa hậu sản, có những dấu hiệu nào em phải gọi cấp cứu ngay?",0.4,0.0,0,0.0,0.13933680002810434,Fixed alpha = 0.4
+test,KB1_Standard,semantic,Lợi ích của việc cho trẻ tiếp xúc da kề da ngay sau sinh?,0.4,0.0,1,1.0,0.10264179998193868,Fixed alpha = 0.4
+test,KB1_Standard,semantic,Dấu hiệu nào cho thấy trẻ bú tốt?,0.4,0.0,0,0.0,0.09599620001972653,Fixed alpha = 0.4
+test,KB1_Standard,semantic,Viêm tiểu phế quản ở trẻ sơ sinh là gì?,0.4,0.0,0,0.0,0.10318440000992268,Fixed alpha = 0.4
+test,KB1_Standard,semantic,Liệt kê các dấu hiệu nguy hiểm ở trẻ sơ sinh cần đi khám ngay?,0.4,0.0,0,0.0,0.10837390000233427,Fixed alpha = 0.4
+test,KB1_Standard,semantic,"Con em hay bị táo bón, đi ngoài rất khó khăn, em nên điều chỉnh chế độ ăn cho bé thế nào?",0.4,0.0,0,0.0,0.1459972000156995,Fixed alpha = 0.4
+test,KB1_Standard,semantic,Nuôi con bằng sữa mẹ giúp giảm nguy cơ mắc bệnh gì cho mẹ sau này?,0.4,0.0,1,0.25,0.1136257000034675,Fixed alpha = 0.4
+test,KB1_Standard,semantic,Những thực phẩm nào mẹ mang thai nên dùng để cung cấp năng lượng?,0.4,0.0,1,1.0,0.11078029999043792,Fixed alpha = 0.4
+test,KB1_Standard,semantic,"Con em thường xuyên thức giấc giữa đêm và khóc, em phải làm gì để bé ngủ sâu hơn?",0.4,0.0,0,0.0,0.12043260000064038,Fixed alpha = 0.4
+test,KB1_Standard,semantic,Cần đưa trẻ đi khám ngay khi bị nôn ói?,0.4,0.0,0,0.0,0.08828840000205673,Fixed alpha = 0.4
+test,KB1_Standard,semantic,Cách chuẩn bị dụng cụ đựng sữa trước khi vắt như thế nào?,0.4,0.0,1,1.0,0.09975500000291504,Fixed alpha = 0.4
+test,KB1_Standard,semantic,Bố mẹ phải nói như thế nào để giúp con có thể học nói?,0.4,0.0,0,0.0,0.1058478000049945,Fixed alpha = 0.4
+test,KB1_Standard,semantic,Việc cho con bú ngay trong vòng một giờ đầu sau sinh có lợi gì cho người mẹ?,0.4,0.0,0,0.0,0.11645520001184195,Fixed alpha = 0.4
+test,KB1_Standard,semantic,Giải pháp phòng ngừa bệnh xuất huyết não ở trẻ,0.4,0.0,0,0.0,0.08903189998818561,Fixed alpha = 0.4
+test,KB1_Standard,semantic,Chế độ nghỉ ngơi của bè mẹ sau sinh?,0.4,0.0,0,0.0,0.091732700006105,Fixed alpha = 0.4
+test,KB1_Standard,semantic,Cách xử trí khi vú bị căng sữa hoặc cương tức?,0.4,0.0,1,1.0,0.09073009999701753,Fixed alpha = 0.4
+test,KB1_Standard,semantic,Nghén điều trị như thế nào?,0.4,0.0,0,0.0,0.07543090000399388,Fixed alpha = 0.4
+test,KB1_Standard,semantic,Khuyến nghị về số lần khám thai tối thiểu trong thai kỳ?,0.4,0.0,0,0.0,0.10292359997401945,Fixed alpha = 0.4
+test,KB2_Mom_Style,exact_lexical,Làm sao để phân biệt vàng da sinh lý và vàng da bệnh lý ở bé sơ sinh mn ơi,0.4,0.0,0,0.0,0.12448899997980334,Fixed alpha = 0.4
+test,KB2_Mom_Style,exact_lexical,giải pháp hỗ trợ phản xạ oxytocin hoạt động tốt ạ,0.4,0.0,1,1.0,0.090091999998549,Fixed alpha = 0.4
+test,KB2_Mom_Style,exact_lexical,Kích thích phản xạ oxytocin trước khi vắt sữa có quan trọng không z ạ,0.4,0.0,1,0.5,0.10481590000563301,Fixed alpha = 0.4
+test,KB2_Mom_Style,exact_lexical,Thiếu vitamin D gây ảnh hưởng ntn,0.4,0.0,0,0.0,0.07825319998664781,Fixed alpha = 0.4
+test,KB2_Mom_Style,exact_lexical,"Hướng dẫn em cách xử lý, chăm sóc khi bị sản dịch hôi v ạ",0.4,0.0,0,0.0,0.10676949998014607,Fixed alpha = 0.4
+test,KB2_Mom_Style,exact_lexical,"Khi con em bước sang tháng thứ 7 đến tháng thứ 9, em có cần tăng thêm số lượng bữa ăn dặm cho bé con k",0.4,0.0,1,0.3333333333333333,0.15053359998273663,Fixed alpha = 0.4
+test,KB2_Mom_Style,exact_lexical,Các nguồn bổ sung vitamin D khác ko a,0.4,0.0,0,0.0,0.09172319999197498,Fixed alpha = 0.4
+test,KB2_Mom_Style,exact_lexical,Băng huyết sau sinh sớm và muộn khác nhau ra sao bs ơi,0.4,0.0,0,0.0,0.09930810000514612,Fixed alpha = 0.4
+test,KB2_Mom_Style,exact_lexical,Thuốc đầu tay đc lựa chọn để co hồi tử cung dự phòng băng huyết là j,0.4,0.0,0,0.0,0.11582539998926222,Fixed alpha = 0.4
+test,KB2_Mom_Style,exact_lexical,Em thấy sản dịch có màu đen sậm và mùi hôi kèm sốt nhẹ là dấu hiệu j a,0.4,0.0,0,0.0,0.11515139997936785,Fixed alpha = 0.4
+test,KB2_Mom_Style,exact_lexical,"Trong 1 bát bột ăn dặm chuẩn cho bé, em cần fải đảm bảo có đủ 4 nhóm chất dinh dưỡng nào",0.4,0.0,1,1.0,0.1345625999965705,Fixed alpha = 0.4
+test,KB2_Mom_Style,exact_lexical,Băng huyết sau sinh đc kđịnh nghĩa như thế nào nhỉ,0.4,0.0,0,0.0,0.09461249999003485,Fixed alpha = 0.4
+test,KB2_Mom_Style,noisy_conversational,Làm sao để nhận biết nhau bong non a,0.4,0.0,0,0.0,0.09320219999062829,Fixed alpha = 0.4
+test,KB2_Mom_Style,noisy_conversational,"Bé nhà t rất nhát, gặp người lạ là khóc và trốn sau lưng mẹ thì có bình thường k mn ơi",0.4,0.0,0,0.0,0.13792609999654815,Fixed alpha = 0.4
+test,KB2_Mom_Style,noisy_conversational,Khi nào thì cần đưa bé con đi khám sức khỏe định kỳ dù bé vẫn đang khỏe mạnh ạ,0.4,0.0,0,0.0,0.1299157000030391,Fixed alpha = 0.4
+test,KB2_Mom_Style,noisy_conversational,Kỹ thuật cho bé ăn bằng cốc đúng cách là như thế nào mn ơi,0.4,0.0,1,0.5,0.10643299997900613,Fixed alpha = 0.4
+test,KB2_Mom_Style,noisy_conversational,Bị nhau bằng non có cần đến bệnh viện ko a,0.4,0.0,0,0.0,0.09379230000195093,Fixed alpha = 0.4
+test,KB2_Mom_Style,noisy_conversational,Âm đạo của em tiết mùi hồi gây khó chịu là bị j v a,0.4,0.0,0,0.0,0.1005113999999594,Fixed alpha = 0.4
+test,KB2_Mom_Style,noisy_conversational,"Em nghe nói dùng tã vải ít bị hăm da hơn tã giấy, điều này có đúng k và em cần lưu ý j thêm",0.4,0.0,1,1.0,0.13574520000838675,Fixed alpha = 0.4
+test,KB2_Mom_Style,noisy_conversational,Hormon nào chịu trách nhiệm tạo sưa và hormon nào giúp phun sưa ai ơi,0.4,0.0,0,0.0,0.10947840000153519,Fixed alpha = 0.4
+test,KB2_Mom_Style,noisy_conversational,Nếu em bị nhiễm nấm âm đạo thì bé sơ sinh có bị lây k các Mom,0.4,0.0,0,0.0,0.11926609999500215,Fixed alpha = 0.4
+test,KB2_Mom_Style,noisy_conversational,Chế độ ăn uống ntn giúp em giảm bớt tình trạng đau mỏi xương khớp sau khi sinh em bé,0.4,0.0,1,0.5,0.12253490000148304,Fixed alpha = 0.4
+test,KB2_Mom_Style,noisy_conversational,Tại sao cứ khuyến khích mẹ nên ngồi để cho con bú thay vì nằm bú vậy ạ,0.4,0.0,1,1.0,0.11146610000287183,Fixed alpha = 0.4
+test,KB2_Mom_Style,noisy_conversational,"EEm nghe nói sau sinh sẽ rối loạn nội tiết tố nữ phải không, dấu hiệu nhận biết rối loạn nội tiết tố là j v ạ",0.4,0.0,0,0.0,0.14574400000856258,Fixed alpha = 0.4
+test,KB2_Mom_Style,noisy_conversational,"Con em dạo này hay bắt chước các hành động của bố mẹ, đây có phải là 1 dấu hiệu tốt k",0.4,0.0,0,0.0,0.1270524999999907,Fixed alpha = 0.4
+test,KB2_Mom_Style,noisy_conversational,"Em thấy chân của bé con có vẻ yếu và k chịu đứng vững khi em dắt tay, những dấu hiệu nào khác cảnh báo con em đang bị chậm vận động?",0.4,0.0,1,1.0,0.16473629997926764,Fixed alpha = 0.4
+test,KB2_Mom_Style,noisy_conversational,Chồng em cần làm j để giúp em vượt qua giai đoạn bị trầm cảm sau sinh nhẹ v nho,0.4,0.0,0,0.0,0.13767789999837987,Fixed alpha = 0.4
+test,KB2_Mom_Style,noisy_conversational,"Bé nhà t bị ho và chảy nước mũi nhiều, có nên tự mua thuốc ho cho bé uống k mn ơi",0.4,0.0,0,0.0,0.1372630000114441,Fixed alpha = 0.4
+test,KB2_Mom_Style,noisy_conversational,Khi nào thì rốn của bé bị sưng đỏ đc coi là nhiễm trùng mức độ nặng mn,0.4,0.0,0,0.0,0.11423959999228828,Fixed alpha = 0.4
+test,KB2_Mom_Style,noisy_conversational,"Sau khi cho con bú xong, em nên làm j để bé k bị ọc sưa hay bị sặc khi nằm xuống",0.4,0.0,1,1.0,0.13409149998915382,Fixed alpha = 0.4
+test,KB2_Mom_Style,noisy_conversational,"Miệng bé nhà t có mấy mảng trắng như cặn sưa mà lau k sạch, liệu có phải con bị nấm miệng k",0.4,0.0,1,1.0,0.12632929999381304,Fixed alpha = 0.4
+test,KB2_Mom_Style,noisy_conversational,Làm sao để dạy con cách kiểm soát cảm giác tức giận mà k la hét mn ơi,0.4,0.0,0,0.0,0.11065200000302866,Fixed alpha = 0.4
+test,KB2_Mom_Style,quantitative,Tại sao lại dặn là k nên nêm thêm mắm hay muối vào thức ăn dặm của trẻ dưới 1 tuổi,0.4,0.0,1,1.0,0.12673539997194894,Fixed alpha = 0.4
+test,KB2_Mom_Style,quantitative,"Em có cần fải đánh giá lại sự phát triển của bé thường xuyên k, hay chỉ cần thực hiện 1 lần khi bé có dấu hiệu lạ?",0.4,0.0,1,1.0,0.16098019998753443,Fixed alpha = 0.4
+test,KB2_Mom_Style,quantitative,"Bé nhà t vừa tròn 6 tháng và mới tập ăn dặm, mỗi ngày em nên cho con ăn mấy bữa bột là đủ",0.4,0.0,1,1.0,0.13923219998832792,Fixed alpha = 0.4
+test,KB2_Mom_Style,quantitative,"Bé nhà mình đã hơn 6 tháng rùi mà vẫn chưa thấy biết ""ê, a"" hay bập bẹ nói chuyện j hết, liệu con em có đang gặp vấn đề về ngôn ngữ k?",0.4,0.0,1,1.0,0.1874381999950856,Fixed alpha = 0.4
+test,KB2_Mom_Style,quantitative,"Em bị sốt cao, rét run và đau bụng dữ dội sau sinh 2 tuần là dấu hiệu bệnh j vậy c",0.4,0.0,0,0.0,0.12910910000209697,Fixed alpha = 0.4
+test,KB2_Mom_Style,quantitative,Lượng sưa cần cho bé nhà mình từ khi sinh đến 1 tháng tuổi là bao nhiêu mỗi ngày,0.4,0.0,1,0.2,0.12147620000177994,Fixed alpha = 0.4
+test,KB2_Mom_Style,quantitative,"Em mới mổ đẻ đc 2 ngày mà giờ bị sốt 38,5 độ C thì có làm sao k ai oi",0.4,0.0,0,0.0,0.12554400000954047,Fixed alpha = 0.4
+test,KB2_Mom_Style,quantitative,Bé 2 tháng tuổi thì fải đi tiêm những loại vắc xin j theo định kỳ mn ơi,0.4,0.0,0,0.0,0.11827810000977479,Fixed alpha = 0.4
+test,KB2_Mom_Style,quantitative,"Bé nhà mình đc 2 tháng tuổi và hay đi ngoài nhiều vào ban đêm, em nên dùng loại tã j để con ngủ ngon mà k bị tràn tã",0.4,0.0,1,0.5,0.17061319999629632,Fixed alpha = 0.4
+test,KB2_Mom_Style,quantitative,"Con em đã 22 tháng tuổi rồi mà vẫn chậm nói, chưa thể phát âm được những từ ngữ cơ bản, bé cứ dùng tay chân để chỉ trỏ mỗi khi muốn gì đó thì có phải là dấu hiệu đáng lo k v a",0.4,0.0,1,1.0,0.21095300000160933,Fixed alpha = 0.4
+test,KB2_Mom_Style,quantitative,"Bé nhà t đã 18 tháng tuổi rùi mà vẫn chưa biết đi, liệu đây có phải là tình trạng chậm biết đi cần fải can thiệp y tế k?",0.4,0.0,1,1.0,0.15854090001084842,Fixed alpha = 0.4
+test,KB2_Mom_Style,quantitative,Sau 2 tuần mà rốn bé vẫn chưa rụng thì có cần đưa bé đi viện k ạ,0.4,0.0,0,0.0,0.11496829998213798,Fixed alpha = 0.4
+test,KB2_Mom_Style,quantitative,Hậu quả của thiếu dinh dưỡng trong 3 tháng cuối thai kỳ là j v,0.4,0.0,1,1.0,0.10561140000936575,Fixed alpha = 0.4
+test,KB2_Mom_Style,quantitative,"Khi sử dụng tã vải, em có cần fải thay tã cho bé thường xuyên như khi dùng tã giấy dùng 1 lần k",0.4,0.0,1,1.0,0.1368308000091929,Fixed alpha = 0.4
+test,KB2_Mom_Style,quantitative,"Để tránh tình trạng suy dinh dưỡng ở trẻ 34 tháng tuổi, em nên lam j a",0.4,0.0,1,1.0,0.1213974000129383,Fixed alpha = 0.4
+test,KB2_Mom_Style,quantitative,"Bé nhà t đc 34 tháng rùi, em nên sắp xếp các bữa chính và bữa phụ trong ngày ntn để đảm bảo con đủ chất?",0.4,0.0,1,0.5,0.15219989998149686,Fixed alpha = 0.4
+test,KB2_Mom_Style,quantitative,"Bé nhà mình dưới 6 tháng tuổi, em có nên cho con uống thêm chút nước sau khi bú để tráng miệng cho sạch k",0.4,0.0,1,1.0,0.15234719999716617,Fixed alpha = 0.4
+test,KB2_Mom_Style,quantitative,Bé nhà em được 3 tháng tuổi rồi ạ. Bé nhà em có nổi nốt sần khắp người. Em có mang bé đi khám thì bác sĩ họ bảo bị viêm da cơ địa. Em xin hỏi cách điều trị bệnh viêm da cơ địa trẻ 3 tháng tuổi v a,0.4,0.0,1,1.0,0.2272559000120964,Fixed alpha = 0.4
+test,KB2_Mom_Style,quantitative,Bé từ 7-12 tháng tuổi cần ăn bao nhiêu bữa bột 1 ngày các v a,0.4,0.0,1,0.25,0.11020610001287423,Fixed alpha = 0.4
+test,KB2_Mom_Style,quantitative,Nếu em bị chảy máu nhiều sau sinh (trên 300ml) thì bs sẽ xử trí j đầu tiên ok,0.4,0.0,0,0.0,0.12354979998781346,Fixed alpha = 0.4
+test,KB2_Mom_Style,semantic,Chồng và người thân nên làm j để giúp em cảm thấy bớt căng thẳng khi chăm sóc bé nhà t,0.4,0.0,0,0.0,0.1230138000100851,Fixed alpha = 0.4
+test,KB2_Mom_Style,semantic,"Ngoài việc phát âm, em cần quan sát những phản ứng nào khác của con đối với lời nói của cha mẹ để biết bé phát triển tâm sinh lý bình thường k?",0.4,0.0,1,1.0,0.1703191999986302,Fixed alpha = 0.4
+test,KB2_Mom_Style,semantic,"Có phải các bệnh lý về cơ hay thần kinh là nguyên nhân chính khiến trẻ chậm biết đi k, hay còn do yếu tố nào khác?",0.4,0.0,1,0.3333333333333333,0.18210950001957826,Fixed alpha = 0.4
+test,KB2_Mom_Style,semantic,Lợi ích của việc nuôi con bằng sưa mẹ đối với tử cung của mẹ sau sinh,0.4,0.0,1,0.3333333333333333,0.1166293999995105,Fixed alpha = 0.4
+test,KB2_Mom_Style,semantic,Con em đang bị nấm miệng thì có cần fải tiệt trùng bình sưa hay núm vú giả kỹ hơn bình thường k,0.4,0.0,1,1.0,0.13573119998909533,Fixed alpha = 0.4
+test,KB2_Mom_Style,semantic,"Sau sinh tuần đầu, em và bé cần được cán bộ y tế đến thăm khám vào những gì v a",0.4,0.0,0,0.0,0.13395840002340265,Fixed alpha = 0.4
+test,KB2_Mom_Style,semantic,10 điều kiện nuôi con bằng sưa mẹ thành công bao gồm những j,0.4,0.0,1,1.0,0.09869110002182424,Fixed alpha = 0.4
+test,KB2_Mom_Style,semantic,Nguyên nhân xuất huyết não ở trẻ sơ sinh l j,0.4,0.0,0,0.0,0.09808189998148009,Fixed alpha = 0.4
+test,KB2_Mom_Style,semantic,Cách xử trí nứt núm vú cho mẹ bỉm sau bú bs ơi,0.4,0.0,1,0.5,0.09470359998522326,Fixed alpha = 0.4
+test,KB2_Mom_Style,semantic,"Khi đưa con đi đánh giá sự phát triển, thường sẽ đặt những câu hỏi j cho cha mẹ chúng em?",0.4,0.0,1,1.0,0.13629080000100657,Fixed alpha = 0.4
+test,KB2_Mom_Style,semantic,Bệnh chàm da là j,0.4,0.0,0,0.0,0.07345180000993423,Fixed alpha = 0.4
+test,KB2_Mom_Style,semantic,Em nghe nói gây tê ngoài màng cứng cũng làm mình bị bí tiểu lâu hơn fải k?,0.4,0.0,0,0.0,0.12372800000593998,Fixed alpha = 0.4
+test,KB2_Mom_Style,semantic,Khi nào thì em có thể bắt đầu tập thể dục hoặc vận động nhẹ nhàng sau sinh chat,0.4,0.0,0,0.0,0.12645379998139106,Fixed alpha = 0.4
+test,KB2_Mom_Style,semantic,Bệnh tay chân miệng biểu hiện ra sao vay a,0.4,0.0,0,0.0,0.08940320002147928,Fixed alpha = 0.4
+test,KB2_Mom_Style,semantic,"Khi bé bị tiêu chảy ở nhà, mẹ bỉm cần cho bé uống nước j",0.4,0.0,0,0.0,0.12345610000193119,Fixed alpha = 0.4
+test,KB2_Mom_Style,semantic,"Ngực em tự nhiên bị sưng cứng và đau nhức quá, có phải em đã bị tắc tia sưa rồi k",0.4,0.0,1,1.0,0.13376910000806674,Fixed alpha = 0.4
+test,KB2_Mom_Style,semantic,"Ngoài việc tập đi, em có nên bổ sung thêm các vi chất dinh dưỡng nào để giúp xương chắc khỏe và hỗ trợ bé vận động tốt hơn k?",0.4,0.0,0,0.0,0.16454480000538751,Fixed alpha = 0.4
+test,KB2_Mom_Style,semantic,Làm thế nào để khuyến khích bé yêu thích việc khám phá thiên nhiên và môi trường bên ngoài,0.4,0.0,0,0.0,0.11695269998745061,Fixed alpha = 0.4
+test,KB2_Mom_Style,semantic,Nuôi con bằng sưa mẹ giúp giảm nguy cơ mắc bệnh j cho mẹ sau này,0.4,0.0,1,0.5,0.10619749999023043,Fixed alpha = 0.4
+test,KB2_Mom_Style,semantic,Thời kỳ hậu sản là j,0.4,0.0,0,0.0,0.07349500001873821,Fixed alpha = 0.4
+test,KB3_Information_Noise,exact_lexical,"Mẹ em bảo lúc trước cho em ăn dặm là muối mặn chát cho quen mồi, nhưng em nghe bây giờ phải nhạt thếch, khi mới bắt đầu tập ăn, em nên cho bé ăn những loại thức ăn có độ đặc và hương vị như thế nào để con dễ thích nghi ạ",0.4,0.0,1,1.0,0.24757330000284128,Fixed alpha = 0.4
+test,KB3_Information_Noise,exact_lexical,"Người ta bảo cho ăn thêm nước trắng cũng là bú mẹ, thế nào là nuôi con bằng sữa mẹ hoàn toàn chuẩn y khoa vậy ạ",0.4,0.0,0,0.0,0.14793059998191893,Fixed alpha = 0.4
+test,KB3_Information_Noise,exact_lexical,"Em nấu cháo đặc cho con nhưng bé khóc không ăn, nguyên tắc cho trẻ ăn dặm về độ đặc và số lượng là gì ạ",0.4,0.0,0,0.0,0.1584898000000976,Fixed alpha = 0.4
+test,KB3_Information_Noise,exact_lexical,"Em nghe quảng cáo TV bảo cho bé uống canxi nước Mỹ là nhanh biết bò đi, ngoài việc tập luyện, em có cần bổ sung thêm dưỡng chất gì để hỗ trợ hệ cơ xương và tiêu hóa giúp bé vận động nhanh nhẹn hơn không",0.4,0.0,0,0.0,0.22246290001203306,Fixed alpha = 0.4
+test,KB3_Information_Noise,exact_lexical,"Em vừa mua thuốc bổ não cho con, giải pháp hỗ trợ phản xạ oxytocin hoạt động tốt ạ",0.4,0.0,1,1.0,0.1258877000072971,Fixed alpha = 0.4
+test,KB3_Information_Noise,exact_lexical,"Em đang lướt Shopee mua thuốc tâm thần, hướng dẫn em cách xử lý, chăm sóc khi bị sản dịch hôi với ạ",0.4,0.0,0,0.0,0.14041749999159947,Fixed alpha = 0.4
+test,KB3_Information_Noise,exact_lexical,"Em xem quảng cáo bảo cho bé dùng thuốc sủi dạng nước chứa canxi là răng chắc khỏe ngay, ngoài chế độ ăn, em có cần bổ sung thêm vi chất gì để hỗ trợ hệ răng của con chắc khỏe và bé ăn ngon miệng hơn không",0.4,0.0,1,0.5,0.22754429999622516,Fixed alpha = 0.4
+test,KB3_Information_Noise,exact_lexical,"Em đang uống nhiều nước mía vì thấy ít sữa, cho em hỏi vì sao em vẫn cho con bú đều mà vẫn bị tắc tia sữa, nguyên nhân thường gặp là gì ạ",0.4,0.0,1,1.0,0.1850335999915842,Fixed alpha = 0.4
+test,KB3_Information_Noise,exact_lexical,"Hôm nay chồng em mới đi làm về, cho em hỏi các nguồn bổ sung vitamin D khác?",0.4,0.0,0,0.0,0.1272449000098277,Fixed alpha = 0.4
+test,KB3_Information_Noise,exact_lexical,"Em đang bật điều hòa 20 độ vì sợ con nóng, những ngày trời nắng nóng thế này, em sợ con chỉ bú mẹ sẽ bị khát, em có cần bổ sung thêm nước lọc cho bé không ạ",0.4,0.0,1,1.0,0.20763399999123067,Fixed alpha = 0.4
+test,KB3_Information_Noise,exact_lexical,"Em tính sinh mổ vì sợ đau, băng huyết sau sinh sớm và muộn khác nhau ra sao ạ",0.4,0.0,0,0.0,0.118992600007914,Fixed alpha = 0.4
+test,KB3_Information_Noise,exact_lexical,"Em đang bị dị ứng thuốc, thuốc đầu tay được lựa chọn để co hồi tử cung dự phòng băng huyết là gì ạ",0.4,0.0,0,0.0,0.13536020001629367,Fixed alpha = 0.4
+test,KB3_Information_Noise,exact_lexical,"Em đang dùng băng vệ sinh thơm, em thấy sản dịch có màu đen sậm và mùi hôi kèm sốt nhẹ là dấu hiệu gì ạ",0.4,0.0,0,0.0,0.14416689999052323,Fixed alpha = 0.4
+test,KB3_Information_Noise,exact_lexical,"Em đang ăn nhiều đồ ăn nhanh vì mệt không muốn nấu, để không bị tắc tia sữa lại lần nữa, em nên thay đổi thói quen sinh hoạt động và ăn uống như thế nào ạ",0.4,0.0,0,0.0,0.18098050000844523,Fixed alpha = 0.4
+test,KB3_Information_Noise,exact_lexical,"Em đang bị rong kinh lại mang thai, lo quá, băng huyết sau sinh được định nghĩa như thế nào ạ",0.4,0.0,0,0.0,0.12753779999911785,Fixed alpha = 0.4
+test,KB3_Information_Noise,noisy_conversational,"Em đang thèm ăn bún đậu mắm tôm cực kỳ, những thực phẩm nào mẹ mang thai nên dùng để cung cấp năng lượng ạ",0.4,0.0,1,1.0,0.1370566000114195,Fixed alpha = 0.4
+test,KB3_Information_Noise,noisy_conversational,"Em đang định đi nặn mụn ở spa, tại sao sau khi sinh xong em lại thấy mặt nổi nhiều mụn bọc và mụn mủ vậy",0.4,0.0,0,0.0,0.13572170000406913,Fixed alpha = 0.4
+test,KB3_Information_Noise,noisy_conversational,"Em đang bận làm việc nhà không để ý đến con, làm sao để gia đình em có thể nhận biết sớm các dấu hiệu em bị trầm cảm sau sinh ạ",0.4,0.0,0,0.0,0.1688756999792531,Fixed alpha = 0.4
+test,KB3_Information_Noise,noisy_conversational,"Nhà em có nhiều không qian và rộng rãi, em muốn biết không gian nào trong gia đình là phù hợp nhất để dạy con học nói?",0.4,0.0,0,0.0,0.14420090001658536,Fixed alpha = 0.4
+test,KB3_Information_Noise,noisy_conversational,"Em coi trên mạng thấy nhiều bé bị bệnh em sợ quá, cho em hỏi biểu hiện và cách điều trị của viêm hạnh bạch huyết?",0.4,0.0,0,0.0,0.1491338999767322,Fixed alpha = 0.4
+test,KB3_Information_Noise,noisy_conversational,"Em stress quá vì điện nước hay bị cắt, bé nhà em đang ở giai đoạn sơ sinh, em nên sắp xếp lịch giặt tã vải như thế nào để luôn có đủ tã sạch cho con dùng",0.4,0.0,1,1.0,0.18128729998716153,Fixed alpha = 0.4
+test,KB3_Information_Noise,noisy_conversational,"Em đang tính mua máy massage lưng, em nghe nói gây tê ngoài màng cứng cũng làm mình bị bí tiểu lâu hơn phải không ạ",0.4,0.0,0,0.0,0.1352513000019826,Fixed alpha = 0.4
+test,KB3_Information_Noise,noisy_conversational,"Bà nội bảo cho bé uống nước đường để sạch họng, các loại nước uống nào tuyệt đối không cho trẻ uống trước bữa bú đầu tiên ạ",0.4,0.0,1,1.0,0.15200559998629615,Fixed alpha = 0.4
+test,KB3_Information_Noise,noisy_conversational,"Em bị sỏi thận từ trước, đang uống thuốc đông y, những trường hợp nào bà mẹ không nên cho con bú mà phải dùng sữa thay thế ạ",0.4,0.0,0,0.0,0.15200020000338554,Fixed alpha = 0.4
+test,KB3_Information_Noise,noisy_conversational,"Em đang tức giận lắm muốn đánh đòn, em có nên đánh đòn khi con không nghe lời không ạ",0.4,0.0,0,0.0,0.12039650001679547,Fixed alpha = 0.4
+test,KB3_Information_Noise,noisy_conversational,"Con em thích bú nằm ngủ, hậu quả của việc trẻ ngậm bắt vú sai là gì ạ",0.4,0.0,1,1.0,0.12560519998078234,Fixed alpha = 0.4
+test,KB3_Information_Noise,noisy_conversational,"Em đang sốt ruột nhìn con chơi chậm quá, em thấy bé có vẻ lúng túng khi chơi một trò chơi mới, em có nên làm hộ bé luôn cho nhanh không ạ",0.4,0.0,0,0.0,0.18403860001126304,Fixed alpha = 0.4
+test,KB3_Information_Noise,noisy_conversational,"Tủ lạnh nhà em hay bị ngắt điện, sữa mẹ bảo quản trong ngăn mát tủ lạnh (<4°C) được bao lâu ạ",0.4,0.0,1,1.0,0.1466941999970004,Fixed alpha = 0.4
+test,KB3_Information_Noise,noisy_conversational,"Em đang định bôi thuốc mỡ đặc vào miệng con, bé bị nấm miệng như vậy thì có đau lắm không, sao dạo này em thấy con hay khóc khi đang bú và ăn kém đi hẳn ạ",0.4,0.0,1,1.0,0.1996045999985654,Fixed alpha = 0.4
+test,KB3_Information_Noise,noisy_conversational,"Mẹ chồng em bảo mặc quần dài cộc cho mát cho bé tập bò, nhưng em thì sợ con đau đầu gối, cho em hỏi nên chọn quần áo như thế nào cho bé trong giai đoạn tập bò để con dễ dàng vận động mà không bị đau đầu gối",0.4,0.0,1,1.0,0.23682980000739917,Fixed alpha = 0.4
+test,KB3_Information_Noise,noisy_conversational,"Em đang thèm ăn lẩu cay nóng, chế độ ăn uống thế nào để giúp em cải thiện tình trạng rối loạn nội tiết sau sinh ạ",0.4,0.0,0,0.0,0.15547500000684522,Fixed alpha = 0.4
+test,KB3_Information_Noise,noisy_conversational,"Em thấy ở phòng khám bắt con xếp hình như chơi trò chơi thôi mà, ngoài việc trả lời câu hỏi, con em sẽ phải trải qua những bài kiểm tra thực tế nào để bác sĩ đưa ra kết luận chính xác ạ",0.4,0.0,1,0.3333333333333333,0.20485760000883602,Fixed alpha = 0.4
+test,KB3_Information_Noise,noisy_conversational,"Em dạo này hay bị stress nên hay nhạy cảm thái quá, nếu em cảm thấy con mình có gì đó ""không ổn"" so với các bạn cùng lứa nhưng bài kiểm tra cho kết quả bình thường thì em nên làm gì",0.4,0.0,1,1.0,0.21478149999165908,Fixed alpha = 0.4
+test,KB3_Information_Noise,noisy_conversational,"Đang nấu ăn thì nghe con khóc, em run quá, cách xử trí tại nhà khi trẻ sơ sinh bị sốt cao là làm gì ạ",0.4,0.0,0,0.0,0.15600709998398088,Fixed alpha = 0.4
+test,KB3_Information_Noise,noisy_conversational,"Em đang xem drama khóc lắm, nếu em bị bí tiểu sau sinh mà không điều trị sớm thì có gặp biến chứng gì nguy hiểm không ạ?",0.4,0.0,0,0.0,0.14962500002002344,Fixed alpha = 0.4
+test,KB3_Information_Noise,quantitative,"Em đang ăn cháo dinh dưỡng loại đặc, nhu cầu năng lượng bổ sung hàng ngày cho bà mẹ nuôi con bú 6 tháng đầu là bao nhiêu ạ",0.4,0.0,1,0.2,0.1678574999968987,Fixed alpha = 0.4
+test,KB3_Information_Noise,quantitative,"Em đang định cho con nằm yên không đụng vào 24 tiếng, bé nhà em bị ngã đập đầu xuống đất, em cần theo dõi những dấu hiệu gì trong 24 giờ tới ạ",0.4,0.0,0,0.0,0.16884119997848757,Fixed alpha = 0.4
+test,KB3_Information_Noise,quantitative,"Em đang định dùng tã giấy dùng 1 lần để gấp thành gối cho con nằm cao, em muốn dùng tã vải cho con thì cần chuẩn bị những loại tã và phụ kiện đi kèm nào cho đúng ạ",0.4,0.0,1,1.0,0.18574629997601733,Fixed alpha = 0.4
+test,KB3_Information_Noise,quantitative,"Em đang định cho con uống thuốc tiêu hóa vì bé hay khóc, bé nhà em 2 ngày đầu phân màu xanh đen và nhầy thì có bình thường không ạ",0.4,0.0,0,0.0,0.18391910000354983,Fixed alpha = 0.4
+test,KB3_Information_Noise,quantitative,"Em cho con bú nhiều nhưng bé vẫn khóc, đến ngày thứ 3 sau sinh, dung tích dạ dày của bé tăng lên bao nhiêu nhỉ",0.4,0.0,0,0.0,0.15519240000867285,Fixed alpha = 0.4
+test,KB3_Information_Noise,quantitative,"Em thấy trên mạng bảo bé bị nổi mẩn là do thời tiết dị ứng thôi, nhưng em thì thấy con ngứa khóc quấy lắm, Bé nhà em được 3 tháng tuổi rồi ạ. Bé nhà em có nổi nốt sần khắp người. Em có mang bé đi khám thì bác sĩ họ bảo bị viêm da cơ địa. Em xin hỏi cách điều trị bệnh viêm da cơ địa trẻ 3 tháng tuổi?",0.4,0.0,1,1.0,0.31674420001218095,Fixed alpha = 0.4
+test,KB3_Information_Noise,quantitative,"Em đang giấu chuyện cơ thể đau nhức vì sợ mẹ chồng lo, cho em biết tỷ lệ phụ nữ trầm cảm sau sinh là bao nhiêu vậy ạ",0.4,0.0,0,0.0,0.15732060000300407,Fixed alpha = 0.4
+test,KB3_Information_Noise,quantitative,"Em đang định không thay tã ban đêm để cho con ngủ sâu, bé nhà em được 2 tháng tuổi và hay đi ngoài nhiều vào ban đêm, em nên dùng loại tã nào để con ngủ ngon mà không bị tràn tã ạ",0.4,0.0,1,0.5,0.21416380000300705,Fixed alpha = 0.4
+test,KB3_Information_Noise,quantitative,"Em thấy trên mạng bỉm sữa bảo cho con ăn dặm sớm từ 4 tháng để bé cao lớn, nhưng ông nội lại bảo chờ 6 tháng cho chắc bụng, nếu em cho con tập ăn dặm quá sớm từ lúc 4 tháng tuổi thì có gây ra tác hại gì cho sức khỏe của bé không",0.4,0.0,1,1.0,0.2564585999934934,Fixed alpha = 0.4
+test,KB3_Information_Noise,quantitative,"Em đang dùng nhiệt kế đo mà thấy 37.5 độ, sau sinh em bị sốt bao nhiêu độ thì được coi là nguy hiểm phải báo y tá ạ",0.4,0.0,0,0.0,0.15300769999157637,Fixed alpha = 0.4
+test,KB3_Information_Noise,quantitative,"Bác sĩ ơi, em lo quá, con em sinh non 8 tháng nghe nói sẽ chậm lật mãi không theo kịp bạn bè, đối với các bé sinh non thì cột mốc biết lật có khác biệt gì so với các bạn sinh đủ tháng không",0.4,0.0,1,1.0,0.22994369998923503,Fixed alpha = 0.4
+test,KB3_Information_Noise,quantitative,"Em đang cho con nếm thử vị chua vì thấy thú vị, định nghĩa chính xác về việc ""nuôi con hoàn toàn bằng sữa mẹ"" trong 6 tháng đầu là như thế nào ạ",0.4,0.0,1,1.0,0.17254649999085814,Fixed alpha = 0.4
+test,KB3_Information_Noise,quantitative,"Em đang định uống thuốc giảm đau mạnh, cơn đau dạ con sau sinh, đâu mạnh thường sẽ kéo dài trong bao nhiêu ngày thì hết ạ",0.4,0.0,0,0.0,0.1534082000143826,Fixed alpha = 0.4
+test,KB3_Information_Noise,quantitative,"Em đang định pha thêm nước lọc vào bình sữa vì trời quá nóng, bé nhà em dưới 6 tháng tuổi, em có nên cho con uống thêm chút nước sau khi bú để tráng miệng cho sạch không bác sĩ",0.4,0.0,1,1.0,0.1996653999958653,Fixed alpha = 0.4
+test,KB3_Information_Noise,quantitative,"Em đang nấu cháo đặc cho con 4 tháng ăn dặm sớm, tổng lượng sữa cần thiết cho trẻ từ 4 đến 6 tháng tuổi mỗi ngày là bao nhiêu ạ",0.4,0.0,1,0.25,0.17301739999675192,Fixed alpha = 0.4
+test,KB3_Information_Noise,quantitative,"Chị đồng nghiệp bảo bé 10 tháng ăn 1 bữa cháo đặc là đủ kẻo chán bú, nhưng em thấy bé nhà em nhanh đói lắm, em nên sắp xếp lịch ăn dặm cho bé 10 tháng tuổi như thế nào cho phù hợp",0.4,0.0,1,0.3333333333333333,0.211123300017789,Fixed alpha = 0.4
+test,KB3_Information_Noise,quantitative,"Con em lười bú sữa mẹ mà thích ăn bột, trẻ từ 7-12 tháng tuổi cần ăn bao nhiêu bữa bột một ngày ạ",0.4,0.0,1,0.3333333333333333,0.14657380001153797,Fixed alpha = 0.4
+test,KB3_Information_Noise,quantitative,"Con em bú 5 phút đã ngủ, tại sao mẹ nên cho trẻ bú hết một bên vú rồi mới chuyển sang vú kia ạ",0.4,0.0,1,1.0,0.13883959999657236,Fixed alpha = 0.4
+test,KB3_Information_Noise,quantitative,"Em tính mua bình sữa lớn cho con 2 tuần sau, dung tích dạ dày trẻ từ ngày thứ 5 đến ngày thứ 7 sau đẻ là bao nhiêu ạ",0.4,0.0,1,1.0,0.16931639998801984,Fixed alpha = 0.4
+test,KB3_Information_Noise,quantitative,"Mẹ em bảo ngày xưa bận làm ruộng 7 tháng mới lật là thường, nhưng em thì thấy con 6 tháng chưa lật là chậm rồi, con em đã 6 tháng rồi mà vẫn chưa biết lật từ sau ra trước, liệu như vậy có phải là bé đang chậm phát triển không",0.4,0.0,1,1.0,0.2782502000045497,Fixed alpha = 0.4
+test,KB3_Information_Noise,semantic,"Em với chồng nói chuyện quá trời với bà bội, em thắc mắc là bố mẹ phải nói như thế nào để giúp con có thể học nói?",0.4,0.0,0,0.0,0.15247090000775643,Fixed alpha = 0.4
+test,KB3_Information_Noise,semantic,"Đang ăn cơm cũng phải vội lên để hỏi cho đỡ thắc mắc, những dấu hiệu cảnh báo bệnh tay chân miệng?",0.4,0.0,0,0.0,0.14726810000138357,Fixed alpha = 0.4
+test,KB3_Information_Noise,semantic,"Em đang coi trên tivi thấy nhiều ca mắc bệnh tay chân miệng quá, em lo quá cho em hỏi bệnh tay chân miệng nguy hiểm ra sao?",0.4,0.0,0,0.0,0.1482436000078451,Fixed alpha = 0.4
+test,KB3_Information_Noise,semantic,"Em bị cảm cúm sợ lây cho con, em thắc mắc là đặc tính của sữa non có những gì",0.4,0.0,0,0.0,0.12544100001105107,Fixed alpha = 0.4
+test,KB3_Information_Noise,semantic,"Em đang cho con bú, em hỏi là quy trình tái khám sau sinh thường diễn ra như thế nào?",0.4,0.0,0,0.0,0.14220520001254044,Fixed alpha = 0.4
+test,KB3_Information_Noise,semantic,"Con em đang bị chàm da, em lo quá, hãy hướng dẫn chăm sóc trẻ bị chàm da?",0.4,0.0,0,0.0,0.11850479998975061,Fixed alpha = 0.4
+test,KB3_Information_Noise,semantic,"Em đang ở ngoài đường với bé, cho em hỏi thời kỳ hậu sản kéo dài bao lâu?",0.4,0.0,0,0.0,0.1361802999745123,Fixed alpha = 0.4
+test,KB3_Information_Noise,semantic,"Em mới vừa xuất viện về nhà xong, cho em hỏi quy trình tái khám sau sinh mổ diễn ra như thế nào?",0.4,0.0,0,0.0,0.14464440001756884,Fixed alpha = 0.4
+test,KB3_Information_Noise,semantic,"Bà nội đang chơi với cháu, cho em hỏi giải pháp điều trị xuất huyết não ở trẻ sơ sinh?",0.4,0.0,0,0.0,0.13399100000970066,Fixed alpha = 0.4
+test,KB3_Information_Noise,semantic,"Bà nội em chăm cháu mà cứ cằn nhằn em suốt bảo làm sao để con bị bệnh như thế này, em buồn quá cho em hỏi các điều trị và chăm sóc bệnh tay chân miệng như thế nào?",0.4,0.0,0,0.0,0.2000728999846615,Fixed alpha = 0.4
+test,KB3_Information_Noise,semantic,"Em đang tức giận dữ dội muốn đập đồ vỡ, khi em đang mệt mỏi và lo lắng, em cần chồng hỗ trợ như thế nào là tốt nhất thay vì chỉ đưa ra những lời khuyên sáo rỗng",0.4,0.0,0,0.0,0.18855699998675846,Fixed alpha = 0.4
+test,KB1_Standard,exact_lexical,Nguyên tắc cho trẻ ăn dặm về độ đặc và số lượng là gì?,0.5,0.0,0,0.0,0.11822709999978542,Fixed alpha = 0.5
+test,KB1_Standard,exact_lexical,Làm sao để phân biệt vàng da sinh lý và vàng da bệnh lý ở trẻ sơ sinh ạ?,0.5,0.0,0,0.0,0.12177389999851584,Fixed alpha = 0.5
+test,KB1_Standard,exact_lexical,"Trong một bát bột ăn dặm chuẩn cho bé, em cần phải đảm bảo có đủ 4 nhóm chất dinh dưỡng nào ạ?",0.5,0.0,1,1.0,0.13971370001672767,Fixed alpha = 0.5
+test,KB1_Standard,exact_lexical,Giải pháp hỗ trợ phản xạ oxytocin hoạt động tốt?,0.5,0.0,1,0.5,0.09422860000631772,Fixed alpha = 0.5
+test,KB1_Standard,exact_lexical,Thiếu vitamin D gây ảnh hưởng như thế nào?,0.5,0.0,0,0.0,0.09311369998613372,Fixed alpha = 0.5
+test,KB1_Standard,exact_lexical,"Khi con em bước sang tháng thứ 7 đến tháng thứ 9, em có cần tăng thêm số lượng bữa ăn dặm cho bé không bác sĩ?",0.5,0.0,1,0.3333333333333333,0.15332700000726618,Fixed alpha = 0.5
+test,KB1_Standard,exact_lexical,"Cho em hỏi vì sao em vẫn cho con bú đều mà vẫn bị tắc tia sữa, nguyên nhân thường gặp là gì ạ?",0.5,0.0,1,1.0,0.15643530001398176,Fixed alpha = 0.5
+test,KB1_Standard,exact_lexical,Các nguồn bổ sung vitamin D khác?,0.5,0.0,0,0.0,0.09750490001169965,Fixed alpha = 0.5
+test,KB1_Standard,exact_lexical,"Những ngày trời nắng nóng thế này, em sợ con chỉ bú mẹ sẽ bị khát, em có cần bổ sung thêm nước lọc cho bé không ạ?",0.5,0.0,1,1.0,0.201307999988785,Fixed alpha = 0.5
+test,KB1_Standard,exact_lexical,Băng huyết sau sinh sớm và muộn khác nhau ra sao?,0.5,0.0,0,0.0,0.10068919998593628,Fixed alpha = 0.5
+test,KB1_Standard,exact_lexical,Thuốc đầu tay được lựa chọn để co hồi tử cung dự phòng băng huyết là gì?,0.5,0.0,0,0.0,0.11372940000728704,Fixed alpha = 0.5
+test,KB1_Standard,exact_lexical,Em thấy sản dịch có màu đen sậm và mùi hôi kèm sốt nhẹ là dấu hiệu gì ạ?,0.5,0.0,0,0.0,0.11600919999182224,Fixed alpha = 0.5
+test,KB1_Standard,exact_lexical,"Để không bị tắc tia sữa lại lần nữa, em nên thay đổi thói quen sinh hoạt và ăn uống như thế nào ạ?",0.5,0.0,1,1.0,0.1428338999976404,Fixed alpha = 0.5
+test,KB1_Standard,exact_lexical,Băng huyết sau sinh được định nghĩa như thế nào?,0.5,0.0,0,0.0,0.09654589998535812,Fixed alpha = 0.5
+test,KB1_Standard,noisy_conversational,cho em hỏi lộ trình phát triển vận động bình thường của một em bé khỏe mạnh từ khi sinh ra đến khi biết ngồi vững là thế nào ạ?,0.5,0.0,1,0.3333333333333333,0.16441610001493245,Fixed alpha = 0.5
+test,KB1_Standard,noisy_conversational,Sữa mẹ bảo quản trong ngăn mát tủ lạnh (<4°C) được bao lâu?,0.5,0.0,1,1.0,0.11189350002678111,Fixed alpha = 0.5
+test,KB1_Standard,noisy_conversational,"Ngoài việc cải thiện chuyện tiểu tiện, tập phục hồi sàn chậu có giúp ích gì cho đời sống vợ chồng sau sinh không ạ?",0.5,0.0,1,1.0,0.14215460000559688,Fixed alpha = 0.5
+test,KB1_Standard,noisy_conversational,có các biện pháp nào để duy trì nguồn sữa mẹ không ạ?,0.5,0.0,0,0.0,0.10062319997814484,Fixed alpha = 0.5
+test,KB1_Standard,noisy_conversational,"Em cảm thấy rất tội lỗi khi không thể chăm sóc con tốt như mong đợi, đây có phải là dấu hiệu của trầm cảm không?",0.5,0.0,0,0.0,0.14806010000756942,Fixed alpha = 0.5
+test,KB1_Standard,noisy_conversational,"Làm sao để em biết mình đã mặc tã cho con vừa vặn, không quá chật gây lằn da nhưng cũng không quá lỏng làm tràn tã ạ?",0.5,0.0,1,0.3333333333333333,0.16621890000533313,Fixed alpha = 0.5
+test,KB1_Standard,noisy_conversational,Nếu con em bị béo phì từ nhỏ thì sau này lớn lên có dễ mắc các bệnh mạn tính nguy hiểm nào không?,0.5,0.0,1,1.0,0.13668160000815988,Fixed alpha = 0.5
+test,KB1_Standard,noisy_conversational,"Bé nhà em chưa biết nói nhưng hay bập bẹ ""ba ba, ma ma"", em nên phản ứng thế nào để khuyến khích bé ạ?",0.5,0.0,0,0.0,0.15590000001247972,Fixed alpha = 0.5
+test,KB1_Standard,noisy_conversational,Tại sao phụ nữ mang thai bị phù (cân) phải giảm ăn mặn?,0.5,0.0,1,0.5,0.11113320000004023,Fixed alpha = 0.5
+test,KB1_Standard,noisy_conversational,"Em đang mang thai tháng cuối, có loại thuốc đặt âm đạo nào an toàn để dự phòng nấm không?",0.5,0.0,0,0.0,0.13658419999410398,Fixed alpha = 0.5
+test,KB1_Standard,noisy_conversational,Tại sao việc tiêm chủng đúng lịch lại quan trọng đối với sức khỏe của bé vậy bác sĩ?,0.5,0.0,0,0.0,0.12505129998316988,Fixed alpha = 0.5
+test,KB1_Standard,noisy_conversational,Chỉ em cách xử lý khi chẳng may bé bị bỏng nước sôi tại nhà với ạ?,0.5,0.0,0,0.0,0.1252692999842111,Fixed alpha = 0.5
+test,KB1_Standard,noisy_conversational,"Trong thời kỳ hậu sản, một vài tuần đầu em thấy có chất dịch chảy ra thì có sao không ạ?",0.5,0.0,0,0.0,0.13270529999863356,Fixed alpha = 0.5
+test,KB1_Standard,noisy_conversational,Con em đang bị nấm miệng thì em có cần phải tiệt trùng bình sữa hay núm vú giả kỹ hơn bình thường không ạ?,0.5,0.0,1,0.5,0.1444576999929268,Fixed alpha = 0.5
+test,KB1_Standard,noisy_conversational,"em thấy trên thị trường có nhiều loại tã quá, làm sao để em chọn được loại tã giấy vừa vặn và thoải mái nhất cho bé nhà em ạ?",0.5,0.0,1,1.0,0.1641494000214152,Fixed alpha = 0.5
+test,KB1_Standard,noisy_conversational,Âm đạo của em tiết mùi hồi gây khó chịu là bị gì vậy ạ,0.5,0.0,0,0.0,0.1133970000082627,Fixed alpha = 0.5
+test,KB1_Standard,noisy_conversational,Trẻ nhận sữa mẹ hoàn toàn có cần uống thêm nước trắng không?,0.5,0.0,1,1.0,0.10791809999500401,Fixed alpha = 0.5
+test,KB1_Standard,noisy_conversational,Liệu bế con không đúng tư thế có phải là một trong những nguyên nhân dẫn đến đau nhức mỏi lưng phải không ạ?,0.5,0.0,1,1.0,0.13860569999087602,Fixed alpha = 0.5
+test,KB1_Standard,noisy_conversational,Tại sao bé nhà em dạo này hay khóc nhè và bám mẹ không rời vậy?,0.5,0.0,0,0.0,0.12217109999619424,Fixed alpha = 0.5
+test,KB1_Standard,noisy_conversational,Chế độ sinh hoạt của bè mẹ sau sinh?,0.5,0.0,0,0.0,0.09090069998637773,Fixed alpha = 0.5
+test,KB1_Standard,quantitative,"bé nhà em 6 tháng tuổi đang tập ăn dặm mà bị tiêu chảy kéo dài, em có nên tiếp tục cho con ăn cháo cà rốt hay thay đổi chế độ ăn như thế nào không ạ?",0.5,0.0,1,1.0,0.19036149999010377,Fixed alpha = 0.5
+test,KB1_Standard,quantitative,"Bé em được 11 tháng tuổi, cận nặng 8,8kg, hiện bé mới đi tiêu và có ra giun kim, em muốn hỏi xem hiện nay bé đã xổ giun được chưa và nếu được thì sử dụng thuốc loại gì, liều dùng ra sao?",0.5,0.0,1,1.0,0.23184089999995194,Fixed alpha = 0.5
+test,KB1_Standard,quantitative,"Ở nhà em nên để nhiệt độ phòng bao nhiêu là tốt nhất và cần làm gì ngay khi sinh để giữ ấm cho bé, tránh cho con bị nhiễm lạnh ạ",0.5,0.0,1,1.0,0.17205590000958182,Fixed alpha = 0.5
+test,KB1_Standard,quantitative,"Em bị sốt cao, rét run và đau bụng dữ dội sau sinh 2 tuần là dấu hiệu bệnh gì vậy?",0.5,0.0,0,0.0,0.12583470001118258,Fixed alpha = 0.5
+test,KB1_Standard,quantitative,Lượng sữa cần cho trẻ từ khi sinh đến 1 tháng tuổi là bao nhiêu mỗi ngày?,0.5,0.0,1,1.0,0.12190179998287931,Fixed alpha = 0.5
+test,KB1_Standard,quantitative,"Em mới mổ đẻ được 2 ngày mà giờ bị sốt 38,5 độ C thì có làm sao không ạ?",0.5,0.0,0,0.0,0.13479679997544736,Fixed alpha = 0.5
+test,KB1_Standard,quantitative,Bé 2 tháng tuổi thì cần phải đi tiêm những loại vắc xin gì theo định kỳ ạ?,0.5,0.0,0,0.0,0.12198379999608733,Fixed alpha = 0.5
+test,KB1_Standard,quantitative,"định nghĩa chính xác về việc ""nuôi con hoàn toàn bằng sữa mẹ"" trong 6 tháng đầu là như thế nào ạ?",0.5,0.0,0,0.0,0.13596769998548552,Fixed alpha = 0.5
+test,KB1_Standard,quantitative,"Con em được 10 tháng tuổi rồi, em thấy bé có vẻ nhanh đói, em nên sắp xếp lịch ăn dặm cho bé như thế nào cho phù hợp?",0.5,0.0,0,0.0,0.16609119999338873,Fixed alpha = 0.5
+test,KB1_Standard,quantitative,Sau 2 tuần mà rốn bé vẫn chưa rụng thì em có cần đưa bé đi viện không ạ?,0.5,0.0,0,0.0,0.12540690001333132,Fixed alpha = 0.5
+test,KB1_Standard,quantitative,Hậu quả của thiếu dinh dưỡng trong 3 tháng cuối thai kỳ là gì?,0.5,0.0,1,1.0,0.10593459999654442,Fixed alpha = 0.5
+test,KB1_Standard,quantitative,Mẹ sau sinh cần bổ sung Vitamin A với liều lượng bao nhiêu?,0.5,0.0,0,0.0,0.1073270000051707,Fixed alpha = 0.5
+test,KB1_Standard,quantitative,"Để tránh tình trạng suy dinh dưỡng ở trẻ 34 tháng tuổi, em nên làm gì ạ?",0.5,0.0,1,1.0,0.11825250001857057,Fixed alpha = 0.5
+test,KB1_Standard,quantitative,"Bé nhà em vừa tròn 6 tháng và mới tập ăn dặm, mỗi ngày em nên cho con ăn mấy bữa bột là đủ ạ?",0.5,0.0,1,1.0,0.15310840000165626,Fixed alpha = 0.5
+test,KB1_Standard,quantitative,"Bé nhà em dưới 6 tháng tuổi, em có nên cho con uống thêm chút nước sau khi bú để tráng miệng cho sạch không bác sĩ?",0.5,0.0,1,1.0,0.15622999999322928,Fixed alpha = 0.5
+test,KB1_Standard,quantitative,Bé nhà em được 3 tháng tuổi rồi ạ. Bé nhà em có nổi nốt sần khắp người. Em có mang bé đi khám thì bác sĩ họ bảo bị viêm da cơ địa. Em xin hỏi cách điều trị bệnh viêm da cơ địa trẻ 3 tháng tuổi?,0.5,0.0,1,1.0,0.2392054000229109,Fixed alpha = 0.5
+test,KB1_Standard,quantitative,Trẻ từ 7-12 tháng tuổi cần ăn bao nhiêu bữa bột một ngày?,0.5,0.0,1,0.5,0.11234849999891594,Fixed alpha = 0.5
+test,KB1_Standard,quantitative,Nếu em bị chảy máu nhiều sau sinh (trên 300ml) thì bác sĩ sẽ xử trí gì đầu tiên ạ?,0.5,0.0,0,0.0,0.12867100001312792,Fixed alpha = 0.5
+test,KB1_Standard,quantitative,Trẻ từ 12-24 tháng tuổi cần ăn bao nhiêu bữa một ngày?,0.5,0.0,1,0.5,0.10983859997941181,Fixed alpha = 0.5
+test,KB1_Standard,quantitative,"Bé nhà em đã 18 tháng tuổi rồi mà vẫn chưa biết đi, liệu đây có phải là tình trạng chậm biết đi cần phải can thiệp y tế không bác sĩ?",0.5,0.0,1,1.0,0.16474760000710376,Fixed alpha = 0.5
+test,KB1_Standard,semantic,Bốn nhóm thực phẩm cần có trong bữa ăn của trẻ là gì?,0.5,0.0,0,0.0,0.11291100000380538,Fixed alpha = 0.5
+test,KB1_Standard,semantic,Lợi ích của việc nuôi con bằng sữa mẹ đối với tử cung của mẹ sau sinh?,0.5,0.0,1,0.3333333333333333,0.12132169998949394,Fixed alpha = 0.5
+test,KB1_Standard,semantic,"Khi về khoa hậu sản, có những dấu hiệu nào em phải gọi cấp cứu ngay?",0.5,0.0,0,0.0,0.1245323000184726,Fixed alpha = 0.5
+test,KB1_Standard,semantic,Lợi ích của việc cho trẻ tiếp xúc da kề da ngay sau sinh?,0.5,0.0,1,0.5,0.1018818000156898,Fixed alpha = 0.5
+test,KB1_Standard,semantic,Dấu hiệu nào cho thấy trẻ bú tốt?,0.5,0.0,0,0.0,0.08871589999762364,Fixed alpha = 0.5
+test,KB1_Standard,semantic,Viêm tiểu phế quản ở trẻ sơ sinh là gì?,0.5,0.0,0,0.0,0.09652570000616834,Fixed alpha = 0.5
+test,KB1_Standard,semantic,Liệt kê các dấu hiệu nguy hiểm ở trẻ sơ sinh cần đi khám ngay?,0.5,0.0,0,0.0,0.118869400001131,Fixed alpha = 0.5
+test,KB1_Standard,semantic,"Con em hay bị táo bón, đi ngoài rất khó khăn, em nên điều chỉnh chế độ ăn cho bé thế nào?",0.5,0.0,0,0.0,0.16009089999715798,Fixed alpha = 0.5
+test,KB1_Standard,semantic,Nuôi con bằng sữa mẹ giúp giảm nguy cơ mắc bệnh gì cho mẹ sau này?,0.5,0.0,1,0.25,0.11860000001615845,Fixed alpha = 0.5
+test,KB1_Standard,semantic,Những thực phẩm nào mẹ mang thai nên dùng để cung cấp năng lượng?,0.5,0.0,1,0.5,0.11472450001747347,Fixed alpha = 0.5
+test,KB1_Standard,semantic,"Con em thường xuyên thức giấc giữa đêm và khóc, em phải làm gì để bé ngủ sâu hơn?",0.5,0.0,0,0.0,0.12169879997964017,Fixed alpha = 0.5
+test,KB1_Standard,semantic,Cần đưa trẻ đi khám ngay khi bị nôn ói?,0.5,0.0,0,0.0,0.0960244000016246,Fixed alpha = 0.5
+test,KB1_Standard,semantic,Cách chuẩn bị dụng cụ đựng sữa trước khi vắt như thế nào?,0.5,0.0,1,0.5,0.10637650001444854,Fixed alpha = 0.5
+test,KB1_Standard,semantic,Bố mẹ phải nói như thế nào để giúp con có thể học nói?,0.5,0.0,0,0.0,0.10230970001430251,Fixed alpha = 0.5
+test,KB1_Standard,semantic,Việc cho con bú ngay trong vòng một giờ đầu sau sinh có lợi gì cho người mẹ?,0.5,0.0,0,0.0,0.11246549998759292,Fixed alpha = 0.5
+test,KB1_Standard,semantic,Giải pháp phòng ngừa bệnh xuất huyết não ở trẻ,0.5,0.0,0,0.0,0.09416790000977926,Fixed alpha = 0.5
+test,KB1_Standard,semantic,Chế độ nghỉ ngơi của bè mẹ sau sinh?,0.5,0.0,0,0.0,0.0970175999973435,Fixed alpha = 0.5
+test,KB1_Standard,semantic,Cách xử trí khi vú bị căng sữa hoặc cương tức?,0.5,0.0,1,1.0,0.08898240001872182,Fixed alpha = 0.5
+test,KB1_Standard,semantic,Nghén điều trị như thế nào?,0.5,0.0,0,0.0,0.07849469999200664,Fixed alpha = 0.5
+test,KB1_Standard,semantic,Khuyến nghị về số lần khám thai tối thiểu trong thai kỳ?,0.5,0.0,0,0.0,0.09818579998682253,Fixed alpha = 0.5
+test,KB2_Mom_Style,exact_lexical,Làm sao để phân biệt vàng da sinh lý và vàng da bệnh lý ở bé sơ sinh mn ơi,0.5,0.0,0,0.0,0.13082829999621026,Fixed alpha = 0.5
+test,KB2_Mom_Style,exact_lexical,giải pháp hỗ trợ phản xạ oxytocin hoạt động tốt ạ,0.5,0.0,1,0.5,0.09528270000009798,Fixed alpha = 0.5
+test,KB2_Mom_Style,exact_lexical,Kích thích phản xạ oxytocin trước khi vắt sữa có quan trọng không z ạ,0.5,0.0,1,0.5,0.10286930002621375,Fixed alpha = 0.5
+test,KB2_Mom_Style,exact_lexical,Thiếu vitamin D gây ảnh hưởng ntn,0.5,0.0,0,0.0,0.07985969999572262,Fixed alpha = 0.5
+test,KB2_Mom_Style,exact_lexical,"Hướng dẫn em cách xử lý, chăm sóc khi bị sản dịch hôi v ạ",0.5,0.0,0,0.0,0.10507580000557937,Fixed alpha = 0.5
+test,KB2_Mom_Style,exact_lexical,"Khi con em bước sang tháng thứ 7 đến tháng thứ 9, em có cần tăng thêm số lượng bữa ăn dặm cho bé con k",0.5,0.0,1,0.3333333333333333,0.14121120001072995,Fixed alpha = 0.5
+test,KB2_Mom_Style,exact_lexical,Các nguồn bổ sung vitamin D khác ko a,0.5,0.0,0,0.0,0.08788839998305775,Fixed alpha = 0.5
+test,KB2_Mom_Style,exact_lexical,Băng huyết sau sinh sớm và muộn khác nhau ra sao bs ơi,0.5,0.0,0,0.0,0.10243880000780337,Fixed alpha = 0.5
+test,KB2_Mom_Style,exact_lexical,Thuốc đầu tay đc lựa chọn để co hồi tử cung dự phòng băng huyết là j,0.5,0.0,0,0.0,0.11318849999224767,Fixed alpha = 0.5
+test,KB2_Mom_Style,exact_lexical,Em thấy sản dịch có màu đen sậm và mùi hôi kèm sốt nhẹ là dấu hiệu j a,0.5,0.0,0,0.0,0.1120245999773033,Fixed alpha = 0.5
+test,KB2_Mom_Style,exact_lexical,"Trong 1 bát bột ăn dặm chuẩn cho bé, em cần fải đảm bảo có đủ 4 nhóm chất dinh dưỡng nào",0.5,0.0,1,1.0,0.13450720001128502,Fixed alpha = 0.5
+test,KB2_Mom_Style,exact_lexical,Băng huyết sau sinh đc kđịnh nghĩa như thế nào nhỉ,0.5,0.0,0,0.0,0.09497480001300573,Fixed alpha = 0.5
+test,KB2_Mom_Style,noisy_conversational,Làm sao để nhận biết nhau bong non a,0.5,0.0,0,0.0,0.09073419999913312,Fixed alpha = 0.5
+test,KB2_Mom_Style,noisy_conversational,"Bé nhà t rất nhát, gặp người lạ là khóc và trốn sau lưng mẹ thì có bình thường k mn ơi",0.5,0.0,0,0.0,0.1343261000001803,Fixed alpha = 0.5
+test,KB2_Mom_Style,noisy_conversational,Khi nào thì cần đưa bé con đi khám sức khỏe định kỳ dù bé vẫn đang khỏe mạnh ạ,0.5,0.0,0,0.0,0.12989989999914542,Fixed alpha = 0.5
+test,KB2_Mom_Style,noisy_conversational,Kỹ thuật cho bé ăn bằng cốc đúng cách là như thế nào mn ơi,0.5,0.0,1,1.0,0.1052454000164289,Fixed alpha = 0.5
+test,KB2_Mom_Style,noisy_conversational,Bị nhau bằng non có cần đến bệnh viện ko a,0.5,0.0,0,0.0,0.09185949998209253,Fixed alpha = 0.5
+test,KB2_Mom_Style,noisy_conversational,Âm đạo của em tiết mùi hồi gây khó chịu là bị j v a,0.5,0.0,0,0.0,0.10235209998791106,Fixed alpha = 0.5
+test,KB2_Mom_Style,noisy_conversational,"Em nghe nói dùng tã vải ít bị hăm da hơn tã giấy, điều này có đúng k và em cần lưu ý j thêm",0.5,0.0,1,0.5,0.14357200000085868,Fixed alpha = 0.5
+test,KB2_Mom_Style,noisy_conversational,Hormon nào chịu trách nhiệm tạo sưa và hormon nào giúp phun sưa ai ơi,0.5,0.0,0,0.0,0.10833829999319278,Fixed alpha = 0.5
+test,KB2_Mom_Style,noisy_conversational,Nếu em bị nhiễm nấm âm đạo thì bé sơ sinh có bị lây k các Mom,0.5,0.0,0,0.0,0.11023500000010245,Fixed alpha = 0.5
+test,KB2_Mom_Style,noisy_conversational,Chế độ ăn uống ntn giúp em giảm bớt tình trạng đau mỏi xương khớp sau khi sinh em bé,0.5,0.0,1,1.0,0.12235360001795925,Fixed alpha = 0.5
+test,KB2_Mom_Style,noisy_conversational,Tại sao cứ khuyến khích mẹ nên ngồi để cho con bú thay vì nằm bú vậy ạ,0.5,0.0,1,0.5,0.11034049998852424,Fixed alpha = 0.5
+test,KB2_Mom_Style,noisy_conversational,"EEm nghe nói sau sinh sẽ rối loạn nội tiết tố nữ phải không, dấu hiệu nhận biết rối loạn nội tiết tố là j v ạ",0.5,0.0,0,0.0,0.15293400001246482,Fixed alpha = 0.5
+test,KB2_Mom_Style,noisy_conversational,"Con em dạo này hay bắt chước các hành động của bố mẹ, đây có phải là 1 dấu hiệu tốt k",0.5,0.0,0,0.0,0.13369689998216927,Fixed alpha = 0.5
+test,KB2_Mom_Style,noisy_conversational,"Em thấy chân của bé con có vẻ yếu và k chịu đứng vững khi em dắt tay, những dấu hiệu nào khác cảnh báo con em đang bị chậm vận động?",0.5,0.0,1,1.0,0.18547130000661127,Fixed alpha = 0.5
+test,KB2_Mom_Style,noisy_conversational,Chồng em cần làm j để giúp em vượt qua giai đoạn bị trầm cảm sau sinh nhẹ v nho,0.5,0.0,0,0.0,0.13037939998321235,Fixed alpha = 0.5
+test,KB2_Mom_Style,noisy_conversational,"Bé nhà t bị ho và chảy nước mũi nhiều, có nên tự mua thuốc ho cho bé uống k mn ơi",0.5,0.0,0,0.0,0.13657339999917895,Fixed alpha = 0.5
+test,KB2_Mom_Style,noisy_conversational,Khi nào thì rốn của bé bị sưng đỏ đc coi là nhiễm trùng mức độ nặng mn,0.5,0.0,0,0.0,0.1135632999939844,Fixed alpha = 0.5
+test,KB2_Mom_Style,noisy_conversational,"Sau khi cho con bú xong, em nên làm j để bé k bị ọc sưa hay bị sặc khi nằm xuống",0.5,0.0,1,1.0,0.1291843999933917,Fixed alpha = 0.5
+test,KB2_Mom_Style,noisy_conversational,"Miệng bé nhà t có mấy mảng trắng như cặn sưa mà lau k sạch, liệu có phải con bị nấm miệng k",0.5,0.0,1,1.0,0.1273425999970641,Fixed alpha = 0.5
+test,KB2_Mom_Style,noisy_conversational,Làm sao để dạy con cách kiểm soát cảm giác tức giận mà k la hét mn ơi,0.5,0.0,0,0.0,0.1221576000098139,Fixed alpha = 0.5
+test,KB2_Mom_Style,quantitative,Tại sao lại dặn là k nên nêm thêm mắm hay muối vào thức ăn dặm của trẻ dưới 1 tuổi,0.5,0.0,1,1.0,0.12969109998084605,Fixed alpha = 0.5
+test,KB2_Mom_Style,quantitative,"Em có cần fải đánh giá lại sự phát triển của bé thường xuyên k, hay chỉ cần thực hiện 1 lần khi bé có dấu hiệu lạ?",0.5,0.0,1,1.0,0.15115709998644888,Fixed alpha = 0.5
+test,KB2_Mom_Style,quantitative,"Bé nhà t vừa tròn 6 tháng và mới tập ăn dặm, mỗi ngày em nên cho con ăn mấy bữa bột là đủ",0.5,0.0,1,1.0,0.14335379999829456,Fixed alpha = 0.5
+test,KB2_Mom_Style,quantitative,"Bé nhà mình đã hơn 6 tháng rùi mà vẫn chưa thấy biết ""ê, a"" hay bập bẹ nói chuyện j hết, liệu con em có đang gặp vấn đề về ngôn ngữ k?",0.5,0.0,1,1.0,0.17746380000608042,Fixed alpha = 0.5
+test,KB2_Mom_Style,quantitative,"Em bị sốt cao, rét run và đau bụng dữ dội sau sinh 2 tuần là dấu hiệu bệnh j vậy c",0.5,0.0,0,0.0,0.12456419999944046,Fixed alpha = 0.5
+test,KB2_Mom_Style,quantitative,Lượng sưa cần cho bé nhà mình từ khi sinh đến 1 tháng tuổi là bao nhiêu mỗi ngày,0.5,0.0,1,0.25,0.12659850000636652,Fixed alpha = 0.5
+test,KB2_Mom_Style,quantitative,"Em mới mổ đẻ đc 2 ngày mà giờ bị sốt 38,5 độ C thì có làm sao k ai oi",0.5,0.0,0,0.0,0.13029689999530092,Fixed alpha = 0.5
+test,KB2_Mom_Style,quantitative,Bé 2 tháng tuổi thì fải đi tiêm những loại vắc xin j theo định kỳ mn ơi,0.5,0.0,0,0.0,0.11713960001361556,Fixed alpha = 0.5
+test,KB2_Mom_Style,quantitative,"Bé nhà mình đc 2 tháng tuổi và hay đi ngoài nhiều vào ban đêm, em nên dùng loại tã j để con ngủ ngon mà k bị tràn tã",0.5,0.0,1,1.0,0.15413740000803955,Fixed alpha = 0.5
+test,KB2_Mom_Style,quantitative,"Con em đã 22 tháng tuổi rồi mà vẫn chậm nói, chưa thể phát âm được những từ ngữ cơ bản, bé cứ dùng tay chân để chỉ trỏ mỗi khi muốn gì đó thì có phải là dấu hiệu đáng lo k v a",0.5,0.0,1,1.0,0.2111596000031568,Fixed alpha = 0.5
+test,KB2_Mom_Style,quantitative,"Bé nhà t đã 18 tháng tuổi rùi mà vẫn chưa biết đi, liệu đây có phải là tình trạng chậm biết đi cần fải can thiệp y tế k?",0.5,0.0,1,1.0,0.18127329999697395,Fixed alpha = 0.5
+test,KB2_Mom_Style,quantitative,Sau 2 tuần mà rốn bé vẫn chưa rụng thì có cần đưa bé đi viện k ạ,0.5,0.0,0,0.0,0.11603659999673255,Fixed alpha = 0.5
+test,KB2_Mom_Style,quantitative,Hậu quả của thiếu dinh dưỡng trong 3 tháng cuối thai kỳ là j v,0.5,0.0,1,1.0,0.1139549000072293,Fixed alpha = 0.5
+test,KB2_Mom_Style,quantitative,"Khi sử dụng tã vải, em có cần fải thay tã cho bé thường xuyên như khi dùng tã giấy dùng 1 lần k",0.5,0.0,1,1.0,0.14610180002637208,Fixed alpha = 0.5
+test,KB2_Mom_Style,quantitative,"Để tránh tình trạng suy dinh dưỡng ở trẻ 34 tháng tuổi, em nên lam j a",0.5,0.0,1,1.0,0.1225272000010591,Fixed alpha = 0.5
+test,KB2_Mom_Style,quantitative,"Bé nhà t đc 34 tháng rùi, em nên sắp xếp các bữa chính và bữa phụ trong ngày ntn để đảm bảo con đủ chất?",0.5,0.0,1,1.0,0.1655517999897711,Fixed alpha = 0.5
+test,KB2_Mom_Style,quantitative,"Bé nhà mình dưới 6 tháng tuổi, em có nên cho con uống thêm chút nước sau khi bú để tráng miệng cho sạch k",0.5,0.0,1,1.0,0.14770000000135042,Fixed alpha = 0.5
+test,KB2_Mom_Style,quantitative,Bé nhà em được 3 tháng tuổi rồi ạ. Bé nhà em có nổi nốt sần khắp người. Em có mang bé đi khám thì bác sĩ họ bảo bị viêm da cơ địa. Em xin hỏi cách điều trị bệnh viêm da cơ địa trẻ 3 tháng tuổi v a,0.5,0.0,1,1.0,0.23401600000215694,Fixed alpha = 0.5
+test,KB2_Mom_Style,quantitative,Bé từ 7-12 tháng tuổi cần ăn bao nhiêu bữa bột 1 ngày các v a,0.5,0.0,1,0.25,0.11023589997785166,Fixed alpha = 0.5
+test,KB2_Mom_Style,quantitative,Nếu em bị chảy máu nhiều sau sinh (trên 300ml) thì bs sẽ xử trí j đầu tiên ok,0.5,0.0,0,0.0,0.12931159997242503,Fixed alpha = 0.5
+test,KB2_Mom_Style,semantic,Chồng và người thân nên làm j để giúp em cảm thấy bớt căng thẳng khi chăm sóc bé nhà t,0.5,0.0,1,0.2,0.11949209999875166,Fixed alpha = 0.5
+test,KB2_Mom_Style,semantic,"Ngoài việc phát âm, em cần quan sát những phản ứng nào khác của con đối với lời nói của cha mẹ để biết bé phát triển tâm sinh lý bình thường k?",0.5,0.0,1,1.0,0.17429659998742864,Fixed alpha = 0.5
+test,KB2_Mom_Style,semantic,"Có phải các bệnh lý về cơ hay thần kinh là nguyên nhân chính khiến trẻ chậm biết đi k, hay còn do yếu tố nào khác?",0.5,0.0,1,0.3333333333333333,0.16033020001486875,Fixed alpha = 0.5
+test,KB2_Mom_Style,semantic,Lợi ích của việc nuôi con bằng sưa mẹ đối với tử cung của mẹ sau sinh,0.5,0.0,1,0.3333333333333333,0.11641519999830052,Fixed alpha = 0.5
+test,KB2_Mom_Style,semantic,Con em đang bị nấm miệng thì có cần fải tiệt trùng bình sưa hay núm vú giả kỹ hơn bình thường k,0.5,0.0,1,0.5,0.12367729999823496,Fixed alpha = 0.5
+test,KB2_Mom_Style,semantic,"Sau sinh tuần đầu, em và bé cần được cán bộ y tế đến thăm khám vào những gì v a",0.5,0.0,0,0.0,0.12630509998416528,Fixed alpha = 0.5
+test,KB2_Mom_Style,semantic,10 điều kiện nuôi con bằng sưa mẹ thành công bao gồm những j,0.5,0.0,1,1.0,0.09682060001068749,Fixed alpha = 0.5
+test,KB2_Mom_Style,semantic,Nguyên nhân xuất huyết não ở trẻ sơ sinh l j,0.5,0.0,0,0.0,0.09410940000088885,Fixed alpha = 0.5
+test,KB2_Mom_Style,semantic,Cách xử trí nứt núm vú cho mẹ bỉm sau bú bs ơi,0.5,0.0,1,1.0,0.09874429999035783,Fixed alpha = 0.5
+test,KB2_Mom_Style,semantic,"Khi đưa con đi đánh giá sự phát triển, thường sẽ đặt những câu hỏi j cho cha mẹ chúng em?",0.5,0.0,1,1.0,0.12913390001631342,Fixed alpha = 0.5
+test,KB2_Mom_Style,semantic,Bệnh chàm da là j,0.5,0.0,0,0.0,0.07024319999618456,Fixed alpha = 0.5
+test,KB2_Mom_Style,semantic,Em nghe nói gây tê ngoài màng cứng cũng làm mình bị bí tiểu lâu hơn fải k?,0.5,0.0,0,0.0,0.11143979997723363,Fixed alpha = 0.5
+test,KB2_Mom_Style,semantic,Khi nào thì em có thể bắt đầu tập thể dục hoặc vận động nhẹ nhàng sau sinh chat,0.5,0.0,0,0.0,0.11785819998476654,Fixed alpha = 0.5
+test,KB2_Mom_Style,semantic,Bệnh tay chân miệng biểu hiện ra sao vay a,0.5,0.0,0,0.0,0.08466009999392554,Fixed alpha = 0.5
+test,KB2_Mom_Style,semantic,"Khi bé bị tiêu chảy ở nhà, mẹ bỉm cần cho bé uống nước j",0.5,0.0,0,0.0,0.11211330001242459,Fixed alpha = 0.5
+test,KB2_Mom_Style,semantic,"Ngực em tự nhiên bị sưng cứng và đau nhức quá, có phải em đã bị tắc tia sưa rồi k",0.5,0.0,1,1.0,0.12463109998498112,Fixed alpha = 0.5
+test,KB2_Mom_Style,semantic,"Ngoài việc tập đi, em có nên bổ sung thêm các vi chất dinh dưỡng nào để giúp xương chắc khỏe và hỗ trợ bé vận động tốt hơn k?",0.5,0.0,0,0.0,0.15728090002085082,Fixed alpha = 0.5
+test,KB2_Mom_Style,semantic,Làm thế nào để khuyến khích bé yêu thích việc khám phá thiên nhiên và môi trường bên ngoài,0.5,0.0,0,0.0,0.11275339999701828,Fixed alpha = 0.5
+test,KB2_Mom_Style,semantic,Nuôi con bằng sưa mẹ giúp giảm nguy cơ mắc bệnh j cho mẹ sau này,0.5,0.0,1,0.5,0.10260469999047928,Fixed alpha = 0.5
+test,KB2_Mom_Style,semantic,Thời kỳ hậu sản là j,0.5,0.0,0,0.0,0.07451199999195524,Fixed alpha = 0.5
+test,KB3_Information_Noise,exact_lexical,"Mẹ em bảo lúc trước cho em ăn dặm là muối mặn chát cho quen mồi, nhưng em nghe bây giờ phải nhạt thếch, khi mới bắt đầu tập ăn, em nên cho bé ăn những loại thức ăn có độ đặc và hương vị như thế nào để con dễ thích nghi ạ",0.5,0.0,1,1.0,0.2585669000109192,Fixed alpha = 0.5
+test,KB3_Information_Noise,exact_lexical,"Người ta bảo cho ăn thêm nước trắng cũng là bú mẹ, thế nào là nuôi con bằng sữa mẹ hoàn toàn chuẩn y khoa vậy ạ",0.5,0.0,0,0.0,0.15020400000503287,Fixed alpha = 0.5
+test,KB3_Information_Noise,exact_lexical,"Em nấu cháo đặc cho con nhưng bé khóc không ăn, nguyên tắc cho trẻ ăn dặm về độ đặc và số lượng là gì ạ",0.5,0.0,0,0.0,0.1509813999873586,Fixed alpha = 0.5
+test,KB3_Information_Noise,exact_lexical,"Em nghe quảng cáo TV bảo cho bé uống canxi nước Mỹ là nhanh biết bò đi, ngoài việc tập luyện, em có cần bổ sung thêm dưỡng chất gì để hỗ trợ hệ cơ xương và tiêu hóa giúp bé vận động nhanh nhẹn hơn không",0.5,0.0,0,0.0,0.21566279997932725,Fixed alpha = 0.5
+test,KB3_Information_Noise,exact_lexical,"Em vừa mua thuốc bổ não cho con, giải pháp hỗ trợ phản xạ oxytocin hoạt động tốt ạ",0.5,0.0,1,0.5,0.14049699998577125,Fixed alpha = 0.5
+test,KB3_Information_Noise,exact_lexical,"Em đang lướt Shopee mua thuốc tâm thần, hướng dẫn em cách xử lý, chăm sóc khi bị sản dịch hôi với ạ",0.5,0.0,0,0.0,0.14775979999103583,Fixed alpha = 0.5
+test,KB3_Information_Noise,exact_lexical,"Em xem quảng cáo bảo cho bé dùng thuốc sủi dạng nước chứa canxi là răng chắc khỏe ngay, ngoài chế độ ăn, em có cần bổ sung thêm vi chất gì để hỗ trợ hệ răng của con chắc khỏe và bé ăn ngon miệng hơn không",0.5,0.0,1,0.3333333333333333,0.23618989999522455,Fixed alpha = 0.5
+test,KB3_Information_Noise,exact_lexical,"Em đang uống nhiều nước mía vì thấy ít sữa, cho em hỏi vì sao em vẫn cho con bú đều mà vẫn bị tắc tia sữa, nguyên nhân thường gặp là gì ạ",0.5,0.0,1,1.0,0.17019870001240633,Fixed alpha = 0.5
+test,KB3_Information_Noise,exact_lexical,"Hôm nay chồng em mới đi làm về, cho em hỏi các nguồn bổ sung vitamin D khác?",0.5,0.0,0,0.0,0.11940090000280179,Fixed alpha = 0.5
+test,KB3_Information_Noise,exact_lexical,"Em đang bật điều hòa 20 độ vì sợ con nóng, những ngày trời nắng nóng thế này, em sợ con chỉ bú mẹ sẽ bị khát, em có cần bổ sung thêm nước lọc cho bé không ạ",0.5,0.0,1,1.0,0.20818010001676157,Fixed alpha = 0.5
+test,KB3_Information_Noise,exact_lexical,"Em tính sinh mổ vì sợ đau, băng huyết sau sinh sớm và muộn khác nhau ra sao ạ",0.5,0.0,0,0.0,0.12063369998941198,Fixed alpha = 0.5
+test,KB3_Information_Noise,exact_lexical,"Em đang bị dị ứng thuốc, thuốc đầu tay được lựa chọn để co hồi tử cung dự phòng băng huyết là gì ạ",0.5,0.0,0,0.0,0.14226100000087172,Fixed alpha = 0.5
+test,KB3_Information_Noise,exact_lexical,"Em đang dùng băng vệ sinh thơm, em thấy sản dịch có màu đen sậm và mùi hôi kèm sốt nhẹ là dấu hiệu gì ạ",0.5,0.0,0,0.0,0.14261790001182817,Fixed alpha = 0.5
+test,KB3_Information_Noise,exact_lexical,"Em đang ăn nhiều đồ ăn nhanh vì mệt không muốn nấu, để không bị tắc tia sữa lại lần nữa, em nên thay đổi thói quen sinh hoạt động và ăn uống như thế nào ạ",0.5,0.0,0,0.0,0.1801205000083428,Fixed alpha = 0.5
+test,KB3_Information_Noise,exact_lexical,"Em đang bị rong kinh lại mang thai, lo quá, băng huyết sau sinh được định nghĩa như thế nào ạ",0.5,0.0,0,0.0,0.13609850002103485,Fixed alpha = 0.5
+test,KB3_Information_Noise,noisy_conversational,"Em đang thèm ăn bún đậu mắm tôm cực kỳ, những thực phẩm nào mẹ mang thai nên dùng để cung cấp năng lượng ạ",0.5,0.0,1,1.0,0.15216070000315085,Fixed alpha = 0.5
+test,KB3_Information_Noise,noisy_conversational,"Em đang định đi nặn mụn ở spa, tại sao sau khi sinh xong em lại thấy mặt nổi nhiều mụn bọc và mụn mủ vậy",0.5,0.0,0,0.0,0.14177400001790375,Fixed alpha = 0.5
+test,KB3_Information_Noise,noisy_conversational,"Em đang bận làm việc nhà không để ý đến con, làm sao để gia đình em có thể nhận biết sớm các dấu hiệu em bị trầm cảm sau sinh ạ",0.5,0.0,0,0.0,0.16284609999274835,Fixed alpha = 0.5
+test,KB3_Information_Noise,noisy_conversational,"Nhà em có nhiều không qian và rộng rãi, em muốn biết không gian nào trong gia đình là phù hợp nhất để dạy con học nói?",0.5,0.0,0,0.0,0.14944969999487512,Fixed alpha = 0.5
+test,KB3_Information_Noise,noisy_conversational,"Em coi trên mạng thấy nhiều bé bị bệnh em sợ quá, cho em hỏi biểu hiện và cách điều trị của viêm hạnh bạch huyết?",0.5,0.0,0,0.0,0.1485644000058528,Fixed alpha = 0.5
+test,KB3_Information_Noise,noisy_conversational,"Em stress quá vì điện nước hay bị cắt, bé nhà em đang ở giai đoạn sơ sinh, em nên sắp xếp lịch giặt tã vải như thế nào để luôn có đủ tã sạch cho con dùng",0.5,0.0,1,0.5,0.19192480001947843,Fixed alpha = 0.5
+test,KB3_Information_Noise,noisy_conversational,"Em đang tính mua máy massage lưng, em nghe nói gây tê ngoài màng cứng cũng làm mình bị bí tiểu lâu hơn phải không ạ",0.5,0.0,0,0.0,0.15423359998385422,Fixed alpha = 0.5
+test,KB3_Information_Noise,noisy_conversational,"Bà nội bảo cho bé uống nước đường để sạch họng, các loại nước uống nào tuyệt đối không cho trẻ uống trước bữa bú đầu tiên ạ",0.5,0.0,1,1.0,0.15943450000486337,Fixed alpha = 0.5
+test,KB3_Information_Noise,noisy_conversational,"Em bị sỏi thận từ trước, đang uống thuốc đông y, những trường hợp nào bà mẹ không nên cho con bú mà phải dùng sữa thay thế ạ",0.5,0.0,0,0.0,0.15571799999452196,Fixed alpha = 0.5
+test,KB3_Information_Noise,noisy_conversational,"Em đang tức giận lắm muốn đánh đòn, em có nên đánh đòn khi con không nghe lời không ạ",0.5,0.0,0,0.0,0.1252657000150066,Fixed alpha = 0.5
+test,KB3_Information_Noise,noisy_conversational,"Con em thích bú nằm ngủ, hậu quả của việc trẻ ngậm bắt vú sai là gì ạ",0.5,0.0,1,1.0,0.11335989998769946,Fixed alpha = 0.5
+test,KB3_Information_Noise,noisy_conversational,"Em đang sốt ruột nhìn con chơi chậm quá, em thấy bé có vẻ lúng túng khi chơi một trò chơi mới, em có nên làm hộ bé luôn cho nhanh không ạ",0.5,0.0,0,0.0,0.16798120000748895,Fixed alpha = 0.5
+test,KB3_Information_Noise,noisy_conversational,"Tủ lạnh nhà em hay bị ngắt điện, sữa mẹ bảo quản trong ngăn mát tủ lạnh (<4°C) được bao lâu ạ",0.5,0.0,1,1.0,0.14921920001506805,Fixed alpha = 0.5
+test,KB3_Information_Noise,noisy_conversational,"Em đang định bôi thuốc mỡ đặc vào miệng con, bé bị nấm miệng như vậy thì có đau lắm không, sao dạo này em thấy con hay khóc khi đang bú và ăn kém đi hẳn ạ",0.5,0.0,1,1.0,0.19452109999838285,Fixed alpha = 0.5
+test,KB3_Information_Noise,noisy_conversational,"Mẹ chồng em bảo mặc quần dài cộc cho mát cho bé tập bò, nhưng em thì sợ con đau đầu gối, cho em hỏi nên chọn quần áo như thế nào cho bé trong giai đoạn tập bò để con dễ dàng vận động mà không bị đau đầu gối",0.5,0.0,1,1.0,0.2481207999808248,Fixed alpha = 0.5
+test,KB3_Information_Noise,noisy_conversational,"Em đang thèm ăn lẩu cay nóng, chế độ ăn uống thế nào để giúp em cải thiện tình trạng rối loạn nội tiết sau sinh ạ",0.5,0.0,0,0.0,0.15893850001157261,Fixed alpha = 0.5
+test,KB3_Information_Noise,noisy_conversational,"Em thấy ở phòng khám bắt con xếp hình như chơi trò chơi thôi mà, ngoài việc trả lời câu hỏi, con em sẽ phải trải qua những bài kiểm tra thực tế nào để bác sĩ đưa ra kết luận chính xác ạ",0.5,0.0,1,0.3333333333333333,0.21630279999226332,Fixed alpha = 0.5
+test,KB3_Information_Noise,noisy_conversational,"Em dạo này hay bị stress nên hay nhạy cảm thái quá, nếu em cảm thấy con mình có gì đó ""không ổn"" so với các bạn cùng lứa nhưng bài kiểm tra cho kết quả bình thường thì em nên làm gì",0.5,0.0,1,1.0,0.21717240000725724,Fixed alpha = 0.5
+test,KB3_Information_Noise,noisy_conversational,"Đang nấu ăn thì nghe con khóc, em run quá, cách xử trí tại nhà khi trẻ sơ sinh bị sốt cao là làm gì ạ",0.5,0.0,0,0.0,0.15979750000406057,Fixed alpha = 0.5
+test,KB3_Information_Noise,noisy_conversational,"Em đang xem drama khóc lắm, nếu em bị bí tiểu sau sinh mà không điều trị sớm thì có gặp biến chứng gì nguy hiểm không ạ?",0.5,0.0,0,0.0,0.15857539998251013,Fixed alpha = 0.5
+test,KB3_Information_Noise,quantitative,"Em đang ăn cháo dinh dưỡng loại đặc, nhu cầu năng lượng bổ sung hàng ngày cho bà mẹ nuôi con bú 6 tháng đầu là bao nhiêu ạ",0.5,0.0,1,0.25,0.15350250000483356,Fixed alpha = 0.5
+test,KB3_Information_Noise,quantitative,"Em đang định cho con nằm yên không đụng vào 24 tiếng, bé nhà em bị ngã đập đầu xuống đất, em cần theo dõi những dấu hiệu gì trong 24 giờ tới ạ",0.5,0.0,0,0.0,0.17564160001347773,Fixed alpha = 0.5
+test,KB3_Information_Noise,quantitative,"Em đang định dùng tã giấy dùng 1 lần để gấp thành gối cho con nằm cao, em muốn dùng tã vải cho con thì cần chuẩn bị những loại tã và phụ kiện đi kèm nào cho đúng ạ",0.5,0.0,1,1.0,0.18251929999678396,Fixed alpha = 0.5
+test,KB3_Information_Noise,quantitative,"Em đang định cho con uống thuốc tiêu hóa vì bé hay khóc, bé nhà em 2 ngày đầu phân màu xanh đen và nhầy thì có bình thường không ạ",0.5,0.0,0,0.0,0.15952610000385903,Fixed alpha = 0.5
+test,KB3_Information_Noise,quantitative,"Em cho con bú nhiều nhưng bé vẫn khóc, đến ngày thứ 3 sau sinh, dung tích dạ dày của bé tăng lên bao nhiêu nhỉ",0.5,0.0,0,0.0,0.1434601999935694,Fixed alpha = 0.5
+test,KB3_Information_Noise,quantitative,"Em thấy trên mạng bảo bé bị nổi mẩn là do thời tiết dị ứng thôi, nhưng em thì thấy con ngứa khóc quấy lắm, Bé nhà em được 3 tháng tuổi rồi ạ. Bé nhà em có nổi nốt sần khắp người. Em có mang bé đi khám thì bác sĩ họ bảo bị viêm da cơ địa. Em xin hỏi cách điều trị bệnh viêm da cơ địa trẻ 3 tháng tuổi?",0.5,0.0,1,1.0,0.3231771999853663,Fixed alpha = 0.5
+test,KB3_Information_Noise,quantitative,"Em đang giấu chuyện cơ thể đau nhức vì sợ mẹ chồng lo, cho em biết tỷ lệ phụ nữ trầm cảm sau sinh là bao nhiêu vậy ạ",0.5,0.0,0,0.0,0.14994649999425747,Fixed alpha = 0.5
+test,KB3_Information_Noise,quantitative,"Em đang định không thay tã ban đêm để cho con ngủ sâu, bé nhà em được 2 tháng tuổi và hay đi ngoài nhiều vào ban đêm, em nên dùng loại tã nào để con ngủ ngon mà không bị tràn tã ạ",0.5,0.0,1,0.5,0.20374330002232455,Fixed alpha = 0.5
+test,KB3_Information_Noise,quantitative,"Em thấy trên mạng bỉm sữa bảo cho con ăn dặm sớm từ 4 tháng để bé cao lớn, nhưng ông nội lại bảo chờ 6 tháng cho chắc bụng, nếu em cho con tập ăn dặm quá sớm từ lúc 4 tháng tuổi thì có gây ra tác hại gì cho sức khỏe của bé không",0.5,0.0,1,0.5,0.26507810002658516,Fixed alpha = 0.5
+test,KB3_Information_Noise,quantitative,"Em đang dùng nhiệt kế đo mà thấy 37.5 độ, sau sinh em bị sốt bao nhiêu độ thì được coi là nguy hiểm phải báo y tá ạ",0.5,0.0,0,0.0,0.14702000000397675,Fixed alpha = 0.5
+test,KB3_Information_Noise,quantitative,"Bác sĩ ơi, em lo quá, con em sinh non 8 tháng nghe nói sẽ chậm lật mãi không theo kịp bạn bè, đối với các bé sinh non thì cột mốc biết lật có khác biệt gì so với các bạn sinh đủ tháng không",0.5,0.0,1,1.0,0.2083388000028208,Fixed alpha = 0.5
+test,KB3_Information_Noise,quantitative,"Em đang cho con nếm thử vị chua vì thấy thú vị, định nghĩa chính xác về việc ""nuôi con hoàn toàn bằng sữa mẹ"" trong 6 tháng đầu là như thế nào ạ",0.5,0.0,1,0.5,0.16628740000305697,Fixed alpha = 0.5
+test,KB3_Information_Noise,quantitative,"Em đang định uống thuốc giảm đau mạnh, cơn đau dạ con sau sinh, đâu mạnh thường sẽ kéo dài trong bao nhiêu ngày thì hết ạ",0.5,0.0,0,0.0,0.1495641999936197,Fixed alpha = 0.5
+test,KB3_Information_Noise,quantitative,"Em đang định pha thêm nước lọc vào bình sữa vì trời quá nóng, bé nhà em dưới 6 tháng tuổi, em có nên cho con uống thêm chút nước sau khi bú để tráng miệng cho sạch không bác sĩ",0.5,0.0,1,1.0,0.1974841000046581,Fixed alpha = 0.5
+test,KB3_Information_Noise,quantitative,"Em đang nấu cháo đặc cho con 4 tháng ăn dặm sớm, tổng lượng sữa cần thiết cho trẻ từ 4 đến 6 tháng tuổi mỗi ngày là bao nhiêu ạ",0.5,0.0,1,0.25,0.16004119999706745,Fixed alpha = 0.5
+test,KB3_Information_Noise,quantitative,"Chị đồng nghiệp bảo bé 10 tháng ăn 1 bữa cháo đặc là đủ kẻo chán bú, nhưng em thấy bé nhà em nhanh đói lắm, em nên sắp xếp lịch ăn dặm cho bé 10 tháng tuổi như thế nào cho phù hợp",0.5,0.0,1,0.3333333333333333,0.20065359998261556,Fixed alpha = 0.5
+test,KB3_Information_Noise,quantitative,"Con em lười bú sữa mẹ mà thích ăn bột, trẻ từ 7-12 tháng tuổi cần ăn bao nhiêu bữa bột một ngày ạ",0.5,0.0,1,0.3333333333333333,0.1427315000037197,Fixed alpha = 0.5
+test,KB3_Information_Noise,quantitative,"Con em bú 5 phút đã ngủ, tại sao mẹ nên cho trẻ bú hết một bên vú rồi mới chuyển sang vú kia ạ",0.5,0.0,1,1.0,0.13796640001237392,Fixed alpha = 0.5
+test,KB3_Information_Noise,quantitative,"Em tính mua bình sữa lớn cho con 2 tuần sau, dung tích dạ dày trẻ từ ngày thứ 5 đến ngày thứ 7 sau đẻ là bao nhiêu ạ",0.5,0.0,1,0.5,0.15181619999930263,Fixed alpha = 0.5
+test,KB3_Information_Noise,quantitative,"Mẹ em bảo ngày xưa bận làm ruộng 7 tháng mới lật là thường, nhưng em thì thấy con 6 tháng chưa lật là chậm rồi, con em đã 6 tháng rồi mà vẫn chưa biết lật từ sau ra trước, liệu như vậy có phải là bé đang chậm phát triển không",0.5,0.0,1,1.0,0.2511858000070788,Fixed alpha = 0.5
+test,KB3_Information_Noise,semantic,"Em với chồng nói chuyện quá trời với bà bội, em thắc mắc là bố mẹ phải nói như thế nào để giúp con có thể học nói?",0.5,0.0,0,0.0,0.14453749998938292,Fixed alpha = 0.5
+test,KB3_Information_Noise,semantic,"Đang ăn cơm cũng phải vội lên để hỏi cho đỡ thắc mắc, những dấu hiệu cảnh báo bệnh tay chân miệng?",0.5,0.0,0,0.0,0.1279050999728497,Fixed alpha = 0.5
+test,KB3_Information_Noise,semantic,"Em đang coi trên tivi thấy nhiều ca mắc bệnh tay chân miệng quá, em lo quá cho em hỏi bệnh tay chân miệng nguy hiểm ra sao?",0.5,0.0,0,0.0,0.15032909999717958,Fixed alpha = 0.5
+test,KB3_Information_Noise,semantic,"Em bị cảm cúm sợ lây cho con, em thắc mắc là đặc tính của sữa non có những gì",0.5,0.0,0,0.0,0.12380979998852126,Fixed alpha = 0.5
+test,KB3_Information_Noise,semantic,"Em đang cho con bú, em hỏi là quy trình tái khám sau sinh thường diễn ra như thế nào?",0.5,0.0,0,0.0,0.12224729999434203,Fixed alpha = 0.5
+test,KB3_Information_Noise,semantic,"Con em đang bị chàm da, em lo quá, hãy hướng dẫn chăm sóc trẻ bị chàm da?",0.5,0.0,0,0.0,0.1125739999988582,Fixed alpha = 0.5
+test,KB3_Information_Noise,semantic,"Em đang ở ngoài đường với bé, cho em hỏi thời kỳ hậu sản kéo dài bao lâu?",0.5,0.0,0,0.0,0.11732869999832474,Fixed alpha = 0.5
+test,KB3_Information_Noise,semantic,"Em mới vừa xuất viện về nhà xong, cho em hỏi quy trình tái khám sau sinh mổ diễn ra như thế nào?",0.5,0.0,0,0.0,0.13695169999846257,Fixed alpha = 0.5
+test,KB3_Information_Noise,semantic,"Bà nội đang chơi với cháu, cho em hỏi giải pháp điều trị xuất huyết não ở trẻ sơ sinh?",0.5,0.0,0,0.0,0.1348598999902606,Fixed alpha = 0.5
+test,KB3_Information_Noise,semantic,"Bà nội em chăm cháu mà cứ cằn nhằn em suốt bảo làm sao để con bị bệnh như thế này, em buồn quá cho em hỏi các điều trị và chăm sóc bệnh tay chân miệng như thế nào?",0.5,0.0,0,0.0,0.20995380001841113,Fixed alpha = 0.5
+test,KB3_Information_Noise,semantic,"Em đang tức giận dữ dội muốn đập đồ vỡ, khi em đang mệt mỏi và lo lắng, em cần chồng hỗ trợ như thế nào là tốt nhất thay vì chỉ đưa ra những lời khuyên sáo rỗng",0.5,0.0,0,0.0,0.1849705999775324,Fixed alpha = 0.5
+test,KB1_Standard,exact_lexical,Nguyên tắc cho trẻ ăn dặm về độ đặc và số lượng là gì?,0.7,0.0,0,0.0,0.10943459998816252,Fixed alpha = 0.7
+test,KB1_Standard,exact_lexical,Làm sao để phân biệt vàng da sinh lý và vàng da bệnh lý ở trẻ sơ sinh ạ?,0.7,0.0,0,0.0,0.11825189998489805,Fixed alpha = 0.7
+test,KB1_Standard,exact_lexical,"Trong một bát bột ăn dặm chuẩn cho bé, em cần phải đảm bảo có đủ 4 nhóm chất dinh dưỡng nào ạ?",0.7,0.0,1,1.0,0.13229179999325424,Fixed alpha = 0.7
+test,KB1_Standard,exact_lexical,Giải pháp hỗ trợ phản xạ oxytocin hoạt động tốt?,0.7,0.0,1,0.3333333333333333,0.08853330000420101,Fixed alpha = 0.7
+test,KB1_Standard,exact_lexical,Thiếu vitamin D gây ảnh hưởng như thế nào?,0.7,0.0,0,0.0,0.08449629999813624,Fixed alpha = 0.7
+test,KB1_Standard,exact_lexical,"Khi con em bước sang tháng thứ 7 đến tháng thứ 9, em có cần tăng thêm số lượng bữa ăn dặm cho bé không bác sĩ?",0.7,0.0,1,0.5,0.1461272000160534,Fixed alpha = 0.7
+test,KB1_Standard,exact_lexical,"Cho em hỏi vì sao em vẫn cho con bú đều mà vẫn bị tắc tia sữa, nguyên nhân thường gặp là gì ạ?",0.7,0.0,1,1.0,0.13759979998576455,Fixed alpha = 0.7
+test,KB1_Standard,exact_lexical,Các nguồn bổ sung vitamin D khác?,0.7,0.0,0,0.0,0.08411140000680462,Fixed alpha = 0.7
+test,KB1_Standard,exact_lexical,"Những ngày trời nắng nóng thế này, em sợ con chỉ bú mẹ sẽ bị khát, em có cần bổ sung thêm nước lọc cho bé không ạ?",0.7,0.0,1,1.0,0.14969779999228194,Fixed alpha = 0.7
+test,KB1_Standard,exact_lexical,Băng huyết sau sinh sớm và muộn khác nhau ra sao?,0.7,0.0,0,0.0,0.09645009998348542,Fixed alpha = 0.7
+test,KB1_Standard,exact_lexical,Thuốc đầu tay được lựa chọn để co hồi tử cung dự phòng băng huyết là gì?,0.7,0.0,0,0.0,0.11233109998283908,Fixed alpha = 0.7
+test,KB1_Standard,exact_lexical,Em thấy sản dịch có màu đen sậm và mùi hôi kèm sốt nhẹ là dấu hiệu gì ạ?,0.7,0.0,0,0.0,0.11248280000290833,Fixed alpha = 0.7
+test,KB1_Standard,exact_lexical,"Để không bị tắc tia sữa lại lần nữa, em nên thay đổi thói quen sinh hoạt và ăn uống như thế nào ạ?",0.7,0.0,1,1.0,0.1374546000151895,Fixed alpha = 0.7
+test,KB1_Standard,exact_lexical,Băng huyết sau sinh được định nghĩa như thế nào?,0.7,0.0,0,0.0,0.09267670000554062,Fixed alpha = 0.7
+test,KB1_Standard,noisy_conversational,cho em hỏi lộ trình phát triển vận động bình thường của một em bé khỏe mạnh từ khi sinh ra đến khi biết ngồi vững là thế nào ạ?,0.7,0.0,1,0.3333333333333333,0.15621260000625625,Fixed alpha = 0.7
+test,KB1_Standard,noisy_conversational,Sữa mẹ bảo quản trong ngăn mát tủ lạnh (<4°C) được bao lâu?,0.7,0.0,1,1.0,0.10946380000677891,Fixed alpha = 0.7
+test,KB1_Standard,noisy_conversational,"Ngoài việc cải thiện chuyện tiểu tiện, tập phục hồi sàn chậu có giúp ích gì cho đời sống vợ chồng sau sinh không ạ?",0.7,0.0,1,1.0,0.14213680001557805,Fixed alpha = 0.7
+test,KB1_Standard,noisy_conversational,có các biện pháp nào để duy trì nguồn sữa mẹ không ạ?,0.7,0.0,0,0.0,0.10531140002422035,Fixed alpha = 0.7
+test,KB1_Standard,noisy_conversational,"Em cảm thấy rất tội lỗi khi không thể chăm sóc con tốt như mong đợi, đây có phải là dấu hiệu của trầm cảm không?",0.7,0.0,0,0.0,0.15482940000947565,Fixed alpha = 0.7
+test,KB1_Standard,noisy_conversational,"Làm sao để em biết mình đã mặc tã cho con vừa vặn, không quá chật gây lằn da nhưng cũng không quá lỏng làm tràn tã ạ?",0.7,0.0,1,0.5,0.15573719999520108,Fixed alpha = 0.7
+test,KB1_Standard,noisy_conversational,Nếu con em bị béo phì từ nhỏ thì sau này lớn lên có dễ mắc các bệnh mạn tính nguy hiểm nào không?,0.7,0.0,1,1.0,0.143896900000982,Fixed alpha = 0.7
+test,KB1_Standard,noisy_conversational,"Bé nhà em chưa biết nói nhưng hay bập bẹ ""ba ba, ma ma"", em nên phản ứng thế nào để khuyến khích bé ạ?",0.7,0.0,0,0.0,0.14456129999598488,Fixed alpha = 0.7
+test,KB1_Standard,noisy_conversational,Tại sao phụ nữ mang thai bị phù (cân) phải giảm ăn mặn?,0.7,0.0,1,0.3333333333333333,0.11122040002373978,Fixed alpha = 0.7
+test,KB1_Standard,noisy_conversational,"Em đang mang thai tháng cuối, có loại thuốc đặt âm đạo nào an toàn để dự phòng nấm không?",0.7,0.0,0,0.0,0.13053929997840896,Fixed alpha = 0.7
+test,KB1_Standard,noisy_conversational,Tại sao việc tiêm chủng đúng lịch lại quan trọng đối với sức khỏe của bé vậy bác sĩ?,0.7,0.0,0,0.0,0.1236384000221733,Fixed alpha = 0.7
+test,KB1_Standard,noisy_conversational,Chỉ em cách xử lý khi chẳng may bé bị bỏng nước sôi tại nhà với ạ?,0.7,0.0,0,0.0,0.1218349999981001,Fixed alpha = 0.7
+test,KB1_Standard,noisy_conversational,"Trong thời kỳ hậu sản, một vài tuần đầu em thấy có chất dịch chảy ra thì có sao không ạ?",0.7,0.0,0,0.0,0.13665309999487363,Fixed alpha = 0.7
+test,KB1_Standard,noisy_conversational,Con em đang bị nấm miệng thì em có cần phải tiệt trùng bình sữa hay núm vú giả kỹ hơn bình thường không ạ?,0.7,0.0,1,0.3333333333333333,0.1442168000212405,Fixed alpha = 0.7
+test,KB1_Standard,noisy_conversational,"em thấy trên thị trường có nhiều loại tã quá, làm sao để em chọn được loại tã giấy vừa vặn và thoải mái nhất cho bé nhà em ạ?",0.7,0.0,1,1.0,0.1623956000257749,Fixed alpha = 0.7
+test,KB1_Standard,noisy_conversational,Âm đạo của em tiết mùi hồi gây khó chịu là bị gì vậy ạ,0.7,0.0,0,0.0,0.10913519997848198,Fixed alpha = 0.7
+test,KB1_Standard,noisy_conversational,Trẻ nhận sữa mẹ hoàn toàn có cần uống thêm nước trắng không?,0.7,0.0,1,1.0,0.10139239998534322,Fixed alpha = 0.7
+test,KB1_Standard,noisy_conversational,Liệu bế con không đúng tư thế có phải là một trong những nguyên nhân dẫn đến đau nhức mỏi lưng phải không ạ?,0.7,0.0,1,1.0,0.1352171000035014,Fixed alpha = 0.7
+test,KB1_Standard,noisy_conversational,Tại sao bé nhà em dạo này hay khóc nhè và bám mẹ không rời vậy?,0.7,0.0,0,0.0,0.1143582999939099,Fixed alpha = 0.7
+test,KB1_Standard,noisy_conversational,Chế độ sinh hoạt của bè mẹ sau sinh?,0.7,0.0,0,0.0,0.09030879999045283,Fixed alpha = 0.7
+test,KB1_Standard,quantitative,"bé nhà em 6 tháng tuổi đang tập ăn dặm mà bị tiêu chảy kéo dài, em có nên tiếp tục cho con ăn cháo cà rốt hay thay đổi chế độ ăn như thế nào không ạ?",0.7,0.0,1,0.5,0.18245399999432266,Fixed alpha = 0.7
+test,KB1_Standard,quantitative,"Bé em được 11 tháng tuổi, cận nặng 8,8kg, hiện bé mới đi tiêu và có ra giun kim, em muốn hỏi xem hiện nay bé đã xổ giun được chưa và nếu được thì sử dụng thuốc loại gì, liều dùng ra sao?",0.7,0.0,1,1.0,0.22595729999011382,Fixed alpha = 0.7
+test,KB1_Standard,quantitative,"Ở nhà em nên để nhiệt độ phòng bao nhiêu là tốt nhất và cần làm gì ngay khi sinh để giữ ấm cho bé, tránh cho con bị nhiễm lạnh ạ",0.7,0.0,1,1.0,0.16145429998869076,Fixed alpha = 0.7
+test,KB1_Standard,quantitative,"Em bị sốt cao, rét run và đau bụng dữ dội sau sinh 2 tuần là dấu hiệu bệnh gì vậy?",0.7,0.0,0,0.0,0.12711790000321344,Fixed alpha = 0.7
+test,KB1_Standard,quantitative,Lượng sữa cần cho trẻ từ khi sinh đến 1 tháng tuổi là bao nhiêu mỗi ngày?,0.7,0.0,1,1.0,0.11490449999109842,Fixed alpha = 0.7
+test,KB1_Standard,quantitative,"Em mới mổ đẻ được 2 ngày mà giờ bị sốt 38,5 độ C thì có làm sao không ạ?",0.7,0.0,0,0.0,0.1301085000159219,Fixed alpha = 0.7
+test,KB1_Standard,quantitative,Bé 2 tháng tuổi thì cần phải đi tiêm những loại vắc xin gì theo định kỳ ạ?,0.7,0.0,0,0.0,0.12293189999763854,Fixed alpha = 0.7
+test,KB1_Standard,quantitative,"định nghĩa chính xác về việc ""nuôi con hoàn toàn bằng sữa mẹ"" trong 6 tháng đầu là như thế nào ạ?",0.7,0.0,0,0.0,0.13154510001186281,Fixed alpha = 0.7
+test,KB1_Standard,quantitative,"Con em được 10 tháng tuổi rồi, em thấy bé có vẻ nhanh đói, em nên sắp xếp lịch ăn dặm cho bé như thế nào cho phù hợp?",0.7,0.0,0,0.0,0.16206020000390708,Fixed alpha = 0.7
+test,KB1_Standard,quantitative,Sau 2 tuần mà rốn bé vẫn chưa rụng thì em có cần đưa bé đi viện không ạ?,0.7,0.0,0,0.0,0.11593610001727939,Fixed alpha = 0.7
+test,KB1_Standard,quantitative,Hậu quả của thiếu dinh dưỡng trong 3 tháng cuối thai kỳ là gì?,0.7,0.0,1,1.0,0.10285329999169335,Fixed alpha = 0.7
+test,KB1_Standard,quantitative,Mẹ sau sinh cần bổ sung Vitamin A với liều lượng bao nhiêu?,0.7,0.0,0,0.0,0.10948879999341443,Fixed alpha = 0.7
+test,KB1_Standard,quantitative,"Để tránh tình trạng suy dinh dưỡng ở trẻ 34 tháng tuổi, em nên làm gì ạ?",0.7,0.0,1,1.0,0.11587590002454817,Fixed alpha = 0.7
+test,KB1_Standard,quantitative,"Bé nhà em vừa tròn 6 tháng và mới tập ăn dặm, mỗi ngày em nên cho con ăn mấy bữa bột là đủ ạ?",0.7,0.0,1,1.0,0.14272110001184046,Fixed alpha = 0.7
+test,KB1_Standard,quantitative,"Bé nhà em dưới 6 tháng tuổi, em có nên cho con uống thêm chút nước sau khi bú để tráng miệng cho sạch không bác sĩ?",0.7,0.0,1,1.0,0.15008920000400394,Fixed alpha = 0.7
+test,KB1_Standard,quantitative,Bé nhà em được 3 tháng tuổi rồi ạ. Bé nhà em có nổi nốt sần khắp người. Em có mang bé đi khám thì bác sĩ họ bảo bị viêm da cơ địa. Em xin hỏi cách điều trị bệnh viêm da cơ địa trẻ 3 tháng tuổi?,0.7,0.0,1,1.0,0.22108759998809546,Fixed alpha = 0.7
+test,KB1_Standard,quantitative,Trẻ từ 7-12 tháng tuổi cần ăn bao nhiêu bữa bột một ngày?,0.7,0.0,1,0.25,0.11848849998204969,Fixed alpha = 0.7
+test,KB1_Standard,quantitative,Nếu em bị chảy máu nhiều sau sinh (trên 300ml) thì bác sĩ sẽ xử trí gì đầu tiên ạ?,0.7,0.0,0,0.0,0.1333165999967605,Fixed alpha = 0.7
+test,KB1_Standard,quantitative,Trẻ từ 12-24 tháng tuổi cần ăn bao nhiêu bữa một ngày?,0.7,0.0,1,0.25,0.11472510002204217,Fixed alpha = 0.7
+test,KB1_Standard,quantitative,"Bé nhà em đã 18 tháng tuổi rồi mà vẫn chưa biết đi, liệu đây có phải là tình trạng chậm biết đi cần phải can thiệp y tế không bác sĩ?",0.7,0.0,1,0.5,0.1636195999744814,Fixed alpha = 0.7
+test,KB1_Standard,semantic,Bốn nhóm thực phẩm cần có trong bữa ăn của trẻ là gì?,0.7,0.0,0,0.0,0.10932960000354797,Fixed alpha = 0.7
+test,KB1_Standard,semantic,Lợi ích của việc nuôi con bằng sữa mẹ đối với tử cung của mẹ sau sinh?,0.7,0.0,1,0.5,0.11390960001153871,Fixed alpha = 0.7
+test,KB1_Standard,semantic,"Khi về khoa hậu sản, có những dấu hiệu nào em phải gọi cấp cứu ngay?",0.7,0.0,0,0.0,0.11486999999033287,Fixed alpha = 0.7
+test,KB1_Standard,semantic,Lợi ích của việc cho trẻ tiếp xúc da kề da ngay sau sinh?,0.7,0.0,1,0.5,0.12363009998807684,Fixed alpha = 0.7
+test,KB1_Standard,semantic,Dấu hiệu nào cho thấy trẻ bú tốt?,0.7,0.0,0,0.0,0.08526859999983571,Fixed alpha = 0.7
+test,KB1_Standard,semantic,Viêm tiểu phế quản ở trẻ sơ sinh là gì?,0.7,0.0,0,0.0,0.09787439997307956,Fixed alpha = 0.7
+test,KB1_Standard,semantic,Liệt kê các dấu hiệu nguy hiểm ở trẻ sơ sinh cần đi khám ngay?,0.7,0.0,0,0.0,0.10753030001069419,Fixed alpha = 0.7
+test,KB1_Standard,semantic,"Con em hay bị táo bón, đi ngoài rất khó khăn, em nên điều chỉnh chế độ ăn cho bé thế nào?",0.7,0.0,0,0.0,0.13791929997387342,Fixed alpha = 0.7
+test,KB1_Standard,semantic,Nuôi con bằng sữa mẹ giúp giảm nguy cơ mắc bệnh gì cho mẹ sau này?,0.7,0.0,1,0.3333333333333333,0.10486809999565594,Fixed alpha = 0.7
+test,KB1_Standard,semantic,Những thực phẩm nào mẹ mang thai nên dùng để cung cấp năng lượng?,0.7,0.0,1,0.3333333333333333,0.11053340000216849,Fixed alpha = 0.7
+test,KB1_Standard,semantic,"Con em thường xuyên thức giấc giữa đêm và khóc, em phải làm gì để bé ngủ sâu hơn?",0.7,0.0,0,0.0,0.12352890000329353,Fixed alpha = 0.7
+test,KB1_Standard,semantic,Cần đưa trẻ đi khám ngay khi bị nôn ói?,0.7,0.0,0,0.0,0.09905190000426956,Fixed alpha = 0.7
+test,KB1_Standard,semantic,Cách chuẩn bị dụng cụ đựng sữa trước khi vắt như thế nào?,0.7,0.0,1,0.5,0.10687240000697784,Fixed alpha = 0.7
+test,KB1_Standard,semantic,Bố mẹ phải nói như thế nào để giúp con có thể học nói?,0.7,0.0,0,0.0,0.10809619998326525,Fixed alpha = 0.7
+test,KB1_Standard,semantic,Việc cho con bú ngay trong vòng một giờ đầu sau sinh có lợi gì cho người mẹ?,0.7,0.0,0,0.0,0.11991460001445375,Fixed alpha = 0.7
+test,KB1_Standard,semantic,Giải pháp phòng ngừa bệnh xuất huyết não ở trẻ,0.7,0.0,0,0.0,0.08493199999793433,Fixed alpha = 0.7
+test,KB1_Standard,semantic,Chế độ nghỉ ngơi của bè mẹ sau sinh?,0.7,0.0,0,0.0,0.09201180000673048,Fixed alpha = 0.7
+test,KB1_Standard,semantic,Cách xử trí khi vú bị căng sữa hoặc cương tức?,0.7,0.0,1,1.0,0.10055329999886453,Fixed alpha = 0.7
+test,KB1_Standard,semantic,Nghén điều trị như thế nào?,0.7,0.0,0,0.0,0.08349069999530911,Fixed alpha = 0.7
+test,KB1_Standard,semantic,Khuyến nghị về số lần khám thai tối thiểu trong thai kỳ?,0.7,0.0,0,0.0,0.10231129999738187,Fixed alpha = 0.7
+test,KB2_Mom_Style,exact_lexical,Làm sao để phân biệt vàng da sinh lý và vàng da bệnh lý ở bé sơ sinh mn ơi,0.7,0.0,0,0.0,0.13171669997973368,Fixed alpha = 0.7
+test,KB2_Mom_Style,exact_lexical,giải pháp hỗ trợ phản xạ oxytocin hoạt động tốt ạ,0.7,0.0,1,0.3333333333333333,0.08920009998837486,Fixed alpha = 0.7
+test,KB2_Mom_Style,exact_lexical,Kích thích phản xạ oxytocin trước khi vắt sữa có quan trọng không z ạ,0.7,0.0,1,0.3333333333333333,0.10638029998517595,Fixed alpha = 0.7
+test,KB2_Mom_Style,exact_lexical,Thiếu vitamin D gây ảnh hưởng ntn,0.7,0.0,0,0.0,0.07740779998130165,Fixed alpha = 0.7
+test,KB2_Mom_Style,exact_lexical,"Hướng dẫn em cách xử lý, chăm sóc khi bị sản dịch hôi v ạ",0.7,0.0,0,0.0,0.11204010000801645,Fixed alpha = 0.7
+test,KB2_Mom_Style,exact_lexical,"Khi con em bước sang tháng thứ 7 đến tháng thứ 9, em có cần tăng thêm số lượng bữa ăn dặm cho bé con k",0.7,0.0,1,0.5,0.13926540000829846,Fixed alpha = 0.7
+test,KB2_Mom_Style,exact_lexical,Các nguồn bổ sung vitamin D khác ko a,0.7,0.0,0,0.0,0.087944900005823,Fixed alpha = 0.7
+test,KB2_Mom_Style,exact_lexical,Băng huyết sau sinh sớm và muộn khác nhau ra sao bs ơi,0.7,0.0,0,0.0,0.09973210000316612,Fixed alpha = 0.7
+test,KB2_Mom_Style,exact_lexical,Thuốc đầu tay đc lựa chọn để co hồi tử cung dự phòng băng huyết là j,0.7,0.0,0,0.0,0.11225730000296608,Fixed alpha = 0.7
+test,KB2_Mom_Style,exact_lexical,Em thấy sản dịch có màu đen sậm và mùi hôi kèm sốt nhẹ là dấu hiệu j a,0.7,0.0,0,0.0,0.11912039999151602,Fixed alpha = 0.7
+test,KB2_Mom_Style,exact_lexical,"Trong 1 bát bột ăn dặm chuẩn cho bé, em cần fải đảm bảo có đủ 4 nhóm chất dinh dưỡng nào",0.7,0.0,1,1.0,0.13522939998074435,Fixed alpha = 0.7
+test,KB2_Mom_Style,exact_lexical,Băng huyết sau sinh đc kđịnh nghĩa như thế nào nhỉ,0.7,0.0,0,0.0,0.09300210000947118,Fixed alpha = 0.7
+test,KB2_Mom_Style,noisy_conversational,Làm sao để nhận biết nhau bong non a,0.7,0.0,0,0.0,0.08064749999903142,Fixed alpha = 0.7
+test,KB2_Mom_Style,noisy_conversational,"Bé nhà t rất nhát, gặp người lạ là khóc và trốn sau lưng mẹ thì có bình thường k mn ơi",0.7,0.0,0,0.0,0.1341260999906808,Fixed alpha = 0.7
+test,KB2_Mom_Style,noisy_conversational,Khi nào thì cần đưa bé con đi khám sức khỏe định kỳ dù bé vẫn đang khỏe mạnh ạ,0.7,0.0,0,0.0,0.12829530000453815,Fixed alpha = 0.7
+test,KB2_Mom_Style,noisy_conversational,Kỹ thuật cho bé ăn bằng cốc đúng cách là như thế nào mn ơi,0.7,0.0,1,1.0,0.12613480002619326,Fixed alpha = 0.7
+test,KB2_Mom_Style,noisy_conversational,Bị nhau bằng non có cần đến bệnh viện ko a,0.7,0.0,0,0.0,0.11277969999355264,Fixed alpha = 0.7
+test,KB2_Mom_Style,noisy_conversational,Âm đạo của em tiết mùi hồi gây khó chịu là bị j v a,0.7,0.0,0,0.0,0.10616150000714697,Fixed alpha = 0.7
+test,KB2_Mom_Style,noisy_conversational,"Em nghe nói dùng tã vải ít bị hăm da hơn tã giấy, điều này có đúng k và em cần lưu ý j thêm",0.7,0.0,1,0.25,0.14935729998978786,Fixed alpha = 0.7
+test,KB2_Mom_Style,noisy_conversational,Hormon nào chịu trách nhiệm tạo sưa và hormon nào giúp phun sưa ai ơi,0.7,0.0,0,0.0,0.11035239999182522,Fixed alpha = 0.7
+test,KB2_Mom_Style,noisy_conversational,Nếu em bị nhiễm nấm âm đạo thì bé sơ sinh có bị lây k các Mom,0.7,0.0,0,0.0,0.10840050000115298,Fixed alpha = 0.7
+test,KB2_Mom_Style,noisy_conversational,Chế độ ăn uống ntn giúp em giảm bớt tình trạng đau mỏi xương khớp sau khi sinh em bé,0.7,0.0,1,1.0,0.12887570000020787,Fixed alpha = 0.7
+test,KB2_Mom_Style,noisy_conversational,Tại sao cứ khuyến khích mẹ nên ngồi để cho con bú thay vì nằm bú vậy ạ,0.7,0.0,1,0.3333333333333333,0.11291510000592098,Fixed alpha = 0.7
+test,KB2_Mom_Style,noisy_conversational,"EEm nghe nói sau sinh sẽ rối loạn nội tiết tố nữ phải không, dấu hiệu nhận biết rối loạn nội tiết tố là j v ạ",0.7,0.0,0,0.0,0.14809279999462888,Fixed alpha = 0.7
+test,KB2_Mom_Style,noisy_conversational,"Con em dạo này hay bắt chước các hành động của bố mẹ, đây có phải là 1 dấu hiệu tốt k",0.7,0.0,0,0.0,0.147357199981343,Fixed alpha = 0.7
+test,KB2_Mom_Style,noisy_conversational,"Em thấy chân của bé con có vẻ yếu và k chịu đứng vững khi em dắt tay, những dấu hiệu nào khác cảnh báo con em đang bị chậm vận động?",0.7,0.0,1,0.5,0.2099556000030134,Fixed alpha = 0.7
+test,KB2_Mom_Style,noisy_conversational,Chồng em cần làm j để giúp em vượt qua giai đoạn bị trầm cảm sau sinh nhẹ v nho,0.7,0.0,0,0.0,0.12442939999164082,Fixed alpha = 0.7
+test,KB2_Mom_Style,noisy_conversational,"Bé nhà t bị ho và chảy nước mũi nhiều, có nên tự mua thuốc ho cho bé uống k mn ơi",0.7,0.0,0,0.0,0.1287548000109382,Fixed alpha = 0.7
+test,KB2_Mom_Style,noisy_conversational,Khi nào thì rốn của bé bị sưng đỏ đc coi là nhiễm trùng mức độ nặng mn,0.7,0.0,0,0.0,0.11505530000431463,Fixed alpha = 0.7
+test,KB2_Mom_Style,noisy_conversational,"Sau khi cho con bú xong, em nên làm j để bé k bị ọc sưa hay bị sặc khi nằm xuống",0.7,0.0,1,0.5,0.1381960999860894,Fixed alpha = 0.7
+test,KB2_Mom_Style,noisy_conversational,"Miệng bé nhà t có mấy mảng trắng như cặn sưa mà lau k sạch, liệu có phải con bị nấm miệng k",0.7,0.0,1,1.0,0.12966060001053847,Fixed alpha = 0.7
+test,KB2_Mom_Style,noisy_conversational,Làm sao để dạy con cách kiểm soát cảm giác tức giận mà k la hét mn ơi,0.7,0.0,0,0.0,0.10897210001712665,Fixed alpha = 0.7
+test,KB2_Mom_Style,quantitative,Tại sao lại dặn là k nên nêm thêm mắm hay muối vào thức ăn dặm của trẻ dưới 1 tuổi,0.7,0.0,1,1.0,0.12384419998852536,Fixed alpha = 0.7
+test,KB2_Mom_Style,quantitative,"Em có cần fải đánh giá lại sự phát triển của bé thường xuyên k, hay chỉ cần thực hiện 1 lần khi bé có dấu hiệu lạ?",0.7,0.0,1,1.0,0.14735789998667315,Fixed alpha = 0.7
+test,KB2_Mom_Style,quantitative,"Bé nhà t vừa tròn 6 tháng và mới tập ăn dặm, mỗi ngày em nên cho con ăn mấy bữa bột là đủ",0.7,0.0,1,0.5,0.15450550001696683,Fixed alpha = 0.7
+test,KB2_Mom_Style,quantitative,"Bé nhà mình đã hơn 6 tháng rùi mà vẫn chưa thấy biết ""ê, a"" hay bập bẹ nói chuyện j hết, liệu con em có đang gặp vấn đề về ngôn ngữ k?",0.7,0.0,1,1.0,0.18369959999108687,Fixed alpha = 0.7
+test,KB2_Mom_Style,quantitative,"Em bị sốt cao, rét run và đau bụng dữ dội sau sinh 2 tuần là dấu hiệu bệnh j vậy c",0.7,0.0,0,0.0,0.12367569998605177,Fixed alpha = 0.7
+test,KB2_Mom_Style,quantitative,Lượng sưa cần cho bé nhà mình từ khi sinh đến 1 tháng tuổi là bao nhiêu mỗi ngày,0.7,0.0,1,0.3333333333333333,0.1262031000223942,Fixed alpha = 0.7
+test,KB2_Mom_Style,quantitative,"Em mới mổ đẻ đc 2 ngày mà giờ bị sốt 38,5 độ C thì có làm sao k ai oi",0.7,0.0,0,0.0,0.1280376999930013,Fixed alpha = 0.7
+test,KB2_Mom_Style,quantitative,Bé 2 tháng tuổi thì fải đi tiêm những loại vắc xin j theo định kỳ mn ơi,0.7,0.0,0,0.0,0.12229860000661574,Fixed alpha = 0.7
+test,KB2_Mom_Style,quantitative,"Bé nhà mình đc 2 tháng tuổi và hay đi ngoài nhiều vào ban đêm, em nên dùng loại tã j để con ngủ ngon mà k bị tràn tã",0.7,0.0,1,1.0,0.16176039999118075,Fixed alpha = 0.7
+test,KB2_Mom_Style,quantitative,"Con em đã 22 tháng tuổi rồi mà vẫn chậm nói, chưa thể phát âm được những từ ngữ cơ bản, bé cứ dùng tay chân để chỉ trỏ mỗi khi muốn gì đó thì có phải là dấu hiệu đáng lo k v a",0.7,0.0,1,1.0,0.21213709999574348,Fixed alpha = 0.7
+test,KB2_Mom_Style,quantitative,"Bé nhà t đã 18 tháng tuổi rùi mà vẫn chưa biết đi, liệu đây có phải là tình trạng chậm biết đi cần fải can thiệp y tế k?",0.7,0.0,1,0.5,0.15339990000938997,Fixed alpha = 0.7
+test,KB2_Mom_Style,quantitative,Sau 2 tuần mà rốn bé vẫn chưa rụng thì có cần đưa bé đi viện k ạ,0.7,0.0,0,0.0,0.1150400000042282,Fixed alpha = 0.7
+test,KB2_Mom_Style,quantitative,Hậu quả của thiếu dinh dưỡng trong 3 tháng cuối thai kỳ là j v,0.7,0.0,1,1.0,0.1133558000146877,Fixed alpha = 0.7
+test,KB2_Mom_Style,quantitative,"Khi sử dụng tã vải, em có cần fải thay tã cho bé thường xuyên như khi dùng tã giấy dùng 1 lần k",0.7,0.0,1,1.0,0.1355932999867946,Fixed alpha = 0.7
+test,KB2_Mom_Style,quantitative,"Để tránh tình trạng suy dinh dưỡng ở trẻ 34 tháng tuổi, em nên lam j a",0.7,0.0,1,1.0,0.1140134000161197,Fixed alpha = 0.7
+test,KB2_Mom_Style,quantitative,"Bé nhà t đc 34 tháng rùi, em nên sắp xếp các bữa chính và bữa phụ trong ngày ntn để đảm bảo con đủ chất?",0.7,0.0,1,1.0,0.15056700000423007,Fixed alpha = 0.7
+test,KB2_Mom_Style,quantitative,"Bé nhà mình dưới 6 tháng tuổi, em có nên cho con uống thêm chút nước sau khi bú để tráng miệng cho sạch k",0.7,0.0,1,1.0,0.13795559998834506,Fixed alpha = 0.7
+test,KB2_Mom_Style,quantitative,Bé nhà em được 3 tháng tuổi rồi ạ. Bé nhà em có nổi nốt sần khắp người. Em có mang bé đi khám thì bác sĩ họ bảo bị viêm da cơ địa. Em xin hỏi cách điều trị bệnh viêm da cơ địa trẻ 3 tháng tuổi v a,0.7,0.0,1,1.0,0.2737704000028316,Fixed alpha = 0.7
+test,KB2_Mom_Style,quantitative,Bé từ 7-12 tháng tuổi cần ăn bao nhiêu bữa bột 1 ngày các v a,0.7,0.0,1,0.2,0.1142814000195358,Fixed alpha = 0.7
+test,KB2_Mom_Style,quantitative,Nếu em bị chảy máu nhiều sau sinh (trên 300ml) thì bs sẽ xử trí j đầu tiên ok,0.7,0.0,0,0.0,0.13289649999933317,Fixed alpha = 0.7
+test,KB2_Mom_Style,semantic,Chồng và người thân nên làm j để giúp em cảm thấy bớt căng thẳng khi chăm sóc bé nhà t,0.7,0.0,1,0.25,0.12214140000287443,Fixed alpha = 0.7
+test,KB2_Mom_Style,semantic,"Ngoài việc phát âm, em cần quan sát những phản ứng nào khác của con đối với lời nói của cha mẹ để biết bé phát triển tâm sinh lý bình thường k?",0.7,0.0,1,0.5,0.1673618000058923,Fixed alpha = 0.7
+test,KB2_Mom_Style,semantic,"Có phải các bệnh lý về cơ hay thần kinh là nguyên nhân chính khiến trẻ chậm biết đi k, hay còn do yếu tố nào khác?",0.7,0.0,1,0.25,0.14838090000557713,Fixed alpha = 0.7
+test,KB2_Mom_Style,semantic,Lợi ích của việc nuôi con bằng sưa mẹ đối với tử cung của mẹ sau sinh,0.7,0.0,1,0.5,0.10925270000007004,Fixed alpha = 0.7
+test,KB2_Mom_Style,semantic,Con em đang bị nấm miệng thì có cần fải tiệt trùng bình sưa hay núm vú giả kỹ hơn bình thường k,0.7,0.0,1,0.3333333333333333,0.12961010000435635,Fixed alpha = 0.7
+test,KB2_Mom_Style,semantic,"Sau sinh tuần đầu, em và bé cần được cán bộ y tế đến thăm khám vào những gì v a",0.7,0.0,0,0.0,0.12729450000915676,Fixed alpha = 0.7
+test,KB2_Mom_Style,semantic,10 điều kiện nuôi con bằng sưa mẹ thành công bao gồm những j,0.7,0.0,1,1.0,0.09959519997937605,Fixed alpha = 0.7
+test,KB2_Mom_Style,semantic,Nguyên nhân xuất huyết não ở trẻ sơ sinh l j,0.7,0.0,0,0.0,0.08839879999868572,Fixed alpha = 0.7
+test,KB2_Mom_Style,semantic,Cách xử trí nứt núm vú cho mẹ bỉm sau bú bs ơi,0.7,0.0,1,1.0,0.09159979998366907,Fixed alpha = 0.7
+test,KB2_Mom_Style,semantic,"Khi đưa con đi đánh giá sự phát triển, thường sẽ đặt những câu hỏi j cho cha mẹ chúng em?",0.7,0.0,1,1.0,0.12835910002468154,Fixed alpha = 0.7
+test,KB2_Mom_Style,semantic,Bệnh chàm da là j,0.7,0.0,0,0.0,0.06839930001297034,Fixed alpha = 0.7
+test,KB2_Mom_Style,semantic,Em nghe nói gây tê ngoài màng cứng cũng làm mình bị bí tiểu lâu hơn fải k?,0.7,0.0,0,0.0,0.11464159999741241,Fixed alpha = 0.7
+test,KB2_Mom_Style,semantic,Khi nào thì em có thể bắt đầu tập thể dục hoặc vận động nhẹ nhàng sau sinh chat,0.7,0.0,0,0.0,0.1229894999996759,Fixed alpha = 0.7
+test,KB2_Mom_Style,semantic,Bệnh tay chân miệng biểu hiện ra sao vay a,0.7,0.0,0,0.0,0.08725850001792423,Fixed alpha = 0.7
+test,KB2_Mom_Style,semantic,"Khi bé bị tiêu chảy ở nhà, mẹ bỉm cần cho bé uống nước j",0.7,0.0,0,0.0,0.1098811999836471,Fixed alpha = 0.7
+test,KB2_Mom_Style,semantic,"Ngực em tự nhiên bị sưng cứng và đau nhức quá, có phải em đã bị tắc tia sưa rồi k",0.7,0.0,1,1.0,0.12051810001139529,Fixed alpha = 0.7
+test,KB2_Mom_Style,semantic,"Ngoài việc tập đi, em có nên bổ sung thêm các vi chất dinh dưỡng nào để giúp xương chắc khỏe và hỗ trợ bé vận động tốt hơn k?",0.7,0.0,0,0.0,0.15812079998431727,Fixed alpha = 0.7
+test,KB2_Mom_Style,semantic,Làm thế nào để khuyến khích bé yêu thích việc khám phá thiên nhiên và môi trường bên ngoài,0.7,0.0,0,0.0,0.11287650000303984,Fixed alpha = 0.7
+test,KB2_Mom_Style,semantic,Nuôi con bằng sưa mẹ giúp giảm nguy cơ mắc bệnh j cho mẹ sau này,0.7,0.0,1,1.0,0.10116720001678914,Fixed alpha = 0.7
+test,KB2_Mom_Style,semantic,Thời kỳ hậu sản là j,0.7,0.0,0,0.0,0.07308479998027906,Fixed alpha = 0.7
+test,KB3_Information_Noise,exact_lexical,"Mẹ em bảo lúc trước cho em ăn dặm là muối mặn chát cho quen mồi, nhưng em nghe bây giờ phải nhạt thếch, khi mới bắt đầu tập ăn, em nên cho bé ăn những loại thức ăn có độ đặc và hương vị như thế nào để con dễ thích nghi ạ",0.7,0.0,1,0.5,0.23969770001713187,Fixed alpha = 0.7
+test,KB3_Information_Noise,exact_lexical,"Người ta bảo cho ăn thêm nước trắng cũng là bú mẹ, thế nào là nuôi con bằng sữa mẹ hoàn toàn chuẩn y khoa vậy ạ",0.7,0.0,0,0.0,0.1493670000054408,Fixed alpha = 0.7
+test,KB3_Information_Noise,exact_lexical,"Em nấu cháo đặc cho con nhưng bé khóc không ăn, nguyên tắc cho trẻ ăn dặm về độ đặc và số lượng là gì ạ",0.7,0.0,0,0.0,0.1463592000072822,Fixed alpha = 0.7
+test,KB3_Information_Noise,exact_lexical,"Em nghe quảng cáo TV bảo cho bé uống canxi nước Mỹ là nhanh biết bò đi, ngoài việc tập luyện, em có cần bổ sung thêm dưỡng chất gì để hỗ trợ hệ cơ xương và tiêu hóa giúp bé vận động nhanh nhẹn hơn không",0.7,0.0,0,0.0,0.23137960000894964,Fixed alpha = 0.7
+test,KB3_Information_Noise,exact_lexical,"Em vừa mua thuốc bổ não cho con, giải pháp hỗ trợ phản xạ oxytocin hoạt động tốt ạ",0.7,0.0,1,0.3333333333333333,0.1317888000048697,Fixed alpha = 0.7
+test,KB3_Information_Noise,exact_lexical,"Em đang lướt Shopee mua thuốc tâm thần, hướng dẫn em cách xử lý, chăm sóc khi bị sản dịch hôi với ạ",0.7,0.0,0,0.0,0.14309259998844936,Fixed alpha = 0.7
+test,KB3_Information_Noise,exact_lexical,"Em xem quảng cáo bảo cho bé dùng thuốc sủi dạng nước chứa canxi là răng chắc khỏe ngay, ngoài chế độ ăn, em có cần bổ sung thêm vi chất gì để hỗ trợ hệ răng của con chắc khỏe và bé ăn ngon miệng hơn không",0.7,0.0,0,0.0,0.22384359998977743,Fixed alpha = 0.7
+test,KB3_Information_Noise,exact_lexical,"Em đang uống nhiều nước mía vì thấy ít sữa, cho em hỏi vì sao em vẫn cho con bú đều mà vẫn bị tắc tia sữa, nguyên nhân thường gặp là gì ạ",0.7,0.0,1,1.0,0.17246289999457076,Fixed alpha = 0.7
+test,KB3_Information_Noise,exact_lexical,"Hôm nay chồng em mới đi làm về, cho em hỏi các nguồn bổ sung vitamin D khác?",0.7,0.0,0,0.0,0.11336059999302961,Fixed alpha = 0.7
+test,KB3_Information_Noise,exact_lexical,"Em đang bật điều hòa 20 độ vì sợ con nóng, những ngày trời nắng nóng thế này, em sợ con chỉ bú mẹ sẽ bị khát, em có cần bổ sung thêm nước lọc cho bé không ạ",0.7,0.0,1,1.0,0.19697769999038428,Fixed alpha = 0.7
+test,KB3_Information_Noise,exact_lexical,"Em tính sinh mổ vì sợ đau, băng huyết sau sinh sớm và muộn khác nhau ra sao ạ",0.7,0.0,0,0.0,0.1242521999811288,Fixed alpha = 0.7
+test,KB3_Information_Noise,exact_lexical,"Em đang bị dị ứng thuốc, thuốc đầu tay được lựa chọn để co hồi tử cung dự phòng băng huyết là gì ạ",0.7,0.0,0,0.0,0.13538440002594143,Fixed alpha = 0.7
+test,KB3_Information_Noise,exact_lexical,"Em đang dùng băng vệ sinh thơm, em thấy sản dịch có màu đen sậm và mùi hôi kèm sốt nhẹ là dấu hiệu gì ạ",0.7,0.0,0,0.0,0.1435644000011962,Fixed alpha = 0.7
+test,KB3_Information_Noise,exact_lexical,"Em đang ăn nhiều đồ ăn nhanh vì mệt không muốn nấu, để không bị tắc tia sữa lại lần nữa, em nên thay đổi thói quen sinh hoạt động và ăn uống như thế nào ạ",0.7,0.0,0,0.0,0.18347959997481667,Fixed alpha = 0.7
+test,KB3_Information_Noise,exact_lexical,"Em đang bị rong kinh lại mang thai, lo quá, băng huyết sau sinh được định nghĩa như thế nào ạ",0.7,0.0,0,0.0,0.13547399998060428,Fixed alpha = 0.7
+test,KB3_Information_Noise,noisy_conversational,"Em đang thèm ăn bún đậu mắm tôm cực kỳ, những thực phẩm nào mẹ mang thai nên dùng để cung cấp năng lượng ạ",0.7,0.0,1,1.0,0.14874990002135746,Fixed alpha = 0.7
+test,KB3_Information_Noise,noisy_conversational,"Em đang định đi nặn mụn ở spa, tại sao sau khi sinh xong em lại thấy mặt nổi nhiều mụn bọc và mụn mủ vậy",0.7,0.0,0,0.0,0.13903019999270327,Fixed alpha = 0.7
+test,KB3_Information_Noise,noisy_conversational,"Em đang bận làm việc nhà không để ý đến con, làm sao để gia đình em có thể nhận biết sớm các dấu hiệu em bị trầm cảm sau sinh ạ",0.7,0.0,0,0.0,0.16214509998098947,Fixed alpha = 0.7
+test,KB3_Information_Noise,noisy_conversational,"Nhà em có nhiều không qian và rộng rãi, em muốn biết không gian nào trong gia đình là phù hợp nhất để dạy con học nói?",0.7,0.0,0,0.0,0.1680171000189148,Fixed alpha = 0.7
+test,KB3_Information_Noise,noisy_conversational,"Em coi trên mạng thấy nhiều bé bị bệnh em sợ quá, cho em hỏi biểu hiện và cách điều trị của viêm hạnh bạch huyết?",0.7,0.0,0,0.0,0.1542586000286974,Fixed alpha = 0.7
+test,KB3_Information_Noise,noisy_conversational,"Em stress quá vì điện nước hay bị cắt, bé nhà em đang ở giai đoạn sơ sinh, em nên sắp xếp lịch giặt tã vải như thế nào để luôn có đủ tã sạch cho con dùng",0.7,0.0,1,0.5,0.18054629999096505,Fixed alpha = 0.7
+test,KB3_Information_Noise,noisy_conversational,"Em đang tính mua máy massage lưng, em nghe nói gây tê ngoài màng cứng cũng làm mình bị bí tiểu lâu hơn phải không ạ",0.7,0.0,0,0.0,0.13741229998413473,Fixed alpha = 0.7
+test,KB3_Information_Noise,noisy_conversational,"Bà nội bảo cho bé uống nước đường để sạch họng, các loại nước uống nào tuyệt đối không cho trẻ uống trước bữa bú đầu tiên ạ",0.7,0.0,1,1.0,0.1578954999858979,Fixed alpha = 0.7
+test,KB3_Information_Noise,noisy_conversational,"Em bị sỏi thận từ trước, đang uống thuốc đông y, những trường hợp nào bà mẹ không nên cho con bú mà phải dùng sữa thay thế ạ",0.7,0.0,0,0.0,0.15442879998590797,Fixed alpha = 0.7
+test,KB3_Information_Noise,noisy_conversational,"Em đang tức giận lắm muốn đánh đòn, em có nên đánh đòn khi con không nghe lời không ạ",0.7,0.0,0,0.0,0.11803039998630993,Fixed alpha = 0.7
+test,KB3_Information_Noise,noisy_conversational,"Con em thích bú nằm ngủ, hậu quả của việc trẻ ngậm bắt vú sai là gì ạ",0.7,0.0,1,1.0,0.11721519997809082,Fixed alpha = 0.7
+test,KB3_Information_Noise,noisy_conversational,"Em đang sốt ruột nhìn con chơi chậm quá, em thấy bé có vẻ lúng túng khi chơi một trò chơi mới, em có nên làm hộ bé luôn cho nhanh không ạ",0.7,0.0,0,0.0,0.1644635999982711,Fixed alpha = 0.7
+test,KB3_Information_Noise,noisy_conversational,"Tủ lạnh nhà em hay bị ngắt điện, sữa mẹ bảo quản trong ngăn mát tủ lạnh (<4°C) được bao lâu ạ",0.7,0.0,1,0.5,0.14070129999890924,Fixed alpha = 0.7
+test,KB3_Information_Noise,noisy_conversational,"Em đang định bôi thuốc mỡ đặc vào miệng con, bé bị nấm miệng như vậy thì có đau lắm không, sao dạo này em thấy con hay khóc khi đang bú và ăn kém đi hẳn ạ",0.7,0.0,1,0.5,0.1862558999855537,Fixed alpha = 0.7
+test,KB3_Information_Noise,noisy_conversational,"Mẹ chồng em bảo mặc quần dài cộc cho mát cho bé tập bò, nhưng em thì sợ con đau đầu gối, cho em hỏi nên chọn quần áo như thế nào cho bé trong giai đoạn tập bò để con dễ dàng vận động mà không bị đau đầu gối",0.7,0.0,1,1.0,0.22060549998423085,Fixed alpha = 0.7
+test,KB3_Information_Noise,noisy_conversational,"Em đang thèm ăn lẩu cay nóng, chế độ ăn uống thế nào để giúp em cải thiện tình trạng rối loạn nội tiết sau sinh ạ",0.7,0.0,0,0.0,0.14262739999685436,Fixed alpha = 0.7
+test,KB3_Information_Noise,noisy_conversational,"Em thấy ở phòng khám bắt con xếp hình như chơi trò chơi thôi mà, ngoài việc trả lời câu hỏi, con em sẽ phải trải qua những bài kiểm tra thực tế nào để bác sĩ đưa ra kết luận chính xác ạ",0.7,0.0,1,0.5,0.1988605000078678,Fixed alpha = 0.7
+test,KB3_Information_Noise,noisy_conversational,"Em dạo này hay bị stress nên hay nhạy cảm thái quá, nếu em cảm thấy con mình có gì đó ""không ổn"" so với các bạn cùng lứa nhưng bài kiểm tra cho kết quả bình thường thì em nên làm gì",0.7,0.0,1,1.0,0.21063689998118207,Fixed alpha = 0.7
+test,KB3_Information_Noise,noisy_conversational,"Đang nấu ăn thì nghe con khóc, em run quá, cách xử trí tại nhà khi trẻ sơ sinh bị sốt cao là làm gì ạ",0.7,0.0,0,0.0,0.14924759999848902,Fixed alpha = 0.7
+test,KB3_Information_Noise,noisy_conversational,"Em đang xem drama khóc lắm, nếu em bị bí tiểu sau sinh mà không điều trị sớm thì có gặp biến chứng gì nguy hiểm không ạ?",0.7,0.0,0,0.0,0.15466890000971034,Fixed alpha = 0.7
+test,KB3_Information_Noise,quantitative,"Em đang ăn cháo dinh dưỡng loại đặc, nhu cầu năng lượng bổ sung hàng ngày cho bà mẹ nuôi con bú 6 tháng đầu là bao nhiêu ạ",0.7,0.0,1,0.25,0.15961670002434403,Fixed alpha = 0.7
+test,KB3_Information_Noise,quantitative,"Em đang định cho con nằm yên không đụng vào 24 tiếng, bé nhà em bị ngã đập đầu xuống đất, em cần theo dõi những dấu hiệu gì trong 24 giờ tới ạ",0.7,0.0,0,0.0,0.17089839998516254,Fixed alpha = 0.7
+test,KB3_Information_Noise,quantitative,"Em đang định dùng tã giấy dùng 1 lần để gấp thành gối cho con nằm cao, em muốn dùng tã vải cho con thì cần chuẩn bị những loại tã và phụ kiện đi kèm nào cho đúng ạ",0.7,0.0,1,1.0,0.18177249998552725,Fixed alpha = 0.7
+test,KB3_Information_Noise,quantitative,"Em đang định cho con uống thuốc tiêu hóa vì bé hay khóc, bé nhà em 2 ngày đầu phân màu xanh đen và nhầy thì có bình thường không ạ",0.7,0.0,0,0.0,0.16820230000303127,Fixed alpha = 0.7
+test,KB3_Information_Noise,quantitative,"Em cho con bú nhiều nhưng bé vẫn khóc, đến ngày thứ 3 sau sinh, dung tích dạ dày của bé tăng lên bao nhiêu nhỉ",0.7,0.0,0,0.0,0.14459330000681803,Fixed alpha = 0.7
+test,KB3_Information_Noise,quantitative,"Em thấy trên mạng bảo bé bị nổi mẩn là do thời tiết dị ứng thôi, nhưng em thì thấy con ngứa khóc quấy lắm, Bé nhà em được 3 tháng tuổi rồi ạ. Bé nhà em có nổi nốt sần khắp người. Em có mang bé đi khám thì bác sĩ họ bảo bị viêm da cơ địa. Em xin hỏi cách điều trị bệnh viêm da cơ địa trẻ 3 tháng tuổi?",0.7,0.0,1,1.0,0.32339710000087507,Fixed alpha = 0.7
+test,KB3_Information_Noise,quantitative,"Em đang giấu chuyện cơ thể đau nhức vì sợ mẹ chồng lo, cho em biết tỷ lệ phụ nữ trầm cảm sau sinh là bao nhiêu vậy ạ",0.7,0.0,0,0.0,0.15081319998716936,Fixed alpha = 0.7
+test,KB3_Information_Noise,quantitative,"Em đang định không thay tã ban đêm để cho con ngủ sâu, bé nhà em được 2 tháng tuổi và hay đi ngoài nhiều vào ban đêm, em nên dùng loại tã nào để con ngủ ngon mà không bị tràn tã ạ",0.7,0.0,1,0.5,0.20317580000846647,Fixed alpha = 0.7
+test,KB3_Information_Noise,quantitative,"Em thấy trên mạng bỉm sữa bảo cho con ăn dặm sớm từ 4 tháng để bé cao lớn, nhưng ông nội lại bảo chờ 6 tháng cho chắc bụng, nếu em cho con tập ăn dặm quá sớm từ lúc 4 tháng tuổi thì có gây ra tác hại gì cho sức khỏe của bé không",0.7,0.0,1,0.5,0.28125279999221675,Fixed alpha = 0.7
+test,KB3_Information_Noise,quantitative,"Em đang dùng nhiệt kế đo mà thấy 37.5 độ, sau sinh em bị sốt bao nhiêu độ thì được coi là nguy hiểm phải báo y tá ạ",0.7,0.0,0,0.0,0.15331829999922775,Fixed alpha = 0.7
+test,KB3_Information_Noise,quantitative,"Bác sĩ ơi, em lo quá, con em sinh non 8 tháng nghe nói sẽ chậm lật mãi không theo kịp bạn bè, đối với các bé sinh non thì cột mốc biết lật có khác biệt gì so với các bạn sinh đủ tháng không",0.7,0.0,1,1.0,0.20946899999398738,Fixed alpha = 0.7
+test,KB3_Information_Noise,quantitative,"Em đang cho con nếm thử vị chua vì thấy thú vị, định nghĩa chính xác về việc ""nuôi con hoàn toàn bằng sữa mẹ"" trong 6 tháng đầu là như thế nào ạ",0.7,0.0,1,0.3333333333333333,0.17885759999626316,Fixed alpha = 0.7
+test,KB3_Information_Noise,quantitative,"Em đang định uống thuốc giảm đau mạnh, cơn đau dạ con sau sinh, đâu mạnh thường sẽ kéo dài trong bao nhiêu ngày thì hết ạ",0.7,0.0,0,0.0,0.14716250001220033,Fixed alpha = 0.7
+test,KB3_Information_Noise,quantitative,"Em đang định pha thêm nước lọc vào bình sữa vì trời quá nóng, bé nhà em dưới 6 tháng tuổi, em có nên cho con uống thêm chút nước sau khi bú để tráng miệng cho sạch không bác sĩ",0.7,0.0,1,1.0,0.19472010000026785,Fixed alpha = 0.7
+test,KB3_Information_Noise,quantitative,"Em đang nấu cháo đặc cho con 4 tháng ăn dặm sớm, tổng lượng sữa cần thiết cho trẻ từ 4 đến 6 tháng tuổi mỗi ngày là bao nhiêu ạ",0.7,0.0,1,0.25,0.16401080001378432,Fixed alpha = 0.7
+test,KB3_Information_Noise,quantitative,"Chị đồng nghiệp bảo bé 10 tháng ăn 1 bữa cháo đặc là đủ kẻo chán bú, nhưng em thấy bé nhà em nhanh đói lắm, em nên sắp xếp lịch ăn dặm cho bé 10 tháng tuổi như thế nào cho phù hợp",0.7,0.0,1,0.25,0.20787809998728335,Fixed alpha = 0.7
+test,KB3_Information_Noise,quantitative,"Con em lười bú sữa mẹ mà thích ăn bột, trẻ từ 7-12 tháng tuổi cần ăn bao nhiêu bữa bột một ngày ạ",0.7,0.0,1,0.2,0.13845249998848885,Fixed alpha = 0.7
+test,KB3_Information_Noise,quantitative,"Con em bú 5 phút đã ngủ, tại sao mẹ nên cho trẻ bú hết một bên vú rồi mới chuyển sang vú kia ạ",0.7,0.0,1,1.0,0.1314223000081256,Fixed alpha = 0.7
+test,KB3_Information_Noise,quantitative,"Em tính mua bình sữa lớn cho con 2 tuần sau, dung tích dạ dày trẻ từ ngày thứ 5 đến ngày thứ 7 sau đẻ là bao nhiêu ạ",0.7,0.0,1,0.5,0.1487708000058774,Fixed alpha = 0.7
+test,KB3_Information_Noise,quantitative,"Mẹ em bảo ngày xưa bận làm ruộng 7 tháng mới lật là thường, nhưng em thì thấy con 6 tháng chưa lật là chậm rồi, con em đã 6 tháng rồi mà vẫn chưa biết lật từ sau ra trước, liệu như vậy có phải là bé đang chậm phát triển không",0.7,0.0,1,1.0,0.30683220000355504,Fixed alpha = 0.7
+test,KB3_Information_Noise,semantic,"Em với chồng nói chuyện quá trời với bà bội, em thắc mắc là bố mẹ phải nói như thế nào để giúp con có thể học nói?",0.7,0.0,0,0.0,0.16674559999955818,Fixed alpha = 0.7
+test,KB3_Information_Noise,semantic,"Đang ăn cơm cũng phải vội lên để hỏi cho đỡ thắc mắc, những dấu hiệu cảnh báo bệnh tay chân miệng?",0.7,0.0,0,0.0,0.1340269999927841,Fixed alpha = 0.7
+test,KB3_Information_Noise,semantic,"Em đang coi trên tivi thấy nhiều ca mắc bệnh tay chân miệng quá, em lo quá cho em hỏi bệnh tay chân miệng nguy hiểm ra sao?",0.7,0.0,0,0.0,0.14401940000243485,Fixed alpha = 0.7
+test,KB3_Information_Noise,semantic,"Em bị cảm cúm sợ lây cho con, em thắc mắc là đặc tính của sữa non có những gì",0.7,0.0,0,0.0,0.11765490000834689,Fixed alpha = 0.7
+test,KB3_Information_Noise,semantic,"Em đang cho con bú, em hỏi là quy trình tái khám sau sinh thường diễn ra như thế nào?",0.7,0.0,0,0.0,0.12847060000058264,Fixed alpha = 0.7
+test,KB3_Information_Noise,semantic,"Con em đang bị chàm da, em lo quá, hãy hướng dẫn chăm sóc trẻ bị chàm da?",0.7,0.0,0,0.0,0.11840579999261536,Fixed alpha = 0.7
+test,KB3_Information_Noise,semantic,"Em đang ở ngoài đường với bé, cho em hỏi thời kỳ hậu sản kéo dài bao lâu?",0.7,0.0,0,0.0,0.1178133999928832,Fixed alpha = 0.7
+test,KB3_Information_Noise,semantic,"Em mới vừa xuất viện về nhà xong, cho em hỏi quy trình tái khám sau sinh mổ diễn ra như thế nào?",0.7,0.0,0,0.0,0.1417774999863468,Fixed alpha = 0.7
+test,KB3_Information_Noise,semantic,"Bà nội đang chơi với cháu, cho em hỏi giải pháp điều trị xuất huyết não ở trẻ sơ sinh?",0.7,0.0,0,0.0,0.12436950000119396,Fixed alpha = 0.7
+test,KB3_Information_Noise,semantic,"Bà nội em chăm cháu mà cứ cằn nhằn em suốt bảo làm sao để con bị bệnh như thế này, em buồn quá cho em hỏi các điều trị và chăm sóc bệnh tay chân miệng như thế nào?",0.7,0.0,0,0.0,0.19657620001817122,Fixed alpha = 0.7
+test,KB3_Information_Noise,semantic,"Em đang tức giận dữ dội muốn đập đồ vỡ, khi em đang mệt mỏi và lo lắng, em cần chồng hỗ trợ như thế nào là tốt nhất thay vì chỉ đưa ra những lời khuyên sáo rỗng",0.7,0.0,0,0.0,0.1843753999855835,Fixed alpha = 0.7
+test,KB1_Standard,exact_lexical,Nguyên tắc cho trẻ ăn dặm về độ đặc và số lượng là gì?,0.2,0.1,0,0.0,0.11988739998196252,Adaptive alpha v2
+test,KB1_Standard,exact_lexical,Làm sao để phân biệt vàng da sinh lý và vàng da bệnh lý ở trẻ sơ sinh ạ?,0.2,0.1,0,0.0,0.12248019999242388,Adaptive alpha v2
+test,KB1_Standard,exact_lexical,"Trong một bát bột ăn dặm chuẩn cho bé, em cần phải đảm bảo có đủ 4 nhóm chất dinh dưỡng nào ạ?",0.2,0.1,1,1.0,0.13347820000490174,Adaptive alpha v2
+test,KB1_Standard,exact_lexical,Giải pháp hỗ trợ phản xạ oxytocin hoạt động tốt?,0.2,0.1,1,1.0,0.0895713999925647,Adaptive alpha v2
+test,KB1_Standard,exact_lexical,Thiếu vitamin D gây ảnh hưởng như thế nào?,0.2,0.1,0,0.0,0.08501629999955185,Adaptive alpha v2
+test,KB1_Standard,exact_lexical,"Khi con em bước sang tháng thứ 7 đến tháng thứ 9, em có cần tăng thêm số lượng bữa ăn dặm cho bé không bác sĩ?",0.2,0.1,1,0.5,0.15687739997520112,Adaptive alpha v2
+test,KB1_Standard,exact_lexical,"Cho em hỏi vì sao em vẫn cho con bú đều mà vẫn bị tắc tia sữa, nguyên nhân thường gặp là gì ạ?",0.2,0.1,1,1.0,0.13432760001160204,Adaptive alpha v2
+test,KB1_Standard,exact_lexical,Các nguồn bổ sung vitamin D khác?,0.2,0.1,0,0.0,0.07756100001279265,Adaptive alpha v2
+test,KB1_Standard,exact_lexical,"Những ngày trời nắng nóng thế này, em sợ con chỉ bú mẹ sẽ bị khát, em có cần bổ sung thêm nước lọc cho bé không ạ?",0.2,0.1,1,1.0,0.15229379999800585,Adaptive alpha v2
+test,KB1_Standard,exact_lexical,Băng huyết sau sinh sớm và muộn khác nhau ra sao?,0.2,0.1,0,0.0,0.09737659999518655,Adaptive alpha v2
+test,KB1_Standard,exact_lexical,Thuốc đầu tay được lựa chọn để co hồi tử cung dự phòng băng huyết là gì?,0.2,0.1,0,0.0,0.11810439999680966,Adaptive alpha v2
+test,KB1_Standard,exact_lexical,Em thấy sản dịch có màu đen sậm và mùi hôi kèm sốt nhẹ là dấu hiệu gì ạ?,0.2,0.1,0,0.0,0.1148502999858465,Adaptive alpha v2
+test,KB1_Standard,exact_lexical,"Để không bị tắc tia sữa lại lần nữa, em nên thay đổi thói quen sinh hoạt và ăn uống như thế nào ạ?",0.2,0.1,1,1.0,0.136801300017396,Adaptive alpha v2
+test,KB1_Standard,exact_lexical,Băng huyết sau sinh được định nghĩa như thế nào?,0.2,0.1,0,0.0,0.09310940001159906,Adaptive alpha v2
+test,KB1_Standard,noisy_conversational,cho em hỏi lộ trình phát triển vận động bình thường của một em bé khỏe mạnh từ khi sinh ra đến khi biết ngồi vững là thế nào ạ?,0.3,0.1,1,0.3333333333333333,0.15284779999637976,Adaptive alpha v2
+test,KB1_Standard,noisy_conversational,Sữa mẹ bảo quản trong ngăn mát tủ lạnh (<4°C) được bao lâu?,0.3,0.1,1,1.0,0.11395559998345561,Adaptive alpha v2
+test,KB1_Standard,noisy_conversational,"Ngoài việc cải thiện chuyện tiểu tiện, tập phục hồi sàn chậu có giúp ích gì cho đời sống vợ chồng sau sinh không ạ?",0.3,0.1,1,1.0,0.13921610001125373,Adaptive alpha v2
+test,KB1_Standard,noisy_conversational,có các biện pháp nào để duy trì nguồn sữa mẹ không ạ?,0.3,0.1,0,0.0,0.099275700020371,Adaptive alpha v2
+test,KB1_Standard,noisy_conversational,"Em cảm thấy rất tội lỗi khi không thể chăm sóc con tốt như mong đợi, đây có phải là dấu hiệu của trầm cảm không?",0.3,0.1,0,0.0,0.1509518999955617,Adaptive alpha v2
+test,KB1_Standard,noisy_conversational,"Làm sao để em biết mình đã mặc tã cho con vừa vặn, không quá chật gây lằn da nhưng cũng không quá lỏng làm tràn tã ạ?",0.3,0.1,1,0.25,0.15212119999341667,Adaptive alpha v2
+test,KB1_Standard,noisy_conversational,Nếu con em bị béo phì từ nhỏ thì sau này lớn lên có dễ mắc các bệnh mạn tính nguy hiểm nào không?,0.3,0.1,1,0.3333333333333333,0.1430009999894537,Adaptive alpha v2
+test,KB1_Standard,noisy_conversational,"Bé nhà em chưa biết nói nhưng hay bập bẹ ""ba ba, ma ma"", em nên phản ứng thế nào để khuyến khích bé ạ?",0.3,0.1,0,0.0,0.13813830001163296,Adaptive alpha v2
+test,KB1_Standard,noisy_conversational,Tại sao phụ nữ mang thai bị phù (cân) phải giảm ăn mặn?,0.3,0.1,1,1.0,0.10672899999190122,Adaptive alpha v2
+test,KB1_Standard,noisy_conversational,"Em đang mang thai tháng cuối, có loại thuốc đặt âm đạo nào an toàn để dự phòng nấm không?",0.3,0.1,0,0.0,0.12392660000477917,Adaptive alpha v2
+test,KB1_Standard,noisy_conversational,Tại sao việc tiêm chủng đúng lịch lại quan trọng đối với sức khỏe của bé vậy bác sĩ?,0.3,0.1,0,0.0,0.11934490001294762,Adaptive alpha v2
+test,KB1_Standard,noisy_conversational,Chỉ em cách xử lý khi chẳng may bé bị bỏng nước sôi tại nhà với ạ?,0.3,0.1,0,0.0,0.11113199999090284,Adaptive alpha v2
+test,KB1_Standard,noisy_conversational,"Trong thời kỳ hậu sản, một vài tuần đầu em thấy có chất dịch chảy ra thì có sao không ạ?",0.3,0.1,0,0.0,0.1345228000136558,Adaptive alpha v2
+test,KB1_Standard,noisy_conversational,Con em đang bị nấm miệng thì em có cần phải tiệt trùng bình sữa hay núm vú giả kỹ hơn bình thường không ạ?,0.3,0.1,1,1.0,0.13411340001039207,Adaptive alpha v2
+test,KB1_Standard,noisy_conversational,"em thấy trên thị trường có nhiều loại tã quá, làm sao để em chọn được loại tã giấy vừa vặn và thoải mái nhất cho bé nhà em ạ?",0.3,0.1,1,1.0,0.1573717999854125,Adaptive alpha v2
+test,KB1_Standard,noisy_conversational,Âm đạo của em tiết mùi hồi gây khó chịu là bị gì vậy ạ,0.3,0.1,0,0.0,0.10078419998171739,Adaptive alpha v2
+test,KB1_Standard,noisy_conversational,Trẻ nhận sữa mẹ hoàn toàn có cần uống thêm nước trắng không?,0.3,0.1,1,1.0,0.09989240000140853,Adaptive alpha v2
+test,KB1_Standard,noisy_conversational,Liệu bế con không đúng tư thế có phải là một trong những nguyên nhân dẫn đến đau nhức mỏi lưng phải không ạ?,0.3,0.1,1,1.0,0.1357144999783486,Adaptive alpha v2
+test,KB1_Standard,noisy_conversational,Tại sao bé nhà em dạo này hay khóc nhè và bám mẹ không rời vậy?,0.3,0.1,0,0.0,0.11038840000401251,Adaptive alpha v2
+test,KB1_Standard,noisy_conversational,Chế độ sinh hoạt của bè mẹ sau sinh?,0.3,0.1,0,0.0,0.09437720000278205,Adaptive alpha v2
+test,KB1_Standard,quantitative,"bé nhà em 6 tháng tuổi đang tập ăn dặm mà bị tiêu chảy kéo dài, em có nên tiếp tục cho con ăn cháo cà rốt hay thay đổi chế độ ăn như thế nào không ạ?",0.4,0.1,1,1.0,0.19282389999716543,Adaptive alpha v2
+test,KB1_Standard,quantitative,"Bé em được 11 tháng tuổi, cận nặng 8,8kg, hiện bé mới đi tiêu và có ra giun kim, em muốn hỏi xem hiện nay bé đã xổ giun được chưa và nếu được thì sử dụng thuốc loại gì, liều dùng ra sao?",0.4,0.1,1,1.0,0.21835189999546856,Adaptive alpha v2
+test,KB1_Standard,quantitative,"Ở nhà em nên để nhiệt độ phòng bao nhiêu là tốt nhất và cần làm gì ngay khi sinh để giữ ấm cho bé, tránh cho con bị nhiễm lạnh ạ",0.4,0.1,1,0.5,0.17269279999891296,Adaptive alpha v2
+test,KB1_Standard,quantitative,"Em bị sốt cao, rét run và đau bụng dữ dội sau sinh 2 tuần là dấu hiệu bệnh gì vậy?",0.4,0.1,0,0.0,0.12519830002565868,Adaptive alpha v2
+test,KB1_Standard,quantitative,Lượng sữa cần cho trẻ từ khi sinh đến 1 tháng tuổi là bao nhiêu mỗi ngày?,0.4,0.1,1,0.5,0.1142857999948319,Adaptive alpha v2
+test,KB1_Standard,quantitative,"Em mới mổ đẻ được 2 ngày mà giờ bị sốt 38,5 độ C thì có làm sao không ạ?",0.4,0.1,0,0.0,0.1297791000106372,Adaptive alpha v2
+test,KB1_Standard,quantitative,Bé 2 tháng tuổi thì cần phải đi tiêm những loại vắc xin gì theo định kỳ ạ?,0.4,0.1,0,0.0,0.12242549998336472,Adaptive alpha v2
+test,KB1_Standard,quantitative,"định nghĩa chính xác về việc ""nuôi con hoàn toàn bằng sữa mẹ"" trong 6 tháng đầu là như thế nào ạ?",0.4,0.1,1,0.2,0.1281691999756731,Adaptive alpha v2
+test,KB1_Standard,quantitative,"Con em được 10 tháng tuổi rồi, em thấy bé có vẻ nhanh đói, em nên sắp xếp lịch ăn dặm cho bé như thế nào cho phù hợp?",0.4,0.1,0,0.0,0.1589152000087779,Adaptive alpha v2
+test,KB1_Standard,quantitative,Sau 2 tuần mà rốn bé vẫn chưa rụng thì em có cần đưa bé đi viện không ạ?,0.4,0.1,0,0.0,0.12960449999081902,Adaptive alpha v2
+test,KB1_Standard,quantitative,Hậu quả của thiếu dinh dưỡng trong 3 tháng cuối thai kỳ là gì?,0.4,0.1,1,1.0,0.11036350001813844,Adaptive alpha v2
+test,KB1_Standard,quantitative,Mẹ sau sinh cần bổ sung Vitamin A với liều lượng bao nhiêu?,0.4,0.1,0,0.0,0.09941650001564994,Adaptive alpha v2
+test,KB1_Standard,quantitative,"Để tránh tình trạng suy dinh dưỡng ở trẻ 34 tháng tuổi, em nên làm gì ạ?",0.4,0.1,1,1.0,0.11518930000602268,Adaptive alpha v2
+test,KB1_Standard,quantitative,"Bé nhà em vừa tròn 6 tháng và mới tập ăn dặm, mỗi ngày em nên cho con ăn mấy bữa bột là đủ ạ?",0.4,0.1,1,1.0,0.1481774999992922,Adaptive alpha v2
+test,KB1_Standard,quantitative,"Bé nhà em dưới 6 tháng tuổi, em có nên cho con uống thêm chút nước sau khi bú để tráng miệng cho sạch không bác sĩ?",0.4,0.1,1,1.0,0.15764220000710338,Adaptive alpha v2
+test,KB1_Standard,quantitative,Bé nhà em được 3 tháng tuổi rồi ạ. Bé nhà em có nổi nốt sần khắp người. Em có mang bé đi khám thì bác sĩ họ bảo bị viêm da cơ địa. Em xin hỏi cách điều trị bệnh viêm da cơ địa trẻ 3 tháng tuổi?,0.4,0.1,1,1.0,0.22159990001819097,Adaptive alpha v2
+test,KB1_Standard,quantitative,Trẻ từ 7-12 tháng tuổi cần ăn bao nhiêu bữa bột một ngày?,0.4,0.1,1,0.5,0.1123344000079669,Adaptive alpha v2
+test,KB1_Standard,quantitative,Nếu em bị chảy máu nhiều sau sinh (trên 300ml) thì bác sĩ sẽ xử trí gì đầu tiên ạ?,0.4,0.1,0,0.0,0.141510899993591,Adaptive alpha v2
+test,KB1_Standard,quantitative,Trẻ từ 12-24 tháng tuổi cần ăn bao nhiêu bữa một ngày?,0.4,0.1,1,0.5,0.10704629999236204,Adaptive alpha v2
+test,KB1_Standard,quantitative,"Bé nhà em đã 18 tháng tuổi rồi mà vẫn chưa biết đi, liệu đây có phải là tình trạng chậm biết đi cần phải can thiệp y tế không bác sĩ?",0.4,0.1,1,1.0,0.163575899990974,Adaptive alpha v2
+test,KB1_Standard,semantic,Bốn nhóm thực phẩm cần có trong bữa ăn của trẻ là gì?,0.3,0.1,0,0.0,0.1024184999987483,Adaptive alpha v2
+test,KB1_Standard,semantic,Lợi ích của việc nuôi con bằng sữa mẹ đối với tử cung của mẹ sau sinh?,0.3,0.1,1,0.3333333333333333,0.10716319998027757,Adaptive alpha v2
+test,KB1_Standard,semantic,"Khi về khoa hậu sản, có những dấu hiệu nào em phải gọi cấp cứu ngay?",0.3,0.1,0,0.0,0.10957309999503195,Adaptive alpha v2
+test,KB1_Standard,semantic,Lợi ích của việc cho trẻ tiếp xúc da kề da ngay sau sinh?,0.3,0.1,1,1.0,0.10569180001039058,Adaptive alpha v2
+test,KB1_Standard,semantic,Dấu hiệu nào cho thấy trẻ bú tốt?,0.3,0.1,0,0.0,0.08261830001720227,Adaptive alpha v2
+test,KB1_Standard,semantic,Viêm tiểu phế quản ở trẻ sơ sinh là gì?,0.3,0.1,0,0.0,0.08819020001101308,Adaptive alpha v2
+test,KB1_Standard,semantic,Liệt kê các dấu hiệu nguy hiểm ở trẻ sơ sinh cần đi khám ngay?,0.3,0.1,0,0.0,0.10293180000735447,Adaptive alpha v2
+test,KB1_Standard,semantic,"Con em hay bị táo bón, đi ngoài rất khó khăn, em nên điều chỉnh chế độ ăn cho bé thế nào?",0.3,0.1,0,0.0,0.13947570000891574,Adaptive alpha v2
+test,KB1_Standard,semantic,Nuôi con bằng sữa mẹ giúp giảm nguy cơ mắc bệnh gì cho mẹ sau này?,0.3,0.1,1,0.25,0.1073612000036519,Adaptive alpha v2
+test,KB1_Standard,semantic,Những thực phẩm nào mẹ mang thai nên dùng để cung cấp năng lượng?,0.3,0.1,1,1.0,0.10805249999975786,Adaptive alpha v2
+test,KB1_Standard,semantic,"Con em thường xuyên thức giấc giữa đêm và khóc, em phải làm gì để bé ngủ sâu hơn?",0.3,0.1,0,0.0,0.13028310000663623,Adaptive alpha v2
+test,KB1_Standard,semantic,Cần đưa trẻ đi khám ngay khi bị nôn ói?,0.3,0.1,0,0.0,0.09247679999680258,Adaptive alpha v2
+test,KB1_Standard,semantic,Cách chuẩn bị dụng cụ đựng sữa trước khi vắt như thế nào?,0.3,0.1,1,1.0,0.10190639999927953,Adaptive alpha v2
+test,KB1_Standard,semantic,Bố mẹ phải nói như thế nào để giúp con có thể học nói?,0.3,0.1,0,0.0,0.10343360001570545,Adaptive alpha v2
+test,KB1_Standard,semantic,Việc cho con bú ngay trong vòng một giờ đầu sau sinh có lợi gì cho người mẹ?,0.3,0.1,0,0.0,0.11631199999828823,Adaptive alpha v2
+test,KB1_Standard,semantic,Giải pháp phòng ngừa bệnh xuất huyết não ở trẻ,0.3,0.1,0,0.0,0.08212340000318363,Adaptive alpha v2
+test,KB1_Standard,semantic,Chế độ nghỉ ngơi của bè mẹ sau sinh?,0.3,0.1,0,0.0,0.09103270000196062,Adaptive alpha v2
+test,KB1_Standard,semantic,Cách xử trí khi vú bị căng sữa hoặc cương tức?,0.3,0.1,1,1.0,0.0988544000138063,Adaptive alpha v2
+test,KB1_Standard,semantic,Nghén điều trị như thế nào?,0.3,0.1,0,0.0,0.08762510001542978,Adaptive alpha v2
+test,KB1_Standard,semantic,Khuyến nghị về số lần khám thai tối thiểu trong thai kỳ?,0.3,0.1,0,0.0,0.10213569999905303,Adaptive alpha v2
+test,KB2_Mom_Style,exact_lexical,Làm sao để phân biệt vàng da sinh lý và vàng da bệnh lý ở bé sơ sinh mn ơi,0.2,0.1,0,0.0,0.12816120000206865,Adaptive alpha v2
+test,KB2_Mom_Style,exact_lexical,giải pháp hỗ trợ phản xạ oxytocin hoạt động tốt ạ,0.2,0.1,1,1.0,0.09281130001181737,Adaptive alpha v2
+test,KB2_Mom_Style,exact_lexical,Kích thích phản xạ oxytocin trước khi vắt sữa có quan trọng không z ạ,0.2,0.1,1,1.0,0.10447009999188595,Adaptive alpha v2
+test,KB2_Mom_Style,exact_lexical,Thiếu vitamin D gây ảnh hưởng ntn,0.2,0.1,0,0.0,0.07615370000712574,Adaptive alpha v2
+test,KB2_Mom_Style,exact_lexical,"Hướng dẫn em cách xử lý, chăm sóc khi bị sản dịch hôi v ạ",0.2,0.1,0,0.0,0.11304989998461679,Adaptive alpha v2
+test,KB2_Mom_Style,exact_lexical,"Khi con em bước sang tháng thứ 7 đến tháng thứ 9, em có cần tăng thêm số lượng bữa ăn dặm cho bé con k",0.2,0.1,1,0.5,0.14377980001154356,Adaptive alpha v2
+test,KB2_Mom_Style,exact_lexical,Các nguồn bổ sung vitamin D khác ko a,0.2,0.1,0,0.0,0.08090839997748844,Adaptive alpha v2
+test,KB2_Mom_Style,exact_lexical,Băng huyết sau sinh sớm và muộn khác nhau ra sao bs ơi,0.2,0.1,0,0.0,0.10275530000217259,Adaptive alpha v2
+test,KB2_Mom_Style,exact_lexical,Thuốc đầu tay đc lựa chọn để co hồi tử cung dự phòng băng huyết là j,0.2,0.1,0,0.0,0.11813129999791272,Adaptive alpha v2
+test,KB2_Mom_Style,exact_lexical,Em thấy sản dịch có màu đen sậm và mùi hôi kèm sốt nhẹ là dấu hiệu j a,0.2,0.1,0,0.0,0.11569310000049882,Adaptive alpha v2
+test,KB2_Mom_Style,exact_lexical,"Trong 1 bát bột ăn dặm chuẩn cho bé, em cần fải đảm bảo có đủ 4 nhóm chất dinh dưỡng nào",0.2,0.1,1,1.0,0.1392649000044912,Adaptive alpha v2
+test,KB2_Mom_Style,exact_lexical,Băng huyết sau sinh đc kđịnh nghĩa như thế nào nhỉ,0.2,0.1,0,0.0,0.09238969997386448,Adaptive alpha v2
+test,KB2_Mom_Style,noisy_conversational,Làm sao để nhận biết nhau bong non a,0.3,0.1,0,0.0,0.0842877000104636,Adaptive alpha v2
+test,KB2_Mom_Style,noisy_conversational,"Bé nhà t rất nhát, gặp người lạ là khóc và trốn sau lưng mẹ thì có bình thường k mn ơi",0.3,0.1,0,0.0,0.13784739997936413,Adaptive alpha v2
+test,KB2_Mom_Style,noisy_conversational,Khi nào thì cần đưa bé con đi khám sức khỏe định kỳ dù bé vẫn đang khỏe mạnh ạ,0.3,0.1,0,0.0,0.1266522000078112,Adaptive alpha v2
+test,KB2_Mom_Style,noisy_conversational,Kỹ thuật cho bé ăn bằng cốc đúng cách là như thế nào mn ơi,0.3,0.1,1,0.3333333333333333,0.10611710001830943,Adaptive alpha v2
+test,KB2_Mom_Style,noisy_conversational,Bị nhau bằng non có cần đến bệnh viện ko a,0.3,0.1,0,0.0,0.0961300999915693,Adaptive alpha v2
+test,KB2_Mom_Style,noisy_conversational,Âm đạo của em tiết mùi hồi gây khó chịu là bị j v a,0.3,0.1,0,0.0,0.10303200001362711,Adaptive alpha v2
+test,KB2_Mom_Style,noisy_conversational,"Em nghe nói dùng tã vải ít bị hăm da hơn tã giấy, điều này có đúng k và em cần lưu ý j thêm",0.3,0.1,1,1.0,0.14564629999222234,Adaptive alpha v2
+test,KB2_Mom_Style,noisy_conversational,Hormon nào chịu trách nhiệm tạo sưa và hormon nào giúp phun sưa ai ơi,0.3,0.1,0,0.0,0.10910110000986606,Adaptive alpha v2
+test,KB2_Mom_Style,noisy_conversational,Nếu em bị nhiễm nấm âm đạo thì bé sơ sinh có bị lây k các Mom,0.3,0.1,0,0.0,0.11269520001951605,Adaptive alpha v2
+test,KB2_Mom_Style,noisy_conversational,Chế độ ăn uống ntn giúp em giảm bớt tình trạng đau mỏi xương khớp sau khi sinh em bé,0.3,0.1,1,0.5,0.12099860000307672,Adaptive alpha v2
+test,KB2_Mom_Style,noisy_conversational,Tại sao cứ khuyến khích mẹ nên ngồi để cho con bú thay vì nằm bú vậy ạ,0.3,0.1,1,1.0,0.11010170000372455,Adaptive alpha v2
+test,KB2_Mom_Style,noisy_conversational,"EEm nghe nói sau sinh sẽ rối loạn nội tiết tố nữ phải không, dấu hiệu nhận biết rối loạn nội tiết tố là j v ạ",0.3,0.1,0,0.0,0.15561620000516996,Adaptive alpha v2
+test,KB2_Mom_Style,noisy_conversational,"Con em dạo này hay bắt chước các hành động của bố mẹ, đây có phải là 1 dấu hiệu tốt k",0.3,0.1,0,0.0,0.1330659000086598,Adaptive alpha v2
+test,KB2_Mom_Style,noisy_conversational,"Em thấy chân của bé con có vẻ yếu và k chịu đứng vững khi em dắt tay, những dấu hiệu nào khác cảnh báo con em đang bị chậm vận động?",0.3,0.1,1,1.0,0.16241369998897426,Adaptive alpha v2
+test,KB2_Mom_Style,noisy_conversational,Chồng em cần làm j để giúp em vượt qua giai đoạn bị trầm cảm sau sinh nhẹ v nho,0.3,0.1,0,0.0,0.126144200010458,Adaptive alpha v2
+test,KB2_Mom_Style,noisy_conversational,"Bé nhà t bị ho và chảy nước mũi nhiều, có nên tự mua thuốc ho cho bé uống k mn ơi",0.3,0.1,0,0.0,0.13231360001373105,Adaptive alpha v2
+test,KB2_Mom_Style,noisy_conversational,Khi nào thì rốn của bé bị sưng đỏ đc coi là nhiễm trùng mức độ nặng mn,0.3,0.1,0,0.0,0.12140169998747297,Adaptive alpha v2
+test,KB2_Mom_Style,noisy_conversational,"Sau khi cho con bú xong, em nên làm j để bé k bị ọc sưa hay bị sặc khi nằm xuống",0.3,0.1,1,1.0,0.13424459999077953,Adaptive alpha v2
+test,KB2_Mom_Style,noisy_conversational,"Miệng bé nhà t có mấy mảng trắng như cặn sưa mà lau k sạch, liệu có phải con bị nấm miệng k",0.3,0.1,1,1.0,0.12686379998922348,Adaptive alpha v2
+test,KB2_Mom_Style,noisy_conversational,Làm sao để dạy con cách kiểm soát cảm giác tức giận mà k la hét mn ơi,0.3,0.1,0,0.0,0.10806259998935275,Adaptive alpha v2
+test,KB2_Mom_Style,quantitative,Tại sao lại dặn là k nên nêm thêm mắm hay muối vào thức ăn dặm của trẻ dưới 1 tuổi,0.4,0.1,1,1.0,0.1237826999858953,Adaptive alpha v2
+test,KB2_Mom_Style,quantitative,"Em có cần fải đánh giá lại sự phát triển của bé thường xuyên k, hay chỉ cần thực hiện 1 lần khi bé có dấu hiệu lạ?",0.4,0.1,1,1.0,0.14495819999137893,Adaptive alpha v2
+test,KB2_Mom_Style,quantitative,"Bé nhà t vừa tròn 6 tháng và mới tập ăn dặm, mỗi ngày em nên cho con ăn mấy bữa bột là đủ",0.4,0.1,1,1.0,0.14902740000979975,Adaptive alpha v2
+test,KB2_Mom_Style,quantitative,"Bé nhà mình đã hơn 6 tháng rùi mà vẫn chưa thấy biết ""ê, a"" hay bập bẹ nói chuyện j hết, liệu con em có đang gặp vấn đề về ngôn ngữ k?",0.4,0.1,1,1.0,0.17567660001805052,Adaptive alpha v2
+test,KB2_Mom_Style,quantitative,"Em bị sốt cao, rét run và đau bụng dữ dội sau sinh 2 tuần là dấu hiệu bệnh j vậy c",0.4,0.1,0,0.0,0.13489980000304058,Adaptive alpha v2
+test,KB2_Mom_Style,quantitative,Lượng sưa cần cho bé nhà mình từ khi sinh đến 1 tháng tuổi là bao nhiêu mỗi ngày,0.4,0.1,1,0.2,0.13132330001099035,Adaptive alpha v2
+test,KB2_Mom_Style,quantitative,"Em mới mổ đẻ đc 2 ngày mà giờ bị sốt 38,5 độ C thì có làm sao k ai oi",0.4,0.1,0,0.0,0.13166859999182634,Adaptive alpha v2
+test,KB2_Mom_Style,quantitative,Bé 2 tháng tuổi thì fải đi tiêm những loại vắc xin j theo định kỳ mn ơi,0.4,0.1,0,0.0,0.12271959998179227,Adaptive alpha v2
+test,KB2_Mom_Style,quantitative,"Bé nhà mình đc 2 tháng tuổi và hay đi ngoài nhiều vào ban đêm, em nên dùng loại tã j để con ngủ ngon mà k bị tràn tã",0.4,0.1,1,0.5,0.15518120001070201,Adaptive alpha v2
+test,KB2_Mom_Style,quantitative,"Con em đã 22 tháng tuổi rồi mà vẫn chậm nói, chưa thể phát âm được những từ ngữ cơ bản, bé cứ dùng tay chân để chỉ trỏ mỗi khi muốn gì đó thì có phải là dấu hiệu đáng lo k v a",0.4,0.1,1,1.0,0.21858549999888055,Adaptive alpha v2
+test,KB2_Mom_Style,quantitative,"Bé nhà t đã 18 tháng tuổi rùi mà vẫn chưa biết đi, liệu đây có phải là tình trạng chậm biết đi cần fải can thiệp y tế k?",0.4,0.1,1,1.0,0.1619232000084594,Adaptive alpha v2
+test,KB2_Mom_Style,quantitative,Sau 2 tuần mà rốn bé vẫn chưa rụng thì có cần đưa bé đi viện k ạ,0.4,0.1,0,0.0,0.11135990000911988,Adaptive alpha v2
+test,KB2_Mom_Style,quantitative,Hậu quả của thiếu dinh dưỡng trong 3 tháng cuối thai kỳ là j v,0.4,0.1,1,1.0,0.10914650000631809,Adaptive alpha v2
+test,KB2_Mom_Style,quantitative,"Khi sử dụng tã vải, em có cần fải thay tã cho bé thường xuyên như khi dùng tã giấy dùng 1 lần k",0.4,0.1,1,1.0,0.140921200014418,Adaptive alpha v2
+test,KB2_Mom_Style,quantitative,"Để tránh tình trạng suy dinh dưỡng ở trẻ 34 tháng tuổi, em nên lam j a",0.4,0.1,1,1.0,0.11280259999330156,Adaptive alpha v2
+test,KB2_Mom_Style,quantitative,"Bé nhà t đc 34 tháng rùi, em nên sắp xếp các bữa chính và bữa phụ trong ngày ntn để đảm bảo con đủ chất?",0.4,0.1,1,0.5,0.1519951999944169,Adaptive alpha v2
+test,KB2_Mom_Style,quantitative,"Bé nhà mình dưới 6 tháng tuổi, em có nên cho con uống thêm chút nước sau khi bú để tráng miệng cho sạch k",0.4,0.1,1,1.0,0.14296970001305453,Adaptive alpha v2
+test,KB2_Mom_Style,quantitative,Bé nhà em được 3 tháng tuổi rồi ạ. Bé nhà em có nổi nốt sần khắp người. Em có mang bé đi khám thì bác sĩ họ bảo bị viêm da cơ địa. Em xin hỏi cách điều trị bệnh viêm da cơ địa trẻ 3 tháng tuổi v a,0.4,0.1,1,1.0,0.2370676000136882,Adaptive alpha v2
+test,KB2_Mom_Style,quantitative,Bé từ 7-12 tháng tuổi cần ăn bao nhiêu bữa bột 1 ngày các v a,0.4,0.1,1,0.25,0.10833359998650849,Adaptive alpha v2
+test,KB2_Mom_Style,quantitative,Nếu em bị chảy máu nhiều sau sinh (trên 300ml) thì bs sẽ xử trí j đầu tiên ok,0.4,0.1,0,0.0,0.12488300001132302,Adaptive alpha v2
+test,KB2_Mom_Style,semantic,Chồng và người thân nên làm j để giúp em cảm thấy bớt căng thẳng khi chăm sóc bé nhà t,0.3,0.1,0,0.0,0.11918539999169298,Adaptive alpha v2
+test,KB2_Mom_Style,semantic,"Ngoài việc phát âm, em cần quan sát những phản ứng nào khác của con đối với lời nói của cha mẹ để biết bé phát triển tâm sinh lý bình thường k?",0.3,0.1,1,1.0,0.21058949999860488,Adaptive alpha v2
+test,KB2_Mom_Style,semantic,"Có phải các bệnh lý về cơ hay thần kinh là nguyên nhân chính khiến trẻ chậm biết đi k, hay còn do yếu tố nào khác?",0.3,0.1,1,0.5,0.1595159999851603,Adaptive alpha v2
+test,KB2_Mom_Style,semantic,Lợi ích của việc nuôi con bằng sưa mẹ đối với tử cung của mẹ sau sinh,0.3,0.1,1,0.3333333333333333,0.10897900001145899,Adaptive alpha v2
+test,KB2_Mom_Style,semantic,Con em đang bị nấm miệng thì có cần fải tiệt trùng bình sưa hay núm vú giả kỹ hơn bình thường k,0.3,0.1,1,1.0,0.12223979999544099,Adaptive alpha v2
+test,KB2_Mom_Style,semantic,"Sau sinh tuần đầu, em và bé cần được cán bộ y tế đến thăm khám vào những gì v a",0.3,0.1,0,0.0,0.12510149998706765,Adaptive alpha v2
+test,KB2_Mom_Style,semantic,10 điều kiện nuôi con bằng sưa mẹ thành công bao gồm những j,0.3,0.1,1,1.0,0.09867459998349659,Adaptive alpha v2
+test,KB2_Mom_Style,semantic,Nguyên nhân xuất huyết não ở trẻ sơ sinh l j,0.3,0.1,0,0.0,0.09908499999437481,Adaptive alpha v2
+test,KB2_Mom_Style,semantic,Cách xử trí nứt núm vú cho mẹ bỉm sau bú bs ơi,0.3,0.1,1,0.3333333333333333,0.09434409998357296,Adaptive alpha v2
+test,KB2_Mom_Style,semantic,"Khi đưa con đi đánh giá sự phát triển, thường sẽ đặt những câu hỏi j cho cha mẹ chúng em?",0.3,0.1,1,1.0,0.13329519997932948,Adaptive alpha v2
+test,KB2_Mom_Style,semantic,Bệnh chàm da là j,0.3,0.1,0,0.0,0.06926330001442693,Adaptive alpha v2
+test,KB2_Mom_Style,semantic,Em nghe nói gây tê ngoài màng cứng cũng làm mình bị bí tiểu lâu hơn fải k?,0.3,0.1,0,0.0,0.11650619999272749,Adaptive alpha v2
+test,KB2_Mom_Style,semantic,Khi nào thì em có thể bắt đầu tập thể dục hoặc vận động nhẹ nhàng sau sinh chat,0.3,0.1,0,0.0,0.12180999998236075,Adaptive alpha v2
+test,KB2_Mom_Style,semantic,Bệnh tay chân miệng biểu hiện ra sao vay a,0.3,0.1,0,0.0,0.08802130000549369,Adaptive alpha v2
+test,KB2_Mom_Style,semantic,"Khi bé bị tiêu chảy ở nhà, mẹ bỉm cần cho bé uống nước j",0.3,0.1,0,0.0,0.11871660000178963,Adaptive alpha v2
+test,KB2_Mom_Style,semantic,"Ngực em tự nhiên bị sưng cứng và đau nhức quá, có phải em đã bị tắc tia sưa rồi k",0.3,0.1,1,1.0,0.12179479998303577,Adaptive alpha v2
+test,KB2_Mom_Style,semantic,"Ngoài việc tập đi, em có nên bổ sung thêm các vi chất dinh dưỡng nào để giúp xương chắc khỏe và hỗ trợ bé vận động tốt hơn k?",0.3,0.1,1,0.2,0.16418739999062382,Adaptive alpha v2
+test,KB2_Mom_Style,semantic,Làm thế nào để khuyến khích bé yêu thích việc khám phá thiên nhiên và môi trường bên ngoài,0.3,0.1,0,0.0,0.11133060001884587,Adaptive alpha v2
+test,KB2_Mom_Style,semantic,Nuôi con bằng sưa mẹ giúp giảm nguy cơ mắc bệnh j cho mẹ sau này,0.3,0.1,1,0.3333333333333333,0.10603389999596402,Adaptive alpha v2
+test,KB2_Mom_Style,semantic,Thời kỳ hậu sản là j,0.3,0.1,0,0.0,0.07219709997298196,Adaptive alpha v2
+test,KB3_Information_Noise,exact_lexical,"Mẹ em bảo lúc trước cho em ăn dặm là muối mặn chát cho quen mồi, nhưng em nghe bây giờ phải nhạt thếch, khi mới bắt đầu tập ăn, em nên cho bé ăn những loại thức ăn có độ đặc và hương vị như thế nào để con dễ thích nghi ạ",0.2,0.1,1,1.0,0.256037400016794,Adaptive alpha v2
+test,KB3_Information_Noise,exact_lexical,"Người ta bảo cho ăn thêm nước trắng cũng là bú mẹ, thế nào là nuôi con bằng sữa mẹ hoàn toàn chuẩn y khoa vậy ạ",0.2,0.1,0,0.0,0.14497240001219325,Adaptive alpha v2
+test,KB3_Information_Noise,exact_lexical,"Em nấu cháo đặc cho con nhưng bé khóc không ăn, nguyên tắc cho trẻ ăn dặm về độ đặc và số lượng là gì ạ",0.2,0.1,0,0.0,0.14535180001985282,Adaptive alpha v2
+test,KB3_Information_Noise,exact_lexical,"Em nghe quảng cáo TV bảo cho bé uống canxi nước Mỹ là nhanh biết bò đi, ngoài việc tập luyện, em có cần bổ sung thêm dưỡng chất gì để hỗ trợ hệ cơ xương và tiêu hóa giúp bé vận động nhanh nhẹn hơn không",0.2,0.1,1,0.3333333333333333,0.21375190000981092,Adaptive alpha v2
+test,KB3_Information_Noise,exact_lexical,"Em vừa mua thuốc bổ não cho con, giải pháp hỗ trợ phản xạ oxytocin hoạt động tốt ạ",0.2,0.1,1,1.0,0.12139449999085627,Adaptive alpha v2
+test,KB3_Information_Noise,exact_lexical,"Em đang lướt Shopee mua thuốc tâm thần, hướng dẫn em cách xử lý, chăm sóc khi bị sản dịch hôi với ạ",0.2,0.1,0,0.0,0.13605749999987893,Adaptive alpha v2
+test,KB3_Information_Noise,exact_lexical,"Em xem quảng cáo bảo cho bé dùng thuốc sủi dạng nước chứa canxi là răng chắc khỏe ngay, ngoài chế độ ăn, em có cần bổ sung thêm vi chất gì để hỗ trợ hệ răng của con chắc khỏe và bé ăn ngon miệng hơn không",0.2,0.1,1,0.5,0.23391730000730604,Adaptive alpha v2
+test,KB3_Information_Noise,exact_lexical,"Em đang uống nhiều nước mía vì thấy ít sữa, cho em hỏi vì sao em vẫn cho con bú đều mà vẫn bị tắc tia sữa, nguyên nhân thường gặp là gì ạ",0.2,0.1,1,1.0,0.1650079000100959,Adaptive alpha v2
+test,KB3_Information_Noise,exact_lexical,"Hôm nay chồng em mới đi làm về, cho em hỏi các nguồn bổ sung vitamin D khác?",0.2,0.1,0,0.0,0.12281900001107715,Adaptive alpha v2
+test,KB3_Information_Noise,exact_lexical,"Em đang bật điều hòa 20 độ vì sợ con nóng, những ngày trời nắng nóng thế này, em sợ con chỉ bú mẹ sẽ bị khát, em có cần bổ sung thêm nước lọc cho bé không ạ",0.2,0.1,1,0.5,0.18586280001909472,Adaptive alpha v2
+test,KB3_Information_Noise,exact_lexical,"Em tính sinh mổ vì sợ đau, băng huyết sau sinh sớm và muộn khác nhau ra sao ạ",0.2,0.1,0,0.0,0.11645270002190955,Adaptive alpha v2
+test,KB3_Information_Noise,exact_lexical,"Em đang bị dị ứng thuốc, thuốc đầu tay được lựa chọn để co hồi tử cung dự phòng băng huyết là gì ạ",0.2,0.1,0,0.0,0.13275200000498444,Adaptive alpha v2
+test,KB3_Information_Noise,exact_lexical,"Em đang dùng băng vệ sinh thơm, em thấy sản dịch có màu đen sậm và mùi hôi kèm sốt nhẹ là dấu hiệu gì ạ",0.2,0.1,0,0.0,0.1497156000114046,Adaptive alpha v2
+test,KB3_Information_Noise,exact_lexical,"Em đang ăn nhiều đồ ăn nhanh vì mệt không muốn nấu, để không bị tắc tia sữa lại lần nữa, em nên thay đổi thói quen sinh hoạt động và ăn uống như thế nào ạ",0.2,0.1,1,0.2,0.19448500001453795,Adaptive alpha v2
+test,KB3_Information_Noise,exact_lexical,"Em đang bị rong kinh lại mang thai, lo quá, băng huyết sau sinh được định nghĩa như thế nào ạ",0.2,0.1,0,0.0,0.13107080000918359,Adaptive alpha v2
+test,KB3_Information_Noise,noisy_conversational,"Em đang thèm ăn bún đậu mắm tôm cực kỳ, những thực phẩm nào mẹ mang thai nên dùng để cung cấp năng lượng ạ",0.3,0.1,1,0.5,0.13957030000165105,Adaptive alpha v2
+test,KB3_Information_Noise,noisy_conversational,"Em đang định đi nặn mụn ở spa, tại sao sau khi sinh xong em lại thấy mặt nổi nhiều mụn bọc và mụn mủ vậy",0.3,0.1,0,0.0,0.14223549998132512,Adaptive alpha v2
+test,KB3_Information_Noise,noisy_conversational,"Em đang bận làm việc nhà không để ý đến con, làm sao để gia đình em có thể nhận biết sớm các dấu hiệu em bị trầm cảm sau sinh ạ",0.3,0.1,0,0.0,0.15260820000548847,Adaptive alpha v2
+test,KB3_Information_Noise,noisy_conversational,"Nhà em có nhiều không qian và rộng rãi, em muốn biết không gian nào trong gia đình là phù hợp nhất để dạy con học nói?",0.3,0.1,0,0.0,0.1482813999755308,Adaptive alpha v2
+test,KB3_Information_Noise,noisy_conversational,"Em coi trên mạng thấy nhiều bé bị bệnh em sợ quá, cho em hỏi biểu hiện và cách điều trị của viêm hạnh bạch huyết?",0.3,0.1,0,0.0,0.15683339998940937,Adaptive alpha v2
+test,KB3_Information_Noise,noisy_conversational,"Em stress quá vì điện nước hay bị cắt, bé nhà em đang ở giai đoạn sơ sinh, em nên sắp xếp lịch giặt tã vải như thế nào để luôn có đủ tã sạch cho con dùng",0.3,0.1,1,1.0,0.2222503999946639,Adaptive alpha v2
+test,KB3_Information_Noise,noisy_conversational,"Em đang tính mua máy massage lưng, em nghe nói gây tê ngoài màng cứng cũng làm mình bị bí tiểu lâu hơn phải không ạ",0.3,0.1,0,0.0,0.13797109998995438,Adaptive alpha v2
+test,KB3_Information_Noise,noisy_conversational,"Bà nội bảo cho bé uống nước đường để sạch họng, các loại nước uống nào tuyệt đối không cho trẻ uống trước bữa bú đầu tiên ạ",0.3,0.1,1,1.0,0.1526476000144612,Adaptive alpha v2
+test,KB3_Information_Noise,noisy_conversational,"Em bị sỏi thận từ trước, đang uống thuốc đông y, những trường hợp nào bà mẹ không nên cho con bú mà phải dùng sữa thay thế ạ",0.3,0.1,0,0.0,0.15075930001330562,Adaptive alpha v2
+test,KB3_Information_Noise,noisy_conversational,"Em đang tức giận lắm muốn đánh đòn, em có nên đánh đòn khi con không nghe lời không ạ",0.3,0.1,0,0.0,0.11733229999663308,Adaptive alpha v2
+test,KB3_Information_Noise,noisy_conversational,"Con em thích bú nằm ngủ, hậu quả của việc trẻ ngậm bắt vú sai là gì ạ",0.3,0.1,1,1.0,0.1131267000164371,Adaptive alpha v2
+test,KB3_Information_Noise,noisy_conversational,"Em đang sốt ruột nhìn con chơi chậm quá, em thấy bé có vẻ lúng túng khi chơi một trò chơi mới, em có nên làm hộ bé luôn cho nhanh không ạ",0.3,0.1,0,0.0,0.16510959999868646,Adaptive alpha v2
+test,KB3_Information_Noise,noisy_conversational,"Tủ lạnh nhà em hay bị ngắt điện, sữa mẹ bảo quản trong ngăn mát tủ lạnh (<4°C) được bao lâu ạ",0.3,0.1,1,1.0,0.15099349999218248,Adaptive alpha v2
+test,KB3_Information_Noise,noisy_conversational,"Em đang định bôi thuốc mỡ đặc vào miệng con, bé bị nấm miệng như vậy thì có đau lắm không, sao dạo này em thấy con hay khóc khi đang bú và ăn kém đi hẳn ạ",0.3,0.1,1,1.0,0.19790430000284687,Adaptive alpha v2
+test,KB3_Information_Noise,noisy_conversational,"Mẹ chồng em bảo mặc quần dài cộc cho mát cho bé tập bò, nhưng em thì sợ con đau đầu gối, cho em hỏi nên chọn quần áo như thế nào cho bé trong giai đoạn tập bò để con dễ dàng vận động mà không bị đau đầu gối",0.3,0.1,1,1.0,0.22831840001163073,Adaptive alpha v2
+test,KB3_Information_Noise,noisy_conversational,"Em đang thèm ăn lẩu cay nóng, chế độ ăn uống thế nào để giúp em cải thiện tình trạng rối loạn nội tiết sau sinh ạ",0.3,0.1,0,0.0,0.14582159998826683,Adaptive alpha v2
+test,KB3_Information_Noise,noisy_conversational,"Em thấy ở phòng khám bắt con xếp hình như chơi trò chơi thôi mà, ngoài việc trả lời câu hỏi, con em sẽ phải trải qua những bài kiểm tra thực tế nào để bác sĩ đưa ra kết luận chính xác ạ",0.3,0.1,1,0.5,0.215575300011551,Adaptive alpha v2
+test,KB3_Information_Noise,noisy_conversational,"Em dạo này hay bị stress nên hay nhạy cảm thái quá, nếu em cảm thấy con mình có gì đó ""không ổn"" so với các bạn cùng lứa nhưng bài kiểm tra cho kết quả bình thường thì em nên làm gì",0.3,0.1,1,1.0,0.2036118000105489,Adaptive alpha v2
+test,KB3_Information_Noise,noisy_conversational,"Đang nấu ăn thì nghe con khóc, em run quá, cách xử trí tại nhà khi trẻ sơ sinh bị sốt cao là làm gì ạ",0.3,0.1,0,0.0,0.15684759998111986,Adaptive alpha v2
+test,KB3_Information_Noise,noisy_conversational,"Em đang xem drama khóc lắm, nếu em bị bí tiểu sau sinh mà không điều trị sớm thì có gặp biến chứng gì nguy hiểm không ạ?",0.3,0.1,0,0.0,0.16136099997675046,Adaptive alpha v2
+test,KB3_Information_Noise,quantitative,"Em đang ăn cháo dinh dưỡng loại đặc, nhu cầu năng lượng bổ sung hàng ngày cho bà mẹ nuôi con bú 6 tháng đầu là bao nhiêu ạ",0.4,0.1,1,0.2,0.16042450000531971,Adaptive alpha v2
+test,KB3_Information_Noise,quantitative,"Em đang định cho con nằm yên không đụng vào 24 tiếng, bé nhà em bị ngã đập đầu xuống đất, em cần theo dõi những dấu hiệu gì trong 24 giờ tới ạ",0.4,0.1,0,0.0,0.18072500001289882,Adaptive alpha v2
+test,KB3_Information_Noise,quantitative,"Em đang định dùng tã giấy dùng 1 lần để gấp thành gối cho con nằm cao, em muốn dùng tã vải cho con thì cần chuẩn bị những loại tã và phụ kiện đi kèm nào cho đúng ạ",0.4,0.1,1,1.0,0.19251550000626594,Adaptive alpha v2
+test,KB3_Information_Noise,quantitative,"Em đang định cho con uống thuốc tiêu hóa vì bé hay khóc, bé nhà em 2 ngày đầu phân màu xanh đen và nhầy thì có bình thường không ạ",0.4,0.1,0,0.0,0.16796510000131093,Adaptive alpha v2
+test,KB3_Information_Noise,quantitative,"Em cho con bú nhiều nhưng bé vẫn khóc, đến ngày thứ 3 sau sinh, dung tích dạ dày của bé tăng lên bao nhiêu nhỉ",0.4,0.1,0,0.0,0.15684819998568855,Adaptive alpha v2
+test,KB3_Information_Noise,quantitative,"Em thấy trên mạng bảo bé bị nổi mẩn là do thời tiết dị ứng thôi, nhưng em thì thấy con ngứa khóc quấy lắm, Bé nhà em được 3 tháng tuổi rồi ạ. Bé nhà em có nổi nốt sần khắp người. Em có mang bé đi khám thì bác sĩ họ bảo bị viêm da cơ địa. Em xin hỏi cách điều trị bệnh viêm da cơ địa trẻ 3 tháng tuổi?",0.4,0.1,1,1.0,0.3209603999857791,Adaptive alpha v2
+test,KB3_Information_Noise,quantitative,"Em đang giấu chuyện cơ thể đau nhức vì sợ mẹ chồng lo, cho em biết tỷ lệ phụ nữ trầm cảm sau sinh là bao nhiêu vậy ạ",0.4,0.1,0,0.0,0.17122950000339188,Adaptive alpha v2
+test,KB3_Information_Noise,quantitative,"Em đang định không thay tã ban đêm để cho con ngủ sâu, bé nhà em được 2 tháng tuổi và hay đi ngoài nhiều vào ban đêm, em nên dùng loại tã nào để con ngủ ngon mà không bị tràn tã ạ",0.4,0.1,1,0.5,0.21040979999816045,Adaptive alpha v2
+test,KB3_Information_Noise,quantitative,"Em thấy trên mạng bỉm sữa bảo cho con ăn dặm sớm từ 4 tháng để bé cao lớn, nhưng ông nội lại bảo chờ 6 tháng cho chắc bụng, nếu em cho con tập ăn dặm quá sớm từ lúc 4 tháng tuổi thì có gây ra tác hại gì cho sức khỏe của bé không",0.4,0.1,1,1.0,0.2559004000213463,Adaptive alpha v2
+test,KB3_Information_Noise,quantitative,"Em đang dùng nhiệt kế đo mà thấy 37.5 độ, sau sinh em bị sốt bao nhiêu độ thì được coi là nguy hiểm phải báo y tá ạ",0.4,0.1,0,0.0,0.1579392999992706,Adaptive alpha v2
+test,KB3_Information_Noise,quantitative,"Bác sĩ ơi, em lo quá, con em sinh non 8 tháng nghe nói sẽ chậm lật mãi không theo kịp bạn bè, đối với các bé sinh non thì cột mốc biết lật có khác biệt gì so với các bạn sinh đủ tháng không",0.4,0.1,1,1.0,0.2093925999943167,Adaptive alpha v2
+test,KB3_Information_Noise,quantitative,"Em đang cho con nếm thử vị chua vì thấy thú vị, định nghĩa chính xác về việc ""nuôi con hoàn toàn bằng sữa mẹ"" trong 6 tháng đầu là như thế nào ạ",0.4,0.1,1,1.0,0.1746473000093829,Adaptive alpha v2
+test,KB3_Information_Noise,quantitative,"Em đang định uống thuốc giảm đau mạnh, cơn đau dạ con sau sinh, đâu mạnh thường sẽ kéo dài trong bao nhiêu ngày thì hết ạ",0.4,0.1,0,0.0,0.15798439999343827,Adaptive alpha v2
+test,KB3_Information_Noise,quantitative,"Em đang định pha thêm nước lọc vào bình sữa vì trời quá nóng, bé nhà em dưới 6 tháng tuổi, em có nên cho con uống thêm chút nước sau khi bú để tráng miệng cho sạch không bác sĩ",0.4,0.1,1,1.0,0.2047735000087414,Adaptive alpha v2
+test,KB3_Information_Noise,quantitative,"Em đang nấu cháo đặc cho con 4 tháng ăn dặm sớm, tổng lượng sữa cần thiết cho trẻ từ 4 đến 6 tháng tuổi mỗi ngày là bao nhiêu ạ",0.4,0.1,1,0.25,0.16753619999508373,Adaptive alpha v2
+test,KB3_Information_Noise,quantitative,"Chị đồng nghiệp bảo bé 10 tháng ăn 1 bữa cháo đặc là đủ kẻo chán bú, nhưng em thấy bé nhà em nhanh đói lắm, em nên sắp xếp lịch ăn dặm cho bé 10 tháng tuổi như thế nào cho phù hợp",0.4,0.1,1,0.3333333333333333,0.21668109999154694,Adaptive alpha v2
+test,KB3_Information_Noise,quantitative,"Con em lười bú sữa mẹ mà thích ăn bột, trẻ từ 7-12 tháng tuổi cần ăn bao nhiêu bữa bột một ngày ạ",0.4,0.1,1,0.25,0.14036680001299828,Adaptive alpha v2
+test,KB3_Information_Noise,quantitative,"Con em bú 5 phút đã ngủ, tại sao mẹ nên cho trẻ bú hết một bên vú rồi mới chuyển sang vú kia ạ",0.4,0.1,1,1.0,0.13392710001789965,Adaptive alpha v2
+test,KB3_Information_Noise,quantitative,"Em tính mua bình sữa lớn cho con 2 tuần sau, dung tích dạ dày trẻ từ ngày thứ 5 đến ngày thứ 7 sau đẻ là bao nhiêu ạ",0.4,0.1,1,1.0,0.14745889999903738,Adaptive alpha v2
+test,KB3_Information_Noise,quantitative,"Mẹ em bảo ngày xưa bận làm ruộng 7 tháng mới lật là thường, nhưng em thì thấy con 6 tháng chưa lật là chậm rồi, con em đã 6 tháng rồi mà vẫn chưa biết lật từ sau ra trước, liệu như vậy có phải là bé đang chậm phát triển không",0.4,0.1,1,1.0,0.2512278000067454,Adaptive alpha v2
+test,KB3_Information_Noise,semantic,"Em với chồng nói chuyện quá trời với bà bội, em thắc mắc là bố mẹ phải nói như thế nào để giúp con có thể học nói?",0.3,0.1,0,0.0,0.16175729999667965,Adaptive alpha v2
+test,KB3_Information_Noise,semantic,"Đang ăn cơm cũng phải vội lên để hỏi cho đỡ thắc mắc, những dấu hiệu cảnh báo bệnh tay chân miệng?",0.3,0.1,0,0.0,0.13693000000785105,Adaptive alpha v2
+test,KB3_Information_Noise,semantic,"Em đang coi trên tivi thấy nhiều ca mắc bệnh tay chân miệng quá, em lo quá cho em hỏi bệnh tay chân miệng nguy hiểm ra sao?",0.3,0.1,0,0.0,0.14666420000139624,Adaptive alpha v2
+test,KB3_Information_Noise,semantic,"Em bị cảm cúm sợ lây cho con, em thắc mắc là đặc tính của sữa non có những gì",0.3,0.1,0,0.0,0.11707800001022406,Adaptive alpha v2
+test,KB3_Information_Noise,semantic,"Em đang cho con bú, em hỏi là quy trình tái khám sau sinh thường diễn ra như thế nào?",0.3,0.1,0,0.0,0.1249412999895867,Adaptive alpha v2
+test,KB3_Information_Noise,semantic,"Con em đang bị chàm da, em lo quá, hãy hướng dẫn chăm sóc trẻ bị chàm da?",0.3,0.1,0,0.0,0.111288499989314,Adaptive alpha v2
+test,KB3_Information_Noise,semantic,"Em đang ở ngoài đường với bé, cho em hỏi thời kỳ hậu sản kéo dài bao lâu?",0.3,0.1,0,0.0,0.13049929999397136,Adaptive alpha v2
+test,KB3_Information_Noise,semantic,"Em mới vừa xuất viện về nhà xong, cho em hỏi quy trình tái khám sau sinh mổ diễn ra như thế nào?",0.3,0.1,0,0.0,0.15037029999075457,Adaptive alpha v2
+test,KB3_Information_Noise,semantic,"Bà nội đang chơi với cháu, cho em hỏi giải pháp điều trị xuất huyết não ở trẻ sơ sinh?",0.3,0.1,0,0.0,0.13951619999716058,Adaptive alpha v2
+test,KB3_Information_Noise,semantic,"Bà nội em chăm cháu mà cứ cằn nhằn em suốt bảo làm sao để con bị bệnh như thế này, em buồn quá cho em hỏi các điều trị và chăm sóc bệnh tay chân miệng như thế nào?",0.3,0.1,0,0.0,0.19331750000128523,Adaptive alpha v2
+test,KB3_Information_Noise,semantic,"Em đang tức giận dữ dội muốn đập đồ vỡ, khi em đang mệt mỏi và lo lắng, em cần chồng hỗ trợ như thế nào là tốt nhất thay vì chỉ đưa ra những lời khuyên sáo rỗng",0.3,0.1,0,0.0,0.19302100001368672,Adaptive alpha v2

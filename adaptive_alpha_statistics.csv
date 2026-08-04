@@ -1,0 +1,13 @@
+﻿query_type,baseline,proposed,n_pairs,baseline_mean_rr,proposed_mean_rr,median_difference,wilcoxon_statistic,p_value
+Định lượng,Fixed alpha = 0.3,Adaptive alpha + table bonus,90,0.6068518518518518,0.5525925925925926,0.0,20.5,0.0026314604931338545
+Định lượng,Fixed alpha = 0.4,Adaptive alpha + table bonus,90,0.5762962962962963,0.5525925925925926,0.0,87.0,0.19574185075701822
+Định lượng,Fixed alpha = 0.5,Adaptive alpha + table bonus,90,0.5546296296296297,0.5525925925925926,0.0,142.0,0.816372179708766
+Định lượng,Fixed alpha = 0.7,Adaptive alpha + table bonus,90,0.5385185185185185,0.5525925925925926,0.0,116.0,0.49584237661719266
+Ngữ nghĩa,Fixed alpha = 0.3,Adaptive alpha + table bonus,90,0.2562962962962963,0.2175925925925926,0.0,3.0,0.011394908185046633
+Ngữ nghĩa,Fixed alpha = 0.4,Adaptive alpha + table bonus,90,0.25074074074074076,0.2175925925925926,0.0,3.0,0.011340179536662017
+Ngữ nghĩa,Fixed alpha = 0.5,Adaptive alpha + table bonus,90,0.22074074074074074,0.2175925925925926,0.0,3.0,0.4614509878333607
+Ngữ nghĩa,Fixed alpha = 0.7,Adaptive alpha + table bonus,90,0.2175925925925926,0.2175925925925926,0.0,0.0,1.0
+Tất cả,Fixed alpha = 0.3,Adaptive alpha + table bonus,180,0.4315740740740741,0.3850925925925926,0.0,38.0,9.6381315769405e-05
+Tất cả,Fixed alpha = 0.4,Adaptive alpha + table bonus,180,0.41351851851851856,0.3850925925925926,0.0,134.0,0.013991471041464597
+Tất cả,Fixed alpha = 0.5,Adaptive alpha + table bonus,180,0.3876851851851852,0.3850925925925926,0.0,184.0,0.6618504174544528
+Tất cả,Fixed alpha = 0.7,Adaptive alpha + table bonus,180,0.37805555555555564,0.3850925925925926,0.0,116.0,0.49584237661719266

@@ -1,0 +1,23 @@
+﻿case_id,method,question,expected_intent,predicted_intent,rewritten,rewrite_ok,intent_ok,overall_ok,matched,missing
+RW01,Tách rời,Còn vitamin D thì sao?,RAG,RAG,"Câu hỏi đã viết lại:
+Tôi muốn hỏi về việc bổ sung vitamin D cho bé 6 tháng tuổi đang bú mẹ.",True,True,True,vitamin d | 6 tháng,
+RW02,Tách rời,Vậy vệ sinh phần đó thế nào?,RAG,RAG,Vậy vệ sinh răng và lợi của bé 7 tháng tuổi thế nào?,True,True,True,vệ sinh răng | 7 tháng,
+RW03,Tách rời,Còn màu của nó thì sao?,RAG,SMALLTALK,Còn màu của nó thì sao?,False,False,False,màu,sản dịch | hai tuần / 2 tuần / sau sinh hai tuần
+RW04,Tách rời,Có cần cho uống thêm nước không?,RAG,RAG,"Câu hỏi mới: 
+""Đối với bé 4 tháng tuổi đang bú mẹ hoàn toàn, có cần bổ sung thêm nước cho bé không?""",False,True,False,4 tháng | bú mẹ hoàn toàn,uống thêm nước / bổ sung nước
+RW05,Tách rời,Còn độ đặc và số lượng thì sao?,RAG,RAG,"Câu hỏi mới được viết lại thành một truy vấn độc lập và đầy đủ ngữ cảnh như sau:
+
+""Độ đặc và số lượng thức ăn bổ sung phù hợp cho bé 6 tháng tuổi là thế nào?""",True,True,True,ăn bổ sung | 6 tháng | độ đặc | số lượng,
+RW06,Tách rời,Còn trong tủ lạnh thì được bao lâu?,RAG,RAG,"Câu hỏi đã viết lại là:
+""Thời gian bảo quản sữa mẹ đã vắt ra trong tủ lạnh là bao lâu?""",True,True,True,sữa mẹ | tủ lạnh | bao lâu,
+RW07,Tách rời,Vậy xử trí thế nào?,RAG,RAG,"Trẻ sơ sinh sốt 38,5 độ C cần được xử trí thế nào?",True,True,True,"trẻ sơ sinh | 38,5 | sốt | xử trí",
+RW08,Tách rời,Còn cách giảm tình trạng đó thì sao?,RAG,RAG,"Câu hỏi đã viết lại là:
+""Giúp tôi tìm hiểu cách giảm đau núm vú khi cho con bú?""",True,True,True,đau núm vú | cho con bú | giảm,
+RW01,Task Merging,Còn vitamin D thì sao?,RAG,RAG,Vitamin D cho trẻ 6 tháng tuổi có thể được bổ sung từ những nguồn nào?,True,True,True,vitamin d | 6 tháng,
+RW02,Task Merging,Vậy vệ sinh phần đó thế nào?,RAG,RAG,Vệ sinh răng và lợi cho bé 7 tháng tuổi như thế nào?,True,True,True,vệ sinh răng | 7 tháng,
+RW03,Task Merging,Còn màu của nó thì sao?,RAG,RAG,"Màu sắc của sản dịch có thể thay đổi theo thời gian sau sinh, nhưng màu sắc cụ thể của sản dịch em bé được sinh sau hai tuần có thể là gì?",True,True,True,sản dịch | hai tuần | màu,
+RW04,Task Merging,Có cần cho uống thêm nước không?,RAG,RAG,Cho trẻ 4 tháng tuổi bú mẹ hoàn toàn có cần uống thêm nước không?,True,True,True,4 tháng | bú mẹ hoàn toàn | uống thêm nước,
+RW05,Task Merging,Còn độ đặc và số lượng thì sao?,RAG,RAG,Độ đặc và số lượng thức ăn phù hợp cho bé 6 tháng tuổi khi bắt đầu ăn bổ sung là bao nhiêu?,True,True,True,ăn bổ sung | 6 tháng | độ đặc | số lượng,
+RW06,Task Merging,Còn trong tủ lạnh thì được bao lâu?,RAG,RAG,Thời gian bảo quản sữa mẹ đã vắt ra trong tủ lạnh là bao lâu?,True,True,True,sữa mẹ | tủ lạnh | bao lâu,
+RW07,Task Merging,Vậy xử trí thế nào?,RAG,RAG,"Xử trí trẻ sơ sinh sốt 38,5 độ C như thế nào?",True,True,True,"trẻ sơ sinh | 38,5 | sốt | xử trí",
+RW08,Task Merging,Còn cách giảm tình trạng đó thì sao?,RAG,RAG,Có cách nào để giảm đau núm vú khi cho con bú không?,True,True,True,đau núm vú | cho con bú | giảm,

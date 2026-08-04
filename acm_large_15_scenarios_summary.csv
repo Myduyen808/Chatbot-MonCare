@@ -1,0 +1,6 @@
+﻿method,scenarios,context_successes,context_success_rate,avg_processed_messages,avg_processed_chars,avg_history_reduction_percent,avg_api_calls,avg_summary_tokens,avg_rewrite_tokens,avg_logged_tokens,avg_elapsed_s
+acm,15,11,73.33,10.0,858.53,0.0,1.0,0.0,1174.73,1174.73,1.83
+fixed_window,15,1,6.67,6.0,536.67,37.37,1.0,0.0,1066.87,1066.87,0.47
+full_history,15,11,73.33,10.0,858.53,0.0,1.0,0.0,1174.73,1174.73,0.86
+no_memory,15,1,6.67,0.0,0.0,100.0,1.0,0.0,888.33,888.33,0.5
+summary_only,15,12,80.0,1.0,293.47,65.98,2.0,580.6,991.0,1571.6,2.15

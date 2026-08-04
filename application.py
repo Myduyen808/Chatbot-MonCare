@@ -14,6 +14,24 @@ DEFAULT_TOP_K = 5
 DEFAULT_TEMPERATURE = 0.2
 
 # =========================================================
+# CẤU HÌNH ROLLING ADAPTIVE MEMORY
+# =========================================================
+
+# Hai tin nhắn gần nhất luôn được giữ nguyên:
+# một câu hỏi người dùng và một phản hồi của MomCare.
+HISTORY_KEEP_RECENT = 2
+
+# Khi có ít nhất hai tin nhắn cũ chưa được đưa vào summary,
+# hệ thống cập nhật bản tóm tắt tích lũy.
+#
+# Hai tin nhắn tương ứng với một lượt Human + AI hoàn chỉnh.
+ROLLING_SUMMARY_MIN_MESSAGES = 2
+
+# Không tạo summary nếu phần tin nhắn cũ quá ngắn.
+# Ngưỡng này tránh gọi LLM cho những lượt trao đổi rất ngắn.
+ROLLING_SUMMARY_TRIGGER_CHARS = 250
+
+# =========================================================
 # PHẢN HỒI KHÔNG ĐƯỢC DÙNG LÀM NGỮ CẢNH HỘI THOẠI
 # =========================================================
 BLOCKED_RESPONSE_MARKERS = [
@@ -24,6 +42,8 @@ BLOCKED_RESPONSE_MARKERS = [
     "MomCare không thể cung cấp thông tin kê đơn",
     "MomCare không thể tư vấn về liều lượng thuốc",
     "CẢNH BÁO: Tình trạng của mẹ cần được xử lý Y TẾ NGAY",
+    "⚠️ Hệ thống đang gặp sự cố kỹ thuật",
+    "⚠️ Hệ thống AI đang gặp sự cố kết nối",
 
     # Phản hồi hỗ trợ sức khỏe tinh thần
     "Mẹ không đơn độc đâu",
@@ -42,6 +62,189 @@ def is_blocked_or_safety_response(text: str) -> bool:
     return any(
         marker.lower() in normalized_text
         for marker in BLOCKED_RESPONSE_MARKERS
+    )
+
+def build_adaptive_history(
+    filtered_history,
+    previous_summary: str,
+    summarized_count: int,
+):
+    """
+    Xây dựng ngữ cảnh theo cơ chế Rolling Summary.
+
+    Trạng thái đầu vào:
+    - previous_summary: bản tóm tắt tích lũy hiện có;
+    - summarized_count: số tin nhắn an toàn đã được đưa vào summary.
+
+    Quy tắc:
+    - Luôn giữ nguyên hai tin nhắn gần nhất.
+    - Chỉ xử lý phần tin nhắn cũ chưa từng được tóm tắt.
+    - Nếu phần mới đủ điều kiện, cập nhật summary cũ.
+    - Không tóm tắt lại toàn bộ lịch sử từ đầu.
+    """
+    safe_history = list(filtered_history or [])
+    input_messages = len(safe_history)
+
+    total_chars_before = sum(
+        len(str(message.get("content", "")))
+        for message in safe_history
+    )
+
+    if not safe_history:
+        return (
+            [],
+            {
+                "mode": "empty",
+                "total_chars_before": 0,
+                "total_chars_after": 0,
+                "input_messages": 0,
+                "output_messages": 0,
+                "summarized_count_before": 0,
+                "summarized_count_after": 0,
+            },
+            "",
+            0,
+        )
+
+    # Tránh sai chỉ số khi đổi hoặc tải lại phiên hội thoại.
+    if (
+        summarized_count < 0
+        or summarized_count > input_messages
+    ):
+        summarized_count = 0
+        previous_summary = ""
+
+    # Hai tin nhắn gần nhất chưa đưa vào summary.
+    split_index = max(
+        0,
+        input_messages - HISTORY_KEEP_RECENT
+    )
+
+    # Nếu số tin đã tóm tắt lớn hơn vùng lịch sử cũ hiện có,
+    # reset trạng thái để tránh bỏ sót dữ liệu.
+    if summarized_count > split_index:
+        summarized_count = 0
+        previous_summary = ""
+
+    # Chỉ lấy phần lịch sử cũ chưa từng được tóm tắt.
+    pending_messages = safe_history[
+        summarized_count:split_index
+    ]
+
+    pending_chars = sum(
+        len(str(message.get("content", "")))
+        for message in pending_messages
+    )
+
+    enough_messages = (
+        len(pending_messages)
+        >= ROLLING_SUMMARY_MIN_MESSAGES
+    )
+
+    enough_chars = (
+        pending_chars
+        >= ROLLING_SUMMARY_TRIGGER_CHARS
+    )
+
+    updated_summary = previous_summary
+    updated_count = summarized_count
+    summary_updated = False
+
+    # Chỉ cập nhật khi có ít nhất một lượt hoàn chỉnh và phần cũ
+    # không quá ngắn.
+    if enough_messages and enough_chars:
+        candidate_summary = (
+            llm_chain.update_rolling_summary(
+                previous_summary=previous_summary,
+                new_messages=pending_messages,
+            )
+        )
+
+        if candidate_summary:
+            updated_summary = candidate_summary
+            updated_count = split_index
+            summary_updated = True
+
+    processed_messages = []
+
+    # Nếu đã có summary thì đưa summary vào đầu ngữ cảnh.
+    if updated_summary:
+        processed_messages.append(
+            {
+                "type": "ai",
+                "content": (
+                    "[Tóm tắt lịch sử cũ] "
+                    + updated_summary
+                ),
+            }
+        )
+
+    # Những tin nhắn chưa được đưa vào summary vẫn phải được giữ.
+    #
+    # Nếu vừa cập nhật summary:
+    #   bắt đầu từ updated_count, thường chỉ còn hai tin gần nhất.
+    #
+    # Nếu chưa đủ điều kiện cập nhật:
+    #   giữ phần pending và hai tin gần nhất để không mất ngữ cảnh.
+    remaining_messages = safe_history[updated_count:]
+
+    for message in remaining_messages:
+        processed_messages.append(
+            {
+                "type": message.get("type", ""),
+                "content": str(
+                    message.get("content", "")
+                ),
+            }
+        )
+
+    # Nếu chưa có summary và chưa có gì được tóm tắt,
+    # toàn bộ lịch sử ngắn được giữ nguyên.
+    if not updated_summary and updated_count == 0:
+        mode = "keep_all"
+    elif summary_updated and not previous_summary:
+        mode = "rolling_summary_create"
+    elif summary_updated:
+        mode = "rolling_summary_update"
+    else:
+        mode = "rolling_summary_reuse"
+
+    chat_history_messages = []
+
+    for message in processed_messages:
+        content = str(message.get("content", ""))
+
+        if message.get("type") == "human":
+            chat_history_messages.append(
+                HumanMessage(content=content)
+            )
+        else:
+            chat_history_messages.append(
+                AIMessage(content=content)
+            )
+
+    total_chars_after = sum(
+        len(message.content)
+        for message in chat_history_messages
+    )
+
+    history_stats = {
+        "mode": mode,
+        "total_chars_before": total_chars_before,
+        "total_chars_after": total_chars_after,
+        "input_messages": input_messages,
+        "output_messages": len(chat_history_messages),
+        "pending_messages": len(pending_messages),
+        "pending_chars": pending_chars,
+        "summarized_count_before": summarized_count,
+        "summarized_count_after": updated_count,
+    }
+
+    return (
+        chat_history_messages,
+        history_stats,
+        updated_summary,
+        updated_count,
     )
 
 with open("db_config.yml", "r", encoding="utf-8") as f:
@@ -107,6 +310,11 @@ def Chatbot():
         "locked_session": False,
         "user_question": "",
         "previous_turn_blocked": False,
+
+        # Trạng thái Rolling Adaptive Memory.
+        "acm_rolling_summary": "",
+        "acm_summarized_count": 0,
+        "acm_memory_mode": "keep_all",
     }
     for key, val in defaults.items():
         if key not in st.session_state:
@@ -170,6 +378,9 @@ def Chatbot():
                 st.session_state.current_history = CustomHistory()
                 st.session_state.user_question = ""
                 st.session_state.clear_input = True
+                st.session_state.acm_rolling_summary = ""
+                st.session_state.acm_summarized_count = 0
+                st.session_state.acm_memory_mode = "keep_all"
                 st.rerun()
         else:
             chosen = st.selectbox(
@@ -180,6 +391,13 @@ def Chatbot():
             if chosen != st.session_state.history_choice:
                 st.session_state.history_choice = chosen
                 st.session_state.current_history = load_history(chosen)
+
+                # Mỗi phiên hội thoại phải có trạng thái summary riêng.
+                # Khi đổi phiên, reset và tạo lại từ lịch sử của phiên đó.
+                st.session_state.acm_rolling_summary = ""
+                st.session_state.acm_summarized_count = 0
+                st.session_state.acm_memory_mode = "keep_all"
+
                 st.rerun()
 
     # ── Quản lý Lịch sử trò chuyện ──────────────────────────────────────────
@@ -219,9 +437,9 @@ def Chatbot():
             st.rerun()
             return
 
-        # Trích xuất 6 tin nhắn gần nhất để làm ngữ cảnh hội thoại, mỗi tin
-        # nhắn dài hơn 200 ký tự sẽ được nén qua summarize_history_message()
-        # để hạn chế Context Bleeding và tràn token khi gửi tới tầng Rewriter.
+        # Lịch sử an toàn được chuyển cho ACM. ACM phân tích tối đa 20 tin
+        # nhắn, sau đó giữ nguyên hoặc tóm tắt tùy tổng độ dài trước khi
+        # gửi sang Query Rewriting.
         # =========================================================
         # LỌC CÁC LƯỢT BỊ CHẶN KHỎI NGỮ CẢNH REWRITER
         # =========================================================
@@ -253,28 +471,40 @@ def Chatbot():
             filtered_history.append(msg)
 
 
-        # Chỉ lấy 6 tin nhắn an toàn gần nhất
-        chat_history_messages = []
+        # Chuẩn bị lịch sử bằng Adaptive Memory.
+        (
+            chat_history_messages,
+            history_stats,
+            updated_summary,
+            updated_count,
+        ) = build_adaptive_history(
+            filtered_history=filtered_history,
+            previous_summary=(
+                st.session_state.acm_rolling_summary
+            ),
+            summarized_count=(
+                st.session_state.acm_summarized_count
+            ),
+        )
 
-        for msg in filtered_history[-6:]:
-            content = str(msg.get("content", ""))
-
-            if len(content) > 200:
-                content = llm_chain.summarize_history_message(content)
-
-            if msg.get("type") == "human":
-                chat_history_messages.append(
-                    HumanMessage(content=content)
-                )
-            else:
-                chat_history_messages.append(
-                    AIMessage(content=content)
-                )
+        # Lưu trạng thái mới để dùng cho lượt sau.
+        st.session_state.acm_rolling_summary = updated_summary
+        st.session_state.acm_summarized_count = updated_count
+        st.session_state.acm_memory_mode = history_stats["mode"]
 
 
-        # Debug: kiểm tra lịch sử thực sự gửi sang Rewriter
-        print("\n📚 [DEBUG HISTORY SENT TO REWRITER]")
-        print(f"Số tin nhắn: {len(chat_history_messages)}")
+        print("\n📚 [DEBUG ADAPTIVE MEMORY]")
+        print(
+            f"Chế độ: {history_stats['mode']} | "
+            f"Tin nhắn: {history_stats['input_messages']} "
+            f"-> {history_stats['output_messages']} | "
+            f"Ký tự: {history_stats['total_chars_before']} "
+            f"-> {history_stats['total_chars_after']} | "
+            f"Đã tóm tắt: "
+            f"{history_stats.get('summarized_count_before', 0)} "
+            f"-> {history_stats.get('summarized_count_after', 0)} | "
+            f"Chờ xử lý: {history_stats.get('pending_messages', 0)} tin"
+        )
 
         for index, message in enumerate(
             chat_history_messages,
@@ -341,25 +571,40 @@ def Chatbot():
                                     f"**Chunk:** `{chunk_id}`  \n\n"
                                     f"{doc.page_content[:500]}..."
                                 )
+
                 except Exception as e:
                     import traceback
+
                     st.error(f"Lỗi: {e}")
                     print(traceback.format_exc())
-                    response = "Xin lỗi, tôi đang gặp sự cố."
 
-        # Luôn lưu mọi lượt để giao diện giữ nguyên cuộc trò chuyện
-        history.add_a_conversation(user_text, response)
+                    response = (
+                        "⚠️ Hệ thống đang gặp sự cố kỹ thuật. "
+                        "Vui lòng thử lại sau."
+                    )
+                # Luôn lưu lượt hội thoại để giao diện hiển thị đầy đủ.
+                history.add_a_conversation(
+                    user_text,
+                    response
+                )
 
-        if is_blocked_or_safety_response(response):
-            st.session_state.previous_turn_blocked = True
+                # Phản hồi lỗi, từ chối hoặc cảnh báo sẽ không được
+                # sử dụng làm ngữ cảnh cho Query Rewriter ở lượt sau.
+                if is_blocked_or_safety_response(response):
+                    st.session_state.previous_turn_blocked = True
 
-            print(
-                "🛡️ [HISTORY] Đã lưu để hiển thị, "
-                "nhưng sẽ loại khỏi ngữ cảnh Rewriter."
-            )
-        else:
-            st.session_state.previous_turn_blocked = False
-            print("💾 [HISTORY] Đã lưu lượt hội thoại hợp lệ.")
+                    print(
+                        "🛡️ [HISTORY] Đã lưu để hiển thị, "
+                        "nhưng sẽ loại khỏi ngữ cảnh Rewriter."
+                    )
+                else:
+                    st.session_state.previous_turn_blocked = False
+                    print(
+                        "💾 [HISTORY] "
+                        "Đã lưu lượt hội thoại hợp lệ."
+                    )
+
+                st.rerun()
                     
 
 # ════════════════════════════════════════

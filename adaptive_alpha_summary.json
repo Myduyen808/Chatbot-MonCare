@@ -1,0 +1,625 @@
+{
+  "settings": {
+    "random_seed": 42,
+    "top_k": 5,
+    "candidate_k": 25,
+    "max_per_group_per_dataset": 30,
+    "production_rule": "alpha=0.4 nếu có số liệu/đơn vị; ngược lại alpha=0.7; table bonus=0.3"
+  },
+  "summary": [
+    {
+      "dataset": "KB1_Standard",
+      "query_type": "Ngữ nghĩa",
+      "config": "Adaptive alpha",
+      "n": 30,
+      "hit_rate_at_5": 0.36666666666666664,
+      "mrr_at_5": 0.2111111111111111,
+      "mean_latency_seconds": 0.12398833000139954,
+      "median_latency_seconds": 0.11589279999316204
+    },
+    {
+      "dataset": "KB1_Standard",
+      "query_type": "Ngữ nghĩa",
+      "config": "Adaptive alpha + table bonus",
+      "n": 30,
+      "hit_rate_at_5": 0.36666666666666664,
+      "mrr_at_5": 0.2111111111111111,
+      "mean_latency_seconds": 0.11943656333023682,
+      "median_latency_seconds": 0.11345005000475794
+    },
+    {
+      "dataset": "KB1_Standard",
+      "query_type": "Ngữ nghĩa",
+      "config": "Fixed alpha = 0.3",
+      "n": 30,
+      "hit_rate_at_5": 0.36666666666666664,
+      "mrr_at_5": 0.24555555555555555,
+      "mean_latency_seconds": 0.17364153999466606,
+      "median_latency_seconds": 0.12216559998341836
+    },
+    {
+      "dataset": "KB1_Standard",
+      "query_type": "Ngữ nghĩa",
+      "config": "Fixed alpha = 0.4",
+      "n": 30,
+      "hit_rate_at_5": 0.36666666666666664,
+      "mrr_at_5": 0.2288888888888889,
+      "mean_latency_seconds": 0.12543015666500043,
+      "median_latency_seconds": 0.11736464999557938
+    },
+    {
+      "dataset": "KB1_Standard",
+      "query_type": "Ngữ nghĩa",
+      "config": "Fixed alpha = 0.5",
+      "n": 30,
+      "hit_rate_at_5": 0.36666666666666664,
+      "mrr_at_5": 0.21222222222222223,
+      "mean_latency_seconds": 0.12200171667015335,
+      "median_latency_seconds": 0.11449954999261536
+    },
+    {
+      "dataset": "KB1_Standard",
+      "query_type": "Ngữ nghĩa",
+      "config": "Fixed alpha = 0.7",
+      "n": 30,
+      "hit_rate_at_5": 0.36666666666666664,
+      "mrr_at_5": 0.2111111111111111,
+      "mean_latency_seconds": 0.12474031333113089,
+      "median_latency_seconds": 0.11641160001454409
+    },
+    {
+      "dataset": "KB1_Standard",
+      "query_type": "Định lượng",
+      "config": "Adaptive alpha",
+      "n": 30,
+      "hit_rate_at_5": 0.7666666666666667,
+      "mrr_at_5": 0.64,
+      "mean_latency_seconds": 0.12780590333568398,
+      "median_latency_seconds": 0.109633300016867
+    },
+    {
+      "dataset": "KB1_Standard",
+      "query_type": "Định lượng",
+      "config": "Adaptive alpha + table bonus",
+      "n": 30,
+      "hit_rate_at_5": 0.7666666666666667,
+      "mrr_at_5": 0.5816666666666667,
+      "mean_latency_seconds": 0.1264761999977054,
+      "median_latency_seconds": 0.11244899999292102
+    },
+    {
+      "dataset": "KB1_Standard",
+      "query_type": "Định lượng",
+      "config": "Fixed alpha = 0.3",
+      "n": 30,
+      "hit_rate_at_5": 0.7666666666666667,
+      "mrr_at_5": 0.6594444444444444,
+      "mean_latency_seconds": 0.12762370333366563,
+      "median_latency_seconds": 0.11494154999672901
+    },
+    {
+      "dataset": "KB1_Standard",
+      "query_type": "Định lượng",
+      "config": "Fixed alpha = 0.4",
+      "n": 30,
+      "hit_rate_at_5": 0.7666666666666667,
+      "mrr_at_5": 0.64,
+      "mean_latency_seconds": 0.1248064999973091,
+      "median_latency_seconds": 0.1094087999954354
+    },
+    {
+      "dataset": "KB1_Standard",
+      "query_type": "Định lượng",
+      "config": "Fixed alpha = 0.5",
+      "n": 30,
+      "hit_rate_at_5": 0.7333333333333333,
+      "mrr_at_5": 0.611111111111111,
+      "mean_latency_seconds": 0.12769662333497156,
+      "median_latency_seconds": 0.11157500000263099
+    },
+    {
+      "dataset": "KB1_Standard",
+      "query_type": "Định lượng",
+      "config": "Fixed alpha = 0.7",
+      "n": 30,
+      "hit_rate_at_5": 0.7333333333333333,
+      "mrr_at_5": 0.5994444444444444,
+      "mean_latency_seconds": 0.12789474666933529,
+      "median_latency_seconds": 0.11207430000649765
+    },
+    {
+      "dataset": "KB2_Mom_Style",
+      "query_type": "Ngữ nghĩa",
+      "config": "Adaptive alpha",
+      "n": 30,
+      "hit_rate_at_5": 0.36666666666666664,
+      "mrr_at_5": 0.275,
+      "mean_latency_seconds": 0.10431164333422202,
+      "median_latency_seconds": 0.10051375000330154
+    },
+    {
+      "dataset": "KB2_Mom_Style",
+      "query_type": "Ngữ nghĩa",
+      "config": "Adaptive alpha + table bonus",
+      "n": 30,
+      "hit_rate_at_5": 0.36666666666666664,
+      "mrr_at_5": 0.275,
+      "mean_latency_seconds": 0.10391477666465411,
+      "median_latency_seconds": 0.10550370000419207
+    },
+    {
+      "dataset": "KB2_Mom_Style",
+      "query_type": "Ngữ nghĩa",
+      "config": "Fixed alpha = 0.3",
+      "n": 30,
+      "hit_rate_at_5": 0.4,
+      "mrr_at_5": 0.33999999999999997,
+      "mean_latency_seconds": 0.10518904666629775,
+      "median_latency_seconds": 0.10203589999582618
+    },
+    {
+      "dataset": "KB2_Mom_Style",
+      "query_type": "Ngữ nghĩa",
+      "config": "Fixed alpha = 0.4",
+      "n": 30,
+      "hit_rate_at_5": 0.4,
+      "mrr_at_5": 0.33999999999999997,
+      "mean_latency_seconds": 0.10344814666217038,
+      "median_latency_seconds": 0.10294129999238066
+    },
+    {
+      "dataset": "KB2_Mom_Style",
+      "query_type": "Ngữ nghĩa",
+      "config": "Fixed alpha = 0.5",
+      "n": 30,
+      "hit_rate_at_5": 0.36666666666666664,
+      "mrr_at_5": 0.2833333333333333,
+      "mean_latency_seconds": 0.10562922999767276,
+      "median_latency_seconds": 0.10138430001097731
+    },
+    {
+      "dataset": "KB2_Mom_Style",
+      "query_type": "Ngữ nghĩa",
+      "config": "Fixed alpha = 0.7",
+      "n": 30,
+      "hit_rate_at_5": 0.36666666666666664,
+      "mrr_at_5": 0.275,
+      "mean_latency_seconds": 0.10678656999662053,
+      "median_latency_seconds": 0.1024567999993451
+    },
+    {
+      "dataset": "KB2_Mom_Style",
+      "query_type": "Định lượng",
+      "config": "Adaptive alpha",
+      "n": 30,
+      "hit_rate_at_5": 0.7666666666666667,
+      "mrr_at_5": 0.6305555555555556,
+      "mean_latency_seconds": 0.13244067666625295,
+      "median_latency_seconds": 0.12446819999604486
+    },
+    {
+      "dataset": "KB2_Mom_Style",
+      "query_type": "Định lượng",
+      "config": "Adaptive alpha + table bonus",
+      "n": 30,
+      "hit_rate_at_5": 0.7666666666666667,
+      "mrr_at_5": 0.6,
+      "mean_latency_seconds": 0.1319755166672015,
+      "median_latency_seconds": 0.12492470000870526
+    },
+    {
+      "dataset": "KB2_Mom_Style",
+      "query_type": "Định lượng",
+      "config": "Fixed alpha = 0.3",
+      "n": 30,
+      "hit_rate_at_5": 0.7666666666666667,
+      "mrr_at_5": 0.6416666666666667,
+      "mean_latency_seconds": 0.1304359700026301,
+      "median_latency_seconds": 0.12052070000208914
+    },
+    {
+      "dataset": "KB2_Mom_Style",
+      "query_type": "Định lượng",
+      "config": "Fixed alpha = 0.4",
+      "n": 30,
+      "hit_rate_at_5": 0.7666666666666667,
+      "mrr_at_5": 0.6305555555555556,
+      "mean_latency_seconds": 0.13333871333258382,
+      "median_latency_seconds": 0.1289760999934515
+    },
+    {
+      "dataset": "KB2_Mom_Style",
+      "query_type": "Định lượng",
+      "config": "Fixed alpha = 0.5",
+      "n": 30,
+      "hit_rate_at_5": 0.7666666666666667,
+      "mrr_at_5": 0.6138888888888889,
+      "mean_latency_seconds": 0.133113443335363,
+      "median_latency_seconds": 0.1261215499980608
+    },
+    {
+      "dataset": "KB2_Mom_Style",
+      "query_type": "Định lượng",
+      "config": "Fixed alpha = 0.7",
+      "n": 30,
+      "hit_rate_at_5": 0.7666666666666667,
+      "mrr_at_5": 0.6055555555555556,
+      "mean_latency_seconds": 0.13418485667013252,
+      "median_latency_seconds": 0.12143414998718072
+    },
+    {
+      "dataset": "KB3_Information_Noise",
+      "query_type": "Ngữ nghĩa",
+      "config": "Adaptive alpha",
+      "n": 30,
+      "hit_rate_at_5": 0.2,
+      "mrr_at_5": 0.16666666666666666,
+      "mean_latency_seconds": 0.16024860999993204,
+      "median_latency_seconds": 0.1478217499825405
+    },
+    {
+      "dataset": "KB3_Information_Noise",
+      "query_type": "Ngữ nghĩa",
+      "config": "Adaptive alpha + table bonus",
+      "n": 30,
+      "hit_rate_at_5": 0.2,
+      "mrr_at_5": 0.16666666666666666,
+      "mean_latency_seconds": 0.16261232666826497,
+      "median_latency_seconds": 0.14473990000260528
+    },
+    {
+      "dataset": "KB3_Information_Noise",
+      "query_type": "Ngữ nghĩa",
+      "config": "Fixed alpha = 0.3",
+      "n": 30,
+      "hit_rate_at_5": 0.2,
+      "mrr_at_5": 0.18333333333333332,
+      "mean_latency_seconds": 0.16163132999790833,
+      "median_latency_seconds": 0.14779114998236764
+    },
+    {
+      "dataset": "KB3_Information_Noise",
+      "query_type": "Ngữ nghĩa",
+      "config": "Fixed alpha = 0.4",
+      "n": 30,
+      "hit_rate_at_5": 0.2,
+      "mrr_at_5": 0.18333333333333332,
+      "mean_latency_seconds": 0.15718227333272808,
+      "median_latency_seconds": 0.14224874999490567
+    },
+    {
+      "dataset": "KB3_Information_Noise",
+      "query_type": "Ngữ nghĩa",
+      "config": "Fixed alpha = 0.5",
+      "n": 30,
+      "hit_rate_at_5": 0.2,
+      "mrr_at_5": 0.16666666666666666,
+      "mean_latency_seconds": 0.1563842933353347,
+      "median_latency_seconds": 0.14789965000818484
+    },
+    {
+      "dataset": "KB3_Information_Noise",
+      "query_type": "Ngữ nghĩa",
+      "config": "Fixed alpha = 0.7",
+      "n": 30,
+      "hit_rate_at_5": 0.2,
+      "mrr_at_5": 0.16666666666666666,
+      "mean_latency_seconds": 0.15797716000039752,
+      "median_latency_seconds": 0.14561274999869056
+    },
+    {
+      "dataset": "KB3_Information_Noise",
+      "query_type": "Định lượng",
+      "config": "Adaptive alpha",
+      "n": 30,
+      "hit_rate_at_5": 0.6333333333333333,
+      "mrr_at_5": 0.4583333333333333,
+      "mean_latency_seconds": 0.21447750999747464,
+      "median_latency_seconds": 0.1708039499935694
+    },
+    {
+      "dataset": "KB3_Information_Noise",
+      "query_type": "Định lượng",
+      "config": "Adaptive alpha + table bonus",
+      "n": 30,
+      "hit_rate_at_5": 0.6333333333333333,
+      "mrr_at_5": 0.4761111111111111,
+      "mean_latency_seconds": 0.21322562333468037,
+      "median_latency_seconds": 0.16477784999005962
+    },
+    {
+      "dataset": "KB3_Information_Noise",
+      "query_type": "Định lượng",
+      "config": "Fixed alpha = 0.3",
+      "n": 30,
+      "hit_rate_at_5": 0.6333333333333333,
+      "mrr_at_5": 0.5194444444444445,
+      "mean_latency_seconds": 0.21368896333442536,
+      "median_latency_seconds": 0.17034660000354052
+    },
+    {
+      "dataset": "KB3_Information_Noise",
+      "query_type": "Định lượng",
+      "config": "Fixed alpha = 0.4",
+      "n": 30,
+      "hit_rate_at_5": 0.6333333333333333,
+      "mrr_at_5": 0.4583333333333333,
+      "mean_latency_seconds": 0.21384040333796292,
+      "median_latency_seconds": 0.162638549998519
+    },
+    {
+      "dataset": "KB3_Information_Noise",
+      "query_type": "Định lượng",
+      "config": "Fixed alpha = 0.5",
+      "n": 30,
+      "hit_rate_at_5": 0.6333333333333333,
+      "mrr_at_5": 0.4388888888888889,
+      "mean_latency_seconds": 0.2117280033339436,
+      "median_latency_seconds": 0.1683408499957295
+    },
+    {
+      "dataset": "KB3_Information_Noise",
+      "query_type": "Định lượng",
+      "config": "Fixed alpha = 0.7",
+      "n": 30,
+      "hit_rate_at_5": 0.6,
+      "mrr_at_5": 0.41055555555555556,
+      "mean_latency_seconds": 0.21167417667068852,
+      "median_latency_seconds": 0.15919175001909025
+    },
+    {
+      "dataset": "TỔNG HỢP",
+      "query_type": "Ngữ nghĩa",
+      "config": "Adaptive alpha",
+      "n": 90,
+      "hit_rate_at_5": 0.3111111111111111,
+      "mrr_at_5": 0.2175925925925926,
+      "mean_latency_seconds": 0.12951619444518453,
+      "median_latency_seconds": 0.12247805000515655
+    },
+    {
+      "dataset": "TỔNG HỢP",
+      "query_type": "Ngữ nghĩa",
+      "config": "Adaptive alpha + table bonus",
+      "n": 90,
+      "hit_rate_at_5": 0.3111111111111111,
+      "mrr_at_5": 0.2175925925925926,
+      "mean_latency_seconds": 0.1286545555543853,
+      "median_latency_seconds": 0.12319769999885466
+    },
+    {
+      "dataset": "TỔNG HỢP",
+      "query_type": "Ngữ nghĩa",
+      "config": "Fixed alpha = 0.3",
+      "n": 90,
+      "hit_rate_at_5": 0.32222222222222224,
+      "mrr_at_5": 0.2562962962962963,
+      "mean_latency_seconds": 0.1468206388862907,
+      "median_latency_seconds": 0.12528890000248794
+    },
+    {
+      "dataset": "TỔNG HỢP",
+      "query_type": "Ngữ nghĩa",
+      "config": "Fixed alpha = 0.4",
+      "n": 90,
+      "hit_rate_at_5": 0.32222222222222224,
+      "mrr_at_5": 0.25074074074074076,
+      "mean_latency_seconds": 0.12868685888663298,
+      "median_latency_seconds": 0.12214444999699481
+    },
+    {
+      "dataset": "TỔNG HỢP",
+      "query_type": "Ngữ nghĩa",
+      "config": "Fixed alpha = 0.5",
+      "n": 90,
+      "hit_rate_at_5": 0.3111111111111111,
+      "mrr_at_5": 0.22074074074074074,
+      "mean_latency_seconds": 0.1280050800010536,
+      "median_latency_seconds": 0.12385834999440704
+    },
+    {
+      "dataset": "TỔNG HỢP",
+      "query_type": "Ngữ nghĩa",
+      "config": "Fixed alpha = 0.7",
+      "n": 90,
+      "hit_rate_at_5": 0.3111111111111111,
+      "mrr_at_5": 0.2175925925925926,
+      "mean_latency_seconds": 0.12983468110938298,
+      "median_latency_seconds": 0.12418800001614727
+    },
+    {
+      "dataset": "TỔNG HỢP",
+      "query_type": "Định lượng",
+      "config": "Adaptive alpha",
+      "n": 90,
+      "hit_rate_at_5": 0.7222222222222222,
+      "mrr_at_5": 0.5762962962962963,
+      "mean_latency_seconds": 0.15824136333313718,
+      "median_latency_seconds": 0.13804924998839851
+    },
+    {
+      "dataset": "TỔNG HỢP",
+      "query_type": "Định lượng",
+      "config": "Adaptive alpha + table bonus",
+      "n": 90,
+      "hit_rate_at_5": 0.7222222222222222,
+      "mrr_at_5": 0.5525925925925926,
+      "mean_latency_seconds": 0.15722577999986243,
+      "median_latency_seconds": 0.1390790999867022
+    },
+    {
+      "dataset": "TỔNG HỢP",
+      "query_type": "Định lượng",
+      "config": "Fixed alpha = 0.3",
+      "n": 90,
+      "hit_rate_at_5": 0.7222222222222222,
+      "mrr_at_5": 0.6068518518518519,
+      "mean_latency_seconds": 0.157249545556907,
+      "median_latency_seconds": 0.14003080000111368
+    },
+    {
+      "dataset": "TỔNG HỢP",
+      "query_type": "Định lượng",
+      "config": "Fixed alpha = 0.4",
+      "n": 90,
+      "hit_rate_at_5": 0.7222222222222222,
+      "mrr_at_5": 0.5762962962962963,
+      "mean_latency_seconds": 0.15732853888928527,
+      "median_latency_seconds": 0.13865494998754002
+    },
+    {
+      "dataset": "TỔNG HỢP",
+      "query_type": "Định lượng",
+      "config": "Fixed alpha = 0.5",
+      "n": 90,
+      "hit_rate_at_5": 0.7111111111111111,
+      "mrr_at_5": 0.5546296296296296,
+      "mean_latency_seconds": 0.15751269000142606,
+      "median_latency_seconds": 0.13918285000545438
+    },
+    {
+      "dataset": "TỔNG HỢP",
+      "query_type": "Định lượng",
+      "config": "Fixed alpha = 0.7",
+      "n": 90,
+      "hit_rate_at_5": 0.7,
+      "mrr_at_5": 0.5385185185185185,
+      "mean_latency_seconds": 0.1579179266700521,
+      "median_latency_seconds": 0.1431159499916248
+    }
+  ],
+  "statistics": [
+    {
+      "query_type": "Định lượng",
+      "baseline": "Fixed alpha = 0.3",
+      "proposed": "Adaptive alpha + table bonus",
+      "n_pairs": 90,
+      "baseline_mean_rr": 0.6068518518518518,
+      "proposed_mean_rr": 0.5525925925925926,
+      "median_difference": 0.0,
+      "wilcoxon_statistic": 20.5,
+      "p_value": 0.0026314604931338545
+    },
+    {
+      "query_type": "Định lượng",
+      "baseline": "Fixed alpha = 0.4",
+      "proposed": "Adaptive alpha + table bonus",
+      "n_pairs": 90,
+      "baseline_mean_rr": 0.5762962962962963,
+      "proposed_mean_rr": 0.5525925925925926,
+      "median_difference": 0.0,
+      "wilcoxon_statistic": 87.0,
+      "p_value": 0.19574185075701822
+    },
+    {
+      "query_type": "Định lượng",
+      "baseline": "Fixed alpha = 0.5",
+      "proposed": "Adaptive alpha + table bonus",
+      "n_pairs": 90,
+      "baseline_mean_rr": 0.5546296296296297,
+      "proposed_mean_rr": 0.5525925925925926,
+      "median_difference": 0.0,
+      "wilcoxon_statistic": 142.0,
+      "p_value": 0.816372179708766
+    },
+    {
+      "query_type": "Định lượng",
+      "baseline": "Fixed alpha = 0.7",
+      "proposed": "Adaptive alpha + table bonus",
+      "n_pairs": 90,
+      "baseline_mean_rr": 0.5385185185185185,
+      "proposed_mean_rr": 0.5525925925925926,
+      "median_difference": 0.0,
+      "wilcoxon_statistic": 116.0,
+      "p_value": 0.49584237661719266
+    },
+    {
+      "query_type": "Ngữ nghĩa",
+      "baseline": "Fixed alpha = 0.3",
+      "proposed": "Adaptive alpha + table bonus",
+      "n_pairs": 90,
+      "baseline_mean_rr": 0.2562962962962963,
+      "proposed_mean_rr": 0.2175925925925926,
+      "median_difference": 0.0,
+      "wilcoxon_statistic": 3.0,
+      "p_value": 0.011394908185046633
+    },
+    {
+      "query_type": "Ngữ nghĩa",
+      "baseline": "Fixed alpha = 0.4",
+      "proposed": "Adaptive alpha + table bonus",
+      "n_pairs": 90,
+      "baseline_mean_rr": 0.25074074074074076,
+      "proposed_mean_rr": 0.2175925925925926,
+      "median_difference": 0.0,
+      "wilcoxon_statistic": 3.0,
+      "p_value": 0.011340179536662017
+    },
+    {
+      "query_type": "Ngữ nghĩa",
+      "baseline": "Fixed alpha = 0.5",
+      "proposed": "Adaptive alpha + table bonus",
+      "n_pairs": 90,
+      "baseline_mean_rr": 0.22074074074074074,
+      "proposed_mean_rr": 0.2175925925925926,
+      "median_difference": 0.0,
+      "wilcoxon_statistic": 3.0,
+      "p_value": 0.4614509878333607
+    },
+    {
+      "query_type": "Ngữ nghĩa",
+      "baseline": "Fixed alpha = 0.7",
+      "proposed": "Adaptive alpha + table bonus",
+      "n_pairs": 90,
+      "baseline_mean_rr": 0.2175925925925926,
+      "proposed_mean_rr": 0.2175925925925926,
+      "median_difference": 0.0,
+      "wilcoxon_statistic": 0.0,
+      "p_value": 1.0
+    },
+    {
+      "query_type": "Tất cả",
+      "baseline": "Fixed alpha = 0.3",
+      "proposed": "Adaptive alpha + table bonus",
+      "n_pairs": 180,
+      "baseline_mean_rr": 0.4315740740740741,
+      "proposed_mean_rr": 0.3850925925925926,
+      "median_difference": 0.0,
+      "wilcoxon_statistic": 38.0,
+      "p_value": 9.6381315769405e-05
+    },
+    {
+      "query_type": "Tất cả",
+      "baseline": "Fixed alpha = 0.4",
+      "proposed": "Adaptive alpha + table bonus",
+      "n_pairs": 180,
+      "baseline_mean_rr": 0.41351851851851856,
+      "proposed_mean_rr": 0.3850925925925926,
+      "median_difference": 0.0,
+      "wilcoxon_statistic": 134.0,
+      "p_value": 0.013991471041464597
+    },
+    {
+      "query_type": "Tất cả",
+      "baseline": "Fixed alpha = 0.5",
+      "proposed": "Adaptive alpha + table bonus",
+      "n_pairs": 180,
+      "baseline_mean_rr": 0.3876851851851852,
+      "proposed_mean_rr": 0.3850925925925926,
+      "median_difference": 0.0,
+      "wilcoxon_statistic": 184.0,
+      "p_value": 0.6618504174544528
+    },
+    {
+      "query_type": "Tất cả",
+      "baseline": "Fixed alpha = 0.7",
+      "proposed": "Adaptive alpha + table bonus",
+      "n_pairs": 180,
+      "baseline_mean_rr": 0.37805555555555564,
+      "proposed_mean_rr": 0.3850925925925926,
+      "median_difference": 0.0,
+      "wilcoxon_statistic": 116.0,
+      "p_value": 0.49584237661719266
+    }
+  ]
+}

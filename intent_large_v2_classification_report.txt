@@ -1,0 +1,16 @@
+BỘ KIỂM THỬ 200 CÂU — 4 LỚP CÂN BẰNG
+Accuracy: 0.9500
+Macro F1: 0.9506
+Weighted F1: 0.9506
+Total time: 219.3862 s
+
+              precision    recall  f1-score   support
+
+     BLOCKED     1.0000    0.9000    0.9474        50
+   SMALLTALK     0.9804    1.0000    0.9901        50
+OUT_OF_SCOPE     1.0000    0.9000    0.9474        50
+         RAG     0.8475    1.0000    0.9174        50
+
+    accuracy                         0.9500       200
+   macro avg     0.9570    0.9500    0.9506       200
+weighted avg     0.9570    0.9500    0.9506       200

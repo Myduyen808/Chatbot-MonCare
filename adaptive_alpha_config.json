@@ -1,0 +1,7 @@
+{
+  "exact_lexical": 0.2,
+  "noisy_conversational": 0.3,
+  "quantitative": 0.4,
+  "semantic": 0.3,
+  "table_bonus": 0.1
+}

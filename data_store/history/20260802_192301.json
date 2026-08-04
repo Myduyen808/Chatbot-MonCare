@@ -1,0 +1,30 @@
+{
+    "history_name": "Bé nhà hiện được tháng tuổi Khoảng ngày bé quấy kh",
+    "history_id": "20260802_192301",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "Bé nhà tôi hiện được 6 tháng tuổi. Khoảng ba ngày nay bé thường quấy khóc vào ban đêm, ngủ không sâu và hay tỉnh giấc. Ban ngày bé vẫn bú bình thường, không sốt, không nôn và vẫn chơi. Tôi muốn biết tình trạng này có liên quan đến mọc răng hay thay đổi giấc ngủ theo độ tuổi không."
+        },
+        {
+            "type": "ai",
+            "content": "Trẻ 6 tháng tuổi cần ngủ khoảng 14-17 giờ mỗi ngày. Tuy nhiên, chế độ giấc ngủ của trẻ có thể bị ảnh hưởng bởi nhiều yếu tố, bao gồm cả việc mọc răng. Mọc răng có thể gây khó chịu và ảnh hưởng đến giấc ngủ của trẻ. Tuy nhiên, không có thông tin cụ thể trong tài liệu về việc mọc răng ảnh hưởng đến chế độ giấc ngủ của trẻ 6 tháng tuổi.\n\nTài liệu chỉ đề cập đến việc trẻ 6 tháng tuổi cần ngủ khoảng 14-17 giờ mỗi ngày, nhưng không đề cập đến việc mọc răng ảnh hưởng đến giấc ngủ. Do đó, không thể trả lời chính xác câu hỏi này dựa trên thông tin trong tài liệu."
+        },
+        {
+            "type": "human",
+            "content": "Ngoài ra, bé đã bắt đầu ăn dặm nhưng chỉ ăn được một lượng nhỏ. Bé vẫn bú mẹ là chính, chưa có dấu hiệu dị ứng, không tiêu chảy và không táo bón. Tôi nên theo dõi những gì khi cho bé làm quen với thức ăn mới?"
+        },
+        {
+            "type": "ai",
+            "content": "Khi cho trẻ 6 tháng tuổi làm quen với thức ăn mới, bạn nên theo dõi các dấu hiệu sau:\n\n- Thể trạng của trẻ: theo dõi xem trẻ có bị ốm, sốt, buồn nôn, nôn mửa hay không.\n- Tình trạng tiêu hóa: theo dõi xem trẻ có bị tiêu chảy, táo bón hay không.\n- Tình trạng da: theo dõi xem trẻ có bị phát ban, mẩn đỏ hay không.\n- Tình trạng hô hấp: theo dõi xem trẻ có bị ho, khó thở hay không.\n- Tình trạng thần kinh: theo dõi xem trẻ có bị quấy khóc, khó chịu hay không.\n\nNếu bạn phát hiện bất kỳ dấu hiệu bất thường nào, hãy dừng lại và tham khảo ý kiến của bác sĩ trước khi tiếp tục cho trẻ ăn thức ăn mới."
+        },
+        {
+            "type": "human",
+            "content": "Còn vitamin D thì sao?"
+        },
+        {
+            "type": "ai",
+            "content": "Hàm lượng vitamin D trong sữa mẹ là rất thấp (544pg/mL, cung cấp khoảng 15UI/ngày) và không đáp ứng đủ nhu cầu phát triển của trẻ. Nhu cầu vitamin D khuyến nghị cho trẻ sơ sinh và trẻ nhỏ <6 tháng là 400UI/ngày."
+        }
+    ]
+}

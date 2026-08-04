@@ -1,0 +1,14 @@
+{
+    "history_name": "Hôm nay giá vàng",
+    "history_id": "20260804_173301",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "Hôm nay giá vàng bao nhiêu?"
+        },
+        {
+            "type": "ai",
+            "content": "Xin lỗi, câu hỏi này nằm ngoài phạm vi hỗ trợ của MomCare. Hệ thống tập trung cung cấp thông tin tham khảo về chăm sóc mẹ và bé."
+        }
+    ]
+}
