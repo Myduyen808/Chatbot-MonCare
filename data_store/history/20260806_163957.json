@@ -1,0 +1,30 @@
+{
+    "history_name": "xin chao",
+    "history_id": "20260806_163957",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "xin chao"
+        },
+        {
+            "type": "ai",
+            "content": "Xin chào! Tôi rất hân hạnh được hỗ trợ bạn. Bạn cần giúp đỡ về vấn đề gì hôm nay? Bạn đang tìm kiếm thông tin về chăm sóc sức khỏe cho mẹ và bé, hoặc cần lời khuyên về cách chăm sóc con nhỏ? Hãy cho tôi biết, tôi luôn sẵn sàng giúp đỡ!"
+        },
+        {
+            "type": "human",
+            "content": "tai sao tr"
+        },
+        {
+            "type": "ai",
+            "content": "Tôi xin lỗi vì không rõ ràng! Tôi là trợ lý MomCare, chuyên chăm sóc mẹ và bé. Tôi muốn giúp đỡ các mẹ và bé trong các vấn đề liên quan đến sức khỏe, dinh dưỡng, chăm sóc con cái, v.v. Bạn có thể hỏi tôi bất kỳ câu hỏi nào liên quan đến chăm sóc mẹ và bé, tôi sẽ cố gắng trả lời một cách rõ ràng và hữu ích nhất!"
+        },
+        {
+            "type": "human",
+            "content": "tại sao trẻ chậm nói mặc dù đã 20 thnags tuổi"
+        },
+        {
+            "type": "ai",
+            "content": "Chậm phát triển ngôn ngữ là khi ngôn ngữ của trẻ phát triển theo đúng trình tự, nhưng tốc độ chậm hơn. Trẻ chậm nói thường do các nguyên nhân như: bất thường về cấu trúc phát âm, tiếp nhận âm thanh hoặc vấn đề về tâm lý như tự kỷ. Trong trường hợp chậm nói mang tính tạm thời thì chỉ cần đến sự hỗ trợ của gia đình để giúp bé có hứng thú với việc phát âm.\n\nNếu bé 20 tháng tuổi vẫn chưa thể phát âm được những từ ngữ cơ bản, bạn nên đưa bé đến cơ sở y tế để được bác sĩ đánh giá và tư vấn cụ thể."
+        }
+    ]
+}

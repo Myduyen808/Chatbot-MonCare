@@ -1,0 +1,30 @@
+{
+    "history_name": "chế độ dinh dưỡng bé tháng tuổi #6",
+    "history_id": "20260807_032536",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "chế độ dinh dưỡng cho bé 8 tháng tuổi"
+        },
+        {
+            "type": "ai",
+            "content": "MomCare chưa tìm thấy đủ thông tin trong kho tài liệu để trả lời câu hỏi này."
+        },
+        {
+            "type": "human",
+            "content": "còn vitamin thì sao"
+        },
+        {
+            "type": "ai",
+            "content": "Trẻ 8 tháng tuổi cần bổ sung vitamin D."
+        },
+        {
+            "type": "human",
+            "content": "có nên ăn dặm ko"
+        },
+        {
+            "type": "ai",
+            "content": "Trẻ 8 tháng tuổi có nên ăn dặm không?\n\nTrẻ từ 6 tháng tuổi cần được ăn dặm bổ sung ngoài nguồn sữa mẹ vì lúc này nhu cầu dinh dưỡng của trẻ tăng lên, nếu chỉ cho trẻ bú sữa mẹ hoàn toàn sẽ không đáp ứng đủ nhu cầu của trẻ."
+        }
+    ]
+}

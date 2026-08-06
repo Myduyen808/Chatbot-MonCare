@@ -1,0 +1,38 @@
+{
+    "history_name": "xin chào #17",
+    "history_id": "20260807_000408",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "xin chào"
+        },
+        {
+            "type": "ai",
+            "content": "Xin chào mẹ yêu! Tôi rất vui được phục vụ và chăm sóc mẹ và bé trong ngày hôm nay! Có gì mẹ cần giúp không?"
+        },
+        {
+            "type": "human",
+            "content": "dinh dưỡng cho bé 6 tháng tuổi"
+        },
+        {
+            "type": "ai",
+            "content": "Dinh dưỡng cho trẻ 6 tháng tuổi cần được bổ sung như thế nào để đảm bảo sự phát triển toàn diện?\n\nTrẻ 6 tháng tuổi cần được ăn dặm khoảng 2 bữa mỗi ngày nếu đã sẵn sàng, đồng thời vẫn duy trì bú mẹ hoặc sữa công thức theo nhu cầu. Ngoài ra, trẻ cũng cần được bổ sung các dưỡng chất thiết yếu như canxi, sắt và kẽm thông qua sữa mẹ hoặc các thực phẩm giàu dinh dưỡng như thịt, trứng, cá và các loại trái cây.\n\nTrẻ 6 tháng tuổi cũng cần được cho ăn các bữa ăn phụ đều đặn giữa các bữa chính như chuối, đu đủ, các loại bánh mềm làm từ gạo hoặc bột mỳ, sữa chua hoặc khoai lang.\n\nBên cạnh đó, mẹ cũng cần lưu ý rằng sữa mẹ vẫn là nguồn dinh dưỡng chính của bé, vì vậy cần tiếp tục cho bé bú sữa mẹ. Khi bé 8-9 tháng tuổi, hãy cho bé thử tự ăn bằng việc tự cầm nắm các thức ăn mềm."
+        },
+        {
+            "type": "human",
+            "content": "cần bổ sung vitamin gì ko"
+        },
+        {
+            "type": "ai",
+            "content": "Vitamin D cho trẻ 6 tháng tuổi có thể được bổ sung từ các nguồn sau:\n\n- Ánh nắng mặt trời\n- Sữa mẹ (mặc dù hàm lượng vitamin D trong sữa mẹ là rất thấp)\n- Các chế phẩm vitamin D (cả vitamin D2 và vitamin D3)\n- Các chế phẩm kết hợp giữa vitamin D và vitamin K"
+        },
+        {
+            "type": "human",
+            "content": "có nên ăn dặm ko"
+        },
+        {
+            "type": "ai",
+            "content": "⚠️ Hệ thống AI đang quá tải hoặc gặp lỗi kết nối. Mẹ vui lòng gửi lại câu hỏi nhé!"
+        }
+    ]
+}

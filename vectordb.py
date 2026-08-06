@@ -360,43 +360,152 @@ def create_vectordb_with_file(pdf_path=db_config["pdf_path"], word_path=db_confi
         cleaned_text = clean_web_boilerplate(doc.page_content)
         if len(cleaned_text) > 50: final_clean_documents.append(LC_Document(page_content=cleaned_text, metadata=doc.metadata))
             
-    # Sử dụng biến chunk_size và chunk_overlap được truyền từ cấu hình/YAML
+    # =========================================================
+    # CHUNKING CÓ GIỚI HẠN KÍCH THƯỚC
+    # =========================================================
+
+    # Hard limit để tránh FAQ / ViMedAQA / bảng quá dài
+    # lọt nguyên vẹn vào FAISS.
+    MAX_CHUNK_CHARS = 1800
+
+    # chunk_size trong RecursiveCharacterTextSplitter mặc định
+    # được tính theo số ký tự, không phải token.
+    effective_chunk_size = min(
+        int(chunk_size),
+        MAX_CHUNK_CHARS
+    )
+
+    # Không để overlap quá lớn so với chunk.
+    effective_chunk_overlap = min(
+        int(chunk_overlap),
+        effective_chunk_size // 5
+    )
+
     splitter = RecursiveCharacterTextSplitter(
-        chunk_size=chunk_size,
-        chunk_overlap=chunk_overlap
+        chunk_size=effective_chunk_size,
+        chunk_overlap=effective_chunk_overlap,
     )
 
     final_chunks = []
 
     for doc in final_clean_documents:
 
-        # FAQ, ViMedAQA hoặc bộ đề y khoa giữ nguyên 1 document (không split)
-        if doc.metadata.get("file_type") in ["medical_exam", "faq", "vimedaqa"]:
-            cleaned_text = clean_chunk_text(doc.page_content)
-            if len(cleaned_text.strip()) >= 50:
+        cleaned_text = clean_chunk_text(
+            doc.page_content
+        ).strip()
+
+        if len(cleaned_text) < 50:
+            continue
+
+        file_type = doc.metadata.get(
+            "file_type",
+            ""
+        )
+
+        is_special = file_type in [
+            "medical_exam",
+            "faq",
+            "vimedaqa",
+        ]
+
+        is_table = is_data_driven_chunk(
+            cleaned_text
+        )
+
+        # -----------------------------------------------------
+        # 1. Tài liệu đặc biệt hoặc bảng:
+        #    - ngắn -> giữ nguyên
+        #    - dài -> bắt buộc chia
+        # -----------------------------------------------------
+        if is_special or is_table:
+
+            if is_table:
+                chunk_type = "data_table"
+                min_length = 80
+            else:
+                chunk_type = "special_text"
+                min_length = 50
+
+            # Ngắn -> giữ nguyên để bảo toàn cấu trúc
+            if len(cleaned_text) <= effective_chunk_size:
+
+                metadata = dict(doc.metadata)
+                metadata["chunk_type"] = chunk_type
+
                 final_chunks.append(
-                    LC_Document(page_content=cleaned_text, metadata=doc.metadata)
+                    LC_Document(
+                        page_content=cleaned_text,
+                        metadata=metadata,
+                    )
                 )
 
-        # CÁI MỚI: Phát hiện bảng số liệu -> Giữ nguyên không cắt
-        elif is_data_driven_chunk(doc.page_content):
-            cleaned_text = clean_chunk_text(doc.page_content)
-            if len(cleaned_text.strip()) >= 80:
-                # Gắn thêm flag để Reranker ưu tiên sau này
-                doc.metadata["chunk_type"] = "data_table"
-                final_chunks.append(
-                    LC_Document(page_content=cleaned_text, metadata=doc.metadata)
+            # Quá dài -> bắt buộc chia nhỏ
+            else:
+
+                metadata = dict(doc.metadata)
+                metadata["chunk_type"] = chunk_type
+                metadata["was_split"] = True
+
+                temp_doc = LC_Document(
+                    page_content=cleaned_text,
+                    metadata=metadata,
                 )
 
-        # Các tài liệu khác mới chia chunk
+                chunks = splitter.split_documents(
+                    [temp_doc]
+                )
+
+                for chunk in chunks:
+
+                    chunk_text = (
+                        clean_chunk_text(
+                            chunk.page_content
+                        ).strip()
+                    )
+
+                    if len(chunk_text) >= min_length:
+                        final_chunks.append(
+                            LC_Document(
+                                page_content=chunk_text,
+                                metadata=dict(
+                                    chunk.metadata
+                                ),
+                            )
+                        )
+
+        # -----------------------------------------------------
+        # 2. Tài liệu thông thường
+        # -----------------------------------------------------
         else:
-            chunks = splitter.split_documents([doc])
-            for c in chunks:
-                cleaned_text = clean_chunk_text(c.page_content)
-                if len(cleaned_text.strip()) >= 50:
-                    c.metadata["chunk_type"] = "normal_text"
+
+            metadata = dict(doc.metadata)
+            metadata["chunk_type"] = "normal_text"
+
+            temp_doc = LC_Document(
+                page_content=cleaned_text,
+                metadata=metadata,
+            )
+
+            chunks = splitter.split_documents(
+                [temp_doc]
+            )
+
+            for chunk in chunks:
+
+                chunk_text = (
+                    clean_chunk_text(
+                        chunk.page_content
+                    ).strip()
+                )
+
+                if len(chunk_text) >= 50:
                     final_chunks.append(
-                        LC_Document(page_content=cleaned_text, metadata=c.metadata)
+                        LC_Document(
+                            page_content=chunk_text,
+                            metadata=dict(
+                                chunk.metadata
+                            ),
+                        )
                     )
                     
     # Gắn định danh truy vết cho từng chunk.
@@ -409,6 +518,60 @@ def create_vectordb_with_file(pdf_path=db_config["pdf_path"], word_path=db_confi
 
         if isinstance(raw_page, int):
             chunk.metadata["page_display"] = raw_page + 1
+        # =========================================================
+        # DEBUG KÍCH THƯỚC CHUNK
+        # =========================================================
+
+        if final_chunks:
+            chunk_lengths = [
+                len(chunk.page_content)
+                for chunk in final_chunks
+            ]
+
+            print("\n========== CHUNK SIZE DEBUG ==========")
+            print(
+                "Effective chunk size:",
+                effective_chunk_size
+            )
+            print(
+                "Effective overlap:",
+                effective_chunk_overlap
+            )
+            print(
+                "Tổng chunks:",
+                len(final_chunks)
+            )
+            print(
+                "Chunk nhỏ nhất:",
+                min(chunk_lengths),
+                "ký tự"
+            )
+            print(
+                "Chunk trung bình:",
+                round(
+                    sum(chunk_lengths)
+                    / len(chunk_lengths),
+                    2
+                ),
+                "ký tự"
+            )
+            print(
+                "Chunk lớn nhất:",
+                max(chunk_lengths),
+                "ký tự"
+            )
+
+            oversized_chunks = [
+                size
+                for size in chunk_lengths
+                if size > MAX_CHUNK_CHARS
+            ]
+
+            print(
+                "Số chunk vượt hard limit:",
+                len(oversized_chunks)
+            )
+            print("======================================\n")
 
     print(f"Chunks sau lọc: {len(final_chunks)}")
 

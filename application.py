@@ -1,3 +1,11 @@
+from unittest import result
+
+import csv
+import hashlib
+import time
+from datetime import datetime
+from pathlib import Path
+
 import streamlit as st
 from streamlit_option_menu import option_menu
 import yaml
@@ -12,6 +20,8 @@ from vectordb import get_list_documents, get_document, delete_document, get_deta
 
 DEFAULT_TOP_K = 5
 DEFAULT_TEMPERATURE = 0.2
+
+FEEDBACK_LOG_PATH = Path("runtime_logs") / "user_feedback.csv"
 
 # =========================================================
 # CẤU HÌNH ROLLING ADAPTIVE MEMORY
@@ -298,6 +308,215 @@ def load_history(history_name):
         return history
     return CustomHistory()
 
+def render_source_documents(source_docs):
+    """Hiển thị danh sách tài liệu tham khảo của câu trả lời RAG."""
+    with st.expander(
+        "📎 Xem nguồn tài liệu",
+        expanded=False,
+    ):
+        if not source_docs:
+            st.warning(
+                "Không có tài liệu tham khảo được trả về "
+                "cho câu trả lời này."
+            )
+            return
+
+        st.success(
+            f"✅ Tìm thấy {len(source_docs)} nguồn tài liệu"
+        )
+
+        for i, doc in enumerate(source_docs, start=1):
+            # Hỗ trợ cả LangChain Document và dictionary
+            # đã được lưu trong session_state.
+            if isinstance(doc, dict):
+                metadata = doc.get("metadata", {}) or {}
+                page_content = str(
+                    doc.get("page_content", "")
+                ).strip()
+            else:
+                metadata = getattr(doc, "metadata", None) or {}
+                page_content = str(
+                    getattr(doc, "page_content", "")
+                ).strip()
+
+            source_name = metadata.get(
+                "source",
+                metadata.get("file_name", "Không rõ"),
+            )
+
+            page = metadata.get(
+                "page_display",
+                metadata.get("page", "Không xác định"),
+            )
+
+            chunk_id = metadata.get(
+                "chunk_id",
+                "Không xác định",
+            )
+
+            file_type = metadata.get(
+                "file_type",
+                "Không xác định",
+            )
+
+            if page_content:
+                preview = page_content[:500]
+
+                if len(page_content) > 500:
+                    preview += "..."
+            else:
+                preview = "Không có nội dung xem trước."
+
+            st.info(
+                f"**📄 Nguồn {i}:** `{source_name}`  \n"
+                f"**Loại:** `{file_type}` | "
+                f"**Trang:** `{page}` | "
+                f"**Chunk:** `{chunk_id}`  \n\n"
+                f"{preview}"
+            )
+
+
+def _ensure_feedback_log():
+    """Tạo tệp lưu phản hồi người dùng nếu chưa tồn tại."""
+    FEEDBACK_LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+
+    if not FEEDBACK_LOG_PATH.exists():
+        with FEEDBACK_LOG_PATH.open(
+            "w",
+            newline="",
+            encoding="utf-8-sig",
+        ) as file:
+            writer = csv.writer(file)
+            writer.writerow(
+                [
+                    "timestamp",
+                    "feedback_id",
+                    "rating",
+                    "question",
+                    "answer_preview",
+                    "source_count",
+                    "response_time_seconds",
+                ]
+            )
+
+
+def _save_user_feedback(
+    feedback_id: str,
+    rating: str,
+    question: str,
+    answer: str,
+    source_count: int,
+    response_time_seconds: float,
+):
+    """Ghi phản hồi Hữu ích/Chưa hữu ích vào CSV."""
+    _ensure_feedback_log()
+
+    with FEEDBACK_LOG_PATH.open(
+        "a",
+        newline="",
+        encoding="utf-8-sig",
+    ) as file:
+        writer = csv.writer(file)
+        writer.writerow(
+            [
+                datetime.now().isoformat(timespec="seconds"),
+                feedback_id,
+                rating,
+                question,
+                str(answer or "")[:500],
+                int(source_count),
+                round(float(response_time_seconds), 3),
+            ]
+        )
+
+
+def _make_feedback_id(question: str, answer: str) -> str:
+    """Tạo định danh ổn định cho một lượt trả lời."""
+    payload = f"{question}|{answer}".encode(
+        "utf-8",
+        errors="ignore",
+    )
+    return hashlib.sha256(payload).hexdigest()[:16]
+
+
+def render_feedback_controls():
+    """Hiển thị nút đánh giá cho phản hồi gần nhất."""
+    feedback_id = st.session_state.get(
+        "last_feedback_id",
+        "",
+    )
+
+    if not feedback_id:
+        return
+
+    selected_rating = st.session_state.feedback_by_id.get(
+        feedback_id
+    )
+
+    st.caption("Phản hồi này có hữu ích không?")
+
+    col_helpful, col_not_helpful, col_status = st.columns(
+        [1, 1, 2]
+    )
+
+    with col_helpful:
+        helpful_clicked = st.button(
+            "👍 Hữu ích",
+            key=f"helpful_{feedback_id}",
+            use_container_width=True,
+            disabled=(selected_rating is not None),
+        )
+
+    with col_not_helpful:
+        not_helpful_clicked = st.button(
+            "👎 Chưa hữu ích",
+            key=f"not_helpful_{feedback_id}",
+            use_container_width=True,
+            disabled=(selected_rating is not None),
+        )
+
+    rating = None
+
+    if helpful_clicked:
+        rating = "helpful"
+    elif not_helpful_clicked:
+        rating = "not_helpful"
+
+    if rating is not None:
+        st.session_state.feedback_by_id[
+            feedback_id
+        ] = rating
+
+        _save_user_feedback(
+            feedback_id=feedback_id,
+            rating=rating,
+            question=st.session_state.get(
+                "last_feedback_question",
+                "",
+            ),
+            answer=st.session_state.get(
+                "last_feedback_answer",
+                "",
+            ),
+            source_count=st.session_state.get(
+                "last_source_count",
+                0,
+            ),
+            response_time_seconds=st.session_state.get(
+                "last_response_time_seconds",
+                0.0,
+            ),
+        )
+
+        selected_rating = rating
+
+    with col_status:
+        if selected_rating == "helpful":
+            st.success("Đã ghi nhận: Hữu ích")
+        elif selected_rating == "not_helpful":
+            st.info("Đã ghi nhận: Chưa hữu ích")
+
+
 # ════════════════════════════════════════════════════════════════════════════
 def Chatbot():
     # ── Khởi tạo toàn bộ session_state tại đây ──────────────────────────────
@@ -311,19 +530,27 @@ def Chatbot():
         "user_question": "",
         "previous_turn_blocked": False,
 
-        # Trạng thái Rolling Adaptive Memory.
         "acm_rolling_summary": "",
         "acm_summarized_count": 0,
         "acm_memory_mode": "keep_all",
+
+        # Lưu nguồn qua lần st.rerun().
+        "last_source_docs": [],
+        "last_source_question": "",
+
+        # Thông tin vận hành của phản hồi gần nhất.
+        "last_response_time_seconds": 0.0,
+        "last_source_count": 0,
+
+        # Trạng thái đánh giá câu trả lời.
+        "feedback_by_id": {},
+        "last_feedback_id": "",
+        "last_feedback_question": "",
+        "last_feedback_answer": "",
     }
     for key, val in defaults.items():
         if key not in st.session_state:
             st.session_state[key] = val
-
-    def update_send_input_state():
-        if st.session_state["user_input_widget"].strip():
-            st.session_state.send_input = True
-            st.session_state.user_question = st.session_state["user_input_widget"].strip()
 
     # ── Header ───────────────────────────────────────────────────────────────
     st.markdown("""
@@ -381,6 +608,13 @@ def Chatbot():
                 st.session_state.acm_rolling_summary = ""
                 st.session_state.acm_summarized_count = 0
                 st.session_state.acm_memory_mode = "keep_all"
+                st.session_state.last_source_docs = []
+                st.session_state.last_source_question = ""
+                st.session_state.last_response_time_seconds = 0.0
+                st.session_state.last_source_count = 0
+                st.session_state.last_feedback_id = ""
+                st.session_state.last_feedback_question = ""
+                st.session_state.last_feedback_answer = ""
                 st.rerun()
         else:
             chosen = st.selectbox(
@@ -398,6 +632,14 @@ def Chatbot():
                 st.session_state.acm_summarized_count = 0
                 st.session_state.acm_memory_mode = "keep_all"
 
+                st.session_state.last_source_docs = []
+                st.session_state.last_source_question = ""
+                st.session_state.last_response_time_seconds = 0.0
+                st.session_state.last_source_count = 0
+                st.session_state.last_feedback_id = ""
+                st.session_state.last_feedback_question = ""
+                st.session_state.last_feedback_answer = ""
+
                 st.rerun()
 
     # ── Quản lý Lịch sử trò chuyện ──────────────────────────────────────────
@@ -412,13 +654,44 @@ def Chatbot():
         for message in history.messages:
             st.chat_message(message["type"]).write(message["content"])
 
-    # Ô nhập câu hỏi
-    st.text_input(
-        "Mẹ muốn hỏi điều gì?",
-        key="user_input_widget",
-        on_change=update_send_input_state,
-        value="" if st.session_state.clear_input else st.session_state.user_question
-    )
+    # Sau st.rerun(), hiển thị lại nguồn của phản hồi gần nhất.
+    if (
+        st.session_state.rag_chat
+        and st.session_state.last_source_docs
+    ):
+        render_source_documents(
+            st.session_state.last_source_docs
+        )
+
+    if st.session_state.last_feedback_id:
+        render_feedback_controls()
+
+    # Ô nhập câu hỏi:
+    # Chỉ gửi khi người dùng nhấn Enter hoặc nút "Gửi".
+    # Không dùng on_change vì callback có thể chạy khi ô nhập mất focus.
+    with st.form(
+        "chat_input_form",
+        clear_on_submit=True,
+    ):
+        typed_question = st.text_input(
+            "Mẹ muốn hỏi điều gì?",
+            key="user_input_widget",
+            placeholder="Nhập câu hỏi rồi nhấn Enter để gửi...",
+        )
+
+        submitted = st.form_submit_button(
+            "Gửi",
+            use_container_width=True,
+        )
+
+    if submitted:
+        normalized_question = str(
+            typed_question or ""
+        ).strip()
+
+        if normalized_question:
+            st.session_state.send_input = True
+            st.session_state.user_question = normalized_question
 
     if st.session_state.clear_input:
         st.session_state.clear_input = False
@@ -426,12 +699,11 @@ def Chatbot():
     # ── Xử lý khi user gửi câu hỏi ──────────────────────────────────────────
     if st.session_state.send_input:
         user_text = st.session_state.user_question.strip()
-        
-        # Giải phóng biến lưu trữ câu hỏi ngay để tránh kẹt bộ nhớ vòng lặp sau
+
+        # Chỉ xóa trạng thái sau khi người dùng đã chủ động gửi.
         st.session_state.user_question = ""
         st.session_state.send_input = False
         st.session_state.locked_session = True
-        st.session_state.clear_input = True
 
         if not user_text:
             st.rerun()
@@ -523,6 +795,8 @@ def Chatbot():
 
         with chat_container:
             with st.spinner("🤱 MomCare đang phân tích..."):
+                request_started_at = time.perf_counter()
+
                 try:
                     if st.session_state.rag_chat:
                         rag_chain = llm_chain.load_rag_chain_with_sources(
@@ -530,47 +804,62 @@ def Chatbot():
                             temperature=temperature
                         )
                         result = rag_chain.invoke({"question": user_text, "history": chat_history_messages})
-                        response = result["answer"]
-                        source_docs = result["docs"]
+                        print("\n========== DEBUG RAG ==========")
+                        print("Result keys:", result.keys())
+
+                        source_docs = result.get("docs", [])
+
+                        print("Number docs:", len(source_docs))
+
+                        for i, d in enumerate(source_docs):
+                            print(
+                                i,
+                                d.metadata.get("source"),
+                                d.metadata.get("page"),
+                                d.metadata.get("chunk_id")
+                            )
+                        print("==============================\n")
+                        response = result.get(
+                            "answer",
+                            "⚠️ Hệ thống không tạo được câu trả lời.",
+                        )
+                        source_docs = result.get("docs", [])
+
+                        # ===================================================
+                        # LƯU NGUỒN ĐỂ HIỂN THỊ SAU st.rerun()
+                        # ===================================================
+
+                        st.session_state.last_source_docs = [
+                            {
+                                "page_content": str(doc.page_content),
+                                "metadata": dict(doc.metadata),
+                            }
+                            for doc in source_docs
+                        ]
+
+                        st.session_state.last_source_question = user_text
                     else:
-                        normal_chain = llm_chain.load_normal_chain(temperature=temperature)
-                        response = normal_chain.invoke({"question": user_text, "history": chat_history_messages})
+                        normal_chain = llm_chain.load_normal_chain(
+                            temperature=temperature
+                        )
+
+                        response = normal_chain.invoke(
+                            {
+                                "question": user_text,
+                                "history": chat_history_messages,
+                            }
+                        )
+
                         source_docs = []
+
+                        st.session_state.last_source_docs = []
+                        st.session_state.last_source_question = ""
 
                     if response:
                         st.chat_message('ai').write(response)
                     else:
                         response = "⚠️ Hệ thống AI đang gặp sự cố kết nối. Vui lòng thử lại sau."
                         st.chat_message('ai').write(response)
-
-                    if st.session_state.rag_chat and source_docs:
-                        with st.expander("📎 Xem nguồn tài liệu", expanded=False):
-                            st.success(f"✅ Tìm thấy {len(source_docs)} nguồn tài liệu")
-                            for i, doc in enumerate(source_docs, start=1):
-                                source_name = doc.metadata.get(
-                                    "source",
-                                    "Không rõ"
-                                )
-                                page = doc.metadata.get(
-                                    "page_display",
-                                    doc.metadata.get("page", "Không xác định")
-                                )
-                                chunk_id = doc.metadata.get(
-                                    "chunk_id",
-                                    "Không xác định"
-                                )
-                                file_type = doc.metadata.get(
-                                    "file_type",
-                                    "Không xác định"
-                                )
-
-                                st.info(
-                                    f"**📄 Nguồn {i}:** `{source_name}`  \n"
-                                    f"**Loại:** `{file_type}` | "
-                                    f"**Trang:** `{page}` | "
-                                    f"**Chunk:** `{chunk_id}`  \n\n"
-                                    f"{doc.page_content[:500]}..."
-                                )
 
                 except Exception as e:
                     import traceback
@@ -582,27 +871,60 @@ def Chatbot():
                         "⚠️ Hệ thống đang gặp sự cố kỹ thuật. "
                         "Vui lòng thử lại sau."
                     )
+                    source_docs = []
+                    st.session_state.last_source_docs = []
+                    st.session_state.last_source_question = ""
+
+                response_time_seconds = (
+                    time.perf_counter()
+                    - request_started_at
+                )
+
+                # Lưu dữ liệu vận hành và định danh phản hồi gần nhất.
+                st.session_state.last_response_time_seconds = (
+                    response_time_seconds
+                )
+                st.session_state.last_source_count = len(
+                    source_docs
+                )
+                st.session_state.last_feedback_question = user_text
+                st.session_state.last_feedback_answer = response
+                st.session_state.last_feedback_id = (
+                    _make_feedback_id(
+                        user_text,
+                        response,
+                    )
+                )
+
                 # Luôn lưu lượt hội thoại để giao diện hiển thị đầy đủ.
                 history.add_a_conversation(
                     user_text,
                     response
                 )
 
-                # Phản hồi lỗi, từ chối hoặc cảnh báo sẽ không được
-                # sử dụng làm ngữ cảnh cho Query Rewriter ở lượt sau.
-                if is_blocked_or_safety_response(response):
-                    st.session_state.previous_turn_blocked = True
-
-                    print(
-                        "🛡️ [HISTORY] Đã lưu để hiển thị, "
-                        "nhưng sẽ loại khỏi ngữ cảnh Rewriter."
-                    )
+                if st.session_state.rag_chat:
+                    st.session_state.last_source_docs = [
+                        {
+                            "page_content": str(
+                                getattr(
+                                    doc,
+                                    "page_content",
+                                    "",
+                                )
+                            ),
+                            "metadata": dict(
+                                getattr(
+                                    doc,
+                                    "metadata",
+                                    {},
+                                )
+                                or {}
+                            ),
+                        }
+                        for doc in source_docs
+                    ]
                 else:
-                    st.session_state.previous_turn_blocked = False
-                    print(
-                        "💾 [HISTORY] "
-                        "Đã lưu lượt hội thoại hợp lệ."
-                    )
+                    st.session_state.last_source_docs = []
 
                 st.rerun()
                     

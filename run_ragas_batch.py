@@ -104,7 +104,7 @@ print("✅ Metrics: Faithfulness | ContextRecall | AnswerRelevancy | ContextPrec
 
 # ── Import RAGChain ────────────────────────────────────────────────────────
 from llm_chain import RAGChain
-chain = RAGChain(k=5) # Đổi thành k=5 cho đồng bộ
+chain = RAGChain(k=3) # Đổi thành k=5 cho đồng bộ
 
 # ── CHECKPOINT & RAG LOOP ──────────────────────────────────────────────────
 results_map   = {}

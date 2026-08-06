@@ -1,0 +1,30 @@
+{
+    "history_name": "chế độ dinh dưỡng bé tháng tuổi #3",
+    "history_id": "20260807_024559",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "chế độ dinh dưỡng cho bé 8 tháng tuổi"
+        },
+        {
+            "type": "ai",
+            "content": "Trẻ 8 tháng tuổi nên được cho ăn các loại thức ăn mềm và dễ tiêu hóa, bao gồm:\n\n- Cháo\n- Rau, củ, quả\n- Trứng\n- Thịt, cá, hải sản\n- Dầu hoặc mỡ\n\nNên cho trẻ ăn từng chút một, mỗi tuần tăng lượng ăn của trẻ lên một chút. Đầu tiên nên ăn 1 bữa/ngày, rồi tăng lên 2 bữa/ngày, đồng thời tăng độ đặc của cháo."
+        },
+        {
+            "type": "human",
+            "content": "còn vitamin thì sao"
+        },
+        {
+            "type": "ai",
+            "content": "Trẻ 8 tháng tuổi cần được bổ sung thêm vitamin và chất dinh dưỡng từ các loại hoa quả như bơ, đu đủ, chuối, hồng, xoài..."
+        },
+        {
+            "type": "human",
+            "content": "có nên ăn dặm ko"
+        },
+        {
+            "type": "ai",
+            "content": "Trẻ 8 tháng tuổi nên được áp dụng chế độ ăn dặm với các lợi ích sau:\n\n- Ăn các loại thức ăn mềm và dễ tiêu hóa.\n- Bắt đầu ăn 1 bữa/ngày, tăng lên 2 bữa/ngày khi hệ tiêu hóa của trẻ làm quen dần với thức ăn.\n- Tăng độ đặc của cháo và bổ sung thêm các loại hoa quả để bổ sung vitamin và khoáng chất.\n\nLưu ý: cần cho trẻ bú nhiều, cân bằng lượng thức ăn vừa phải để trẻ không no quá mà bỏ bú."
+        }
+    ]
+}

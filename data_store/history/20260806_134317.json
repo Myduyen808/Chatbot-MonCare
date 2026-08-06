@@ -1,0 +1,46 @@
+{
+    "history_name": "xin chào #15",
+    "history_id": "20260806_134317",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "xin chào"
+        },
+        {
+            "type": "ai",
+            "content": "Xin chào mẹ yêu! Tôi rất vui được phục vụ và chăm sóc mẹ và bé trong ngày hôm nay! Có gì mẹ cần giúp không?"
+        },
+        {
+            "type": "human",
+            "content": "con tôi 6 tháng tuổi dinh dưỡng bn"
+        },
+        {
+            "type": "ai",
+            "content": "⚠️ Hệ thống đang gặp sự cố kỹ thuật. Vui lòng thử lại sau."
+        },
+        {
+            "type": "human",
+            "content": "tổng thống VN là ai"
+        },
+        {
+            "type": "ai",
+            "content": "Xin lỗi, câu hỏi này nằm ngoài phạm vi hỗ trợ của MomCare. Hệ thống tập trung cung cấp thông tin tham khảo về chăm sóc mẹ và bé."
+        },
+        {
+            "type": "human",
+            "content": "dinh dưỡng cho con 6 tháng tuổi"
+        },
+        {
+            "type": "ai",
+            "content": "⚠️ Hệ thống đang gặp sự cố kỹ thuật. Vui lòng thử lại sau."
+        },
+        {
+            "type": "human",
+            "content": "dinh dưỡng cho con 6 tháng bao nhiêu"
+        },
+        {
+            "type": "ai",
+            "content": "⚠️ Hệ thống đang gặp sự cố kỹ thuật. Vui lòng thử lại sau."
+        }
+    ]
+}
