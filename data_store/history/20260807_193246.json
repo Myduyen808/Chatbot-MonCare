@@ -1,0 +1,22 @@
+{
+    "history_name": "Trẻ tháng tuổi có ăn dặm #16",
+    "history_id": "20260807_193246",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "Trẻ 8 tháng tuổi có nên ăn dặm không?"
+        },
+        {
+            "type": "ai",
+            "content": "Trẻ 8 tháng tuổi có nên ăn dặm không?\n\nCó.\n\nTrẻ từ 6 tháng tuổi cần được ăn dặm bổ sung ngoài nguồn sữa mẹ vì nhu cầu dinh dưỡng của trẻ tăng lên. Trẻ 8 tháng tuổi có thể bắt đầu ăn dặm từ 2 đến 3 bữa mỗi ngày, tăng lên 3 đến 4 bữa mỗi ngày từ 9 tháng trở lên."
+        },
+        {
+            "type": "human",
+            "content": "Còn sữa mẹ thì sao?"
+        },
+        {
+            "type": "ai",
+            "content": "Có.\n\nTrẻ 8 tháng tuổi vẫn nên tiếp tục bú mẹ theo nhu cầu."
+        }
+    ]
+}

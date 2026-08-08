@@ -1,0 +1,35 @@
+{
+  "benchmark": "ViMedAQA clean context-only RAG benchmark",
+  "paper": "https://aclanthology.org/2024.acl-srw.31/",
+  "input": "evaluation\\vimedaqa_clean\\generation_results.csv",
+  "unique_ok_samples": 2213,
+  "historical_error_rows_excluded": 95,
+  "score_scale": "0-100",
+  "BLEU": {
+    "implementation": "sacrebleu.corpus_bleu",
+    "tokenizer": "13a",
+    "aggregation": "corpus"
+  },
+  "ROUGE_L": {
+    "implementation": "Unicode token LCS",
+    "tokenization": "lowercase regex: \\w+|[^\\w\\s]",
+    "aggregation": "mean sentence F1"
+  },
+  "METEOR": {
+    "implementation": "nltk.translate.meteor_score.meteor_score",
+    "tokenization": "lowercase regex: \\w+|[^\\w\\s]",
+    "aggregation": "mean sentence score"
+  },
+  "BERTScore": {
+    "implementation": "bert-score",
+    "component": "F1",
+    "model": "bert-base-multilingual-cased",
+    "language": "vi",
+    "rescale_with_baseline": false,
+    "device": "cpu",
+    "batch_size": 4,
+    "aggregation": "mean sentence F1"
+  },
+  "Avg": "arithmetic mean of BERT, BLEU, MET, ROU",
+  "comparability_note": "The ViMedAQA paper names BLEU, METEOR, ROUGE-L and BERTScore but does not publish the exact evaluation implementation/model configuration. These results use the explicit protocol above."
+}

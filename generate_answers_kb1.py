@@ -1,9 +1,8 @@
 """
 generate_answers_kb1.py
 =======================
-Thực nghiệm RAG chuẩn trên 100 câu hỏi y khoa từ KB1_Medical_Standard.
-Mục tiêu: Chứng minh Guardrails mới KHÔNG làm giảm chất lượng RAG 
-và KHÔNG chặn nhầm các câu hỏi y khoa hợp lệ.
+Stability test trên 50 câu hỏi hợp lệ từ KB1_Medical_Standard.
+Mục tiêu: đo False Positive Rate của Input Guardrails.
 
 Cách dùng:
     python -B generate_answers_kb1.py
@@ -16,12 +15,12 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-from llm_chain import RAGChain, check_input_guardrails_with_llm
+from llm_chain import check_input_guardrails_with_llm
 
 # Cấu hình
 INPUT_EXCEL = "KB1_Medical_Standard.xlsx"
-OUTPUT_FILE = "answers_kb1.csv"
-CKPT_FILE = "gen_kb1_checkpoint.csv"
+OUTPUT_FILE = "stability_test_results_final.csv"
+CKPT_FILE = "stability_test_checkpoint.csv"
 NUM_QUESTIONS = 50
 
 def run_standard_test():
@@ -38,10 +37,7 @@ def run_standard_test():
     ground_truths = df["phản hồi kỳ vọng (expected output)"].tolist()
     sources = df["nguồn (source)"].tolist()
     
-    # 2. Khởi tạo RAG Chain
-    chain = RAGChain(k=5, temperature=0.3)
-    
-    # 3. Load Checkpoint
+    # 2. Load Checkpoint
     results = []
     start_idx = 0
     if os.path.exists(CKPT_FILE):
@@ -60,30 +56,24 @@ def run_standard_test():
 
         print(f"[{i+1:>3}/{len(questions)}] {q[:70]}...")
 
-        # Kiểm tra Guardrails (Đây là điểm chính: Phải trả lời None để đi tiếp)
+        # Đo trực tiếp Input Guardrails. Không gọi RAG vì mục tiêu của
+        # thí nghiệm này chỉ là xác định câu hợp lệ có bị chặn nhầm hay không.
         guardrail_msg = check_input_guardrails_with_llm(q)
-        if guardrail_msg:
-            answer = guardrail_msg
-            docs_count = 0
+        is_blocked = bool(guardrail_msg)
+        passed = not is_blocked
+
+        if is_blocked:
             print(f"       ⚠️ BỊ CHẶN NHẦM BỞI GUARDRAILS!") # Cảnh báo nếu câu chuẩn bị chặn
         else:
-            try:
-                # Go straight to RAG
-                res = chain.invoke({"question": q, "history": []})
-                answer = res.get("answer", "")
-                docs_count = len(res.get("docs", []))
-                print(f"       ✅ RAG trả lời bình thường ({docs_count} docs)")
-            except Exception as e:
-                answer = f"ERROR: {str(e)[:100]}"
-                docs_count = 0
-                print(f"       ❌ Lỗi: {str(e)[:50]}")
+            print("       ✅ Guardrails cho phép truy vấn đi tiếp")
 
         results.append({
             "question": q,
             "ground_truth": gt,
             "source": src,
-            "answer": answer,
-            "num_docs": docs_count
+            "is_blocked": is_blocked,
+            "passed": passed,
+            "guardrail_message": str(guardrail_msg or ""),
         })
 
         if (i + 1) % 5 == 0:
@@ -98,18 +88,21 @@ def run_standard_test():
     if os.path.exists(CKPT_FILE):
         os.remove(CKPT_FILE)
 
-    # Báo cáo
-    blocked_cases = [r for r in results if "không thể" in str(r["answer"]).lower() or "1800" in str(r["answer"])]
+    # Báo cáo từ trạng thái có cấu trúc, không suy từ câu chữ trong answer.
+    blocked_cases = [r for r in results if bool(r.get("is_blocked"))]
+    false_positive_rate = (
+        len(blocked_cases) / len(results) * 100
+        if results else 0.0
+    )
     
     print(f"\n{'='*80}")
     print(f"  🎉 HOÀN TẤT!")
     print(f"  📄 Đã lưu tại: {OUTPUT_FILE}")
     print(f"  🛡️ Số câu bị chặn nhầm (False Positive): {len(blocked_cases)}/{len(results)}")
+    print(f"  📊 False Positive Rate: {false_positive_rate:.1f}%")
     if len(blocked_cases) == 0:
-        print(f"  🌟 XUẤT SẮC: Guardrails hoàn toàn không can thiệp vào các câu hỏi y khoa hợp lệ!")
+        print("  ✅ Không ghi nhận trường hợp chặn nhầm trong tập kiểm thử này.")
     print(f"{'='*80}\n")
-    print(f"👉 Bước tiếp theo: Chạy Judge để lấy điểm Accuracy/Completeness/Safety")
-    print(f"   python judge_clinical_v2.py --kb kb1 --input {OUTPUT_FILE} --output final_kb1_v2.csv")
 
 if __name__ == "__main__":
     run_standard_test()

@@ -1,0 +1,7 @@
+﻿id,group,question,expected_source,expected_tier,rank,hit_at_5,reciprocal_rank,official_hit_at_3,tier_a_in_top3,latency_seconds
+R01,feeding,Trẻ 8 tháng tuổi có nên ăn dặm không?,quyet_dinh_hd_an_bo_sung.pdf,A,3,1,0.3333333333333333,1,1,0.18993520000367425
+R02,feeding,Trẻ 8 tháng tuổi nên ăn dặm mấy bữa mỗi ngày?,quyet_dinh_hd_an_bo_sung.pdf,A,4,1,0.25,0,1,0.17229239999869606
+R04,breastfeeding,Trẻ dưới 6 tháng tuổi có cần uống thêm nước không?,Tại sao chúng ta không cần cho trẻ sơ sinh dưới 6 tháng tuổi uống nước.docx,C,1,1,1.0,,1,0.1292916000020341
+R05,breastfeeding,Bảo quản sữa mẹ đã vắt như thế nào?,Bảo quản sữa mẹ đã vắt như thế nào.docx,B,1,1,1.0,,0,0.11942650000128197
+R06,postpartum,Dấu hiệu trầm cảm sau sinh là gì?,TRẦM CẢM SAU SINH.docx,B,1,1,1.0,,0,0.11284539999905974
+R12,feeding,Trẻ 8 tháng tuổi có thể tiếp tục bú sữa mẹ không?,quyet_dinh_hd_an_bo_sung.pdf,A,1,1,1.0,1,1,0.13760480000200914

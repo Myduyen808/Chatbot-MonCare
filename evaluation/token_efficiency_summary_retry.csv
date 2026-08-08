@@ -1,0 +1,2 @@
+﻿config,n_turns_ok,total_api_calls,mean_api_calls_per_turn,total_prompt_tokens,mean_prompt_tokens_per_turn,mean_summary_prompt_tokens,mean_processing_prompt_tokens,mean_raw_history_chars,mean_model_history_chars,mean_latency_s
+ACM_MERGED,10,18,1.8,10997,1099.7,369.5,730.2,1238.1,426.4,0.6848

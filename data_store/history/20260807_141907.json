@@ -1,0 +1,22 @@
+{
+    "history_name": "Trẻ tháng tuổi có ăn dặm #4",
+    "history_id": "20260807_141907",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "Trẻ 8 tháng tuổi có nên ăn dặm không?"
+        },
+        {
+            "type": "ai",
+            "content": "Trẻ 8 tháng tuổi có nên ăn dặm không?\n\nCâu trả lời là có, vì Viện Dinh dưỡng Quốc gia khuyến cáo rằng sau 6 tháng tuổi là thời gian tốt nhất cho trẻ bắt đầu ăn dặm."
+        },
+        {
+            "type": "human",
+            "content": "giai đoạn này biết lật chưa ạ"
+        },
+        {
+            "type": "ai",
+            "content": "Trẻ 8 tháng tuổi có thể lật được."
+        }
+    ]
+}

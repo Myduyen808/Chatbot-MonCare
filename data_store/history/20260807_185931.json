@@ -1,0 +1,38 @@
+{
+    "history_name": "Trẻ tháng tuổi có ăn dặm #15",
+    "history_id": "20260807_185931",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "Trẻ 8 tháng tuổi có nên ăn dặm không?"
+        },
+        {
+            "type": "ai",
+            "content": "Có.\n\nTrẻ 8 tháng tuổi nên bắt đầu ăn dặm bổ sung ngoài nguồn sữa mẹ. Theo tài liệu, từ 6 tháng tuổi, trẻ cần được ăn dặm bổ sung ngoài nguồn sữa mẹ vì nhu cầu dinh dưỡng của trẻ tăng lên. Trẻ 8 tháng tuổi có thể bắt đầu ăn các thức ăn mềm và giàu dinh dưỡng như bột ngũ cốc được chế biến tại địa phương hay gia đình và các thực phẩm giàu chất sắt như thịt và trứng."
+        },
+        {
+            "type": "human",
+            "content": "Nên ăn mấy bữa?"
+        },
+        {
+            "type": "ai",
+            "content": "Trẻ 8 tháng tuổi nên ăn 2 bữa."
+        },
+        {
+            "type": "human",
+            "content": "Còn vitamin thì sao?"
+        },
+        {
+            "type": "ai",
+            "content": "Trẻ 8 tháng tuổi cần bổ sung vitamin D.\n\nTheo tài liệu, nhu cầu vitamin D khuyến nghị cho trẻ sơ sinh và trẻ nhỏ <6 tháng là 400UI/ngày. Tuy nhiên, không có thông tin cụ thể về nhu cầu vitamin D cho trẻ 8 tháng tuổi. Nhưng theo tài liệu khác, nhu cầu vitamin D khuyến nghị cho trẻ từ 6-23 tháng tuổi là 400 IU/ngày.\n\nNgoài ra, trẻ 8 tháng tuổi cũng cần bổ sung canxi. Theo tài liệu, nhu cầu canxi khuyến nghị cho trẻ 6-23 tháng tuổi là 400-500 mg/ngày.\n\nVitamin C và sắt cũng là những chất dinh dưỡng quan trọng mà trẻ 8 tháng tuổi cần bổ sung. Theo tài liệu, nhu cầu vitamin C khuyến nghị cho trẻ 6-23 tháng tuổi là 40 mg/ngày, và nhu cầu sắt khuyến nghị cho trẻ 6-11 tháng tuổi là 9,0 mg/ngày.\n\nTóm lại, trẻ 8 tháng tuổi cần bổ sung vitamin D, canxi, vitamin C và sắt."
+        },
+        {
+            "type": "human",
+            "content": "Còn sữa mẹ thì sao?"
+        },
+        {
+            "type": "ai",
+            "content": "Trẻ 8 tháng tuổi có thể uống sữa mẹ được không?\n\nCó.\n\nTheo tài liệu, trẻ từ 6-23 tháng tuổi có thể uống sữa mẹ, và không có giới hạn về độ tuổi cụ thể."
+        }
+    ]
+}

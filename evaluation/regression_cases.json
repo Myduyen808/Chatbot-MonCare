@@ -1,0 +1,86 @@
+[
+    {
+        "id": "R01",
+        "group": "feeding",
+        "question": "Trẻ 8 tháng tuổi có nên ăn dặm không?",
+        "expected_source": "quyet_dinh_hd_an_bo_sung.pdf",
+        "check": "official_source"
+    },
+    {
+        "id": "R02",
+        "group": "feeding",
+        "question": "Trẻ 8 tháng tuổi nên ăn dặm mấy bữa mỗi ngày?",
+        "expected_source": "quyet_dinh_hd_an_bo_sung.pdf",
+        "check": "age_and_quantity"
+    },
+    {
+        "id": "R03",
+        "group": "vitamin",
+        "question": "Trẻ 8 tháng tuổi cần bổ sung vitamin gì?",
+        "expected_source": "",
+        "check": "age_grounding"
+    },
+    {
+        "id": "R04",
+        "group": "breastfeeding",
+        "question": "Trẻ dưới 6 tháng tuổi có cần uống thêm nước không?",
+        "expected_source": "Tại sao chúng ta không cần cho trẻ sơ sinh dưới 6 tháng tuổi uống nước.docx",
+        "check": "age_grounding"
+    },
+    {
+        "id": "R05",
+        "group": "breastfeeding",
+        "question": "Bảo quản sữa mẹ đã vắt như thế nào?",
+        "expected_source": "Bảo quản sữa mẹ đã vắt như thế nào.docx",
+        "check": "retrieval"
+    },
+    {
+        "id": "R06",
+        "group": "postpartum",
+        "question": "Dấu hiệu trầm cảm sau sinh là gì?",
+        "expected_source": "TRẦM CẢM SAU SINH.docx",
+        "check": "retrieval"
+    },
+    {
+        "id": "R07",
+        "group": "postpartum",
+        "question": "Mẹ sau sinh bị sốt thì cần chú ý gì?",
+        "expected_source": "",
+        "check": "medical_grounding"
+    },
+    {
+        "id": "R08",
+        "group": "postpartum",
+        "question": "Sau sinh mổ chăm sóc vết mổ như thế nào?",
+        "expected_source": "",
+        "check": "retrieval"
+    },
+    {
+        "id": "R09",
+        "group": "child_development",
+        "question": "Trẻ 8 tháng tuổi chưa biết đi có phải chậm phát triển không?",
+        "expected_source": "",
+        "check": "age_grounding"
+    },
+    {
+        "id": "R10",
+        "group": "safety",
+        "question": "Trẻ 8 tháng tuổi dùng thuốc gì khi bị sốt?",
+        "expected_source": "",
+        "check": "medical_safety"
+    },
+    {
+        "id": "R11",
+        "group": "fallback",
+        "question": "Giá Bitcoin hôm nay bao nhiêu?",
+        "expected_source": "",
+        "check": "out_of_domain"
+    },
+    {
+        "id": "R12",
+        "group": "feeding",
+        "question": "Trẻ 8 tháng tuổi có thể tiếp tục bú sữa mẹ không?",
+        "expected_source": "quyet_dinh_hd_an_bo_sung.pdf",
+        "check": "official_source"
+    }
+]

@@ -19,7 +19,7 @@ import llm_chain
 from vectordb import get_list_documents, get_document, delete_document, get_details, create_vectordb_with_file
 
 DEFAULT_TOP_K = 5
-DEFAULT_TEMPERATURE = 0.2
+DEFAULT_TEMPERATURE = 0.0
 
 FEEDBACK_LOG_PATH = Path("runtime_logs") / "user_feedback.csv"
 
@@ -564,13 +564,9 @@ def Chatbot():
     # ── Sidebar ──────────────────────────────────────────────────────────────
     with st.sidebar:
         st.markdown("### ⚙️ Cài đặt Hệ thống")
-        temperature = st.slider(
-            "Độ sáng tạo (Temperature)",
-            min_value=0.0,
-            max_value=0.5,
-            value=DEFAULT_TEMPERATURE,
-            step=0.1
-        )
+        # Temperature cố định để đảm bảo tính nhất quán
+        # và khả năng tái lập trong chatbot y tế.
+        temperature = DEFAULT_TEMPERATURE
         rag_button = st.toggle("Bật Chế độ RAG", value=st.session_state.rag_chat)
 
         if rag_button != st.session_state.rag_chat:

@@ -20,6 +20,151 @@ _vector_db_cache = None
 with open("db_config.yml", "r", encoding="utf-8") as f: db_config = yaml.safe_load(f)
 with open("model_config.yml", "r", encoding="utf-8") as f: model_config = yaml.safe_load(f)
 
+# =========================================================
+# SOURCE AUTHORITY
+# =========================================================
+
+SOURCE_TIER_A = {
+    # Bộ Y tế
+    "quyet_dinh_hd_an_bo_sung.pdf",
+    "HƯỚNG DẪN QUỐC GIA DINH DƯỠNG CHO PHỤ NỮ CÓ THAI VÀ BF MẸ CHO CON BÚ.pdf",
+    "dvcsskss_48201712.pdf",
+    "Quyết-định-4673-QĐ-BYT.pdf",
+    "Quyet dinh so 4673-QD-BYT ngay 10-11-2014 (Con hieu luc).doc",
+
+    # Cơ quan/chương trình chính thống
+    "viendinhduong_nuoi_duong_cham_soc_tre_so_sinh.pdf",
+
+    # Bộ tài liệu chương trình làm cha mẹ
+    "Hành vi - Không ai hoàn hảo.pdf",
+    "Sức khỏe - Không ai hoàn hảo.pdf",
+    "Trí tuệ - Không ai hoàn hảo.pdf",
+
+    # Viện Dinh dưỡng Quốc gia
+    "Điểm mới về nhu cầu khuyến nghị vitamin D và Canxi.docx",
+
+    # Nếu có thì điền đúng tên file thực tế
+    "Cách đánh giá tình trạng dinh dưỡng bằng nhân trắc tại cộng đồng.docx",
+
+    # Chương trình Tiêm chủng mở rộng
+    "Lịch tiêm chủng các vắc xin trong Chương trình Tiêm chủng mở rộng.docx",
+
+}
+
+
+SOURCE_TIER_B = {
+    # Bệnh viện / chuyên gia / cơ sở y tế
+    "1332349_Viem am ho - Am dao.pdf",
+    "CHAM_SOC_THOI_KY_HAU_SAN_d7fe6bfe0e.pdf",
+    "hoi-chung-quay-khoc-tre-nhu-nhi-colic-5233.pdf",
+    "TRẦM CẢM SAU SINH.docx",
+    "Bảo quản sữa mẹ đã vắt như thế nào.docx",
+}
+
+
+def get_source_authority(source):
+    """Xác định độ uy tín của nguồn tài liệu."""
+
+    filename = os.path.basename(
+        str(source or "")
+    ).strip()
+
+    tier_a = {name.casefold() for name in SOURCE_TIER_A}
+    tier_b = {name.casefold() for name in SOURCE_TIER_B}
+
+    normalized = filename.casefold()
+
+    if normalized in tier_a:
+        return "A", 1.0
+
+    if normalized in tier_b:
+        return "B", 0.5
+
+    # Chưa xác minh nguồn -> mặc định thận trọng
+    return "C", 0.0
+
+# =========================================================
+# INACTIVE / SUPERSEDED SOURCES
+# =========================================================
+
+INACTIVE_SOURCES = {
+    # Đã có hướng dẫn chính thức mới:
+    # QĐ 318/QĐ-BYT năm 2026
+    "Hướng dẫn đầy đủ về ăn dặm theo khuyến cáo của Viện Dinh dưỡng Quốc gia.docx":
+        "superseded_by_QD_318_2026",
+
+    # Tài liệu ngoài trọng tâm, từng gây nhiễu retrieval vitamin
+    "20 trò chơi thú vị.docx":
+        "out_of_scope",
+}
+
+
+def get_inactive_reason(source):
+
+    filename = os.path.basename(
+        str(source or "")
+    ).strip().casefold()
+
+    for name, reason in INACTIVE_SOURCES.items():
+
+        if filename == name.casefold():
+            return reason
+
+    return None
+
+from collections import Counter
+
+
+def debug_authority_stats(db):
+
+    documents = list(db.docstore._dict.values())
+
+    chunk_counts = Counter()
+    source_by_tier = {
+        "A": set(),
+        "B": set(),
+        "C": set(),
+    }
+
+    for doc in documents:
+
+        metadata = doc.metadata or {}
+
+        tier = metadata.get(
+            "authority_tier",
+            "MISSING"
+        )
+
+        source = metadata.get(
+            "source",
+            "UNKNOWN"
+        )
+
+        chunk_counts[tier] += 1
+
+        if tier in source_by_tier:
+            source_by_tier[tier].add(source)
+
+    print("\n========== SOURCE AUTHORITY DEBUG ==========")
+
+    print(f"Tổng chunks: {len(documents)}")
+
+    for tier in ["A", "B", "C", "MISSING"]:
+        print(
+            f"Tier {tier}: "
+            f"{chunk_counts.get(tier, 0)} chunks"
+        )
+
+    print("\nSố nguồn theo Tier:")
+
+    for tier in ["A", "B", "C"]:
+        print(
+            f"Tier {tier}: "
+            f"{len(source_by_tier[tier])} nguồn"
+        )
+
+    print("============================================\n")
+
 # Thêm sau dòng _vector_db_cache = None
 _embedding_model = None  # Cache model ở đây
 
@@ -356,9 +501,39 @@ def create_vectordb_with_file(pdf_path=db_config["pdf_path"], word_path=db_confi
     if not documents: print("Không tìm thấy tài liệu!"); return
 
     final_clean_documents = []
+
     for doc in documents:
-        cleaned_text = clean_web_boilerplate(doc.page_content)
-        if len(cleaned_text) > 50: final_clean_documents.append(LC_Document(page_content=cleaned_text, metadata=doc.metadata))
+
+        source = doc.metadata.get(
+            "source",
+            ""
+        )
+
+        inactive_reason = get_inactive_reason(
+            source
+        )
+
+        if inactive_reason:
+
+            print(
+                "🗄️ [SOURCE EXCLUDED] "
+                f"{source} | "
+                f"reason={inactive_reason}"
+            )
+
+            continue
+
+        cleaned_text = clean_web_boilerplate(
+            doc.page_content
+        )
+
+        if len(cleaned_text) > 50:
+            final_clean_documents.append(
+                LC_Document(
+                    page_content=cleaned_text,
+                    metadata=doc.metadata
+                )
+            )
             
     # =========================================================
     # CHUNKING CÓ GIỚI HẠN KÍCH THƯỚC
@@ -508,9 +683,25 @@ def create_vectordb_with_file(pdf_path=db_config["pdf_path"], word_path=db_confi
                         )
                     )
                     
-    # Gắn định danh truy vết cho từng chunk.
+    # Gắn metadata truy vết và độ uy tín nguồn.
     for chunk_index, chunk in enumerate(final_chunks):
+
         chunk.metadata["chunk_id"] = chunk_index
+
+        source = chunk.metadata.get("source", "")
+
+        authority_tier, authority_score = (
+            get_source_authority(source)
+        )
+
+        chunk.metadata["authority_tier"] = authority_tier
+        chunk.metadata["authority_score"] = authority_score
+
+        # PyPDFLoader thường đánh số trang từ 0.
+        raw_page = chunk.metadata.get("page")
+
+        if isinstance(raw_page, int):
+            chunk.metadata["page_display"] = raw_page + 1
 
         # PyPDFLoader thường đánh số trang từ 0.
         # Tạo page_display để giao diện hiển thị từ trang 1.
@@ -591,6 +782,7 @@ def load_vector_db(db_path=db_config["database_path"]):
             db_path, load_embedding(), 
             allow_dangerous_deserialization=True
         )
+        debug_authority_stats(_vector_db_cache)
     return _vector_db_cache
 
 def detect_query_priority(question):

@@ -1,0 +1,14 @@
+{
+    "history_name": "Trẻ tháng tuổi cần bổ sung vitamin #6",
+    "history_id": "20260807_192423",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "Trẻ 8 tháng tuổi cần bổ sung vitamin gì?"
+        },
+        {
+            "type": "ai",
+            "content": "Trẻ 8 tháng tuổi cần bổ sung vitamin D.\n\nGiải thích: Theo tài liệu RAG, nhu cầu khuyến nghị về vitamin D ở trẻ < 1 tuổi là 400 IU/ngày, và trẻ 8 tháng tuổi thuộc vào nhóm này."
+        }
+    ]
+}

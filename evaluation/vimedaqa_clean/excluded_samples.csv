@@ -1,0 +1,5 @@
+﻿row_index,sample_id,topic,missing_fields,reason
+1356,body-part_2500,0,context,missing_required_field_in_official_test_split
+1400,body-part_2499,0,context,missing_required_field_in_official_test_split
+1469,disease_7660,1,context,missing_required_field_in_official_test_split
+2156,disease_886,1,context,missing_required_field_in_official_test_split

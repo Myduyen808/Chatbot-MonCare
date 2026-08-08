@@ -1,0 +1,14 @@
+{
+    "history_name": "Trẻ tháng tuổi cần bổ sung vitamin #3",
+    "history_id": "20260807_145451",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "Trẻ 8 tháng tuổi cần bổ sung vitamin gì?"
+        },
+        {
+            "type": "ai",
+            "content": "Trẻ 8 tháng tuổi cần bổ sung vitamin D.\n\nVitamin D là một trong những vitamin thiết yếu mà trẻ sơ sinh và trẻ nhỏ cần để phát triển khỏe mạnh. Sữa mẹ cung cấp một lượng vitamin D rất thấp, chỉ khoảng 15UI/ngày, không đáp ứng đủ nhu cầu phát triển của trẻ. Nhu cầu vitamin D khuyến nghị cho trẻ sơ sinh và trẻ nhỏ <6 tháng là 400UI/ngày."
+        }
+    ]
+}
