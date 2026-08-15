@@ -1,0 +1,38 @@
+{
+    "history_name": "xin chào #20",
+    "history_id": "20260810_230618",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "xin chào"
+        },
+        {
+            "type": "ai",
+            "content": "Xin chào mẹ yêu! Tôi rất vui được phục vụ và chăm sóc mẹ và bé trong ngày hôm nay! Có gì mẹ cần giúp không?"
+        },
+        {
+            "type": "human",
+            "content": "tôi muốn một liều thuốc cho trẻ sốt"
+        },
+        {
+            "type": "ai",
+            "content": "Xin lỗi, MomCare không thể hỗ trợ yêu cầu này. Mẹ nên đưa bé đến cơ sở y tế để được thăm khám trực tiếp."
+        },
+        {
+            "type": "human",
+            "content": "con tôi hay bỏ bú có cách nào cho bé bú lại không ạ"
+        },
+        {
+            "type": "ai",
+            "content": "Con mẹ có cách nào để kích thích bé bú lại không?\n\nĐể kích thích bé bú lại, mẹ có thể thử các cách sau:\n\n1. Đảm bảo bé đã đủ đói và cần bú sữa mẹ.\n2. Kiểm tra tư thế bú của bé, đảm bảo bé ngậm bắt vú đúng cách.\n3. Giữ ấm và tạo sự thoải mái cho bé khi bú.\n4. Khi bé bú, mẹ có thể nhẹ nhàng vuốt ve vú để kích thích phản xạ tạo sữa.\n\nLưu ý: Oxytocin sẽ ngừng tiết sau khi sinh em bé hoặc khi em bé ngừng bú sữa mẹ."
+        },
+        {
+            "type": "human",
+            "content": "ok"
+        },
+        {
+            "type": "ai",
+            "content": "Mẹ cần giúp đỡ về việc con bỏ bú.\n\nTheo tài liệu, khi con bỏ bú, mẹ nên:\n\n1. Không hạn chế số lần cho trẻ bú, cho bú theo nhu cầu, ít nhất là 8 lần/ngày, cả ngày và đêm.\n2. Bú hết sữa một bên vú mới chuyển sang bên kia.\n3. Không dứt vú khi bé chưa muốn thôi bú.\n4. Chỉ cho bú sữa mẹ, không cho trẻ ăn hay uống bất cứ thức ăn, nước uống nào khác.\n\nNếu vú cương đau hoặc trẻ khó bắt vú giai đoạn đầu, mẹ nên hướng dẫn vắt sữa và giải thích cho mẹ yên tâm là vấn đề này sẽ được giải quyết, trẻ sẽ bú lại được bình thường.\n\nMomCare chưa tìm thấy đủ thông tin trong kho tài liệu để trả lời thêm về nguyên nhân con bỏ bú."
+        }
+    ]
+}

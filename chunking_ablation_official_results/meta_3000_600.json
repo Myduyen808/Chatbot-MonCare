@@ -1,0 +1,15 @@
+{
+  "dataset_name": "tmnam20/ViMedAQA",
+  "dataset_config": "all",
+  "dataset_split": "test",
+  "n_queries": 2213,
+  "source_rows_indexed": 2213,
+  "chunk_size": 3000,
+  "chunk_overlap": 600,
+  "total_chunks": 2217,
+  "min_chunk_chars": 8,
+  "avg_chunk_chars": 524.6612539467749,
+  "max_chunk_chars": 2999,
+  "hard_limit_violations": 0,
+  "build_seconds": 316.9322030999974
+}

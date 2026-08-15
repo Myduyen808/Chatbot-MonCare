@@ -1508,10 +1508,10 @@ SELF_HARM_COMPOSITE_REGEXES = [
     re.compile(
         r"(?:làm\s*tiêu|kết\s*thúc|chấm\s*dứt|xóa\s*bỏ|"
         r"không\s*muốn\s*tiếp\s*tục).{0,45}"
-        r"(?:phần\s*còn\s*lại|phần\s*đời(?:\s*còn\s*lại)?|cuộc\s*đời|đời\s*mình)"
+        r"(?:phần\s*còn\s*lại|cuộc\s*đời|đời\s*mình)"
     ),
     re.compile(
-        r"(?:phần\s*còn\s*lại|phần\s*đời(?:\s*còn\s*lại)?|cuộc\s*đời|đời\s*mình).{0,45}"
+        r"(?:phần\s*còn\s*lại|cuộc\s*đời|đời\s*mình).{0,45}"
         r"(?:làm\s*tiêu|kết\s*thúc|chấm\s*dứt|xóa\s*bỏ|"
         r"không\s*muốn\s*tiếp\s*tục)"
     ),
@@ -1568,73 +1568,8 @@ DOSE_MANIPULATION_REGEXES = [
 ]
 
 
-def _is_guideline_supplement_dose_question(question: str) -> bool:
-    """
-    Cho phép câu hỏi kiến thức/khuyến nghị về bổ sung vi chất trong phạm vi
-    MomCare, ví dụ: "Mẹ sau sinh cần bổ sung Vitamin A với liều lượng bao nhiêu?"
-
-    Chỉ mở ngoại lệ khi:
-    - có chủ đề vi chất/bổ sung;
-    - cách hỏi mang tính tra cứu khuyến nghị;
-    - KHÔNG có tín hiệu tự tăng/thay đổi liều hay role-play kê đơn.
-    """
-    q = _normalize_guardrail_text(question)
-
-    supplement_terms = (
-        "vitamin a",
-        "vitamin d",
-        "vitamin",
-        "sắt",
-        "canxi",
-        "kẽm",
-        "dha",
-        "axit folic",
-        "vi chất",
-    )
-
-    guidance_terms = (
-        "cần bổ sung",
-        "nên bổ sung",
-        "khuyến nghị",
-        "liều lượng bao nhiêu",
-        "bao nhiêu đơn vị",
-        "nhu cầu",
-    )
-
-    manipulation_terms = (
-        "tự ý",
-        "tự tăng",
-        "tăng liều",
-        "thêm liều",
-        "gấp đôi",
-        "2 liều",
-        "hai liều",
-        "2 viên",
-        "hai viên",
-        "thay đổi liều",
-        "đổi liều",
-        "uống nhiều hơn",
-        "dùng nhiều hơn",
-    )
-
-    has_supplement_topic = any(term in q for term in supplement_terms)
-    has_guidance_intent = any(term in q for term in guidance_terms)
-    has_manipulation = any(term in q for term in manipulation_terms)
-
-    return (
-        has_supplement_topic
-        and has_guidance_intent
-        and not has_manipulation
-        and not _is_role_play_context(q)
-    )
-
-
 def _has_dose_manipulation(question: str) -> bool:
     q = _normalize_guardrail_text(question)
-
-    # Không coi câu hỏi tra cứu khuyến nghị vi chất là hành vi tự chỉnh liều.
-    if _is_guideline_supplement_dose_question(q):
-        return False
 
     if any(pattern in q for pattern in DOSE_MANIPULATION_PATTERNS):
         return True
@@ -1694,8 +1629,6 @@ def _is_neonate_substance_dose_risk(question: str) -> bool:
             "cho bé uống",
             "cho trẻ uống",
             "pha cho bé",
-            "uống",
-            "pha",
             "giã",
             "nhỏ",
             "bôi",

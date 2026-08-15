@@ -1,7 +1,10 @@
 from unittest import result
 
 import csv
-import hashlib
+import io
+import sqlite3
+import hmac
+import secrets
 import time
 from datetime import datetime
 from pathlib import Path
@@ -14,14 +17,21 @@ from dotenv import load_dotenv
 from langchain_core.messages import HumanMessage, AIMessage
 load_dotenv()
 
-from history_handle import CustomHistory, get_list_names, get_history_id, get_chat_messages
+from history_handle import CustomHistory
 import llm_chain
-from vectordb import get_list_documents, get_document, delete_document, get_details, create_vectordb_with_file
+from vectordb import (
+    get_list_documents,
+    get_document,
+    delete_document,
+    get_details,
+    create_vectordb_with_file,
+    reset_vector_db_cache,
+)
 
 DEFAULT_TOP_K = 5
 DEFAULT_TEMPERATURE = 0.0
 
-FEEDBACK_LOG_PATH = Path("runtime_logs") / "user_feedback.csv"
+FEEDBACK_DB_PATH = Path("runtime_logs") / "user_feedback.db"
 
 # =========================================================
 # CẤU HÌNH ROLLING ADAPTIVE MEMORY
@@ -267,29 +277,154 @@ st.markdown("""
 #MainMenu {visibility: hidden;} footer {visibility: hidden;} header {visibility: hidden;} 
 .main { background-color: #fdf6f0; }
 [data-testid="stChatMessage"] {background-color: #ffffff; border-radius: 15px; padding: 15px; margin-bottom: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border-left: 5px solid #ff6b81;}
-[data-testid="stTextInput"] {border-radius: 20px; border: 2px solid #ff6b81; padding: 10px;}
+[data-testid="stForm"] {
+    border: none !important;
+    padding: 0 !important;
+    background: transparent !important;
+}
 section[data-testid="stSidebar"] {background-color: #ffffff; box-shadow: 2px 0 10px rgba(0,0,0,0.05);}
 .stButton > button {background-color: #ff6b81; color: white; border-radius: 20px; border: none; font-weight: bold;}
 .stButton > button:hover {background-color: #ff4757; transform: translateY(-2px);}
 </style>
 """, unsafe_allow_html=True)
 
+def _get_operator_password() -> str:
+    """Đọc mật khẩu vận hành từ .env hoặc Streamlit secrets."""
+    env_password = os.getenv(
+        "MOMCARE_OPERATOR_PASSWORD",
+        "",
+    ).strip()
+
+    if env_password:
+        return env_password
+
+    try:
+        auth_config = st.secrets.get("auth", {})
+
+        return str(
+            auth_config.get(
+                "operator_password",
+                "",
+            )
+        ).strip()
+
+    except Exception:
+        # Không có secrets.toml thì ứng dụng vẫn chạy
+        # ở chế độ dành cho người dùng.
+        return ""
+
+
+def _is_operator() -> bool:
+    """Kiểm tra quyền của phiên hiện tại."""
+    return bool(
+        st.session_state.get(
+            "operator_authenticated",
+            False,
+        )
+    )
+
+
+def _render_operator_login():
+    """Hiển thị đăng nhập và đăng xuất cho người vận hành."""
+    st.markdown("---")
+
+    if _is_operator():
+        st.success(
+            "🔓 Đã đăng nhập: Người vận hành"
+        )
+
+        if st.button(
+            "Đăng xuất",
+            key="operator_logout_button",
+            use_container_width=True,
+        ):
+            st.session_state.operator_authenticated = False
+            st.rerun()
+
+        return
+
+    with st.expander(
+        "🔐 Đăng nhập vận hành",
+        expanded=False,
+    ):
+        operator_password = st.text_input(
+            "Mật khẩu",
+            type="password",
+            key="operator_password_input",
+            placeholder="Nhập mật khẩu vận hành",
+        )
+
+        if st.button(
+            "Đăng nhập",
+            key="operator_login_button",
+            use_container_width=True,
+        ):
+            configured_password = (
+                _get_operator_password()
+            )
+
+            if not configured_password:
+                st.error(
+                    "Chưa cấu hình "
+                    "MOMCARE_OPERATOR_PASSWORD "
+                    "trong tệp .env."
+                )
+
+            elif hmac.compare_digest(
+                str(operator_password),
+                configured_password,
+            ):
+                st.session_state.operator_authenticated = True
+                st.rerun()
+
+            else:
+                st.error("Mật khẩu không đúng.")
+
 # ── Menu chính ──────────────────────────────────────────────────────────────
+
+if "operator_authenticated" not in st.session_state:
+    st.session_state.operator_authenticated = False
+
+# Người dùng thông thường chỉ được thấy Chatbot.
+menu_options = ["Chatbot"]
+menu_icons = ["chat"]
+
+# Chỉ người vận hành mới thấy Quản lý Dữ liệu.
+if _is_operator():
+    menu_options.append("Quản lý Dữ liệu")
+    menu_icons.append("database")
+
 with st.sidebar:
     selected = option_menu(
         "Menu Chính",
-        ["Chatbot", "Quản lý Dữ liệu"],
-        icons=["chat", "database"],
+        menu_options,
+        icons=menu_icons,
         menu_icon="menu-button-wide",
         default_index=0,
         styles={
-            "container": {"font-family": "sans-serif"},
-            "nav-link-selected": {"background-color": "#ff4b4b"},
+            "container": {
+                "font-family": "sans-serif"
+            },
+            "nav-link-selected": {
+                "background-color": "#ff4b4b"
+            },
         },
     )
 
+    _render_operator_login()
+
 def clear_cache():
+    """Xóa toàn bộ cache retrieval sau khi VectorDB đổi."""
+
     st.cache_resource.clear()
+
+    reset_vector_db_cache()
+
+    if hasattr(
+        llm_chain,
+        "reset_retrieval_caches",
+    ):
+        llm_chain.reset_retrieval_caches()
 
 def rag_click():
     st.session_state.rag_chat = True
@@ -299,14 +434,6 @@ def load_chain(rag_chat, number_of_documents):
     if rag_chat:
         return llm_chain.load_rag_chain(number_of_documents)
     return llm_chain.load_normal_chain()
-
-def load_history(history_name):
-    history_id = get_history_id(history_name)
-    if history_name != "New Session" and history_id is not None:
-        history = CustomHistory()
-        history.load(history_id=history_id)
-        return history
-    return CustomHistory()
 
 def render_source_documents(source_docs):
     """Hiển thị danh sách tài liệu tham khảo của câu trả lời RAG."""
@@ -375,68 +502,453 @@ def render_source_documents(source_docs):
                 f"{preview}"
             )
 
+def _feedback_connect():
+    """Mở SQLite database lưu feedback."""
+    FEEDBACK_DB_PATH.parent.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
 
-def _ensure_feedback_log():
-    """Tạo tệp lưu phản hồi người dùng nếu chưa tồn tại."""
-    FEEDBACK_LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+    conn = sqlite3.connect(
+        FEEDBACK_DB_PATH,
+        timeout=10,
+    )
 
-    if not FEEDBACK_LOG_PATH.exists():
-        with FEEDBACK_LOG_PATH.open(
-            "w",
-            newline="",
-            encoding="utf-8-sig",
-        ) as file:
-            writer = csv.writer(file)
-            writer.writerow(
-                [
-                    "timestamp",
-                    "feedback_id",
-                    "rating",
-                    "question",
-                    "answer_preview",
-                    "source_count",
-                    "response_time_seconds",
-                ]
-            )
+    # Cho phép nhiều phiên đọc/ghi ổn định hơn.
+    conn.execute("PRAGMA journal_mode=WAL;")
+    conn.execute("PRAGMA synchronous=NORMAL;")
+    conn.execute("PRAGMA busy_timeout=5000;")
+
+    conn.execute(
+        """
+        CREATE TABLE IF NOT EXISTS feedback (
+            feedback_id TEXT PRIMARY KEY,
+            timestamp TEXT NOT NULL,
+            rating TEXT NOT NULL
+                CHECK (rating IN ('helpful', 'not_helpful')),
+            source_count INTEGER NOT NULL DEFAULT 0,
+            response_time_seconds REAL NOT NULL DEFAULT 0
+        )
+        """
+    )
+
+    return conn
 
 
 def _save_user_feedback(
     feedback_id: str,
     rating: str,
-    question: str,
-    answer: str,
     source_count: int,
     response_time_seconds: float,
 ):
-    """Ghi phản hồi Hữu ích/Chưa hữu ích vào CSV."""
-    _ensure_feedback_log()
+    """Lưu feedback bằng SQLite transaction."""
 
-    with FEEDBACK_LOG_PATH.open(
-        "a",
-        newline="",
-        encoding="utf-8-sig",
-    ) as file:
-        writer = csv.writer(file)
-        writer.writerow(
-            [
-                datetime.now().isoformat(timespec="seconds"),
+    if rating not in {
+        "helpful",
+        "not_helpful",
+    }:
+        return
+
+    conn = _feedback_connect()
+
+    try:
+        with conn:
+            conn.execute(
+                """
+                INSERT INTO feedback (
+                    feedback_id,
+                    timestamp,
+                    rating,
+                    source_count,
+                    response_time_seconds
+                )
+                VALUES (?, ?, ?, ?, ?)
+                ON CONFLICT(feedback_id) DO UPDATE SET
+                    rating = excluded.rating,
+                    source_count = excluded.source_count,
+                    response_time_seconds =
+                        excluded.response_time_seconds
+                """,
+                (
+                    feedback_id,
+                    datetime.now().isoformat(
+                        timespec="seconds"
+                    ),
+                    rating,
+                    int(source_count),
+                    round(
+                        float(response_time_seconds),
+                        3,
+                    ),
+                ),
+            )
+
+    finally:
+        conn.close()
+
+
+def _read_user_feedback():
+    """Đọc feedback từ SQLite."""
+
+    conn = _feedback_connect()
+    conn.row_factory = sqlite3.Row
+
+    try:
+        rows = conn.execute(
+            """
+            SELECT
+                timestamp,
                 feedback_id,
                 rating,
-                question,
-                str(answer or "")[:500],
-                int(source_count),
-                round(float(response_time_seconds), 3),
-            ]
+                source_count,
+                response_time_seconds
+            FROM feedback
+            ORDER BY timestamp DESC
+            """
+        ).fetchall()
+
+        return [
+            dict(row)
+            for row in rows
+        ]
+
+    finally:
+        conn.close()
+
+
+def _feedback_to_csv(rows):
+    """Tạo CSV khi operator yêu cầu tải xuống."""
+
+    output = io.StringIO()
+
+    fieldnames = [
+        "timestamp",
+        "feedback_id",
+        "rating",
+        "source_count",
+        "response_time_seconds",
+    ]
+
+    writer = csv.DictWriter(
+        output,
+        fieldnames=fieldnames,
+    )
+
+    writer.writeheader()
+
+    for row in rows:
+        writer.writerow(
+            {
+                field: row.get(field, "")
+                for field in fieldnames
+            }
         )
 
+    return (
+        "\ufeff" + output.getvalue()
+    ).encode("utf-8")
 
-def _make_feedback_id(question: str, answer: str) -> str:
-    """Tạo định danh ổn định cho một lượt trả lời."""
-    payload = f"{question}|{answer}".encode(
-        "utf-8",
-        errors="ignore",
+
+def _render_feedback_management():
+    """Giao diện thống kê feedback cho operator."""
+
+    st.subheader(
+        "📊 Thống kê phản hồi người dùng"
     )
-    return hashlib.sha256(payload).hexdigest()[:16]
+
+    if st.button(
+        "🔄 Làm mới thống kê",
+        key="refresh_feedback_statistics",
+    ):
+        st.rerun()
+
+    feedback_rows = _read_user_feedback()
+
+    if not feedback_rows:
+        st.info(
+            "Chưa có phản hồi nào được ghi nhận."
+        )
+        return
+
+    total_count = len(feedback_rows)
+
+    helpful_count = sum(
+        row.get("rating") == "helpful"
+        for row in feedback_rows
+    )
+
+    not_helpful_count = sum(
+        row.get("rating") == "not_helpful"
+        for row in feedback_rows
+    )
+
+    helpful_rate = (
+        helpful_count / total_count * 100
+        if total_count
+        else 0
+    )
+
+    col1, col2, col3, col4 = st.columns(4)
+
+    col1.metric(
+        "Tổng đánh giá",
+        total_count,
+    )
+
+    col2.metric(
+        "👍 Hữu ích",
+        helpful_count,
+    )
+
+    col3.metric(
+        "👎 Chưa hữu ích",
+        not_helpful_count,
+    )
+
+    col4.metric(
+        "Tỷ lệ hữu ích",
+        f"{helpful_rate:.1f}%",
+    )
+
+    rating_filter = st.selectbox(
+        "Lọc theo đánh giá",
+        [
+            "Tất cả",
+            "Hữu ích",
+            "Chưa hữu ích",
+        ],
+        key="operator_feedback_filter",
+    )
+
+    rating_map = {
+        "Hữu ích": "helpful",
+        "Chưa hữu ích": "not_helpful",
+    }
+
+    selected_rating = rating_map.get(
+        rating_filter
+    )
+
+    filtered_rows = [
+        row
+        for row in feedback_rows
+        if (
+            selected_rating is None
+            or row.get("rating")
+            == selected_rating
+        )
+    ]
+
+    st.dataframe(
+        filtered_rows,
+        use_container_width=True,
+        hide_index=True,
+    )
+
+    csv_bytes = _feedback_to_csv(
+        filtered_rows
+    )
+
+    st.download_button(
+        "⬇️ Tải dữ liệu phản hồi CSV",
+        data=csv_bytes,
+        file_name="user_feedback.csv",
+        mime="text/csv",
+        use_container_width=True,
+    )
+
+def _make_feedback_id() -> str:
+    """Tạo mã ngẫu nhiên, không suy ra từ nội dung hội thoại."""
+    return secrets.token_hex(8)
+
+
+def _empty_chat_record(number: int) -> dict:
+    """Tạo một cuộc trò chuyện chỉ tồn tại trong session_state."""
+    return {
+        "title": f"Cuộc trò chuyện {number}",
+        "history": CustomHistory(),
+        "previous_turn_blocked": False,
+        "acm_rolling_summary": "",
+        "acm_summarized_count": 0,
+        "acm_memory_mode": "keep_all",
+        "last_source_docs": [],
+        "last_source_question": "",
+        "last_response_time_seconds": 0.0,
+        "last_source_count": 0,
+        "last_feedback_id": "",
+        "feedback_by_id": {},
+    }
+
+
+def _ensure_temporary_chat_state() -> None:
+    """Khởi tạo và sửa trạng thái chat tạm sau khi Streamlit hot-reload."""
+    sessions = st.session_state.get("chat_sessions")
+
+    if not isinstance(sessions, dict) or not sessions:
+        first_session_id = secrets.token_hex(6)
+        sessions = {
+            first_session_id: _empty_chat_record(1)
+        }
+        st.session_state.chat_sessions = sessions
+        st.session_state.chat_session_counter = 1
+        st.session_state.loaded_chat_session_id = first_session_id
+        st.session_state.chat_session_selector = first_session_id
+        _load_temporary_chat(first_session_id)
+        return
+
+    # Phiên Streamlit tạo bởi bản mã cũ có thể đã có chat_sessions
+    # nhưng chưa có biến đếm. Dùng số phiên hiện có làm giá trị bắt đầu.
+    if "chat_session_counter" not in st.session_state:
+        st.session_state.chat_session_counter = max(
+            1,
+            len(sessions),
+        )
+
+    # Bổ sung các trường còn thiếu nếu cấu trúc phiên được tạo bởi
+    # phiên bản mã trước đó.
+    for position, (session_id, record) in enumerate(
+        list(sessions.items()),
+        start=1,
+    ):
+        if not isinstance(record, dict):
+            sessions[session_id] = _empty_chat_record(position)
+            continue
+
+        default_record = _empty_chat_record(position)
+        for key, value in default_record.items():
+            record.setdefault(key, value)
+
+    loaded_id = st.session_state.get("loaded_chat_session_id")
+    selected_id = st.session_state.get("chat_session_selector")
+
+    if loaded_id not in sessions:
+        loaded_id = (
+            selected_id
+            if selected_id in sessions
+            else next(iter(sessions))
+        )
+        st.session_state.loaded_chat_session_id = loaded_id
+        st.session_state.chat_session_selector = loaded_id
+        _load_temporary_chat(loaded_id)
+    elif selected_id not in sessions:
+        st.session_state.chat_session_selector = loaded_id
+
+
+def _chat_title(session_id: str) -> str:
+    """Lấy tên hiển thị của một cuộc trò chuyện tạm thời."""
+    record = st.session_state.get("chat_sessions", {}).get(
+        session_id,
+        {},
+    )
+    history = record.get("history")
+    if history is not None and history.messages:
+        return history.history_name or record.get(
+            "title",
+            "Cuộc trò chuyện",
+        )
+    return record.get("title", "Cuộc trò chuyện")
+
+
+def _capture_active_chat() -> None:
+    """Chụp trạng thái ACM hiện tại trước khi chuyển cuộc trò chuyện."""
+    sessions = st.session_state.get("chat_sessions", {})
+    session_id = st.session_state.get("loaded_chat_session_id")
+    if session_id not in sessions:
+        return
+
+    record = sessions[session_id]
+    record["history"] = st.session_state.current_history
+
+    for key in (
+        "previous_turn_blocked",
+        "acm_rolling_summary",
+        "acm_summarized_count",
+        "acm_memory_mode",
+        "last_source_docs",
+        "last_source_question",
+        "last_response_time_seconds",
+        "last_source_count",
+        "last_feedback_id",
+        "feedback_by_id",
+    ):
+        record[key] = st.session_state.get(key)
+
+
+def _load_temporary_chat(session_id: str) -> None:
+    """Nạp một cuộc trò chuyện từ session_state, không đọc tệp trên đĩa."""
+    record = st.session_state.chat_sessions[session_id]
+    history = record["history"]
+
+    st.session_state.current_history = history
+    st.session_state.loaded_chat_session_id = session_id
+    st.session_state.locked_session = bool(history.messages)
+    st.session_state.user_question = ""
+    st.session_state.send_input = False
+    st.session_state.clear_input = True
+
+    for key in (
+        "previous_turn_blocked",
+        "acm_rolling_summary",
+        "acm_summarized_count",
+        "acm_memory_mode",
+        "last_source_docs",
+        "last_source_question",
+        "last_response_time_seconds",
+        "last_source_count",
+        "last_feedback_id",
+        "feedback_by_id",
+    ):
+        st.session_state[key] = record[key]
+
+
+def _on_chat_session_change() -> None:
+    """Chuyển sang cuộc trò chuyện được chọn trong sidebar."""
+    _ensure_temporary_chat_state()
+    selected_id = st.session_state.get("chat_session_selector")
+    loaded_id = st.session_state.get("loaded_chat_session_id")
+    if not selected_id or selected_id == loaded_id:
+        return
+    _capture_active_chat()
+    _load_temporary_chat(selected_id)
+
+
+def _create_temporary_chat() -> None:
+    """Tạo cuộc trò chuyện mới trong phiên trình duyệt hiện tại."""
+    _ensure_temporary_chat_state()
+    _capture_active_chat()
+    st.session_state.chat_session_counter = (
+        int(st.session_state.get("chat_session_counter", 0))
+        + 1
+    )
+    session_id = secrets.token_hex(6)
+    st.session_state.chat_sessions[session_id] = _empty_chat_record(
+        st.session_state.chat_session_counter
+    )
+    st.session_state.chat_session_selector = session_id
+    _load_temporary_chat(session_id)
+
+
+def _delete_temporary_chat() -> None:
+    """Xóa riêng cuộc trò chuyện đang chọn và toàn bộ ngữ cảnh ACM của nó."""
+    _ensure_temporary_chat_state()
+    sessions = st.session_state.chat_sessions
+    session_id = st.session_state.loaded_chat_session_id
+    sessions.pop(session_id, None)
+
+    if not sessions:
+        st.session_state.chat_session_counter = (
+            int(st.session_state.get("chat_session_counter", 0))
+            + 1
+        )
+        next_id = secrets.token_hex(6)
+        sessions[next_id] = _empty_chat_record(
+            st.session_state.chat_session_counter
+        )
+    else:
+        next_id = next(iter(sessions))
+
+    st.session_state.chat_session_selector = next_id
+    _load_temporary_chat(next_id)
 
 
 def render_feedback_controls():
@@ -490,14 +1002,6 @@ def render_feedback_controls():
         _save_user_feedback(
             feedback_id=feedback_id,
             rating=rating,
-            question=st.session_state.get(
-                "last_feedback_question",
-                "",
-            ),
-            answer=st.session_state.get(
-                "last_feedback_answer",
-                "",
-            ),
             source_count=st.session_state.get(
                 "last_source_count",
                 0,
@@ -525,7 +1029,6 @@ def Chatbot():
         "send_input": False,
         "number_of_documents": DEFAULT_TOP_K,
         "rag_chat": True,
-        "history_choice": "New Session",
         "locked_session": False,
         "user_question": "",
         "previous_turn_blocked": False,
@@ -545,12 +1048,14 @@ def Chatbot():
         # Trạng thái đánh giá câu trả lời.
         "feedback_by_id": {},
         "last_feedback_id": "",
-        "last_feedback_question": "",
-        "last_feedback_answer": "",
     }
     for key, val in defaults.items():
         if key not in st.session_state:
             st.session_state[key] = val
+
+    # Nhiều cuộc trò chuyện được giữ tạm trong phiên trình duyệt.
+    # Không có nội dung nào trong cấu trúc này được ghi xuống đĩa.
+    _ensure_temporary_chat_state()
 
     # ── Header ───────────────────────────────────────────────────────────────
     st.markdown("""
@@ -584,63 +1089,35 @@ def Chatbot():
 
         st.markdown("---")
 
-        list_chat_sessions = ["New Session"] + get_list_names()
+        st.caption(
+            "Các cuộc trò chuyện chỉ được giữ trong phiên "
+            "trình duyệt hiện tại."
+        )
 
-        if st.session_state.locked_session:
-            st.selectbox(
-                "🔒 Phiên hiện tại",
-                list_chat_sessions,
-                index=list_chat_sessions.index(st.session_state.history_choice)
-                      if st.session_state.history_choice in list_chat_sessions else 0,
-                disabled=True,
-                key="chat_session_locked"
-            )
-            if st.button("➕ Cuộc trò chuyện mới"):
-                st.session_state.locked_session = False
-                st.session_state.history_choice = "New Session"
-                st.session_state.current_history = CustomHistory()
-                st.session_state.user_question = ""
-                st.session_state.clear_input = True
-                st.session_state.acm_rolling_summary = ""
-                st.session_state.acm_summarized_count = 0
-                st.session_state.acm_memory_mode = "keep_all"
-                st.session_state.last_source_docs = []
-                st.session_state.last_source_question = ""
-                st.session_state.last_response_time_seconds = 0.0
-                st.session_state.last_source_count = 0
-                st.session_state.last_feedback_id = ""
-                st.session_state.last_feedback_question = ""
-                st.session_state.last_feedback_answer = ""
-                st.rerun()
-        else:
-            chosen = st.selectbox(
-                "Lịch sử trò chuyện",
-                list_chat_sessions,
-                key="chat_session_free"
-            )
-            if chosen != st.session_state.history_choice:
-                st.session_state.history_choice = chosen
-                st.session_state.current_history = load_history(chosen)
+        session_ids = list(st.session_state.chat_sessions)
+        st.selectbox(
+            "Cuộc trò chuyện",
+            session_ids,
+            key="chat_session_selector",
+            format_func=_chat_title,
+            on_change=_on_chat_session_change,
+        )
 
-                # Mỗi phiên hội thoại phải có trạng thái summary riêng.
-                # Khi đổi phiên, reset và tạo lại từ lịch sử của phiên đó.
-                st.session_state.acm_rolling_summary = ""
-                st.session_state.acm_summarized_count = 0
-                st.session_state.acm_memory_mode = "keep_all"
-
-                st.session_state.last_source_docs = []
-                st.session_state.last_source_question = ""
-                st.session_state.last_response_time_seconds = 0.0
-                st.session_state.last_source_count = 0
-                st.session_state.last_feedback_id = ""
-                st.session_state.last_feedback_question = ""
-                st.session_state.last_feedback_answer = ""
-
-                st.rerun()
+        col_new_chat, col_delete_chat = st.columns(2)
+        col_new_chat.button(
+            "➕ Tạo mới",
+            use_container_width=True,
+            on_click=_create_temporary_chat,
+        )
+        col_delete_chat.button(
+            "🗑️ Xóa",
+            use_container_width=True,
+            on_click=_delete_temporary_chat,
+        )
 
     # ── Quản lý Lịch sử trò chuyện ──────────────────────────────────────────
     if "current_history" not in st.session_state:
-        st.session_state.current_history = load_history(st.session_state.history_choice)
+        st.session_state.current_history = CustomHistory()
 
     history = st.session_state.current_history
     chat_container = st.container()
@@ -668,6 +1145,7 @@ def Chatbot():
     with st.form(
         "chat_input_form",
         clear_on_submit=True,
+        border=False,
     ):
         typed_question = st.text_input(
             "Mẹ muốn hỏi điều gì?",
@@ -883,16 +1361,12 @@ def Chatbot():
                 st.session_state.last_source_count = len(
                     source_docs
                 )
-                st.session_state.last_feedback_question = user_text
-                st.session_state.last_feedback_answer = response
                 st.session_state.last_feedback_id = (
-                    _make_feedback_id(
-                        user_text,
-                        response,
-                    )
+                    _make_feedback_id()
                 )
 
-                # Luôn lưu lượt hội thoại để giao diện hiển thị đầy đủ.
+                # Chỉ giữ hội thoại trong session_state. CustomHistory không
+                # ghi nội dung xuống đĩa, nhưng ACM vẫn đọc được messages.
                 history.add_a_conversation(
                     user_text,
                     response
@@ -1044,53 +1518,215 @@ def Audio_Analysis():
 
 # ════════════════════════════════════════════════════════════════════════════
 def Databases():
-    st.title('📑 Quản lý Kho Kiến thức')
+    # Kiểm tra quyền lần thứ hai.
+    # Việc ẩn menu không được xem là đủ để bảo vệ chức năng.
+    if not _is_operator():
+        st.error(
+            "Bạn cần đăng nhập với quyền "
+            "Người vận hành để truy cập chức năng này."
+        )
+        return
+
+    st.title("📑 Quản lý Kho Kiến thức")
+
     with st.sidebar:
         if st.button("🔄 Cập nhật VectorDB"):
-            with st.spinner("Đang xử lý..."):
+            with st.spinner(
+                "Đang xây dựng lại VectorDB..."
+            ):
                 create_vectordb_with_file()
+                clear_cache()
                 st.success("Cập nhật thành công!")
-        data_type_option = st.selectbox("Loại dữ liệu", ["Tài liệu (PDF, Word, CSV)", "Lịch sử Chat"])
 
-    if data_type_option == "Tài liệu (PDF, Word, CSV)":
-        document_add = st.file_uploader("Thêm tài liệu", type=["pdf", "docx", "csv"])
+        data_type_option = st.selectbox(
+            "Loại dữ liệu",
+            [
+                "Tài liệu (PDF, DOCX, XLSX, CSV)",
+                "Phản hồi người dùng",
+            ],
+        )
+
+    # =====================================================
+    # QUẢN LÝ TÀI LIỆU
+    # =====================================================
+    if (
+        data_type_option
+        == "Tài liệu (PDF, DOCX, XLSX, CSV)"
+    ):
+        document_add = st.file_uploader(
+            "Thêm tài liệu",
+            type=[
+                "pdf",
+                "docx",
+                "xlsx",
+                "csv",
+            ],
+        )
+
         if document_add:
             if st.button("Tải lên"):
-                if document_add.name.endswith(".pdf"):
-                    path = os.path.join(db_config["pdf_path"], document_add.name)
-                elif document_add.name.endswith(".docx"):
-                    path = os.path.join(db_config["word_path"], document_add.name)
-                else:
-                    path = os.path.join(db_config.get("csv_path", "data_store/csv"), document_add.name)
+                # Loại phần đường dẫn không an toàn
+                # khỏi tên tệp do người dùng tải lên.
+                safe_filename = Path(
+                    document_add.name
+                ).name
 
-                os.makedirs(os.path.dirname(path), exist_ok=True)
-                with open(path, "wb") as f:
-                    f.write(document_add.getbuffer())
-                st.success(f"Đã lưu: {document_add.name}")
+                extension = Path(
+                    safe_filename
+                ).suffix.lower()
+
+                if extension == ".pdf":
+                    data_folder = db_config[
+                        "pdf_path"
+                    ]
+
+                elif extension == ".docx":
+                    data_folder = db_config[
+                        "word_path"
+                    ]
+
+                elif extension == ".xlsx":
+                    data_folder = db_config.get(
+                        "excel_path",
+                        "data_store/excel",
+                    )
+
+                else:
+                    data_folder = db_config.get(
+                        "csv_path",
+                        "data_store/csv",
+                    )
+
+                path = os.path.join(
+                    data_folder,
+                    safe_filename,
+                )
+
+                os.makedirs(
+                    os.path.dirname(path),
+                    exist_ok=True,
+                )
+
+                # Nếu đang thay file cùng tên thì backup bản cũ.
+                old_file_data = None
+
+                if os.path.exists(path):
+                    with open(path, "rb") as file:
+                        old_file_data = file.read()
+
+                with open(path, "wb") as file:
+                    file.write(
+                        document_add.getbuffer()
+                    )
+
+                try:
+                    with st.spinner(
+                        "Đang đồng bộ tài liệu với VectorDB..."
+                    ):
+                        create_vectordb_with_file()
+                        clear_cache()
+
+                    st.success(
+                        f"Đã thêm và đồng bộ: {safe_filename}"
+                    )
+
+                except Exception as error:
+
+                    # Nếu rebuild thất bại:
+                    # - file mới hoàn toàn → xóa
+                    # - file thay thế → khôi phục bản cũ.
+                    if old_file_data is None:
+
+                        if os.path.exists(path):
+                            os.remove(path)
+
+                    else:
+                        with open(path, "wb") as file:
+                            file.write(old_file_data)
+
+                    st.error(
+                        "Cập nhật VectorDB thất bại. "
+                        "Tệp nguồn đã được hoàn nguyên."
+                    )
+
+                    st.exception(error)
 
         st.divider()
         st.subheader("Danh sách tài liệu")
-        
-        all_docs = get_list_documents()
-        excel_path = db_config.get("excel_path", "data_store/excel")
-        excel_docs = []
-        if os.path.exists(excel_path):
-            excel_docs = [f for f in os.listdir(excel_path) if f.endswith('.xlsx') and not f.startswith('~$')]
-        
-        all_docs = all_docs + excel_docs
-        selected_doc = st.selectbox("Chọn tài liệu", all_docs)
+
+        # set() tránh hiển thị trùng tên.
+        all_docs = sorted(
+            set(get_list_documents())
+        )
+
+        if not all_docs:
+            st.info(
+                "Kho dữ liệu chưa có tài liệu."
+            )
+            return
+
+        selected_doc = st.selectbox(
+            "Chọn tài liệu",
+            all_docs,
+        )
+
         if selected_doc:
-            col1, col2, col3 = st.columns(3)
-            if col1.button("👁️ Chi tiết"):
-                _, text = get_details(selected_doc)
-                st.text_area("Nội dung:", text, height=300)
-            if col3.button("🗑️ Xóa"):
+            col_detail, col_confirm, col_delete = (
+                st.columns(3)
+            )
+
+            if col_detail.button("👁️ Chi tiết"):
+                _, text = get_details(
+                    selected_doc
+                )
+
+                st.text_area(
+                    "Nội dung:",
+                    text,
+                    height=300,
+                )
+
+            confirm_delete = col_confirm.checkbox(
+                "Xác nhận xóa",
+                key=f"confirm_delete_{selected_doc}",
+            )
+
+            if col_delete.button(
+                "🗑️ Xóa",
+                disabled=not confirm_delete,
+            ):
                 if delete_document(selected_doc):
-                    st.success("Đã xóa.")
+                    st.success("Đã xóa tài liệu.")
+
+                    st.warning(
+                        "Cần cập nhật lại VectorDB "
+                        "để loại tài liệu khỏi "
+                        "chỉ mục truy xuất."
+                    )
+
                     st.rerun()
 
+    # =====================================================
+    # XEM PHẢN HỒI NGƯỜI DÙNG
+    # =====================================================
+    if (
+        data_type_option
+        == "Tài liệu (PDF, DOCX, XLSX, CSV)"
+    ):
+        # Code quản lý tài liệu
+        pass
+
+    elif (
+        data_type_option
+        == "Phản hồi người dùng"
+    ):
+        _render_feedback_management()
+
 # ── Router ───────────────────────────────────────────────────────────────────
-if selected == "Chatbot":
-    Chatbot()
-else:
+if (
+    selected == "Quản lý Dữ liệu"
+    and _is_operator()
+):
     Databases()
+else:
+    Chatbot()

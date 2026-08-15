@@ -1,0 +1,22 @@
+{
+    "history_name": "xin chào #19",
+    "history_id": "20260809_172837",
+    "history_conversations": [
+        {
+            "type": "human",
+            "content": "xin chào"
+        },
+        {
+            "type": "ai",
+            "content": "Xin chào mẹ yêu! Tôi rất vui được phục vụ và chăm sóc mẹ và bé trong ngày hôm nay! Có gì mẹ cần giúp không?"
+        },
+        {
+            "type": "human",
+            "content": "dinh dưỡng cho em bé 5 tủi"
+        },
+        {
+            "type": "ai",
+            "content": "Dinh dưỡng cho em bé 5 tuổi như thế nào?\n\nTheo tài liệu, trẻ từ 5 đến dưới 10 tuổi có thể sử dụng cách đánh giá tình trạng dinh dưỡng theo quần thể tham chiếu của WHO thông qua 3 chỉ số nhân trắc thường được sử dụng là cân nặng theo tuổi (WAZ), chiều cao theo tuổi (HAZ) và BMI theo tuổi (BAZ)."
+        }
+    ]
+}

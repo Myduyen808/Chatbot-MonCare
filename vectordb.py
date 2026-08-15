@@ -1,5 +1,13 @@
 # ====== Fix for Windows ======
-import sys, os, yaml , re
+import sys
+import os
+import yaml
+import re
+import shutil
+import hashlib
+import json
+from pathlib import Path
+from datetime import datetime
 import pandas as pd
 if sys.platform == "win32":
     try: import mock
@@ -17,71 +25,14 @@ from pypdf import PdfReader
 # Thêm cache ở đầu file, sau phần import
 _vector_db_cache = None
 
+def reset_vector_db_cache():
+    """Xóa FAISS cache sau khi VectorDB thay đổi."""
+    global _vector_db_cache
+    _vector_db_cache = None
+
 with open("db_config.yml", "r", encoding="utf-8") as f: db_config = yaml.safe_load(f)
 with open("model_config.yml", "r", encoding="utf-8") as f: model_config = yaml.safe_load(f)
 
-# =========================================================
-# SOURCE AUTHORITY
-# =========================================================
-
-SOURCE_TIER_A = {
-    # Bộ Y tế
-    "quyet_dinh_hd_an_bo_sung.pdf",
-    "HƯỚNG DẪN QUỐC GIA DINH DƯỠNG CHO PHỤ NỮ CÓ THAI VÀ BF MẸ CHO CON BÚ.pdf",
-    "dvcsskss_48201712.pdf",
-    "Quyết-định-4673-QĐ-BYT.pdf",
-    "Quyet dinh so 4673-QD-BYT ngay 10-11-2014 (Con hieu luc).doc",
-
-    # Cơ quan/chương trình chính thống
-    "viendinhduong_nuoi_duong_cham_soc_tre_so_sinh.pdf",
-
-    # Bộ tài liệu chương trình làm cha mẹ
-    "Hành vi - Không ai hoàn hảo.pdf",
-    "Sức khỏe - Không ai hoàn hảo.pdf",
-    "Trí tuệ - Không ai hoàn hảo.pdf",
-
-    # Viện Dinh dưỡng Quốc gia
-    "Điểm mới về nhu cầu khuyến nghị vitamin D và Canxi.docx",
-
-    # Nếu có thì điền đúng tên file thực tế
-    "Cách đánh giá tình trạng dinh dưỡng bằng nhân trắc tại cộng đồng.docx",
-
-    # Chương trình Tiêm chủng mở rộng
-    "Lịch tiêm chủng các vắc xin trong Chương trình Tiêm chủng mở rộng.docx",
-
-}
-
-
-SOURCE_TIER_B = {
-    # Bệnh viện / chuyên gia / cơ sở y tế
-    "1332349_Viem am ho - Am dao.pdf",
-    "CHAM_SOC_THOI_KY_HAU_SAN_d7fe6bfe0e.pdf",
-    "hoi-chung-quay-khoc-tre-nhu-nhi-colic-5233.pdf",
-    "TRẦM CẢM SAU SINH.docx",
-    "Bảo quản sữa mẹ đã vắt như thế nào.docx",
-}
-
-
-def get_source_authority(source):
-    """Xác định độ uy tín của nguồn tài liệu."""
-
-    filename = os.path.basename(
-        str(source or "")
-    ).strip()
-
-    tier_a = {name.casefold() for name in SOURCE_TIER_A}
-    tier_b = {name.casefold() for name in SOURCE_TIER_B}
-
-    normalized = filename.casefold()
-
-    if normalized in tier_a:
-        return "A", 1.0
-
-    if normalized in tier_b:
-        return "B", 0.5
-
-    # Chưa xác minh nguồn -> mặc định thận trọng
-    return "C", 0.0
 
 # =========================================================
 # INACTIVE / SUPERSEDED SOURCES
@@ -112,61 +63,9 @@ def get_inactive_reason(source):
 
     return None
 
-from collections import Counter
-
-
-def debug_authority_stats(db):
-
-    documents = list(db.docstore._dict.values())
-
-    chunk_counts = Counter()
-    source_by_tier = {
-        "A": set(),
-        "B": set(),
-        "C": set(),
-    }
-
-    for doc in documents:
-
-        metadata = doc.metadata or {}
-
-        tier = metadata.get(
-            "authority_tier",
-            "MISSING"
-        )
-
-        source = metadata.get(
-            "source",
-            "UNKNOWN"
-        )
-
-        chunk_counts[tier] += 1
-
-        if tier in source_by_tier:
-            source_by_tier[tier].add(source)
-
-    print("\n========== SOURCE AUTHORITY DEBUG ==========")
-
-    print(f"Tổng chunks: {len(documents)}")
-
-    for tier in ["A", "B", "C", "MISSING"]:
-        print(
-            f"Tier {tier}: "
-            f"{chunk_counts.get(tier, 0)} chunks"
-        )
-
-    print("\nSố nguồn theo Tier:")
-
-    for tier in ["A", "B", "C"]:
-        print(
-            f"Tier {tier}: "
-            f"{len(source_by_tier[tier])} nguồn"
-        )
-
-    print("============================================\n")
-
 # Thêm sau dòng _vector_db_cache = None
-_embedding_model = None  # Cache model ở đây
+_embedding_model = None  
+_source_metadata_cache = {}
 
 def clean_pdf_text(text):
     """Xóa rác lỗi font thường gặp khi trích xuất PDF"""
@@ -444,6 +343,409 @@ def is_data_driven_chunk(text: str) -> bool:
         return True
     return False
 
+def _sha256_file(file_path):
+    """Tính SHA-256 của một file."""
+
+    sha256 = hashlib.sha256()
+
+    with open(file_path, "rb") as file:
+
+        for block in iter(
+            lambda: file.read(1024 * 1024),
+            b"",
+        ):
+            sha256.update(block)
+
+    return sha256.hexdigest()
+
+def _find_source_file(
+    source,
+    file_type,
+):
+    """Tìm đường dẫn thật của file nguồn."""
+
+    source = str(
+        source or ""
+    ).strip()
+
+    # Loader PDF/CSV đôi khi source đã là full path.
+    if os.path.isfile(source):
+        return os.path.abspath(source)
+
+    filename = os.path.basename(
+        source
+    )
+
+    folder_map = {
+        "docx": db_config.get(
+            "word_path",
+            "",
+        ),
+        "pdf": db_config.get(
+            "pdf_path",
+            "",
+        ),
+        "csv": db_config.get(
+            "csv_path",
+            "",
+        ),
+        "faq": db_config.get(
+            "excel_path",
+            "",
+        ),
+        "vimedaqa": db_config.get(
+            "excel_path",
+            "",
+        ),
+        "medical_exam": db_config.get(
+            "excel_path",
+            "",
+        ),
+    }
+
+    folder = folder_map.get(
+        file_type,
+        "",
+    )
+
+    if not folder:
+        return ""
+
+    candidate = os.path.join(
+        folder,
+        filename,
+    )
+
+    if os.path.isfile(candidate):
+        return os.path.abspath(
+            candidate
+        )
+
+    return ""
+
+def add_management_metadata(
+    metadata,
+):
+    """
+    Thêm metadata quản trị nguồn:
+    document_id, version_id, hash, updated_at.
+    """
+
+    metadata = dict(
+        metadata or {}
+    )
+
+    source = metadata.get(
+        "source",
+        "",
+    )
+
+    file_type = metadata.get(
+        "file_type",
+        "",
+    )
+
+    filename = os.path.basename(
+        str(source)
+    )
+
+    document_key = (
+        f"{file_type}|"
+        f"{filename.lower()}"
+    )
+
+    document_id = hashlib.sha256(
+        document_key.encode("utf-8")
+    ).hexdigest()[:16]
+
+    source_path = _find_source_file(
+        source,
+        file_type,
+    )
+
+    cache_key = (
+        source_path
+        if source_path
+        else document_key
+    )
+
+    if cache_key in _source_metadata_cache:
+
+        metadata.update(
+            _source_metadata_cache[
+                cache_key
+            ]
+        )
+
+        return metadata
+
+    file_hash = ""
+    updated_at = ""
+    file_size = 0
+
+    if (
+        source_path
+        and os.path.isfile(source_path)
+    ):
+
+        file_hash = _sha256_file(
+            source_path
+        )
+
+        updated_at = datetime.fromtimestamp(
+            os.path.getmtime(
+                source_path
+            )
+        ).isoformat(
+            timespec="seconds"
+        )
+
+        file_size = os.path.getsize(
+            source_path
+        )
+
+    management_metadata = {
+        "document_id": document_id,
+
+        # 16 ký tự đầu của hash làm mã version.
+        "version_id": (
+            file_hash[:16]
+            if file_hash
+            else "unknown"
+        ),
+
+        "source_sha256": file_hash,
+
+        "source_updated_at": updated_at,
+
+        "source_size_bytes": file_size,
+    }
+
+    _source_metadata_cache[
+        cache_key
+    ] = management_metadata
+
+    metadata.update(
+        management_metadata
+    )
+
+    return metadata
+
+
+def _write_vector_manifest(
+    folder_path,
+    chunk_count,
+):
+    """Tạo manifest kiểm tra tính toàn vẹn."""
+
+    folder = Path(folder_path)
+
+    index_faiss = folder / "index.faiss"
+    index_pkl = folder / "index.pkl"
+
+    if not index_faiss.exists():
+        raise RuntimeError(
+            "Không tạo được index.faiss"
+        )
+
+    if not index_pkl.exists():
+        raise RuntimeError(
+            "Không tạo được index.pkl"
+        )
+
+    manifest = {
+        "built_at": datetime.now().isoformat(
+            timespec="seconds"
+        ),
+        "chunk_count": int(chunk_count),
+        "index_faiss_sha256": _sha256_file(
+            index_faiss
+        ),
+        "index_pkl_sha256": _sha256_file(
+            index_pkl
+        ),
+    }
+
+    with open(
+        folder / "manifest.json",
+        "w",
+        encoding="utf-8",
+    ) as file:
+        json.dump(
+            manifest,
+            file,
+            ensure_ascii=False,
+            indent=2,
+        )
+
+def _verify_vector_manifest(
+    db_path,
+):
+    """Kiểm tra DB trước khi deserialize index.pkl."""
+
+    folder = Path(db_path)
+
+    manifest_path = (
+        folder / "manifest.json"
+    )
+
+    if not manifest_path.exists():
+        raise RuntimeError(
+            "VectorDB chưa có manifest.json. "
+            "Hãy rebuild VectorDB."
+        )
+
+    with open(
+        manifest_path,
+        "r",
+        encoding="utf-8",
+    ) as file:
+        manifest = json.load(file)
+
+    index_faiss = (
+        folder / "index.faiss"
+    )
+
+    index_pkl = (
+        folder / "index.pkl"
+    )
+
+    if not index_faiss.exists():
+        raise RuntimeError(
+            "Thiếu index.faiss"
+        )
+
+    if not index_pkl.exists():
+        raise RuntimeError(
+            "Thiếu index.pkl"
+        )
+
+    actual_faiss_hash = (
+        _sha256_file(index_faiss)
+    )
+
+    actual_pkl_hash = (
+        _sha256_file(index_pkl)
+    )
+
+    if (
+        actual_faiss_hash
+        != manifest.get(
+            "index_faiss_sha256"
+        )
+    ):
+        raise RuntimeError(
+            "index.faiss bị thay đổi "
+            "hoặc bị lỗi dữ liệu."
+        )
+
+    if (
+        actual_pkl_hash
+        != manifest.get(
+            "index_pkl_sha256"
+        )
+    ):
+        raise RuntimeError(
+            "index.pkl bị thay đổi "
+            "hoặc bị lỗi dữ liệu."
+        )
+
+    return manifest
+
+
+def _safe_save_vector_db(
+    db,
+    db_path,
+    chunk_count,
+):
+    """
+    Build DB mới ở thư mục tạm.
+    Chỉ thay DB cũ sau khi build thành công.
+    """
+
+    target_path = Path(db_path)
+
+    temp_path = Path(
+        str(db_path) + "_tmp"
+    )
+
+    backup_path = Path(
+        str(db_path) + "_backup"
+    )
+
+    # Xóa thư mục tạm cũ nếu có.
+    if temp_path.exists():
+        shutil.rmtree(
+            temp_path,
+            ignore_errors=True,
+        )
+
+    if backup_path.exists():
+        shutil.rmtree(
+            backup_path,
+            ignore_errors=True,
+        )
+
+    # 1. Save DB mới vào thư mục tạm.
+    db.save_local(
+        str(temp_path)
+    )
+
+    # 2. Tạo manifest.
+    _write_vector_manifest(
+        temp_path,
+        chunk_count,
+    )
+
+    # 3. Kiểm tra artifact tối thiểu.
+    if not (
+        temp_path / "index.faiss"
+    ).exists():
+        raise RuntimeError(
+            "VectorDB mới thiếu index.faiss"
+        )
+
+    if not (
+        temp_path / "index.pkl"
+    ).exists():
+        raise RuntimeError(
+            "VectorDB mới thiếu index.pkl"
+        )
+
+    # 4. Đổi tên DB cũ thành backup.
+    if target_path.exists():
+        target_path.rename(
+            backup_path
+        )
+
+    try:
+        # 5. Đưa DB mới vào vị trí chính.
+        temp_path.rename(
+            target_path
+        )
+
+    except Exception:
+
+        # Nếu swap lỗi thì trả DB cũ trở lại.
+        if (
+            backup_path.exists()
+            and not target_path.exists()
+        ):
+            backup_path.rename(
+                target_path
+            )
+
+        raise
+
+    # 6. Thành công thì bỏ backup.
+    if backup_path.exists():
+        shutil.rmtree(
+            backup_path,
+            ignore_errors=True,
+        )
+
+    reset_vector_db_cache()
+
 
 def create_vectordb_with_file(pdf_path=db_config["pdf_path"], word_path=db_config["word_path"], csv_path=db_config.get("csv_path", "data_store/csv"), chunk_size=db_config["database_config"]["chunk_size"], chunk_overlap=db_config["database_config"]["chunk_overlap"], db_path=db_config["database_path"]):
     os.makedirs(pdf_path, exist_ok=True); os.makedirs(word_path, exist_ok=True); os.makedirs(csv_path, exist_ok=True)
@@ -528,10 +830,17 @@ def create_vectordb_with_file(pdf_path=db_config["pdf_path"], word_path=db_confi
         )
 
         if len(cleaned_text) > 50:
+
+            enriched_metadata = (
+                add_management_metadata(
+                    doc.metadata
+                )
+            )
+
             final_clean_documents.append(
                 LC_Document(
                     page_content=cleaned_text,
-                    metadata=doc.metadata
+                    metadata=enriched_metadata,
                 )
             )
             
@@ -683,86 +992,87 @@ def create_vectordb_with_file(pdf_path=db_config["pdf_path"], word_path=db_confi
                         )
                     )
                     
-    # Gắn metadata truy vết và độ uy tín nguồn.
-    for chunk_index, chunk in enumerate(final_chunks):
+    # Gắn mã chunk để phục vụ truy vết nguồn.
+    for chunk_index, chunk in enumerate(
+        final_chunks
+    ):
+        chunk.metadata[
+            "chunk_id"
+        ] = chunk_index
 
-        chunk.metadata["chunk_id"] = chunk_index
-
-        source = chunk.metadata.get("source", "")
-
-        authority_tier, authority_score = (
-            get_source_authority(source)
+        raw_page = chunk.metadata.get(
+            "page"
         )
 
-        chunk.metadata["authority_tier"] = authority_tier
-        chunk.metadata["authority_score"] = authority_score
+        if isinstance(
+            raw_page,
+            int,
+        ):
+            chunk.metadata[
+                "page_display"
+            ] = raw_page + 1
 
-        # PyPDFLoader thường đánh số trang từ 0.
-        raw_page = chunk.metadata.get("page")
 
-        if isinstance(raw_page, int):
-            chunk.metadata["page_display"] = raw_page + 1
+    # DEBUG chỉ chạy MỘT LẦN sau vòng for.
+    if final_chunks:
 
-        # PyPDFLoader thường đánh số trang từ 0.
-        # Tạo page_display để giao diện hiển thị từ trang 1.
-        raw_page = chunk.metadata.get("page")
+        chunk_lengths = [
+            len(chunk.page_content)
+            for chunk in final_chunks
+        ]
 
-        if isinstance(raw_page, int):
-            chunk.metadata["page_display"] = raw_page + 1
-        # =========================================================
-        # DEBUG KÍCH THƯỚC CHUNK
-        # =========================================================
+        print(
+            "\n========== CHUNK SIZE DEBUG =========="
+        )
 
-        if final_chunks:
-            chunk_lengths = [
-                len(chunk.page_content)
-                for chunk in final_chunks
-            ]
+        print(
+            "Effective chunk size:",
+            effective_chunk_size,
+        )
 
-            print("\n========== CHUNK SIZE DEBUG ==========")
-            print(
-                "Effective chunk size:",
-                effective_chunk_size
-            )
-            print(
-                "Effective overlap:",
-                effective_chunk_overlap
-            )
-            print(
-                "Tổng chunks:",
-                len(final_chunks)
-            )
-            print(
-                "Chunk nhỏ nhất:",
-                min(chunk_lengths),
-                "ký tự"
-            )
-            print(
-                "Chunk trung bình:",
-                round(
-                    sum(chunk_lengths)
-                    / len(chunk_lengths),
-                    2
-                ),
-                "ký tự"
-            )
-            print(
-                "Chunk lớn nhất:",
-                max(chunk_lengths),
-                "ký tự"
-            )
+        print(
+            "Effective overlap:",
+            effective_chunk_overlap,
+        )
 
-            oversized_chunks = [
-                size
-                for size in chunk_lengths
-                if size > MAX_CHUNK_CHARS
-            ]
+        print(
+            "Tổng chunks:",
+            len(final_chunks),
+        )
 
-            print(
-                "Số chunk vượt hard limit:",
-                len(oversized_chunks)
-            )
-            print("======================================\n")
+        print(
+            "Chunk nhỏ nhất:",
+            min(chunk_lengths),
+        )
+
+        print(
+            "Chunk trung bình:",
+            round(
+                sum(chunk_lengths)
+                / len(chunk_lengths),
+                2,
+            ),
+        )
+
+        print(
+            "Chunk lớn nhất:",
+            max(chunk_lengths),
+        )
+
+        oversized_chunks = [
+            size
+            for size in chunk_lengths
+            if size > MAX_CHUNK_CHARS
+        ]
+
+        print(
+            "Số chunk vượt hard limit:",
+            len(oversized_chunks),
+        )
+
+        print(
+            "======================================\n"
+        )
 
     print(f"Chunks sau lọc: {len(final_chunks)}")
 
@@ -771,18 +1081,71 @@ def create_vectordb_with_file(pdf_path=db_config["pdf_path"], word_path=db_confi
         embedding=load_embedding()
     )
 
-    db.save_local(db_path)
+    _safe_save_vector_db(
+    db=db,
+    db_path=db_path,
+    chunk_count=len(final_chunks),
+    )
 
     print(f"Đã tạo FAISS DB với {len(final_chunks)} đoạn (Đã gắn thẻ file_type).")
 
-def load_vector_db(db_path=db_config["database_path"]):
+def load_vector_db(
+    db_path=db_config["database_path"]
+):
     global _vector_db_cache
+
     if _vector_db_cache is None:
-        _vector_db_cache = FAISS.load_local(
-            db_path, load_embedding(), 
-            allow_dangerous_deserialization=True
+
+        # PHẢI kiểm tra trước khi deserialize pickle.
+        manifest = _verify_vector_manifest(
+            db_path
         )
-        debug_authority_stats(_vector_db_cache)
+
+        loaded_db = FAISS.load_local(
+            db_path,
+            load_embedding(),
+            allow_dangerous_deserialization=True,
+        )
+
+        expected_chunks = int(
+            manifest.get(
+                "chunk_count",
+                -1,
+            )
+        )
+
+        actual_vectors = int(
+            loaded_db.index.ntotal
+        )
+
+        actual_mappings = len(
+            loaded_db.index_to_docstore_id
+        )
+
+        if expected_chunks >= 0:
+
+            if (
+                actual_vectors
+                != expected_chunks
+            ):
+                raise RuntimeError(
+                    "Số vector trong FAISS "
+                    "không khớp manifest."
+                )
+
+            if (
+                actual_mappings
+                != expected_chunks
+            ):
+                raise RuntimeError(
+                    "Docstore mapping "
+                    "không khớp manifest."
+                )
+
+        _vector_db_cache = (
+            loaded_db
+        )
+
     return _vector_db_cache
 
 def detect_query_priority(question):

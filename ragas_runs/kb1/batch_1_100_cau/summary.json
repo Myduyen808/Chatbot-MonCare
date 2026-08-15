@@ -1,0 +1,22 @@
+{
+  "kb": "kb1",
+  "input_file": "kb1_batch_1.csv",
+  "requested_questions": 100,
+  "completed_4_metrics": 92,
+  "valid_for_report": 90,
+  "failed_or_pending": 8,
+  "mean_all_completed": {
+    "faithfulness": 0.663,
+    "context_recall": 0.785,
+    "answer_relevancy": 0.648,
+    "context_precision": 0.739
+  },
+  "mean_valid_only": {
+    "faithfulness": 0.668,
+    "context_recall": 0.78,
+    "answer_relevancy": 0.644,
+    "context_precision": 0.733
+  },
+  "result_file": "ragas_runs\\kb1\\batch_1_100_cau\\result_kb1_100_cau.csv",
+  "checkpoint_file": "ragas_runs\\kb1\\batch_1_100_cau\\checkpoint.csv"
+}
