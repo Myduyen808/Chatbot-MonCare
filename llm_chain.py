@@ -199,7 +199,7 @@ if not _ALL_KEYS:
 client = Groq(api_key=random.choice(_ALL_KEYS))
 async_client = AsyncGroq(api_key=random.choice(_ALL_KEYS))
 
-MODEL_NAME = "llama-3.1-8b-instant"
+MODEL_NAME = "openai/gpt-oss-20b"
 
 # =========================================================
 # CẤU HÌNH TRUY XUẤT
@@ -1352,65 +1352,33 @@ def has_explicit_supplement_guidance(question: str, docs):
 
     q = question.lower()
 
-    # Chỉ kiểm tra câu hỏi thật sự hỏi việc bổ sung
-    if "bổ sung" not in q:
-        return True
+    # Supplement Grounding chỉ dành cho câu hỏi thực sự
+    # hỏi bổ sung vi chất/chế phẩm cụ thể.
+    supplement_topics = (
+        "vitamin",
+        "vitamin d",
+        "sắt",
+        "canxi",
+        "kẽm",
+        "dha",
+        "axit folic",
+        "vi chất",
+        "chế phẩm",
+        "thực phẩm bổ sung",
+    )
 
-    target_age = extract_age_months(q)
-
-    if target_age is None:
-        return True
-
-    topic_terms = [
-        term
-        for term in (
-            "vitamin d",
-            "vitamin",
-            "sắt",
-            "canxi",
-            "kẽm",
-            "dha",
+    is_specific_supplement_query = (
+        "bổ sung" in q
+        and any(
+            term in q
+            for term in supplement_topics
         )
-        if term in q
-    ]
+    )
 
-    for doc in docs:
-
-        units = re.split(
-            r'(?<=[.!?])\s+|\n+',
-            doc.page_content.lower()
-        )
-
-        for unit in units:
-
-            topic_hit = (
-                not topic_terms
-                or any(
-                    term in unit
-                    for term in topic_terms
-                )
-            )
-
-            if not topic_hit:
-                continue
-
-            age_hit = document_supports_age(
-                unit,
-                target_age
-            )
-
-            if not age_hit:
-                continue
-
-            guidance_hit = any(
-                pattern in unit
-                for pattern in SUPPLEMENT_GUIDANCE_PATTERNS
-            )
-
-            if guidance_hit:
-                return True
-
-    return False
+    # Ví dụ "dinh dưỡng cho bé 6 tháng"
+    # không phải câu hỏi về chế phẩm bổ sung.
+    if not is_specific_supplement_query:
+        return True
 
 def filter_age_matched_docs(question: str, docs):
 
@@ -1847,10 +1815,22 @@ def check_input_guardrails(question: str):
         "nguy hiểm",
         "có sao",
     )
+    has_dose_request = any(
+        term in q
+        for term in (
+            "liều thuốc",
+            "liều paracetamol",
+            "liều ibuprofen",
+            "bao nhiêu mg",
+            "bao nhiêu ml",
+        )
+    )
+
     if (
         "sốt" in q
         and extract_age_months(q) is None
         and any(term in q for term in fever_action_terms)
+        and not has_dose_request
     ):
         return FEVER_CLARIFICATION_RESPONSE
     
@@ -2173,6 +2153,56 @@ def is_incomplete_high_risk_answer(
         or not has_safety_guidance
     )
 
+def remove_model_source_citations(text: str) -> str:
+    """
+    Xóa các cách LLM tự nhắc mã/tên tài liệu trong câu trả lời.
+    Nguồn thật vẫn được giao diện hiển thị riêng từ docs.
+    """
+    if not text:
+        return text
+
+    # Ví dụ: (Nguồn: Tài liệu RAG id="1")
+    text = re.sub(
+        r'\s*\((?:nguồn)\s*:\s*[^)]*\)',
+        '',
+        text,
+        flags=re.IGNORECASE
+    )
+
+    # Ví dụ: [Nguồn 1]
+    text = re.sub(
+        r'\s*\[(?:nguồn)[^\]]*\]',
+        '',
+        text,
+        flags=re.IGNORECASE
+    )
+
+    # Ví dụ:
+    # "Tài liệu 1 khuyến nghị..."
+    # "Tài liệu 1 còn ghi: ..."
+    # "Tài liệu 2 cho biết..."
+    text = re.sub(
+        r'\bTài liệu\s+\d+\s+'
+        r'(?:khuyến nghị|còn ghi|cho biết|nêu rằng|nêu|ghi rằng|ghi)'
+        r'\s*[:：]?\s*',
+        '',
+        text,
+        flags=re.IGNORECASE
+    )
+
+    # Ví dụ: "Theo tài liệu 1, ..."
+    text = re.sub(
+        r'\bTheo\s+tài liệu\s+\d+\s*[,:\-]?\s*',
+        '',
+        text,
+        flags=re.IGNORECASE
+    )
+
+    # Dọn khoảng trắng thừa
+    text = re.sub(r'[ \t]+', ' ', text)
+
+    return text.strip()
+
 def check_output_guardrails(
     answer: str,
     question: str = ""
@@ -2317,16 +2347,28 @@ def call_llm(
                 ],
                 model=MODEL_NAME,
                 temperature=temperature,
-                # frequency_penalty/presence_penalty: giảm nguy cơ model rơi vào
-                # vòng lặp lặp lại y hệt một đoạn văn nhiều lần (degenerate repetition),
-                # đặc biệt dễ xảy ra với model nhỏ (8B) ở temperature thấp.
-                frequency_penalty=frequency_penalty,
-                presence_penalty=presence_penalty
+                reasoning_effort="low",
+                include_reasoning=False,
             )
             if max_tokens is not None:
-                _kwargs["max_tokens"] = max_tokens
+                _kwargs["max_completion_tokens"] = max_tokens
 
             chat_completion = _client.chat.completions.create(**_kwargs)
+
+            usage = getattr(chat_completion, "usage", None)
+            message = chat_completion.choices[0].message
+            finish_reason = chat_completion.choices[0].finish_reason
+
+            print("🔎 [GROQ DEBUG]")
+            print("Model:", MODEL_NAME)
+            print("Finish reason:", finish_reason)
+            print("Prompt tokens:", getattr(usage, "prompt_tokens", "N/A"))
+            print("Completion tokens:", getattr(usage, "completion_tokens", "N/A"))
+            print("Content:", repr(message.content))
+            print(
+                "Reasoning chars:",
+                len(getattr(message, "reasoning", "") or "")
+            )
 
             # ====== THÊM ĐOẠN NÀY ĐỂ ĐẾM TOKEN THỰC TẾ ======
             usage = getattr(chat_completion, "usage", None)
@@ -2788,6 +2830,34 @@ INTENT: <RAG/SMALLTALK/OUT_OF_SCOPE/BLOCKED>
                 "BLOCKED",
             ]:
                 intent = raw_intent
+
+    # =====================================================
+    # CHẶN REWRITE LÀM THAY ĐỔI "DINH DƯỠNG" -> "BỔ SUNG"
+    # =====================================================
+
+    original_lower = question.lower()
+    rewritten_lower = rewritten.lower()
+
+    broad_nutrition_terms = (
+        "dinh dưỡng",
+        "chế độ ăn",
+        "ăn uống",
+    )
+
+    if (
+        any(
+            term in original_lower
+            for term in broad_nutrition_terms
+        )
+        and "bổ sung" not in original_lower
+        and "bổ sung" in rewritten_lower
+    ):
+        print(
+            "⚠️ [REWRITE GUARD] "
+            "Phát hiện Rewrite tự thêm ý 'bổ sung' -> giữ câu gốc."
+        )
+
+        rewritten = question
 
     # =====================================================
     # 5. DEBUG
@@ -3489,6 +3559,28 @@ class RAGChain:
         thành độ tuổi của trẻ.
         - Ví dụ: người dùng nói trẻ 8 tháng, MomCare đề cập nhóm
         9 - 11 tháng thì ngữ cảnh chính vẫn là trẻ 8 tháng.
+        - Không ghi tên nguồn, số thứ tự tài liệu, id tài liệu, chunk,
+        đường dẫn file hoặc ký hiệu trích dẫn trong câu trả lời.
+        - Tuyệt đối không viết các dạng như:
+        "(Nguồn: ...)", "[Nguồn ...]", "Tài liệu RAG id=...",
+        "<TAI_LIEU>" hoặc "theo tài liệu số ...".
+        - Phần nguồn sẽ được giao diện hiển thị riêng.
+        - Mỗi mốc thời gian phải được gắn đúng với hành động mà tài liệu mô tả.
+        - Không chuyển mốc thời gian của hành động này sang hành động khác.
+        - Ví dụ nếu tài liệu nói "bắt đầu A từ 6 tháng và tiếp tục B đến 2 tuổi",
+        không được viết thành "tiếp tục A đến 2 tuổi".
+        - Không mở đầu câu bằng "Tài liệu 1", "Tài liệu 2",
+        "theo tài liệu", "tài liệu cho biết" hoặc cách gọi tương tự.
+        - Hãy trình bày trực tiếp nội dung được hỗ trợ bởi tài liệu,
+        không nhắc đến tài liệu trong phần trả lời.
+        - Không biến câu hỏi chung về "dinh dưỡng", "chế độ ăn" hoặc
+        "ăn uống" thành câu hỏi về "bổ sung".
+        - Chỉ thêm từ "bổ sung" khi CÂU HỎI MỚI thực sự hỏi về việc
+        bổ sung vitamin, vi chất hoặc chế phẩm cụ thể.
+        - Ví dụ:
+        Câu mới: "dinh dưỡng cho bé 6 tháng tuổi"
+        REWRITTEN: Chế độ dinh dưỡng cho bé 6 tháng tuổi như thế nào?
+        KHÔNG viết: Bé 6 tháng tuổi cần bổ sung dinh dưỡng gì?
 
         QUY TẮC TRUNG THÀNH NGUỒN:
         1. Không thêm kiến thức, suy luận hoặc khuyến cáo không có trong tài liệu.
@@ -3561,6 +3653,8 @@ class RAGChain:
         cung cấp "nhu cầu khuyến nghị", phải nói rõ sự khác biệt;
         không được biến nhu cầu dinh dưỡng thành chỉ định dùng
         chế phẩm bổ sung.
+        10. Không tự chèn nguồn hoặc mã tài liệu vào nội dung trả lời;
+        giao diện sẽ hiển thị nguồn riêng.
 
         QUY TẮC DIỄN ĐẠT:
         - Không lặp nguyên câu hỏi dưới dạng câu khẳng định.
@@ -3613,8 +3707,13 @@ class RAGChain:
                 "docs": generation_docs,
                 "retrieved_docs": retrieved_docs,
             }
-            
-        answer = check_output_guardrails(answer, enriched_question)
+
+        answer = remove_model_source_citations(answer)
+
+        answer = check_output_guardrails(
+            answer,
+            enriched_question
+        )
         return {
             "answer": answer,
             "docs": generation_docs,

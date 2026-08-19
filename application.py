@@ -1089,11 +1089,6 @@ def Chatbot():
 
         st.markdown("---")
 
-        st.caption(
-            "Các cuộc trò chuyện chỉ được giữ trong phiên "
-            "trình duyệt hiện tại."
-        )
-
         session_ids = list(st.session_state.chat_sessions)
         st.selectbox(
             "Cuộc trò chuyện",
